@@ -27,7 +27,6 @@ int main() {
     {
         MainScene.Update();
         MainScene.Render(true);
-
         MainPlayer.Move(MainScene);
     }
 }
