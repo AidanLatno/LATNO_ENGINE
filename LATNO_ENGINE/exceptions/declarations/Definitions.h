@@ -1,0 +1,2 @@
+#define RUNTIME_EXCEPTION 1
+
