@@ -18,7 +18,18 @@ int main() {
     //         //print error 
     //     }        
     // }
-    std::cout << "WORKING";
+
+    Scene MainScene(10, 10);
+    Player MainPlayer(2, 2, 'p', "PLAYER");
+    MainScene.AddActor(MainPlayer);
+
+    while (true)
+    {
+        MainScene.Update();
+        MainScene.Render(true);
+
+        MainPlayer.Move(MainScene);
+    }
 }
 
 
