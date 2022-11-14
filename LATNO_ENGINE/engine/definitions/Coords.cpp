@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Coords.h"
+#include "../declarations/Coords.h"
 
 Coords::Coords()
 {

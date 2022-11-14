@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Route.h"
+#include "../../engine/declarations/Route.h"
 
 namespace Latno_Entities
 {

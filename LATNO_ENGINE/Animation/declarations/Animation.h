@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Frame.h"
+#include <vector>
 
 namespace Latno_Animation
 {

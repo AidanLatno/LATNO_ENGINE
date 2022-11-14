@@ -1,4 +1,4 @@
-#include "../declerations/Menu.h"
+#include "../declarations/Menu.h"
 
 Menu::Menu(int Options,std::string DisplayNames[])
 {

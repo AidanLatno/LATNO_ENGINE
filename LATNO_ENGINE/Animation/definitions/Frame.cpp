@@ -83,7 +83,7 @@ namespace Latno_Animation
 	}
 
 
-	void Frame::Update(bool UseInheritedScene = false)
+	void Frame::Update(bool UseInheritedScene)
 	{
 		if(UseInheritedScene)
 		{

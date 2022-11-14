@@ -7,7 +7,7 @@ namespace Latno_Entities
         char Input;
         int MenuInput;
         preData = position;
-        Input = getch();
+        Input = _getch();
         if(Input == 'w' && position.y > 0)
         {
             direction = UP;
