@@ -1,12 +1,12 @@
-#include "../declarations/AdvancedActor.h"
+#include "../../Entities/declarations/AdvancedActor.h"
 
 
-void AdvancedActor::SendBack()
+void Latno_Entities::AdvancedActor::SendBack()
 {
 	position = preData;
 }
 
-void AdvancedActor::MoveFoward(Scene &_scene, int _speed)
+void Latno_Entities::AdvancedActor::MoveFoward(Scene &_scene, int _speed)
 {
 	for(int i = 0; i < _speed; i++)
 	{
@@ -21,13 +21,13 @@ void AdvancedActor::MoveFoward(Scene &_scene, int _speed)
 	}
 }
 
-void AdvancedActor::MoveFoward(int _speed)
+void Latno_Entities::AdvancedActor::MoveFoward(int _speed)
 {
 	preData = position;
 	position += direction * _speed;
 }
 
-void AdvancedActor::MoveFoward(int _sizeX, int _sizeY, int _speed)
+void Latno_Entities::AdvancedActor::MoveFoward(int _sizeX, int _sizeY, int _speed)
 {
 	for(int i = 0; i < _speed; i++)
 	{
@@ -42,7 +42,7 @@ void AdvancedActor::MoveFoward(int _sizeX, int _sizeY, int _speed)
 	}
 }
 
-void AdvancedActor::TurnRight(int _turnAmount = 1)
+void Latno_Entities::AdvancedActor::TurnRight(int _turnAmount = 1)
 {
 	Coords temp = direction;
 	for(int i = 0; i < _turnAmount; i++)
@@ -52,7 +52,7 @@ void AdvancedActor::TurnRight(int _turnAmount = 1)
 	}
 }
 
-void AdvancedActor::TurnLeft(int _turnAmount = 1)
+void Latno_Entities::AdvancedActor::TurnLeft(int _turnAmount = 1)
 {
 	Coords temp = direction;
 	for(int i = 0; i < _turnAmount; i++)
@@ -62,7 +62,7 @@ void AdvancedActor::TurnLeft(int _turnAmount = 1)
 	}
 }
 
-void AdvancedActor::TurnRandom(bool up, bool right, bool down, bool left)
+void Latno_Entities::AdvancedActor::TurnRandom(bool up, bool right, bool down, bool left)
 {
 	Coords directions[4];
 	int i = 0;
@@ -89,7 +89,7 @@ void AdvancedActor::TurnRandom(bool up, bool right, bool down, bool left)
 	direction = directions[rand() % i];
 }
 
-bool AdvancedActor::IsNearby(Actor _actor, int _size) const
+bool Latno_Entities::AdvancedActor::IsNearby(Actor _actor, int _size) const
 {
 	CLOSE_LOG();
 	Rect AreaScanner(position.x - _size, position.y - _size, position.x + _size, position.y + _size, '.', "AREASCANNER");
@@ -97,7 +97,7 @@ bool AdvancedActor::IsNearby(Actor _actor, int _size) const
 	return AreaScanner.CheckCollision(_actor);
 }
 
-int AdvancedActor::CountNearby(Scene _scene, int _size = 1)
+int Latno_Entities::AdvancedActor::CountNearby(Scene _scene, int _size = 1)
 {
 	int amount = 0;
 	// Rect AreaScanner(position.x - Size,position.y - Size,position.x + Size,position.y + Size,'.',"AREASCANNER");

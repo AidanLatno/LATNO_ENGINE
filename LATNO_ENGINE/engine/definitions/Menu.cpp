@@ -41,7 +41,7 @@ int Menu::OpenMenu(std::string Title = "",bool clear = true)
 		std::cout << Title << '\n';
 		MenuScene->Render(true,false);
 		char Input;
-		Input = getch();
+		Input = _getch();
 		if(Input == 'w' || Input == 'W')
 		{
 			Selector->direction = UP;
