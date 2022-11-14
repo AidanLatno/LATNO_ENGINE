@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Behavior.h"
+//#include "Behavior.h"
 
-namespace Latno 
-{
-    class Component 
-    {
-        public:
-            const Behavior behavior;
-            Component(Behavior _behavior);
-    };
-}
+//namespace Latno 
+//{
+//    class Component 
+//    {
+//        public:
+//            const Behavior behavior;
+//            Component(Behavior _behavior);
+//    };
+//}

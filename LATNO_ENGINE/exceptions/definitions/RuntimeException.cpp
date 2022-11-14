@@ -1,13 +1,11 @@
 #include "../declarations/RuntimeException.h"
 
-namespace Latno_Exceptions 
+Latno_Exceptions::RuntimeException::RuntimeException(std::string _information)
 {
-    RuntimeException::RuntimeException(std::string _information) 
-    {
-        information = _information;
-    }
+    information = _information;
+}
 
-    std::string RuntimeException::GetErrorName() {
-        return name;
-    }
+std::string Latno_Exceptions::RuntimeException::GetErrorName()
+{
+    return name;
 }

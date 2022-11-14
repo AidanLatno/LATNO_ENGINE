@@ -14,7 +14,7 @@ namespace Latno_Animation
 			char devModeColor = ToChar("void");
 			char fillColor = ToChar("white");
 			int sizeX,sizeY;
-
+			
 			std::vector<Rect> rects;
 			std::vector<Circle> circles;
 			std::vector<Triangle> triangles;

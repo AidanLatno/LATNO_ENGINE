@@ -1,10 +1,10 @@
 #pragma once
 #include "../../engine/declarations/Route.h"
-#include "../../engine/declarations/Behavior.h"
+//#include "../../engine/declarations/Behavior.h"
 
 namespace Latno_Entities 
 {
-	class Actor : public Latno::Behavior
+	class Actor
 	{
 		public:
 			Coords preData;

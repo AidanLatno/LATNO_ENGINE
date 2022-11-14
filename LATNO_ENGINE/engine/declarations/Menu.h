@@ -1,5 +1,5 @@
 #pragma once
-#include "LOS.h"
+#include "../../Shapes/declarations/Triangle.h"
 
 using namespace Latno_Entities;
 

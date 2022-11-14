@@ -3,10 +3,9 @@
 #include <string>
 #include <vector>
 
-std::ofstream Constructor("MainLog.txt");
-std::fstream LogFile;
-std::vector<std::string> Logs;
-bool IsOpen = true;
+extern std::fstream LogFile;
+extern std::vector<std::string> Logs;
+extern bool IsOpen = true;
 
 
 void CREATE_LOG(std::string FileName)
@@ -24,6 +23,7 @@ void OPEN_LOG()
 	IsOpen = true;
 }
 
+// MUST CREATE A LOG BEFORE LOGGING
 void LOG(std::string Message, std::string FileName = "MainLog.txt")
 {
 	if(IsOpen)

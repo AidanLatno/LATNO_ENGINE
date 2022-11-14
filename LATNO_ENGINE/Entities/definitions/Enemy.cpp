@@ -1,8 +1,8 @@
 #include "../declarations/Enemy.h"
 
-void Latno::Behavior::Update() {
-    // Latno_Entities::Enemy::Chase(MainSce);
-}
+//void Latno::Behavior::Update() {
+//    // Latno_Entities::Enemy::Chase(MainSce);
+//}
 
 
 void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor)
