@@ -1,13 +1,14 @@
+#pragma once
 #include "../../engine/declarations/Engine.h"
 
 class Circle
 {
-	public:
-		Coords Center;
-		float Radius;
-		char ch;
+public:
+	Coords center;
+	float radius;
+	char ch;
 
-		Circle(Coords _Center,int _Radius, char _ch);
+	Circle(Coords _center, int _radius, char _ch);
 
-		bool CheckCollision(Coords Point);
+	bool CheckCollision(Coords point);
 };

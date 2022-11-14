@@ -1,24 +1,24 @@
-// #pragma once
+#pragma once
 
-// #include "../declerations/Circle.h"
+#include "../../Shapes/declarations/Circle.h"
 
-// Circle::Circle(Coords _Center,int _Radius,char _ch)
-// {
-//     Center = _Center;
-// 	Radius = _Radius;
-// 	ch = _ch;
-// }
+Circle::Circle(Coords _center, int _radius, char _ch)
+{
+    center = _center;
+    radius = _radius;
+    ch = _ch;
+}
 
-// bool Circle::CheckCollision(Coords Point)
-// {
-// 	int Leg1,Leg2;
-//     float Hypotenuse;
-	
-// 	Leg1 = abs(Point.x - Center.x);
-// 	Leg2 = abs(Point.y - Center.y);
+bool Circle::CheckCollision(Coords point)
+{
+    int leg1, leg2;
+    float hypotenuse;
 
-// 	Hypotenuse = sqrt(pow(Leg1,2) + pow(Leg2,2));
-// 	if(Hypotenuse < Radius - 0.5)
-// 		return true;
-// 	return false;
-// }
+    leg1 = abs(point.x - center.x);
+    leg2 = abs(point.y - center.y);
+
+    hypotenuse = sqrt(pow(leg1, 2) + pow(leg2, 2));
+    if (hypotenuse < radius - 0.5)
+        return true;
+    return false;
+}

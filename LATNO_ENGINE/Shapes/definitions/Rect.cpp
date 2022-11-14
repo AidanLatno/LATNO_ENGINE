@@ -3,11 +3,11 @@
 #include <string>
 #include <math.h>
 
-#include "Rect.h"
-#include "Coords.h"
+#include "../declarations/Rect.h"
+#include "../../engine/declarations/Coords.h"
 
 
-Rect::Rect(int _x1,int _y1,int _x2,int _y2,char _ch,std::string _Name)
+Rect::Rect(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _Name)
 {
 	corner1.x = _x1;
 	corner2.x = _x2;
@@ -29,25 +29,25 @@ Rect::Rect(Coords _pos1, Coords _pos2, char _ch, std::string _name)
 
 bool Rect::CheckCollision(Latno_Entities::Actor actor) const
 {
-	if(actor.position.x >= corner1.x && actor.position.x <= corner2.x && actor.position.y >= corner1.y && actor.position.y <= corner2.y)
+	if (actor.position.x >= corner1.x && actor.position.x <= corner2.x && actor.position.y >= corner1.y && actor.position.y <= corner2.y)
 		return true;
 	return false;
 }
 
 bool Rect::CheckCollision(Coords point) const
 {
-	if(point.x >= corner1.x && point.x <= corner2.x && point.y >= corner1.y && point.y <= corner2.y)
+	if (point.x >= corner1.x && point.x <= corner2.x && point.y >= corner1.y && point.y <= corner2.y)
 		return true;
 	return false;
 }
 
 void Rect::SwapCheck()
 {
-	if(corner1.x > corner2.x || corner1.y > corner2.y)
+	if (corner1.x > corner2.x || corner1.y > corner2.y)
 	{
 		Coords temp = corner1;
 		corner1 = corner2;
-	 	corner2 = temp;
+		corner2 = temp;
 	}
 }
 
@@ -73,7 +73,7 @@ void Rect::Rotate(int turnAmount, int h, int k, int angle)
 	temp1 -= { h, k };
 	temp2 -= { h, k };
 
-	for(int i = 0; i < turnAmount; i++)
+	for (int i = 0; i < turnAmount; i++)
 	{
 		corner1.x = (temp1.x * Coords().dCos(angle) - temp1.y * Coords().dSin(angle)) + h;
 		corner1.y = (temp1.x * Coords().dSin(angle) + temp1.y * Coords().dCos(angle)) + k;

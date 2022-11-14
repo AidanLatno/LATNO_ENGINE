@@ -2,22 +2,25 @@
 //
 #include "engine/declarations/Engine.h"
 #include "exceptions/declarations/RuntimeException.h"
+#include <iostream>
 
 int main() {
-    // bool running = true;
-    // while(running) 
-    // {
-    //     try 
-    //     {
-    //         //tick
-    //         running = false;
-    //     }
-    //     catch (RuntimeException e) 
-    //     {
-    //         running = false;
-    //         //print error 
-    //     }        
-    // }
+    /*
+     bool running = true;
+     while(running) 
+     {
+         try 
+         {
+             //tick
+             running = false;
+         }
+         catch (runtimeexception e) 
+         {
+             running = false;
+             //print error 
+         }
+     }
+    */
 
     Scene MainScene(10, 10);
     Player MainPlayer(2, 2, 'p', "PLAYER");
@@ -25,9 +28,9 @@ int main() {
 
     while (true)
     {
-        MainScene.Update();
-        MainScene.Render(true);
-        MainPlayer.Move(MainScene);
+      MainScene.Update();
+      MainScene.Render(true);
+      MainPlayer.Move(MainScene);
     }
 }
 
