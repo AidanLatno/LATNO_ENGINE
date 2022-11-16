@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-extern std::fstream LogFile;
-extern std::vector<std::string> Logs;
-extern bool IsOpen = true;
+std::fstream LogFile;
+std::vector<std::string> Logs;
+bool IsOpen = true;
 
 
 void CREATE_LOG(std::string FileName)

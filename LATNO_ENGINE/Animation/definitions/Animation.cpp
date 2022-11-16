@@ -14,7 +14,7 @@ namespace Latno_Animation {
 		for(Frame i : frames)
 		{
 			i.Render();
-			usleep(FPS * 1000000);
+			std::this_thread::sleep_for(std::chrono::microseconds((long)(FPS * 1000000)));
 		}
 	}
 

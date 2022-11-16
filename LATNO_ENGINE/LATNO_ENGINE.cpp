@@ -4,7 +4,8 @@
 #include "exceptions/declarations/RuntimeException.h"
 #include <iostream>
 
-int main() {
+int main()
+{
     /*
      bool running = true;
      while(running) 
@@ -22,7 +23,7 @@ int main() {
      }
     */
 
-    Scene MainScene(10, 10);
+ /*   Scene MainScene(10, 10);
     Player MainPlayer(2, 2, 'p', "PLAYER");
     MainScene.AddActor(MainPlayer);
 
@@ -31,7 +32,9 @@ int main() {
       MainScene.Update();
       MainScene.Render(true);
       MainPlayer.Move(MainScene);
-    }
+    }*/
+    std::cout << "Hello World!!!!!!!!!";
+    std::cin.get();
 }
 
 
