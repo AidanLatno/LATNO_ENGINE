@@ -11,7 +11,7 @@ namespace Latno_Animation
 			double FPS = 2;
 			std::vector<Frame> frames;
 
-			void ddFrame(Frame frame);
+			void AddFrame(Frame frame);
 			void play();
 			void reset();
 	};

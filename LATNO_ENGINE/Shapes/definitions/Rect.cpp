@@ -15,7 +15,7 @@ Rect::Rect(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _Name)
 	corner2.y = _y2;
 	ch = _ch;
 	name = _Name;
-	LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
+	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
 }
 
 Rect::Rect(Coords _pos1, Coords _pos2, char _ch, std::string _name)
@@ -24,7 +24,7 @@ Rect::Rect(Coords _pos1, Coords _pos2, char _ch, std::string _name)
 	corner2 = _pos2;
 	ch = _ch;
 	name = _name;
-	LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
+	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
 }
 
 bool Rect::CheckCollision(Latno_Entities::Actor actor) const

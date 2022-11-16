@@ -3,8 +3,9 @@
 #ifdef _WIN32
 #include <conio.h>
 #include <windows.h>
+#define CLEAR_SCREEN system("cls")
 
-void usleep(__int64 usec) 
+inline void usleep(__int64 usec) 
 { 
     HANDLE timer; 
     LARGE_INTEGER ft; 
@@ -21,11 +22,13 @@ void usleep(__int64 usec)
 #ifdef __APPLE__
 #define getch getchar
 #include <unistd.h>
+#define CLEAR_SCREEN system("clear")
 #endif
 
 #ifdef __linux__
 #include <termios.h>
 #include <unistd.h>
+#define CLEAR_SCREEN system("clear")
 char getch()
 {
   char buf = 0;
@@ -56,7 +59,7 @@ char getch()
 #include <fstream>
 #include <vector>
 #include <math.h>
-#include "DeveloperLog.h"
+#include "../declarations/DeveloperLog.h"
 
 
 
@@ -65,13 +68,13 @@ char getch()
 #define RIGHT Coords(1,0)
 #define LEFT Coords(-1,0)
 
-std::ofstream Builder("SAVEDATA.txt");
-std::fstream SaveFile;
+//extern std::ofstream Builder("SAVEDATA.txt");
+//extern std::fstream SaveFile;
 
 
 
 // red,blue,empty or white,void or black,purple,yellow,green,cyan
-char ToChar(std::string Color)
+inline char ToChar(std::string Color)
 {
 	if(Color == "red") return 'e';
 	else if(Color == "blue") return 'p';
@@ -84,7 +87,7 @@ char ToChar(std::string Color)
 	return '.';
 }
 
-static void SlowPrint(const std::string message, int milPerChar = 60)
+inline void SlowPrint(const std::string message, int milPerChar = 60)
 {
   for (const char c : message)
 	{

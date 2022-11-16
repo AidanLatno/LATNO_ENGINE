@@ -59,15 +59,18 @@ namespace Latno_Entities
             }
         }
         */
-        for(int i = 0; i < Scene.dynamicActors.size(); i++)
+        if (Scene.dynamicActors.size() > 0)
         {
-            if(Scene.dynamicActors[i].position.y <= 0 || Scene.dynamicActors[i].position.y >= Scene.GetSize().x - 1 || Scene.dynamicActors[i].position.x <= 0 || Scene.dynamicActors[i].position.x >= Scene.GetSize().y - 1)
+            for (int i = 0; i < Scene.dynamicActors.size(); i++)
             {
-                Scene.DestroyDynamicActor(i);
-                continue;
+                if (Scene.dynamicActors[i].position.y <= 0 || Scene.dynamicActors[i].position.y >= Scene.GetSize().x - 1 || Scene.dynamicActors[i].position.x <= 0 || Scene.dynamicActors[i].position.x >= Scene.GetSize().y - 1)
+                {
+                    Scene.DestroyDynamicActor(i);
+                    continue;
+                }
+
+                Scene.dynamicActors[i].position += Scene.dynamicActors[i].direction;
             }
-                    
-            Scene.dynamicActors[i].position += Scene.dynamicActors[i].direction;
         }
     }
 }

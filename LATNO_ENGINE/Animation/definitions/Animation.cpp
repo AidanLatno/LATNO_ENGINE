@@ -4,12 +4,12 @@
 
 namespace Latno_Animation {
     
-    void Animation::ddFrame(Frame frame)
+    void Animation::AddFrame(Frame frame)
     {
 	    frames.push_back(frame);
     }
 
-    void Animation::play()
+	void Animation::play()
 	{
 		for(Frame i : frames)
 		{
