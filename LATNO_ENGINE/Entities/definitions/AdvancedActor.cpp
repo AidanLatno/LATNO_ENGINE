@@ -91,9 +91,7 @@ void Latno_Entities::AdvancedActor::TurnRandom(bool up, bool right, bool down, b
 
 bool Latno_Entities::AdvancedActor::IsNearby(Actor _actor, int _size) const
 {
-	CLOSE_LOG();
 	Rect AreaScanner(position.x - _size, position.y - _size, position.x + _size, position.y + _size, '.', "AREASCANNER");
-	OPEN_LOG();
 	return AreaScanner.CheckCollision(_actor);
 }
 

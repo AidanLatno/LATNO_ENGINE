@@ -12,7 +12,7 @@ namespace Latno_Entities
 		name = _name;
 		preData.x = _x;
 		preData.y = _y;
-		LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
+		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
 	}
 
 	Actor::Actor(Coords _Pos, char _ch, std::string _name)
@@ -21,15 +21,15 @@ namespace Latno_Entities
 		ch = _ch;
 		name = _name;
 		preData = _Pos;
-		LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
+		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
 	}
 
 	Actor::Actor()
 	{
 		position = {0,0};
 		ch = '.';
-		name = "UN-nAMED_ACTOR";
-		LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
+		name = "UN-NAMED_ACTOR";
+		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
 	}
 
 	void Actor::SetCoords(int x,int y)

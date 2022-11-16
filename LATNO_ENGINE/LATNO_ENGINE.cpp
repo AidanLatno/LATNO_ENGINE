@@ -22,16 +22,84 @@ int main() {
      }
     */
 
-    Scene MainScene(10, 10);
-    Player MainPlayer(2, 2, 'p', "PLAYER");
-    MainScene.AddActor(MainPlayer);
+	srand(time(NULL));
+	bool GameRunning = true;
+	std::string MenuElements[3] = { "Continue","Settings","Quit" };
+	// Menu MainMenu(3,MenuElements);
 
-    while (true)
-    {
-      MainScene.Update();
-      MainScene.Render(true);
-      MainPlayer.Move(MainScene);
-    }
+	Actor Button(12, 12, ToChar("purple"), "BUTTON");
+	Rect Turny1(10, 8, 12, 8, ToChar("yellow"), "TURNY1");
+	Patroller Cop(8, 5, ToChar("green"), "COP");
+	Scene Level(16, 16);
+
+	Cop.Construct(4, 2, 2, 2, 3);
+
+	// Player.MainMenu = &MainMenu;
+	Player Player(7, 7, 'p', "PLAYER");
+	Enemy Enemy1(0, 0, 'e', "ENEMY");
+	Rect Wall(3, 4, 6, 10, 'g', "WALL1");
+	Level.AddActor(Player);
+	Level.AddActor(Enemy1);
+	Level.AddRect(Turny1);
+	// Level.AddActor(Turny2);
+	Level.AddRect(Wall);
+	Level.AddActor(Button);
+	Level.AddActor(Cop);
+	Enemy1.moveChance[0] = 3;
+	Cop.moveChance[0] = 3;
+	// Level.DevMode = true;
+
+	while (GameRunning)
+	{
+		Level.Update();
+		Level.Render(true);
+		// std::cout << Player.CountNearby(Level) << std::endl;
+
+
+
+		Player.Move(Level);
+		Turny1.Rotate(1, Turny1.GetCenterX(), Turny1.GetCenterY());
+
+		// Adds player collision to every rect in level
+		// if(Level.RectCollision(Player))
+		// 	Player.SendBack();
+
+		// Adds player collision to just one rect
+		if (Wall.CheckCollision(Player))
+			Player.SendBack();
+
+		Enemy1.TurnRandom(true, true, true, true);
+		if (Player.CheckCollision(Enemy1))
+			GameRunning = false;
+
+		if (Player.CheckCollision(Button))
+		{
+			Wall.corner1.x = Wall.corner1.x == 4 ? 3 : 4;
+			// SaveGame();
+		}
+
+		Cop.Move(Player, Level);
+		if (!Cop.Alert)
+			Cop.MoveFoward(Level);
+		if (Cop.position.y <= 2)
+			Cop.direction = DOWN;
+		else if (Cop.position.y >= 13)
+			Cop.direction = UP;
+
+		if (Level.RectCollision(Cop))
+			Cop.SendBack();
+
+		for (int Index = 0; Index < Level.dynamicActors.size(); Index++)
+		{
+			if (Level.RectCollision(Level.dynamicActors[Index]))
+				Level.DestroyDynamicActor(Index);
+		}
+
+
+	}
+	Level.Update();
+	Level.Render(true);
+	std::cout << "\033[31mYOU DIED";
 }
 
 

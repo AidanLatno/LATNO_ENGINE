@@ -146,7 +146,7 @@ namespace Latno_Animation
 
 		std::string str;
 		std::cout << std::endl;
-		system("clear");
+		CLEAR_SCREEN;
 		
 		if(devMode)
 		{
