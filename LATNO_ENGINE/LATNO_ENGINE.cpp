@@ -52,7 +52,7 @@ int main() {
 	while (GameRunning)
 	{
 		Level.Update();
-		Level.Render(true);
+		Level.Render();
 		// std::cout << Player.CountNearby(Level) << std::endl;
 
 
