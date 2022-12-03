@@ -142,6 +142,7 @@
     <ClCompile Include="Entities\definitions\Route.cpp" />
     <ClCompile Include="exceptions\definitions\RuntimeException.cpp" />
     <ClCompile Include="LATNO_ENGINE.cpp" />
+    <ClCompile Include="Shapes\definitions\AdvancedRect.cpp" />
     <ClCompile Include="Shapes\definitions\Circle.cpp" />
     <ClCompile Include="Shapes\definitions\Rect.cpp" />
   </ItemGroup>
@@ -167,6 +168,7 @@
     <ClInclude Include="Entities\declarations\Player.h" />
     <ClInclude Include="exceptions\declarations\Definitions.h" />
     <ClInclude Include="exceptions\declarations\RuntimeException.h" />
+    <ClInclude Include="Shapes\declarations\AdvancedRect.h" />
     <ClInclude Include="Shapes\declarations\Circle.h" />
     <ClInclude Include="Shapes\declarations\Rect.h" />
     <ClInclude Include="Shapes\declarations\Triangle.h" />

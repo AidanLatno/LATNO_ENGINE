@@ -19,6 +19,8 @@ namespace Latno_Animation
     Frame::Frame(Scene Scene)
 	{
     	grid = Scene.grid;
+		sizeX = Scene.sizeX;
+		sizeY = Scene.sizeY;
 	}
 
     void Frame::Reset()

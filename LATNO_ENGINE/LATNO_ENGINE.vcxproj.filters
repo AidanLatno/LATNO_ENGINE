@@ -66,6 +66,9 @@
     <ClCompile Include="Animation\definitions\Frame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Shapes\definitions\AdvancedRect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shapes\declarations\Circle.h">
@@ -138,6 +141,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Animation\declarations\MonoBehavior.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes\declarations\AdvancedRect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,7 +14,7 @@ namespace Latno_Animation {
 		for(Frame i : frames)
 		{
 			i.Render();
-			usleep(FPS * 1000000);
+			usleep((__int64)FPS * 1000000);
 		}
 	}
 

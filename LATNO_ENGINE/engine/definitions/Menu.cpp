@@ -9,7 +9,7 @@ Menu::Menu(int Options,std::string DisplayNames[])
 		if(TempWordlen < DisplayNames[i].length())
 			TempWordlen = DisplayNames[i].length();
 	}
-	Width = TempWordlen + 4;
+	Width = (int)TempWordlen + 4;
 	Length = Options * 2 - 1;
 	MenuScene = new Scene(Width,Length);
 	Selector = new AdvancedActor(0,0,'>',"SELECTOR");
@@ -17,7 +17,7 @@ Menu::Menu(int Options,std::string DisplayNames[])
 	OptionsAmount = Options;
 }
 
-int Menu::OpenMenu(std::string Title = "",bool clear = true)
+int Menu::OpenMenu(std::string Title,bool clear)
 {
 	bool Rep = true;
 	int TempY = 0;

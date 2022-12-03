@@ -4,6 +4,53 @@
 #include "exceptions/declarations/RuntimeException.h"
 #include <iostream>
 
+class Timer
+{
+private:
+	std::chrono::steady_clock::time_point StartTime;
+	std::chrono::steady_clock::time_point EndTime;
+	std::chrono::steady_clock::time_point LastLap;
+
+public:
+	Timer()
+	{
+		StartTime = std::chrono::steady_clock::now();
+		LastLap = std::chrono::steady_clock::now();
+	}
+
+	~Timer()
+	{
+		Finish();
+	}
+
+	void Finish()
+	{
+		using namespace std::chrono;
+		EndTime = steady_clock::now();
+		auto Duration = duration_cast<microseconds>(EndTime - StartTime);
+		double Seconds = (double)(Duration.count() / 1000000.0);
+	}
+	void Reset()
+	{
+		StartTime = std::chrono::steady_clock::now();
+		LastLap = std::chrono::steady_clock::now();
+	}
+	double GetTime()
+	{
+		using namespace std::chrono;
+		auto Duration = duration_cast<microseconds>(steady_clock::now() - StartTime);
+		return (double)(Duration.count() / 1000000.0);
+	}
+	double Lap()
+	{
+		using namespace std::chrono;
+		auto Duration = duration_cast<microseconds>(steady_clock::now() - LastLap);
+		LastLap = steady_clock::now();
+		return (double)(Duration.count() / 1000000.0);
+	}
+};
+
+
 int main() {
     /*
      bool running = true;
@@ -49,15 +96,33 @@ int main() {
 	Cop.moveChance[0] = 3;
 	// Level.DevMode = true;
 
+	Timer StopWatch;
+	double Total = 0;
+	int Ticks = 1;
+	double Highest = 0, Lowest = 1;
+
 	while (GameRunning)
 	{
 		Level.Update();
 		Level.Render();
 		// std::cout << Player.CountNearby(Level) << std::endl;
-
+		double temp = StopWatch.GetTime();
+		std::cout << "DeltaTime: " << temp << '\n';
+		Total += temp;
+		std::cout << "Average Time: " << (Total / Ticks) << '\n';
+		if (Highest < temp)
+			Highest = temp;
+		if (Lowest > temp)
+			Lowest = temp;
+		std::cout << "Highest Time: " << Highest << '\n';
+		std::cout << "Lowest Time: " << Lowest << '\n';
+		std::cout << "Tick: " << Ticks << '\n';
+		std::cout << "FPS: " << 1 / temp << '\n';
 
 
 		Player.Move(Level);
+		StopWatch.Reset();
+		Ticks++;
 		Turny1.Rotate(1, Turny1.GetCenterX(), Turny1.GetCenterY());
 
 		// Adds player collision to every rect in level
