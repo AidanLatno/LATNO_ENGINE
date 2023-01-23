@@ -1,6 +1,6 @@
 #pragma once
 #include <math.h>
-#include "Definitions.h"
+#include "Timer.h"
 
 struct Coords
 {

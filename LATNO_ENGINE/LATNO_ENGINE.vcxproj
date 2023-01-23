@@ -129,8 +129,11 @@
   <ItemGroup>
     <ClCompile Include="Animation\definitions\Animation.cpp" />
     <ClCompile Include="Animation\definitions\Frame.cpp" />
+    <ClCompile Include="engine\definitions\Application.cpp" />
+    <ClCompile Include="engine\definitions\Behavior.cpp" />
     <ClCompile Include="engine\definitions\Component.cpp" />
     <ClCompile Include="engine\definitions\Coords.cpp" />
+    <ClCompile Include="engine\definitions\DeveloperLog.cpp" />
     <ClCompile Include="engine\definitions\LOS.cpp" />
     <ClCompile Include="engine\definitions\Menu.cpp" />
     <ClCompile Include="engine\definitions\Scene.cpp" />
@@ -138,18 +141,19 @@
     <ClCompile Include="Entities\definitions\AdvancedActor.cpp" />
     <ClCompile Include="Entities\definitions\Enemy.cpp" />
     <ClCompile Include="Entities\definitions\Patroller.cpp" />
-    <ClCompile Include="Entities\definitions\Player.cpp" />
-    <ClCompile Include="Entities\definitions\Route.cpp" />
+    <ClCompile Include="Entities\definitions\PlayerBase.cpp" />
+    <ClCompile Include="engine\definitions\Route.cpp" />
     <ClCompile Include="exceptions\definitions\RuntimeException.cpp" />
     <ClCompile Include="LATNO_ENGINE.cpp" />
     <ClCompile Include="Shapes\definitions\AdvancedRect.cpp" />
     <ClCompile Include="Shapes\definitions\Circle.cpp" />
     <ClCompile Include="Shapes\definitions\Rect.cpp" />
+    <ClCompile Include="engine\definitions\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation\declarations\Animation.h" />
     <ClInclude Include="Animation\declarations\Frame.h" />
-    <ClInclude Include="Animation\declarations\MonoBehavior.h" />
+    <ClInclude Include="engine\declarations\Application.h" />
     <ClInclude Include="engine\declarations\Behavior.h" />
     <ClInclude Include="engine\declarations\Component.h" />
     <ClInclude Include="engine\declarations\Coords.h" />
@@ -165,13 +169,14 @@
     <ClInclude Include="Entities\declarations\AdvancedActor.h" />
     <ClInclude Include="Entities\declarations\Enemy.h" />
     <ClInclude Include="Entities\declarations\Patroller.h" />
-    <ClInclude Include="Entities\declarations\Player.h" />
+    <ClInclude Include="Entities\declarations\PlayerBase.h" />
     <ClInclude Include="exceptions\declarations\Definitions.h" />
     <ClInclude Include="exceptions\declarations\RuntimeException.h" />
     <ClInclude Include="Shapes\declarations\AdvancedRect.h" />
     <ClInclude Include="Shapes\declarations\Circle.h" />
     <ClInclude Include="Shapes\declarations\Rect.h" />
     <ClInclude Include="Shapes\declarations\Triangle.h" />
+    <ClInclude Include="engine\declarations\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="MainLog.txt" />

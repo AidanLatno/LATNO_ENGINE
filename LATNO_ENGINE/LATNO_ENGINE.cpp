@@ -2,56 +2,16 @@
 //
 #include "engine/declarations/Engine.h"
 #include "exceptions/declarations/RuntimeException.h"
-#include <iostream>
-
-class Timer
-{
-private:
-	std::chrono::steady_clock::time_point StartTime;
-	std::chrono::steady_clock::time_point EndTime;
-	std::chrono::steady_clock::time_point LastLap;
-
-public:
-	Timer()
-	{
-		StartTime = std::chrono::steady_clock::now();
-		LastLap = std::chrono::steady_clock::now();
-	}
-
-	~Timer()
-	{
-		Finish();
-	}
-
-	void Finish()
-	{
-		using namespace std::chrono;
-		EndTime = steady_clock::now();
-		auto Duration = duration_cast<microseconds>(EndTime - StartTime);
-		double Seconds = (double)(Duration.count() / 1000000.0);
-	}
-	void Reset()
-	{
-		StartTime = std::chrono::steady_clock::now();
-		LastLap = std::chrono::steady_clock::now();
-	}
-	double GetTime()
-	{
-		using namespace std::chrono;
-		auto Duration = duration_cast<microseconds>(steady_clock::now() - StartTime);
-		return (double)(Duration.count() / 1000000.0);
-	}
-	double Lap()
-	{
-		using namespace std::chrono;
-		auto Duration = duration_cast<microseconds>(steady_clock::now() - LastLap);
-		LastLap = steady_clock::now();
-		return (double)(Duration.count() / 1000000.0);
-	}
-};
-
 
 int main() {
+
+	Application* app = new Application();
+
+	app->Startup();
+
+	std::cin.get();
+	delete app;
+
     /*
      bool running = true;
      while(running) 
@@ -69,10 +29,11 @@ int main() {
      }
     */
 
+	/*
 	srand(time(NULL));
 	bool GameRunning = true;
 	std::string MenuElements[3] = { "Continue","Settings","Quit" };
-	// Menu MainMenu(3,MenuElements);
+	 Menu MainMenu(3,MenuElements);
 
 	Actor Button(12, 12, ToChar("purple"), "BUTTON");
 	Rect Turny1(10, 8, 12, 8, ToChar("yellow"), "TURNY1");
@@ -81,32 +42,34 @@ int main() {
 
 	Cop.Construct(4, 2, 2, 2, 3);
 
-	// Player.MainMenu = &MainMenu;
+	 Player.MainMenu = &MainMenu;
 	Player Player(7, 7, 'p', "PLAYER");
 	Enemy Enemy1(0, 0, 'e', "ENEMY");
 	Rect Wall(3, 4, 6, 10, 'g', "WALL1");
 	Level.AddActor(Player);
 	Level.AddActor(Enemy1);
 	Level.AddRect(Turny1);
-	// Level.AddActor(Turny2);
+	 Level.AddActor(Turny2);
 	Level.AddRect(Wall);
 	Level.AddActor(Button);
 	Level.AddActor(Cop);
 	Enemy1.moveChance[0] = 3;
 	Cop.moveChance[0] = 3;
-	// Level.DevMode = true;
+	 Level.DevMode = true;
 
 	Timer StopWatch;
 	double Total = 0;
 	int Ticks = 1;
 	double Highest = 0, Lowest = 1;
 
+	DevLog MainLog("MainLog", "txt");
+
 	while (GameRunning)
 	{
 		Level.Update();
 		Level.Render();
-		// std::cout << Player.CountNearby(Level) << std::endl;
-		double temp = StopWatch.GetTime();
+		 std::cout << Player.CountNearby(Level) << std::endl;
+		double temp = StopWatch.Lap();
 		std::cout << "DeltaTime: " << temp << '\n';
 		Total += temp;
 		std::cout << "Average Time: " << (Total / Ticks) << '\n';
@@ -118,18 +81,19 @@ int main() {
 		std::cout << "Lowest Time: " << Lowest << '\n';
 		std::cout << "Tick: " << Ticks << '\n';
 		std::cout << "FPS: " << 1 / temp << '\n';
+		std::cout << "Timer: " << StopWatch.GetTime() << '\n';
+		MainLog.LOGLN("Your Mother");
 
 
 		Player.Move(Level);
-		StopWatch.Reset();
 		Ticks++;
 		Turny1.Rotate(1, Turny1.GetCenterX(), Turny1.GetCenterY());
 
-		// Adds player collision to every rect in level
-		// if(Level.RectCollision(Player))
-		// 	Player.SendBack();
+		 Adds player collision to every rect in level
+		 if(Level.RectCollision(Player))
+		 	Player.SendBack();
 
-		// Adds player collision to just one rect
+		 Adds player collision to just one rect
 		if (Wall.CheckCollision(Player))
 			Player.SendBack();
 
@@ -140,7 +104,7 @@ int main() {
 		if (Player.CheckCollision(Button))
 		{
 			Wall.corner1.x = Wall.corner1.x == 4 ? 3 : 4;
-			// SaveGame();
+			 SaveGame();
 		}
 
 		Cop.Move(Player, Level);
@@ -165,6 +129,7 @@ int main() {
 	Level.Update();
 	Level.Render(true);
 	std::cout << "\033[31mYOU DIED";
+	*/
 }
 
 

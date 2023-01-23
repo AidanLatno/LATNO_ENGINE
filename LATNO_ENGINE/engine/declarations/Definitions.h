@@ -55,14 +55,14 @@ char getch()
 #endif
 
 #include <iostream>
-
 #include <string>
 #include <chrono>
 #include <thread>
 #include <fstream>
 #include <vector>
 #include <math.h>
-#include "../declarations/DeveloperLog.h"
+#include <unordered_map>
+#include "Behavior.h"
 
 
 
@@ -71,30 +71,36 @@ char getch()
 #define RIGHT Coords(1,0)
 #define LEFT Coords(-1,0)
 
-//extern std::ofstream Builder("SAVEDATA.txt");
-//extern std::fstream SaveFile;
 
-
-
-// red,blue,empty or white,void or black,purple,yellow,green,cyan
-inline char ToChar(std::string Color)
+const std::unordered_map<char, std::string> escape_codes =
 {
-	if(Color == "red") return 'e';
-	else if(Color == "blue") return 'p';
-	else if(Color == "empty" || Color == "white") return '.';
-	else if(Color == "purple") return '#';
-	else if(Color == "yellow") return 'a';
-	else if(Color == "green") return 'g';
-	else if(Color == "cyan") return 'b';
-	else if(Color == "void" || Color == "black") return 'v';
-	return '.';
-}
+    { 'p', "\033[44m" },
+    { '.', "\033[47m" },
+    { 'e', "\033[41m" },
+    { '#', "\033[45m" },
+    { 'a', "\033[43m" },
+    { 'g', "\033[42m" },
+    { 'b', "\033[46m" }
+};
 
 inline void SlowPrint(const std::string message, int milPerChar = 60)
 {
-  for (const char c : message)
-	{
-    std::cout << c << std::flush;
-    std::this_thread::sleep_for(std::chrono::milliseconds(milPerChar));
-  }
+    for (const char c : message)
+    {
+        std::cout << c << std::flush;
+        std::this_thread::sleep_for(std::chrono::milliseconds(milPerChar));
+    }
+}
+// red,blue,empty or white,void or black,purple,yellow,green,cyan
+inline char ToChar(std::string Color)
+{
+    if (Color == "red") return 'e';
+    else if (Color == "blue") return 'p';
+    else if (Color == "empty" || Color == "white") return '.';
+    else if (Color == "purple") return '#';
+    else if (Color == "yellow") return 'a';
+    else if (Color == "green") return 'g';
+    else if (Color == "cyan") return 'b';
+    else if (Color == "void" || Color == "black") return 'v';
+    return '.';
 }

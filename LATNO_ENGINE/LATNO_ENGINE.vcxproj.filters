@@ -51,10 +51,10 @@
     <ClCompile Include="Entities\definitions\Patroller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Entities\definitions\Player.cpp">
+    <ClCompile Include="Entities\definitions\PlayerBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Entities\definitions\Route.cpp">
+    <ClCompile Include="engine\definitions\Route.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="exceptions\definitions\RuntimeException.cpp">
@@ -67,6 +67,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Shapes\definitions\AdvancedRect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\definitions\Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\definitions\DeveloperLog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\definitions\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\definitions\Behavior.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,7 +137,7 @@
     <ClInclude Include="Entities\declarations\Patroller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entities\declarations\Player.h">
+    <ClInclude Include="Entities\declarations\PlayerBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="exceptions\declarations\Definitions.h">
@@ -140,10 +152,13 @@
     <ClInclude Include="Animation\declarations\Frame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Animation\declarations\MonoBehavior.h">
+    <ClInclude Include="Shapes\declarations\AdvancedRect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shapes\declarations\AdvancedRect.h">
+    <ClInclude Include="engine\declarations\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

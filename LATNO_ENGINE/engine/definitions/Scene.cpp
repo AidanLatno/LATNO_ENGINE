@@ -145,7 +145,7 @@ void Scene::Update()
 					if(x >= rects[i]->corner1.x && x <= rects[i]->corner2.x && y >= rects[i]->corner1.y && y <= rects[i]->corner2.y)
 						grid[y][x] = rects[i]->ch;
 }
-
+/*
 void Scene::Render(bool _displayChars, bool _clearScreen) const
 {
 	if (_clearScreen)
@@ -158,22 +158,13 @@ void Scene::Render(bool _displayChars, bool _clearScreen) const
 		{
 			if(!_displayChars)
 			{
-				if(grid[y][x] == 'p')
-					str = "\033[44m";
-				else if(grid[y][x] == '.')
-					str = "\033[47m";
-				else if(grid[y][x] == 'e')
-					str = "\033[41m";
-				else if(grid[y][x] == '#')
-					str = "\033[45m";
-				else if(grid[y][x] == 'a')
-					str = "\033[43m";
-				else if(grid[y][x] == 'g')
-					str = "\033[42m";
-				else if(grid[y][x] == 'b')
-					str = "\033[46m";
-				else
+				auto it = escape_codes.find(grid[y][x]);
+				if (it != escape_codes.end()) {
+					str = it->second;
+				}
+				else {
 					str = "\033[0m";
+				}
 				
 				if (actors.size() > 0)
 				{
@@ -198,6 +189,79 @@ void Scene::Render(bool _displayChars, bool _clearScreen) const
 		std::cout << '\n';
 	}
 }
+*/
+void Scene::Render(bool _displayChars, bool _clearScreen) const
+{
+	if (_clearScreen)
+		CLEAR_SCREEN;
+
+	std::string output;
+	for (int y = 0; y < sizeY; y++)
+	{
+		for (int x = 0; x < sizeX; x++)
+		{
+			if (!_displayChars)
+			{
+				switch (grid[y][x])
+				{
+				case 'p':
+					output += "\033[44m";
+					break;
+				case '.':
+					output += "\033[47m";
+					break;
+				case 'e':
+					output += "\033[41m";
+					break;
+				case '#':
+					output += "\033[45m";
+					break;
+				case 'a':
+					output += "\033[43m";
+					break;
+				case 'g':
+					output += "\033[42m";
+					break;
+				case 'b':
+					output += "\033[46m";
+					break;
+				default:
+					output += "\033[0m";
+				}
+
+				if (actors.size() > 0)
+				{
+					bool actor_found = false;
+					for (int i = 0; i < actors.size(); i++)
+					{
+						if (y == actors[i]->position.y && x == actors[i]->position.x)
+						{
+							output += Convert(actors[i]->direction);
+							actor_found = true;
+							break;
+						}
+					}
+					if (!actor_found)
+					{
+						output += "  ";
+					}
+				}
+				else
+				{
+					output += "  ";
+				}
+			}
+			else
+			{
+				output += grid[y][x] += ' ';
+			}
+		}
+		output += "\n\033[0m";
+	}
+	std::cout << output;
+}
+
+
 
 bool Scene::ActorCollision(Latno_Entities::Actor _actor) const
 {

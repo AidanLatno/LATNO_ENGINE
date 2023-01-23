@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../../Shapes/declarations/Circle.h"
-#include "../../Shapes/declarations/Triangle.h"
 #include "../../Entities/declarations/Patroller.h"
 
 namespace Latno_Animation 

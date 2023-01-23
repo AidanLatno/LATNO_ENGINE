@@ -1,10 +1,9 @@
 #pragma once
 #include "../../engine/declarations/Route.h"
-//#include "../../engine/declarations/Behavior.h"
 
 namespace Latno_Entities 
 {
-	class Actor
+	class Actor : public Latno::Component
 	{
 		public:
 			Coords preData;
@@ -23,5 +22,6 @@ namespace Latno_Entities
 			bool CheckCollision(Coords Point) const;
 			bool IsNearby(Actor Actor) const;
 			bool IsNearby(Coords Point) const;
+
 	};
 }

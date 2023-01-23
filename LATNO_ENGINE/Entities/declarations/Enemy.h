@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Player.h"
+#include "PlayerBase.h"
 
 namespace Latno_Entities
 {
@@ -15,5 +15,6 @@ namespace Latno_Entities
     public:
         int moveChance[2] = {0,10}; // First Num is range, second is size  Ex
         void Chase(Scene &scene, Latno_Entities::Actor chaseActor);
+
     };
 }

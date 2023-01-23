@@ -1,8 +1,8 @@
 #pragma once
-#include "../declarations/Player.h"
+#include "../declarations/PlayerBase.h"
 namespace Latno_Entities 
 {
-    void Player::Move(Scene &Scene)
+    void PlayerBase::Move(Scene &Scene)
     {
         char Input;
         int MenuInput;
@@ -30,31 +30,36 @@ namespace Latno_Entities
                 direction = RIGHT;
                 MoveFoward(Scene);
             }
-            /* Code yourself to fit your game (Main menu functionality)*/
             else if(Input == '\t')
             {
-                MenuInput = MainMenu->OpenMenu("MAIN MENU",true);
-                switch(MenuInput)
-                {
-                    case 0:
-
-                        break;
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-
-                        break;
-                    default:
-                        std::cout << "\033[31mERROR";
-                        return;
-                }
+                MenuFunctionality();
             }
         }
         else
             usleep(100000);
+    }
+
+    // MEANT TO BE OVERRIDDEN
+    void PlayerBase::MenuFunctionality()
+    {
+        int MenuInput = MainMenu->OpenMenu("MAIN MENU", true);
+        switch (MenuInput)
+        {
+        case 0:
+
+            break;
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        default:
+            std::cout << "\033[31mERROR";
+            return;
+        }
     }
 }
