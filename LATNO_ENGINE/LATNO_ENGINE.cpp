@@ -1,16 +1,16 @@
 // LATNO_ENGINE.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include "engine/declarations/Engine.h"
+#include "engine/declarations/Application.h"
 #include "exceptions/declarations/RuntimeException.h"
 
 int main() {
 
-	Application* app = new Application();
+	/**/
+	Application app;
 
-	app->Startup();
+	app.Startup();
 
 	std::cin.get();
-	delete app;
 
     /*
      bool running = true;
@@ -42,20 +42,18 @@ int main() {
 
 	Cop.Construct(4, 2, 2, 2, 3);
 
-	 Player.MainMenu = &MainMenu;
 	Player Player(7, 7, 'p', "PLAYER");
 	Enemy Enemy1(0, 0, 'e', "ENEMY");
 	Rect Wall(3, 4, 6, 10, 'g', "WALL1");
 	Level.AddActor(Player);
 	Level.AddActor(Enemy1);
 	Level.AddRect(Turny1);
-	 Level.AddActor(Turny2);
 	Level.AddRect(Wall);
 	Level.AddActor(Button);
 	Level.AddActor(Cop);
 	Enemy1.moveChance[0] = 3;
 	Cop.moveChance[0] = 3;
-	 Level.DevMode = true;
+	 Level.devMode = true;
 
 	Timer StopWatch;
 	double Total = 0;
@@ -68,7 +66,6 @@ int main() {
 	{
 		Level.Update();
 		Level.Render();
-		 std::cout << Player.CountNearby(Level) << std::endl;
 		double temp = StopWatch.Lap();
 		std::cout << "DeltaTime: " << temp << '\n';
 		Total += temp;
@@ -82,18 +79,17 @@ int main() {
 		std::cout << "Tick: " << Ticks << '\n';
 		std::cout << "FPS: " << 1 / temp << '\n';
 		std::cout << "Timer: " << StopWatch.GetTime() << '\n';
-		MainLog.LOGLN("Your Mother");
 
 
 		Player.Move(Level);
 		Ticks++;
 		Turny1.Rotate(1, Turny1.GetCenterX(), Turny1.GetCenterY());
 
-		 Adds player collision to every rect in level
-		 if(Level.RectCollision(Player))
-		 	Player.SendBack();
+		 //Adds player collision to every rect in level
+		 //if(Level.RectCollision(Player))
+		 //	Player.SendBack();
 
-		 Adds player collision to just one rect
+		 //Adds player collision to just one rect
 		if (Wall.CheckCollision(Player))
 			Player.SendBack();
 
@@ -104,7 +100,6 @@ int main() {
 		if (Player.CheckCollision(Button))
 		{
 			Wall.corner1.x = Wall.corner1.x == 4 ? 3 : 4;
-			 SaveGame();
 		}
 
 		Cop.Move(Player, Level);
@@ -131,15 +126,3 @@ int main() {
 	std::cout << "\033[31mYOU DIED";
 	*/
 }
-
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

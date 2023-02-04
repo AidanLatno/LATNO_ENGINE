@@ -6,6 +6,9 @@ namespace Latno_Entities {
 	{
 		using Actor::Actor;
 		public:
+
+			Scene *currentScene;
+
 			void SendBack();
 
 			void MoveFoward(Scene &Scene,int Speed = 1);

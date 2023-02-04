@@ -17,7 +17,7 @@ namespace Latno_Animation {
 			usleep((__int64)FPS * 1000000);
 		}
 	}
-
+	
     void Animation::reset()
 	{
 		frames.clear();
