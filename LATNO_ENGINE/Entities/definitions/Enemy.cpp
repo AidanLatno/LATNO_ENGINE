@@ -9,15 +9,21 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
 {
     
     // Create new 2D array equal to scene grid
-    std::vector<std::vector<int>> enemyGrid;
+ /*   std::vector<std::vector<int>> enemyGrid;
 
     for (int i = 0; i < Scene.GetSize().x; i++)
     {
-        for (int i = 0; i < Scene.GetSize().y; i++)
+        enemyGrid.push_back(std::vector<int>());
+        for (int j = 0; j < Scene.GetSize().y; j++)
         {
+            enemyGrid[i].push_back((i,j));
 
         }
-    }
+    }*/
+
+
+
+
     
     
     
