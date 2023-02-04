@@ -10,9 +10,8 @@ namespace Latno_Entities
         public:
             int Points = 0;
             Menu* MainMenu;
-            void Move(Scene Scene);
-            void Move();
-            virtual void MenuFunctionality() { DevLog::LOGLN("[WARNING] PlayerBase Menu Function called but not overridden","MainLog"); };
+            void Move(Scene &Scene);
+            void MenuFunctionality();
 
     };
 }

@@ -11,7 +11,6 @@ namespace Latno
             virtual void Start() { DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR","MainLog"); }
             virtual void Update() { DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog"); };
             int id;
-            std::vector<std::string> tags;
     };
 
     extern std::vector<Latno::Behavior*> BehaviorList;

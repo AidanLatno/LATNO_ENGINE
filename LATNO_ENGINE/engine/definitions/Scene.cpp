@@ -55,7 +55,7 @@ Scene::~Scene()
 	for(int i = 0; i < sizeY; ++i)
 		delete[] grid[i];
 	delete[] grid;
-	DevLog::LOGLN("DESTROYED SCENE","MainLog");
+	//LOGLN("DESTROYED SCENE");
 }
 
 void Scene::AddActor(Latno_Entities::Actor &_actor)

@@ -12,7 +12,7 @@ namespace Latno_Entities
 		name = _name;
 		preData.x = _x;
 		preData.y = _y;
-		DevLog::LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")", "MainLog");
+		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
 	}
 
 	Actor::Actor(Coords _Pos, char _ch, std::string _name)
@@ -21,7 +21,7 @@ namespace Latno_Entities
 		ch = _ch;
 		name = _name;
 		preData = _Pos;
-		DevLog::LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")", "MainLog");
+		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
 	}
 
 	Actor::Actor()
@@ -29,7 +29,7 @@ namespace Latno_Entities
 		position = {0,0};
 		ch = '.';
 		name = "UN-NAMED_ACTOR";
-		DevLog::LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")", "MainLog");
+		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
 	}
 
 	void Actor::SetCoords(int x,int y)

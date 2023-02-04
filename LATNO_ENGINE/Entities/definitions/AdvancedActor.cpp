@@ -23,17 +23,8 @@ void Latno_Entities::AdvancedActor::MoveFoward(Scene &_scene, int _speed)
 
 void Latno_Entities::AdvancedActor::MoveFoward(int _speed)
 {
-	for (int i = 0; i < _speed; i++)
-	{
-		preData = position;
-		position += direction;
-
-		if (position.x >= currentScene->sizeX || position.y >= currentScene->sizeY || position.x < 0 || position.y < 0)
-		{
-			position = preData;
-			return;
-		}
-	}
+	preData = position;
+	position += direction * _speed;
 }
 
 void Latno_Entities::AdvancedActor::MoveFoward(int _sizeX, int _sizeY, int _speed)

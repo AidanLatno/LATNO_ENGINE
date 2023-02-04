@@ -1,22 +1,16 @@
 #pragma once
-#include "Engine.h"
+#include "../../Animation/declarations/Animation.h"
 
-#include "../../UserClasses/declarations/UserClasses.h"
-
+// INCLUDE ALL OF YOUR CUSTOM MADE CLASSES HERE
+//#include "../../UserClasses/declarations/example.h"
 
 class Application
 {
-private:
+public:
 	void BehaviorTick(double deltaTime);
 	void BehaviorLoad();
 	void Load();
 	bool Tick();
-
-public:
 	void Startup();
-	Application();
-	Scene *ScenePtr;
-	Player *playerPtr;
-	Actor *buttonPtr;
-	DevLog *LogPtr;
+
 };

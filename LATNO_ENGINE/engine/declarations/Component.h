@@ -8,7 +8,6 @@ namespace Latno
     {
         public:
             Component();
-            ~Component();
             void Start() override
             {
                 DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog");

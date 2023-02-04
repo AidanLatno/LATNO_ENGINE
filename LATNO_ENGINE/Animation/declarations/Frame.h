@@ -41,7 +41,7 @@ namespace Latno_Animation
 			void ResetCircles();
 			void InheritFrame(Frame Frame);
 
-			
+
 			void Update(bool UseInheritedScene = false);
 			void Render();
 	};	

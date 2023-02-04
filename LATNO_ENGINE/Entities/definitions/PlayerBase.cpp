@@ -2,7 +2,7 @@
 #include "../declarations/PlayerBase.h"
 namespace Latno_Entities 
 {
-    void PlayerBase::Move(Scene Scene)
+    void PlayerBase::Move(Scene &Scene)
     {
         char Input;
         int MenuInput;
@@ -38,40 +38,28 @@ namespace Latno_Entities
         else
             usleep(100000);
     }
-    void PlayerBase::Move()
+
+    // MEANT TO BE OVERRIDDEN
+    void PlayerBase::MenuFunctionality()
     {
-        char Input;
-        int MenuInput;
-        preData = position;
-        if (_kbhit())
+        int MenuInput = MainMenu->OpenMenu("MAIN MENU", true);
+        switch (MenuInput)
         {
-            Input = _getch();
-            if (Input == 'w' && position.y > 0)
-            {
-                direction = UP;
-                MoveFoward();
-            }
-            else if (Input == 'a' && position.x > 0)
-            {
-                direction = LEFT;
-                MoveFoward();
-            }
-            else if (Input == 's' && position.y < currentScene->GetSize().y - 1)
-            {
-                direction = DOWN;
-                MoveFoward();
-            }
-            else if (Input == 'd' && position.x < currentScene->GetSize().x - 1)
-            {
-                direction = RIGHT;
-                MoveFoward();
-            }
-            else if (Input == '\t')
-            {
-                MenuFunctionality();
-            }
+        case 0:
+
+            break;
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        default:
+            std::cout << "\033[31mERROR";
+            return;
         }
-        else
-            usleep(100000);
     }
 }
