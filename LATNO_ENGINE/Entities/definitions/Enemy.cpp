@@ -7,6 +7,20 @@
 
 void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor)
 {
+    
+    // Create new 2D array equal to scene grid
+    std::vector<std::vector<int>> enemyGrid;
+
+    for (int i = 0; i < Scene.GetSize().x; i++)
+    {
+        for (int i = 0; i < Scene.GetSize().y; i++)
+        {
+
+        }
+    }
+    
+    
+    
     if(moveChance[0] < rand() % moveChance[1] + 1)
     {
         preData = position;

@@ -11,6 +11,7 @@ namespace Latno_Entities
 			char ch;
 			std::string name;
 			Coords direction = UP; // "< " " >" "^^" "vv"
+			std::vector<std::string> TagVector;
 
 			Actor(int _x,int _y,char _ch,std::string _Name);
 			Actor(Coords _Pos,char _ch,std::string _Name);
@@ -18,6 +19,9 @@ namespace Latno_Entities
 
 			void SetCoords(int x,int y);
 			void SetCoords(Coords Pos);
+			void AddTag(std::string TagToAdd);
+			void RemoveTag(std::string TagToRemove);
+			bool IfHasTag(std::string Tag);
 			bool CheckCollision(Actor Actor) const;
 			bool CheckCollision(Coords Point) const;
 			bool IsNearby(Actor Actor) const;
