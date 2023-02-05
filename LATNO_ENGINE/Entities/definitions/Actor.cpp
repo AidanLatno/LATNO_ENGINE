@@ -45,6 +45,31 @@ namespace Latno_Entities
 		position = Pos;
 	}
 
+	void Actor::AddTag(std::string TagToAdd)
+	{
+		TagVector.push_back(TagToAdd);
+		int x = TagVector.size();
+		DevLog::LOGLN('"' + TagToAdd + '"' + " added to TagVector at index position " + std::to_string(TagVector.size()), "MainLog");
+	}
+
+	void Actor::RemoveTag(std::string TagToRemove)
+	{
+		for (int i = 0; i < TagVector.size() - 1; i++) {
+			if (TagVector[i] == TagToRemove) {
+				TagVector.erase(TagVector.begin() + i);
+				DevLog::LOGLN('"' + TagToRemove + '"' + " removed from TagVector at index position " + std::to_string(i), "MainLog");
+			}
+		}
+		
+	}
+
+	bool Actor::IfHasTag(std::string Tag)
+	{
+		for (std::string element : TagVector)
+			if (element == Tag) return true;
+		return false;
+	}
+
 	bool Actor::CheckCollision(Actor Actor) const
 	{
 		if(position.IsEqual(Actor.position))
@@ -80,4 +105,6 @@ namespace Latno_Entities
 			return true;
 		return false;
 	}
+
+
 }
