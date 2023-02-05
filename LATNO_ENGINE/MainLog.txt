@@ -1,3 +1,9 @@
-Constructor????
-Constructor????
-Constructor????
+New component made with ID of 0
+New component made with ID of 1
+New component made with ID of 2
+Button Start Has been ran!
+Player Start Has been ran!
+Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR
+App Load Finished
+Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR
+Log above repeated 499 times

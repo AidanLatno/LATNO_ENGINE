@@ -1,1 +1,2 @@
-#include "Application.h"
+#pragma once
+#include "../../Animation/declarations/Animation.h"

@@ -161,9 +161,19 @@
     <ClInclude Include="engine\declarations\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UserClasses\declarations\UserClasses.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="SAVEDATA.txt" />
     <Text Include="MainLog.txt" />
+    <Text Include="AppLog.txt" />
   </ItemGroup>
 </Project>

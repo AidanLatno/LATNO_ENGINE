@@ -9,7 +9,7 @@ namespace Latno
     {
         public:
             virtual void Start() { DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR","MainLog"); }
-            virtual void Update() { DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog"); };
+            virtual void Update(double deltaTime) { DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog"); };
             int id;
     };
 

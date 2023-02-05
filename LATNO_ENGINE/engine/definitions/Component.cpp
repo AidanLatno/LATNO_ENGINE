@@ -9,4 +9,14 @@ namespace Latno
         Latno::BehaviorList.push_back(this);
         DevLog::LOGLN("New component made with ID of " + std::to_string(id),"MainLog");
     }
-} 
+
+    bool Component::HasTag(std::string tag)
+    {
+        for (std::string i : tags)
+        {
+            if (i == tag)
+                return true;
+        }
+        return false;
+    }
+}           

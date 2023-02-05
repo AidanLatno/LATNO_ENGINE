@@ -177,8 +177,12 @@
     <ClInclude Include="Shapes\declarations\Rect.h" />
     <ClInclude Include="Shapes\declarations\Triangle.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
+    <ClInclude Include="UserClasses\declarations\Button.h" />
+    <ClInclude Include="UserClasses\declarations\Player.h" />
+    <ClInclude Include="UserClasses\declarations\UserClasses.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="AppLog.txt" />
     <Text Include="MainLog.txt" />
     <Text Include="SAVEDATA.txt" />
   </ItemGroup>

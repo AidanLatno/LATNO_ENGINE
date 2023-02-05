@@ -1,6 +1,6 @@
 // LATNO_ENGINE.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include "engine/declarations/Engine.h"
+#include "engine/declarations/Application.h"
 #include "exceptions/declarations/RuntimeException.h"
 
 int main() {
@@ -9,7 +9,6 @@ int main() {
 
 	app->Startup();
 
-	std::cin.get();
 	delete app;
 
     /*
