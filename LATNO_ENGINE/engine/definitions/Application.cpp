@@ -30,10 +30,14 @@ bool Application::Tick(double deltaTime)
 void Application::Startup()
 {
 	srand(time(NULL));
-	Scene level(10, 10);
+
+	Scene level(20, 20);
 	Button button(1, 1, ToChar("purple"), "BUTTON");
-	Player player(3,3,ToChar("blue"), "Player");
-	Enemy enemy(7, 7, ToChar("red"), "Enemy");
+	Player player(16, 16,ToChar("blue"), "Player");
+
+	Enemy enemy(3, 3, ToChar("red"), "Enemy");
+
+	enemy.currentScene = &level;
 
 	
 	level.AddActor(player);
@@ -60,12 +64,13 @@ void Application::Run()
 	{
 		levelPtr->Update();
 		levelPtr->Render();
+
+
 		enemyPtr->Chase(*levelPtr, *playerPtr);
 
 		if (!Tick(prevDeltaTime))
 			return;
 
-		AppLog.LOGLN(std::to_string(prevDeltaTime));
 		prevDeltaTime = DeltaCalc.GetTime();
 		DeltaCalc.Reset();
 	}

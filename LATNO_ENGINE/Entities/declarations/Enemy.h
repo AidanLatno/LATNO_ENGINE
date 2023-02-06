@@ -15,6 +15,28 @@ namespace Latno_Entities
     public:
         int moveChance[2] = {0,10}; // First Num is range, second is size  Ex
         void Chase(Scene &scene, Latno_Entities::Actor chaseActor);
+        Coords **nodeValues;
+        
+        void Start() override
+        {
+            // Creates 2d Array of Coords with currentScene's dimensions
+            nodeValues = new Coords* [currentScene->sizeY];
+
+            for (int i = 0; i < currentScene->sizeY; ++i)
+                nodeValues[i] = new Coords[currentScene->sizeX];
+
+
+            // initializes array
+            for (int y = 0; y < currentScene->sizeY; y++)
+            {
+
+                for (int x = 0; x < currentScene->sizeX; x++)
+                {
+
+                    nodeValues[y][x] = Coords(0,0);
+                }
+            }
+        }
 
     };
 }

@@ -13,22 +13,22 @@ namespace Latno_Entities
             if (Input == 'w' && position.y > 0)
             {
                 direction = UP;
-                MoveFoward(Scene);
+                MoveForward(Scene);
             }
             else if (Input == 'a' && position.x > 0)
             {
                 direction = LEFT;
-                MoveFoward(Scene);
+                MoveForward(Scene);
             }
             else if (Input == 's' && position.y < Scene.GetSize().y - 1)
             {
                 direction = DOWN;
-                MoveFoward(Scene);
+                MoveForward(Scene);
             }
             else if (Input == 'd' && position.x < Scene.GetSize().x - 1)
             {
                 direction = RIGHT;
-                MoveFoward(Scene);
+                MoveForward(Scene);
             }
             else if(Input == '\t')
             {
@@ -36,7 +36,7 @@ namespace Latno_Entities
             }
         }
         else
-            usleep(100000);
+            usleep(100000 * 5);
     }
 
     // MEANT TO BE OVERRIDDEN

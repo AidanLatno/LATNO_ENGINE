@@ -8,8 +8,6 @@ class Player : public PlayerBase
 {
 	using PlayerBase::PlayerBase;
 public:
-	Scene* currentScene;
-
 	void Start() override
 	{
 		DevLog::LOGLN("Player Start Has been ran!", "MainLog");

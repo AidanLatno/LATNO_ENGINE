@@ -13,6 +13,7 @@ public:
 	std::string name;
 	Coords corner1;
 	Coords corner2;
+	bool isCollider = true;
 
 	bool CheckCollision(Latno_Entities::Actor actor) const;
 	bool CheckCollision(Coords point) const;

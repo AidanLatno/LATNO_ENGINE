@@ -11,7 +11,7 @@ namespace Latno_Entities
 			char ch;
 			std::string name;
 			Coords direction = UP; // "< " " >" "^^" "vv"
-			std::vector<std::string> TagVector;
+			
 
 			Actor(int _x,int _y,char _ch,std::string _Name);
 			Actor(Coords _Pos,char _ch,std::string _Name);

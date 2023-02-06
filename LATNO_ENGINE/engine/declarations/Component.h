@@ -15,7 +15,7 @@ namespace Latno
             
             void Start() override
             {
-                DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog");
+                /*DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog");*/
             }
             void Update(double deltaTime) override
             {

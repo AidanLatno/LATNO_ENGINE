@@ -1,4 +1,6 @@
 // INCLUDE IN ENGINE HEADERS
+#pragma once
+
 #include <fstream>
 #include <string>
 #include <vector>

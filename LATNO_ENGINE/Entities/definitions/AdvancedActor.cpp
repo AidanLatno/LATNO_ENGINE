@@ -6,7 +6,7 @@ void Latno_Entities::AdvancedActor::SendBack()
 	position = preData;
 }
 
-void Latno_Entities::AdvancedActor::MoveFoward(Scene &_scene, int _speed)
+void Latno_Entities::AdvancedActor::MoveForward(Scene &_scene, int _speed)
 {
 	for(int i = 0; i < _speed; i++)
 	{
@@ -21,13 +21,13 @@ void Latno_Entities::AdvancedActor::MoveFoward(Scene &_scene, int _speed)
 	}
 }
 
-void Latno_Entities::AdvancedActor::MoveFoward(int _speed)
+void Latno_Entities::AdvancedActor::MoveForward(int _speed)
 {
 	preData = position;
 	position += direction * _speed;
 }
 
-void Latno_Entities::AdvancedActor::MoveFoward(int _sizeX, int _sizeY, int _speed)
+void Latno_Entities::AdvancedActor::MoveForward(int _sizeX, int _sizeY, int _speed)
 {
 	for(int i = 0; i < _speed; i++)
 	{

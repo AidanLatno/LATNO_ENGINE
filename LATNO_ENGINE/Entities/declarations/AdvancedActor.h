@@ -6,13 +6,15 @@ namespace Latno_Entities {
 	{
 		using Actor::Actor;
 		public:
+			Scene* currentScene;
+
 			void SendBack();
 
-			void MoveFoward(Scene &Scene,int Speed = 1);
+			void MoveForward(Scene &Scene,int Speed = 1);
 
-			void MoveFoward(int Speed = 1);
+			void MoveForward(int Speed = 1);
 
-			void MoveFoward(int SizeX,int SizeY,int Speed = 1);
+			void MoveForward(int SizeX,int SizeY,int Speed = 1);
 
 			void TurnRight(int TurnAmount);
 			void TurnLeft(int TurnAmount);

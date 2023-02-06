@@ -4,12 +4,10 @@
 // CUSTOM TEMPLATE CLASS
 // NOT PART OF ENGINE
 
-class Button : public Actor
+class Button : public AdvancedActor
 {
-	using Actor::Actor;
+	using AdvancedActor::AdvancedActor;
 public:
-	Scene* currentScene;
-
 	void Start() override
 	{
 		DevLog::LOGLN("Button Start Has been ran!", "MainLog");

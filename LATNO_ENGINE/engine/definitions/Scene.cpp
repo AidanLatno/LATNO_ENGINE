@@ -349,6 +349,13 @@ bool Scene::RectCollision(Latno_Entities::Actor const Actor) const
 	return false;
 }
 
+bool Scene::CheckBounds(Coords pos)
+{
+	if (pos.x < 0 || pos.y < 0 || pos.x >= sizeX || pos.y >= sizeY)
+		return false;
+	return true;
+}
+
 bool Scene::IsIn(Latno_Entities::Actor *_actor) const
 {
 	if (actors.size() > 0)

@@ -22,6 +22,7 @@ class Scene
 
 		~Scene();
 
+		bool CheckBounds(Coords pos);
 		void AddActor(Latno_Entities::Actor &Actor);
 		void AddDynamicActor(Latno_Entities::Actor Actor);
 		void DestroyActor(Latno_Entities::Actor *DeletedActor);
