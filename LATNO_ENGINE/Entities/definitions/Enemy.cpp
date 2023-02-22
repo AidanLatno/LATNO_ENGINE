@@ -2,6 +2,8 @@
 
 void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor)
 {
+    // Has useful psuedo code and explainations
+    // https://www.youtube.com/watch?v=-L-WgKMFuhE
 
     currentScene->dynamicActors.clear();
 
