@@ -35,6 +35,7 @@ struct Coords
 	Coords AddY(int Adder) const;
 	Coords Add(int Adder1,int Adder2) const;
 	void Rotate(int TurnAmount,int h,int k,int Angle);
+	double FindDistance(Coords a);
 
 
 	int dSin(int theta);

@@ -8,13 +8,24 @@ namespace Latno
     class Behavior 
     {
         public:
-            virtual void Start() { /*DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR","MainLog");*/ }
-            virtual void Update(double deltaTime) { DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog"); };
+            bool doesLogOnNonOverload = false;
             void AddTag(std::string TagToAdd);
             void RemoveTag(std::string TagToRemove);
             bool IfHasTag(std::string Tag);
             int id;
-            std::vector<std::string> TagVector;
+
+            std::vector<std::string> tagVector;
+
+            virtual void Start()
+            {
+                if (doesLogOnNonOverload)
+                    DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog");
+            }
+            virtual void Update(double deltaTime)
+            {
+                if (doesLogOnNonOverload)
+                    DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog");
+            }
     };
 
     extern std::vector<Latno::Behavior*> BehaviorList;

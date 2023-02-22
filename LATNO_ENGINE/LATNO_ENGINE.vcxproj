@@ -172,6 +172,7 @@
     <ClInclude Include="Entities\declarations\PlayerBase.h" />
     <ClInclude Include="exceptions\declarations\Definitions.h" />
     <ClInclude Include="exceptions\declarations\RuntimeException.h" />
+    <ClInclude Include="engine\declarations\Node.h" />
     <ClInclude Include="Shapes\declarations\AdvancedRect.h" />
     <ClInclude Include="Shapes\declarations\Circle.h" />
     <ClInclude Include="Shapes\declarations\Rect.h" />

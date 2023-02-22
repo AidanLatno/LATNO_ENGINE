@@ -16,6 +16,8 @@ public:
 	Scene *levelPtr;
 	Button *buttonPtr;
 	Enemy *enemyPtr;
+	Rect *wallPtr;
+	Rect* wall2Ptr;
 
 
 };

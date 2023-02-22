@@ -1,6 +1,8 @@
 #pragma once
 
 #include "PlayerBase.h"
+#include "../../engine/declarations/Node.h"
+
 
 namespace Latno_Entities
 {
@@ -16,9 +18,28 @@ namespace Latno_Entities
         int moveChance[2] = {0,10}; // First Num is range, second is size  Ex
         void Chase(Scene &scene, Latno_Entities::Actor chaseActor);
         Coords **nodeValues;
+        Node **nodeGrid;
         
         void Start() override
         {
+            nodeGrid = new Node * [currentScene->sizeY];
+
+            for (int i = 0; i < currentScene->sizeY; ++i)
+                nodeGrid[i] = new Node[currentScene->sizeX];
+
+            for (int y = 0; y < currentScene->sizeY; y++)
+            {
+
+                for (int x = 0; x < currentScene->sizeX; x++)
+                {
+
+                    nodeGrid[y][x].pos = Coords(x, y);
+                }
+            }
+
+
+
+
             // Creates 2d Array of Coords with currentScene's dimensions
             nodeValues = new Coords* [currentScene->sizeY];
 

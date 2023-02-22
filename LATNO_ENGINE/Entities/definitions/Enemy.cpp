@@ -1,143 +1,288 @@
 #include "../declarations/Enemy.h"
 
-//void Latno::Behavior::Update() {
-//    // Latno_Entities::Enemy::Chase(MainSce);
-//}
-
-
 void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor)
 {
 
+    currentScene->dynamicActors.clear();
 
-    //DevLog::LOGLN(std::to_string(ArrayOfBestPath[0][1].x),"MainLog");
 
     Coords targetPos = ChaseActor.position;
+    Node* currentNode = &nodeGrid[position.y][position.x];
 
-    // this->position;
+    Node* startingNode = currentNode;
+    Node* endNode = &nodeGrid[targetPos.y][targetPos.x];
 
-    // get all eight boxes around chasingActor
-    // calculate g and h value
+    std::vector<Node*> OpenList, ClosedList;
 
-    // g = Distance from starting node to chasing actor
-    // h = Distance from starting node to target
-    // f = g + h
-    // in Coords, (g,h)
-    // ArrayOfBestPath is the array of lowest f cost
+    OpenList.push_back(startingNode);
 
-    Coords BoxArray[8];
-    Coords BestPath;
-    
-    // Array of nodes
-    BoxArray[0] = targetPos.Add(-1, -1); // Top Left
-    BoxArray[1] = targetPos.Add(0, -1); // Top Middle
-    BoxArray[2] = targetPos.Add(1, -1); // Top Right
-    BoxArray[3] = targetPos.Add(-1, 0); // Left
-    BoxArray[4] = targetPos.Add(1, 0); // Right
-    BoxArray[5] = targetPos.Add(-1, 1); // Bottom Left
-    BoxArray[6] = targetPos.Add(0, 1); //Bottom Middle
-    BoxArray[7] = targetPos.Add(1, 1); //Bottom Right
-
-    for (int i = 0; i < 8; i++)
+    while (true)
     {
-        if (currentScene->CheckBounds(BoxArray[i]))
+        /*for (Node* i : OpenList)
         {
-        
-            if (currentScene->rects.size() > 0)
-            {
-                for (int index = 0; index < currentScene->rects.size(); index++)
-                {
-                    if (currentScene->rects[index]->isCollider)
-                    {
-                        if (currentScene->rects[index]->CheckCollision(BoxArray[i]))
-                        {
-                            nodeValues[BoxArray[i].y][BoxArray[i].x].x = -1;
-                            nodeValues[BoxArray[i].y][BoxArray[i].x].y = -1;
-                        }
+            currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, ToChar("green"), "ASD"));
+        }
+        for (Node* i : ClosedList)
+        {
+            currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, ToChar("red"), "ASD"));
+        }*/
 
+        Node* currentNode = startingNode;
+        // Set CurrentNode to node in open list with lowest FCost
+        int max = 0;
+        int low;
+        for (Node* i : OpenList)
+            max += i->fCost;
+        low = max;
+        for (Node* i : OpenList)
+            if (i->fCost < low)
+            {
+                low = i->fCost;
+                currentNode = i;
+            }
+        // remove currentNode from OpenList
+        for (int i = 0; i < OpenList.size(); i++)
+        {
+            if (OpenList[i] == currentNode)
+                OpenList.erase(OpenList.begin() + i);
+        }
+
+        ClosedList.push_back(currentNode);
+
+        //CHECKS IF ENDPOINT IS REACHED
+        if (currentNode == endNode)
+        {
+            DevLog::LOGLN("END POINT FOUND", "MainLog");
+            Node* nodeTrace = currentNode;
+            while (true)
+            {
+                if (nodeTrace->parentNode != nullptr)
+                    if(nodeTrace->parentNode != startingNode)
+                        nodeTrace = nodeTrace->parentNode;
+                    else
+                    {
+                        position = nodeTrace->pos;
+                        return;
+                    }
+            }
+            return;
+        }
+
+        // ADD NEIGHBORS
+        std::vector<Node*> neighbors;
+        int cY = currentNode->pos.y - 1, cX = currentNode->pos.x -1;
+        if((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+        cY = currentNode->pos.y - 1; 
+        cX = currentNode->pos.x;
+        if ((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+        cY = currentNode->pos.y - 1;
+        cX = currentNode->pos.x + 1;
+        if ((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+        cY = currentNode->pos.y;
+        cX = currentNode->pos.x - 1;
+        if ((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+        cY = currentNode->pos.y;
+        cX = currentNode->pos.x + 1;
+        if ((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+        cY = currentNode->pos.y + 1;
+        cX = currentNode->pos.x - 1;
+        if ((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+        cY = currentNode->pos.y + 1;
+        cX = currentNode->pos.x;
+        if ((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+        cY = currentNode->pos.y + 1;
+        cX = currentNode->pos.x + 1;
+        if ((cY >= 0 && cY < currentScene->sizeY) && (cX >= 0 && cX < currentScene->sizeX))
+            neighbors.push_back(&nodeGrid[cY][cX]);
+
+        //For each neighbor
+        for (Node* neighbor : neighbors)
+        {
+            //skips neighbors in closed list
+            bool skip = false;
+            for(Node* i : ClosedList)
+                if (neighbor == i)
+                {
+                    skip = true;
+                    break;
+                }
+            //skips if neighbor is in a collidor
+            for (int index = 0; index < currentScene->rects.size(); index++)
+            {
+                if (currentScene->rects[index]->isCollider)
+                {
+                    if (currentScene->rects[index]->CheckCollision(neighbor->pos))
+                    {
+                        skip = true;
                     }
                 }
             }
 
-            if (nodeValues[BoxArray[i].y][BoxArray[i].x].y != -1 || nodeValues[BoxArray[i].y][BoxArray[i].x].x != -1)
+            if (skip)
+                continue;
+
+            neighbor->gCost = neighbor->pos.FindDistance(position) * 10;
+            neighbor->hCost = neighbor->pos.FindDistance(targetPos) * 10;
+
+            // if new path to neighbor is shorter or neighbor is not in Open
+            bool isInOpen = false;
+            for (Node* i : OpenList)
             {
-
-                float distanceToTarget = sqrt(pow((BoxArray[i].y - targetPos.y), 2) + pow((BoxArray[i].x - targetPos.x), 2));
-
-                DevLog::LOGLN("DistanceToTarget: " + std::to_string(distanceToTarget), "MainLog");
-
-                nodeValues[BoxArray[i].y][BoxArray[i].x].y = distanceToTarget;
-
-
-                float distanceToEnemy = sqrt(pow((BoxArray[i].x - position.x), 2) + pow((BoxArray[i].x - position.x), 2)); //here
-                DevLog::LOGLN("DistanceToEnemy: " + std::to_string(distanceToEnemy), "MainLog");
-
-                nodeValues[BoxArray[i].y][BoxArray[i].x].x = distanceToEnemy;
+                if (neighbor == i)
+                    isInOpen = true;
             }
-        }
-
-    }
-    int highestF = currentScene->sizeY * currentScene->sizeX;
-	int lowestF = highestF;
-	for (int i = 0; i < 8; i++){
-        if (currentScene->CheckBounds(BoxArray[i]))
-        {
-            if (nodeValues[BoxArray[i].y][BoxArray[i].x].x > 0 && nodeValues[BoxArray[i].y][BoxArray[i].x].y > 0) {
-                int f = BoxArray[i].x + BoxArray[i].y;
-                DevLog::LOGLN(std::to_string(f),"MainLog");
-                if (f < lowestF) {
-                    lowestF = f;
-                    BestPath = { BoxArray[i].x, BoxArray[i].y };
-                }
+            if (neighbor->gCost < currentNode->gCost || !isInOpen)
+            {
+                neighbor->CalcFCost();
+                neighbor->parentNode = currentNode;
+                if (!isInOpen)
+                    OpenList.push_back(neighbor);
             }
-        }
-    }
-	//DevLog::LOGLN("BPX: " + std::to_string(BestPath.x), "MainLog");
- //   DevLog::LOGLN("BPY: " + std::to_string(BestPath.y),"MainLog");
-	//DevLog::LOGLN("TPX: " + std::to_string(targetPos.x), "MainLog");
-	//DevLog::LOGLN("TPY: " + std::to_string(targetPos.y), "MainLog");
-    if(BestPath.x == targetPos.x && BestPath.y < targetPos.y)// UP
-    {
-        this->direction = UP;
-        this->MoveForward(*currentScene);
-    }else if (BestPath.x == targetPos.x && BestPath.y > targetPos.y) //Down
-    {
-		this->direction = DOWN;
-		this->MoveForward(*currentScene);
-    } 
-	else if (BestPath.x < targetPos.x && BestPath.y == targetPos.y) // Left
-    {
-        this->direction = LEFT;
-		this->MoveForward(*currentScene);
-    }else if (BestPath.x > targetPos.x && BestPath.y == targetPos.y) //Right
-    {
-		this->direction = RIGHT;
-		this->MoveForward(*currentScene);
-    }else if (BestPath.x < targetPos.x && BestPath.y < targetPos.y) //Top Left
-    {
-		this->direction = UP;
-		this->MoveForward(*currentScene);
-        this->direction = LEFT;
-		this->MoveForward(*currentScene);
 
-    }else if (BestPath.x > targetPos.x && BestPath.y < targetPos.y) // Top Right
-    {
-        this->direction = UP;
-		this->MoveForward(*currentScene);
-        this->direction = RIGHT;
-		this->MoveForward(*currentScene);
-    }else if (BestPath.x < targetPos.x && BestPath.y > targetPos.y) // Bottom Left
-    {
-		this->direction = DOWN;
-		this->MoveForward(*currentScene);
-		this->direction = LEFT;
-		this->MoveForward(*currentScene);
-    }else if (BestPath.x > targetPos.x && BestPath.y > targetPos.y) // Bottom Right
-    {
-        this->direction = DOWN;
-		this->MoveForward(*currentScene);
-        this->direction = RIGHT;
-		this->MoveForward(*currentScene);
+        }
+            
     }
+
+
+
+    // // Old stuffs
+
+ //   //DevLog::LOGLN(std::to_string(ArrayOfBestPath[0][1].x),"MainLog");
+
+ //   Coords targetPos = ChaseActor.position;
+
+ //   // this->position;
+
+ //   // get all eight boxes around chasingActor
+ //   // calculate g and h value
+
+ //   // g = Distance from starting node to chasing actor
+ //   // h = Distance from starting node to target
+ //   // f = g + h
+ //   // in Coords, (g,h)
+ //   // ArrayOfBestPath is the array of lowest f cost
+
+ //   Coords BoxArray[8];
+ //   Coords BestPath;
+ //   
+ //   // Array of nodes
+ //   BoxArray[0] = targetPos.Add(-1, -1); // Top Left
+ //   BoxArray[1] = targetPos.Add(0, -1); // Top Middle
+ //   BoxArray[2] = targetPos.Add(1, -1); // Top Right
+ //   BoxArray[3] = targetPos.Add(-1, 0); // Left
+ //   BoxArray[4] = targetPos.Add(1, 0); // Right
+ //   BoxArray[5] = targetPos.Add(-1, 1); // Bottom Left
+ //   BoxArray[6] = targetPos.Add(0, 1); //Bottom Middle
+ //   BoxArray[7] = targetPos.Add(1, 1); //Bottom Right
+
+ //   for (int i = 0; i < 8; i++)
+ //   {
+ //       if (currentScene->CheckBounds(BoxArray[i]))
+ //       {
+ //       
+ //           if (currentScene->rects.size() > 0)
+ //           {
+ //               for (int index = 0; index < currentScene->rects.size(); index++)
+ //               {
+ //                   if (currentScene->rects[index]->isCollider)
+ //                   {
+ //                       if (currentScene->rects[index]->CheckCollision(BoxArray[i]))
+ //                       {
+ //                           nodeValues[BoxArray[i].y][BoxArray[i].x].x = -1;
+ //                           nodeValues[BoxArray[i].y][BoxArray[i].x].y = -1;
+ //                       }
+
+ //                   }
+ //               }
+ //           }
+
+ //           if (nodeValues[BoxArray[i].y][BoxArray[i].x].y != -1 || nodeValues[BoxArray[i].y][BoxArray[i].x].x != -1)
+ //           {
+
+ //               float distanceToTarget = sqrt(pow((BoxArray[i].y - targetPos.y), 2) + pow((BoxArray[i].x - targetPos.x), 2));
+
+ //               DevLog::LOGLN("DistanceToTarget: " + std::to_string(distanceToTarget), "MainLog");
+
+ //               nodeValues[BoxArray[i].y][BoxArray[i].x].y = distanceToTarget;
+
+
+ //               float distanceToEnemy = sqrt(pow((BoxArray[i].x - position.x), 2) + pow((BoxArray[i].x - position.x), 2)); //here
+ //               DevLog::LOGLN("DistanceToEnemy: " + std::to_string(distanceToEnemy), "MainLog");
+
+ //               nodeValues[BoxArray[i].y][BoxArray[i].x].x = distanceToEnemy;
+ //           }
+ //       }
+
+ //   }
+ //   int highestF = currentScene->sizeY * currentScene->sizeX;
+	//int lowestF = highestF;
+	//for (int i = 0; i < 8; i++){
+ //       if (currentScene->CheckBounds(BoxArray[i]))
+ //       {
+ //           if (nodeValues[BoxArray[i].y][BoxArray[i].x].x > 0 && nodeValues[BoxArray[i].y][BoxArray[i].x].y > 0) {
+ //               int f = BoxArray[i].x + BoxArray[i].y;
+ //               DevLog::LOGLN(std::to_string(f),"MainLog");
+ //               if (f < lowestF) {
+ //                   lowestF = f;
+ //                   BestPath = { BoxArray[i].x, BoxArray[i].y };
+ //               }
+ //           }
+ //       }
+ //   }
+	////DevLog::LOGLN("BPX: " + std::to_string(BestPath.x), "MainLog");
+ ////   DevLog::LOGLN("BPY: " + std::to_string(BestPath.y),"MainLog");
+	////DevLog::LOGLN("TPX: " + std::to_string(targetPos.x), "MainLog");
+	////DevLog::LOGLN("TPY: " + std::to_string(targetPos.y), "MainLog");
+ //   if(BestPath.x == targetPos.x && BestPath.y < targetPos.y)// UP
+ //   {
+ //       this->direction = UP;
+ //       this->MoveForward(*currentScene);
+ //   }else if (BestPath.x == targetPos.x && BestPath.y > targetPos.y) //Down
+ //   {
+	//	this->direction = DOWN;
+	//	this->MoveForward(*currentScene);
+ //   } 
+	//else if (BestPath.x < targetPos.x && BestPath.y == targetPos.y) // Left
+ //   {
+ //       this->direction = LEFT;
+	//	this->MoveForward(*currentScene);
+ //   }else if (BestPath.x > targetPos.x && BestPath.y == targetPos.y) //Right
+ //   {
+	//	this->direction = RIGHT;
+	//	this->MoveForward(*currentScene);
+ //   }else if (BestPath.x < targetPos.x && BestPath.y < targetPos.y) //Top Left
+ //   {
+	//	this->direction = UP;
+	//	this->MoveForward(*currentScene);
+ //       this->direction = LEFT;
+	//	this->MoveForward(*currentScene);
+
+ //   }else if (BestPath.x > targetPos.x && BestPath.y < targetPos.y) // Top Right
+ //   {
+ //       this->direction = UP;
+	//	this->MoveForward(*currentScene);
+ //       this->direction = RIGHT;
+	//	this->MoveForward(*currentScene);
+ //   }else if (BestPath.x < targetPos.x && BestPath.y > targetPos.y) // Bottom Left
+ //   {
+	//	this->direction = DOWN;
+	//	this->MoveForward(*currentScene);
+	//	this->direction = LEFT;
+	//	this->MoveForward(*currentScene);
+ //   }else if (BestPath.x > targetPos.x && BestPath.y > targetPos.y) // Bottom Right
+ //   {
+ //       this->direction = DOWN;
+	//	this->MoveForward(*currentScene);
+ //       this->direction = RIGHT;
+	//	this->MoveForward(*currentScene);
+ //   }
     
     
 

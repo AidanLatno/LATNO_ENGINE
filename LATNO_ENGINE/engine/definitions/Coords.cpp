@@ -123,6 +123,11 @@ void Coords::Rotate(int TurnAmount = 1,int h = 0,int k = 0,int Angle = 90)
 	}
 }
 
+double Coords::FindDistance(Coords a)
+{
+	return sqrt(pow(abs(y - a.y), 2) + pow(abs(x - a.x), 2));
+}
+
 
 int Coords::dSin(int theta)
 {

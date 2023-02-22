@@ -34,6 +34,8 @@ void Application::Startup()
 	Scene level(20, 20);
 	Button button(1, 1, ToChar("purple"), "BUTTON");
 	Player player(16, 16,ToChar("blue"), "Player");
+	Rect Wall(6, 9, 15, 12, ToChar("yellow"), "WALL");
+	Rect Wall2(13, 5, 15, 12, ToChar("yellow"), "WALL2");
 
 	Enemy enemy(3, 3, ToChar("red"), "Enemy");
 
@@ -43,7 +45,11 @@ void Application::Startup()
 	level.AddActor(player);
 	level.AddActor(button);
 	level.AddActor(enemy);
+	level.AddRect(Wall);
+	level.AddRect(Wall2);
 
+	wall2Ptr = &Wall2;
+	wallPtr = &Wall;
 	enemyPtr = &enemy;
 	buttonPtr = &button;
 	levelPtr = &level;
@@ -53,6 +59,13 @@ void Application::Startup()
 	player.currentScene = levelPtr;
 	Load();
 }
+
+/*
+f = .2
+1 = .2
+20
+
+*/
 
 void Application::Run()
 {
@@ -65,6 +78,7 @@ void Application::Run()
 		levelPtr->Update();
 		levelPtr->Render();
 
+		std::cout << 1/prevDeltaTime << '\n';
 
 		enemyPtr->Chase(*levelPtr, *playerPtr);
 

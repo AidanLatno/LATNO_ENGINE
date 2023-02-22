@@ -170,6 +170,9 @@
     <ClInclude Include="UserClasses\declarations\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="engine\declarations\Node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="SAVEDATA.txt" />
