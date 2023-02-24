@@ -36,7 +36,7 @@ namespace Latno_Entities
             }
         }
         else
-            usleep(100000 * 1);
+            usleep(100000 * 1.5);
     }
 
     // MEANT TO BE OVERRIDDEN

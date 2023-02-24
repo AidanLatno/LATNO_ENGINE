@@ -5,4 +5,4 @@ Button Start Has been ran!
 Player Start Has been ran!
 App Load Finished
 END POINT FOUND
-Log above repeated 59 times
+Log above repeated 82 times
