@@ -62,7 +62,10 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
                     if (nodeTrace->parentNode != startingNode)
                     {
                         currentScene->AddDynamicActor(Actor(nodeTrace->pos, 'p', "path"));
+                       DevLog::LOGLN(std::to_string(nodeTrace->pos.x) + ", " + std::to_string(nodeTrace->pos.y) + ")", "AppLog");
+
                         nodeTrace = nodeTrace->parentNode;
+                       // DevLog::LOGLN(std::to_string(nodeTrace->pos.x) + ", " + std::to_string(nodeTrace->pos.y) + ")", "AppLog");
                     }
                     else
                     {
