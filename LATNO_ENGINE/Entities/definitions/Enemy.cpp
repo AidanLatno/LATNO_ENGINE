@@ -20,14 +20,14 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
 
     while (true)
     {
-        /*for (Node* i : OpenList)
+        for (Node* i : OpenList)
         {
             currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, ToChar("green"), "ASD"));
         }
         for (Node* i : ClosedList)
         {
             currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, ToChar("red"), "ASD"));
-        }*/
+        }
 
         Node* currentNode = startingNode;
         // Set CurrentNode to node in open list with lowest FCost
@@ -59,8 +59,11 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
             while (true)
             {
                 if (nodeTrace->parentNode != nullptr)
-                    if(nodeTrace->parentNode != startingNode)
+                    if (nodeTrace->parentNode != startingNode)
+                    {
+                        currentScene->AddDynamicActor(Actor(nodeTrace->pos, 'p', "path"));
                         nodeTrace = nodeTrace->parentNode;
+                    }
                     else
                     {
                         position = nodeTrace->pos;

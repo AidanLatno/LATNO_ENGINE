@@ -4,5 +4,43 @@ New component made with ID of 2
 Button Start Has been ran!
 Player Start Has been ran!
 App Load Finished
+New component made with ID of 3
 END POINT FOUND
-Log above repeated 82 times
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+END POINT FOUND
+New component made with ID of 3
+Log above repeated 6785 times
