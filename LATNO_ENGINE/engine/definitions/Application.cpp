@@ -60,13 +60,6 @@ void Application::Startup()
 	Load();
 }
 
-/*
-f = .2
-1 = .2
-20
-
-*/
-
 void Application::Run()
 {
 	DevLog AppLog("AppLog");

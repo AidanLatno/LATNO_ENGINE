@@ -104,3 +104,12 @@ inline char ToChar(std::string Color)
     else if (Color == "void" || Color == "black") return 'v';
     return '.';
 }
+
+inline char GetInput()
+{
+    if (_kbhit())
+    {
+        return _getch();
+    }
+    return NULL;
+}

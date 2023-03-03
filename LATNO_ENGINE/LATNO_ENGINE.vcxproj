@@ -136,6 +136,7 @@
     <ClCompile Include="engine\definitions\DeveloperLog.cpp" />
     <ClCompile Include="engine\definitions\LOS.cpp" />
     <ClCompile Include="engine\definitions\Menu.cpp" />
+    <ClCompile Include="engine\definitions\PhysicsController.cpp" />
     <ClCompile Include="engine\definitions\Scene.cpp" />
     <ClCompile Include="Entities\definitions\Actor.cpp" />
     <ClCompile Include="Entities\definitions\AdvancedActor.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="engine\declarations\Engine.h" />
     <ClInclude Include="engine\declarations\LOS.h" />
     <ClInclude Include="engine\declarations\Menu.h" />
+    <ClInclude Include="engine\declarations\PhysicsController.h" />
     <ClInclude Include="engine\declarations\Route.h" />
     <ClInclude Include="engine\declarations\SaveSystem.h" />
     <ClInclude Include="engine\declarations\Scene.h" />

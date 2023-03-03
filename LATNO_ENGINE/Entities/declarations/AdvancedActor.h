@@ -1,5 +1,5 @@
 #pragma once
-#include "../../engine/declarations/Scene.h"
+#include "../../engine/declarations/PhysicsController.h"
 
 namespace Latno_Entities {
 	class AdvancedActor: public Actor
