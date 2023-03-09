@@ -20,6 +20,8 @@ public:
 	DevLog(std::string _name, std::string _fileType = "txt");
 	void LOG(std::string message);
 	void LOGLN(std::string message);
+
+	// vv Static Logging vv
 	static inline void LOG(std::string message, std::string file)
 	{
 		if (StaticLogs.size() >= 1 && StaticLogs[StaticLogs.size() - 1] == message)
@@ -28,7 +30,7 @@ public:
 			RepititionCounter = 0;
 
 		std::ofstream Constructor(file + ".txt");
-		std::fstream StaticLogFile;
+		std::fstream StaticLogFile(file + ".txt");
 		StaticLogFile.open(file + ".txt");
 		if (RepititionCounter == 0)
 			StaticLogs.push_back(message);
@@ -48,7 +50,7 @@ public:
 			RepititionCounter = 0;
 
 		std::ofstream Constructor(file + ".txt");
-		std::fstream StaticLogFile;
+		std::fstream StaticLogFile(file + ".txt");
 		StaticLogFile.open(file + ".txt");
 		if (RepititionCounter == 0)
 			StaticLogs.push_back(message + '\n');
@@ -62,3 +64,4 @@ public:
 
 	}
 };
+

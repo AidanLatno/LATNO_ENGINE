@@ -74,6 +74,7 @@ void Application::Run()
 		std::cout << 1/prevDeltaTime << '\n';
 
 		enemyPtr->Chase(*levelPtr, *playerPtr);
+		DevLog::LOGLN("HELLO WORLD", "MainLog");
 
 		if (!Tick(prevDeltaTime))
 			return;

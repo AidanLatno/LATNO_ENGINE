@@ -1,5 +1,10 @@
 #pragma once
 
+
+// DO NOT REMOVE
+// ENABLES STATIC LINKING WITH GLEW LIBRARY
+#define GLEW_STATIC
+
 #ifdef _WIN32
 #include <conio.h>
 #include <windows.h>
