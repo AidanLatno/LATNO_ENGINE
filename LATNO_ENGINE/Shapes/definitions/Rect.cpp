@@ -41,6 +41,12 @@ bool Rect::CheckCollision(Coords point) const
 	return false;
 }
 
+
+bool Rect::CheckOverlap(Rect rect) const
+{
+
+}
+
 void Rect::SwapCheck()
 {
 	if (corner1.x > corner2.x || corner1.y > corner2.y)

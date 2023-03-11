@@ -17,6 +17,7 @@ public:
 
 	bool CheckCollision(Latno_Entities::Actor actor) const;
 	bool CheckCollision(Coords point) const;
+	bool CheckOverlap(Rect rect) const;
 	void SwapCheck();
 	int GetCenterX();
 	int GetCenterY();
