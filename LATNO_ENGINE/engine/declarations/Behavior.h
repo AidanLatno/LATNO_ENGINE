@@ -19,12 +19,12 @@ namespace Latno
             virtual void Start()
             {
                 if (doesLogOnNonOverload)
-                    DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog");
+                    DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "EngineLog");
             }
             virtual void Update(double deltaTime)
             {
                 if (doesLogOnNonOverload)
-                    DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "MainLog");
+                    DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "EngineLog");
             }
     };
 

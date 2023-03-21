@@ -191,9 +191,8 @@
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="AppLog.txt" />
-    <Text Include="MainLog.txt" />
-    <Text Include="SAVEDATA.txt" />
+    <Text Include="Logs\AppLog.txt" />
+    <Text Include="Logs\NewLog.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
