@@ -19,6 +19,7 @@ public:
 	std::fstream LogFile;
 	int RepititionCounter = 0;
 
+
 	DevLog(std::string _name, std::string _fileType = "txt");
 	void LOG(std::string message);
 	void LOGLN(std::string message);
