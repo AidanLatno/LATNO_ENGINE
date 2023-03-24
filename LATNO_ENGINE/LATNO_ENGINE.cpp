@@ -7,6 +7,54 @@
 #include <glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+
+
+void processInput(GLFWwindow* window);
+
+struct ShaderProgramSource
+{
+	std::string VertexSource;
+	std::string FragmentSource;
+};
+
+static ShaderProgramSource ParseShader(const std::string& filepath)
+{
+	std::ifstream stream(filepath);
+
+	enum class ShaderType
+	{
+		NONE = -1,
+		VERTEX = 0,
+		FRAGMENT = 1
+	};
+
+
+	std::string line;
+	std::stringstream ss[2];
+	ShaderType type = ShaderType::NONE;
+	while (getline(stream, line))
+	{
+		if (line.find("#shader") != std::string::npos)
+		{
+			if (line.find("vertex") != std::string::npos)
+			{
+				type = ShaderType::VERTEX;
+			}
+			else if (line.find("fragment") != std::string::npos)
+			{
+				type = ShaderType::FRAGMENT;
+			}
+		}
+		else
+		{
+			ss[(int)type] << line << '\n';
+		}
+	}
+	return { ss[0].str(),ss[1].str() };
+}
 
 // vvv AIDANS CODE FOR OPEN GL SHADERS vvv
 static unsigned int CompileShader(unsigned int type, const std::string& source)
@@ -26,7 +74,7 @@ static unsigned int CompileShader(unsigned int type, const std::string& source)
 
 		// allocate memory on stack dynamically
 		char* message = (char*)alloca(length * sizeof(char));
-
+		// char message[length]; <--- equivalent to
 		glGetShaderInfoLog(id, length, &length, message);
 		std::cout << "Failed to compile" << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!" << std::endl;
 		std::cout << message << std::endl;
@@ -93,31 +141,14 @@ int main()
 	unsigned int buffer;
 	glGenBuffers(1, &buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions,GL_DYNAMIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions,GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
-	std::string vertexShader =
-		"#version 330 core\n"
-		"\n"
-		"layout(location = 0) in vec4 position;\n"
-		"\n"
-		"void main()\n"
-		"{\n"
-		"	gl_Position = position;\n"
-		"}\n";
-	std::string fragmentShader =
-		"#version 330 core\n"
-		"\n"
-		"layout(location = 0) out vec4 color;\n"
-		"\n"
-		"void main()\n"
-		"{\n"
-		"	color = vec4(1.0,0.0,0.0,1.0);\n"
-		"}\n";
+	ShaderProgramSource shaderSource = ParseShader("resources/shaders/Basic.shader");
 
-	unsigned int shader = CreateShader(vertexShader,fragmentShader);
+	unsigned int shader = CreateShader(shaderSource.VertexSource, shaderSource.FragmentSource);
 	glUseProgram(shader);
 
 	while (!glfwWindowShouldClose(window))
@@ -131,6 +162,7 @@ int main()
 		glfwSwapBuffers(window);
 
 		glfwPollEvents();
+		processInput(window);
 	}
 	glDeleteProgram(shader);
 	glfwTerminate();
@@ -156,63 +188,64 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 void processInput(GLFWwindow* window) {
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+		std::cout << "SPACE PRESSED" << std::endl;
+
 }
 
 //int main()
 //{
-	//glfwInit();
-	//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-
-	//float vertices[] = {
-	//	-0.5f, -0.5f, 0.0f,
-	//	0.5f, -0.5f, 0.0f,
-	//	0.0f, 0.5f, 0.0f
-	//};
-
-	//unsigned int VBO;
-	//glGenBuffers(1, &VBO);
-	//glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-
-	//GLFWwindow* window = glfwCreateWindow(800, 600, "learnopengl", NULL, NULL);
-	//if (window == NULL)
-	//{
-	//	std::cout << "failed to create glfw window" << std::endl;
-	//	glfwTerminate();
-	//	return -1;
-	//}
-
-	//glfwMakeContextCurrent(window);
-	//glViewport(0, 0, 800, 600);
-	//glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-
-	//if (glewInit() != GLEW_OK)
-	//	std::cout << "ERROR!" << std::endl;
-
-	//while (!glfwWindowShouldClose(window))
-	//{
-	//	processInput(window);
-	//	
-	//	render(window);
-
-	//	glfwSwapBuffers(window);
-	//	glfwPollEvents();
-	//	
-
-	//}
-
-	//glfwTerminate();
-	//	
-	//return 0;
+//	glfwInit();
+//	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+//	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+//	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//
+//
+//	float vertices[] = {
+//		-0.5f, -0.5f, 0.0f,
+//		0.5f, -0.5f, 0.0f,
+//		0.0f, 0.5f, 0.0f
+//	};
+//
+//	unsigned int VBO;
+//	glGenBuffers(1, &VBO);
+//	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+//
+//
+//	GLFWwindow* window = glfwCreateWindow(800, 600, "learnopengl", NULL, NULL);
+//	if (window == NULL)
+//	{
+//		std::cout << "failed to create glfw window" << std::endl;
+//		glfwTerminate();
+//		return -1;
+//	}
+//
+//	glfwMakeContextCurrent(window);
+//	glViewport(0, 0, 800, 600);
+//	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+//
+//	if (glewInit() != GLEW_OK)
+//		std::cout << "ERROR!" << std::endl;
+//
+//	while (!glfwWindowShouldClose(window))
+//	{
+//		processInput(window);
+//		
+//		render(window);
+//
+//		glfwSwapBuffers(window);
+//		glfwPollEvents();
+//		
+//
+//	}
+//
+//	glfwTerminate();
+//		
+//	return 0;
 //}
-
-
+//
+//
 //#define GLFW_DLL
 //#include <stdio.h>
 //
