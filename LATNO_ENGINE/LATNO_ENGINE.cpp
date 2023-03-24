@@ -3,19 +3,17 @@
 #include "engine/declarations/Application.h"
 #include "exceptions/declarations/RuntimeException.h"
 
-#include <glew.h>
-#include <GLFW/glfw3.h>
-
-
 
 int main(void) {
 
-	GLFWwindow* window;
+	
 
 	/* Initialize the library */
 	if (!glfwInit())
 		return -1;
-
+	
+	
+	GLFWwindow* window;
 	/* Create a windowed mode window and its OpenGL context */
 	window = glfwCreateWindow(640, 480, "WINDOW TITLE DEEP FRFR", NULL, NULL);
 	if (!window)

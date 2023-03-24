@@ -156,6 +156,7 @@
     <ClCompile Include="Shapes\definitions\Circle.cpp" />
     <ClCompile Include="Shapes\definitions\Rect.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
+    <ClCompile Include="engine\definitions\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation\declarations\Animation.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="UserClasses\declarations\Button.h" />
     <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
+    <ClInclude Include="engine\declarations\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="AppLog.txt" />
