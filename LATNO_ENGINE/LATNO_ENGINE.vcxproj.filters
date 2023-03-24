@@ -84,6 +84,9 @@
     <ClCompile Include="engine\definitions\PhysicsController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\definitions\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shapes\declarations\Circle.h">
@@ -177,6 +180,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\PhysicsController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

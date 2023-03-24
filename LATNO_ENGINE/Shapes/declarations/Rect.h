@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Entities/declarations/Actor.h"
+#include "../../Engine/declarations/Window.h"
 #include <string>
 
 class Rect
