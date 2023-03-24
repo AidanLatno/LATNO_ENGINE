@@ -17,7 +17,7 @@ void Application::BehaviorLoad()
 void Application::Load()
 {
 	BehaviorLoad();
-	DevLog::LOGLN("App Load Finished", "MainLog");
+	DevLog::LOGLN("App Load Finished", "EngineLog");
 	Run();
 
 }
@@ -29,6 +29,7 @@ bool Application::Tick(double deltaTime)
 
 void Application::Startup()
 {
+	DevLog::CLEAR("EngineLog");
 	srand(time(NULL));
 
 	Scene level(20, 20);
@@ -57,6 +58,7 @@ void Application::Startup()
 
 	button.currentScene = levelPtr;
 	player.currentScene = levelPtr;
+
 	Load();
 }
 

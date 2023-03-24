@@ -187,8 +187,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="SAVEDATA.txt" />
-    <Text Include="MainLog.txt" />
-    <Text Include="AppLog.txt" />
+    <Text Include="Logs\AppLog.txt" />
+    <Text Include="Logs\NewLog.txt" />
   </ItemGroup>
 </Project>

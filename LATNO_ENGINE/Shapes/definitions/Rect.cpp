@@ -44,7 +44,7 @@ bool Rect::CheckCollision(Coords point) const
 
 bool Rect::CheckOverlap(Rect rect) const
 {
-
+	return false;
 }
 
 void Rect::SwapCheck()

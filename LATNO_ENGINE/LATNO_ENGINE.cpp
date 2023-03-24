@@ -5,6 +5,10 @@
 
 
 int main(void) {
+	DevLog MyLog("NewLog");
+
+	for(int i = 0; i < 100; i++)
+		MyLog.LOGLN("Your mother");
 
 	
 
