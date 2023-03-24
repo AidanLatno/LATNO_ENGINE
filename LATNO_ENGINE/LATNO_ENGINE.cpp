@@ -1,191 +1,182 @@
 // LATNO_ENGINE.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#include "engine/declarations/Application.h"
-#include "exceptions/declarations/RuntimeException.h"
+
+#ifdef GLEW_STATIC
+#  define GLEWAPI extern
+#else
+#  ifdef GLEW_BUILD
+#    define GLEWAPI extern __declspec(dllexport)
+#  else
+#    define GLEWAPI extern __declspec(dllimport)
+#  endif
+#endif
 
 
-int main(void) {
-	DevLog MyLog("NewLog");
+#include <glew.h>
+#include <GLFW/glfw3.h>
+#include <iostream>
 
-	for(int i = 0; i < 100; i++)
-		MyLog.LOGLN("Your mother");
+void render(GLFWwindow* window) {
 
-	
+}
 
-	/* Initialize the library */
-	if (!glfwInit())
-		return -1;
-	
-	
-	GLFWwindow* window;
-	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(640, 480, "WINDOW TITLE DEEP FRFR", NULL, NULL);
-	if (!window)
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
+
+void processInput (GLFWwindow *window){
+	if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
+}
+
+int main() {
+	glfwInit();
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+
+	float vertices[] = {
+		-0.5f, -0.5f, 0.0f,
+		0.5f, -0.5f, 0.0f,
+		0.0f, 0.5f, 0.0f
+	};
+
+	unsigned int VBO;
+	glGenBuffers(1, &VBO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+
+
+
+
+
+	GLFWwindow* window = glfwCreateWindow(800, 600, "learnopengl", NULL, NULL);
+	if (window == NULL)
 	{
+		std::cout << "failed to create glfw window" << std::endl;
 		glfwTerminate();
 		return -1;
 	}
 
-	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
+	glViewport(0, 0, 800, 600);
+	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{
-		/* Render here */
-		glClear(GL_COLOR_BUFFER_BIT);
+		processInput(window);
+		
+		render(window);
 
-		glBegin(GL_TRIANGLES);
-		glVertex2f(-0.5f, -0.5f);
-		glVertex2f(-0.2f, 0.5f);
-		glVertex2f(0.5f, -0.7f);
-		glEnd();
-
-		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
-
-		/* Poll for and process events */
 		glfwPollEvents();
+		
+
 	}
 
 	glfwTerminate();
+		
 	return 0;
-
-	/*Application* app = new Application();
-
-	app->Startup();
-
-	delete app;*/
-
-    /*
-     bool running = true;
-     while(running) 
-     {
-         try 
-         {
-             //tick
-             running = false;
-         }
-         catch (runtimeexception e) 
-         {
-             running = false;
-             //print error 
-         }
-     }
-    */
-
-	/*
-	srand(time(NULL));
-	bool GameRunning = true;
-	std::string MenuElements[3] = { "Continue","Settings","Quit" };
-	 Menu MainMenu(3,MenuElements);
-
-	Actor Button(12, 12, ToChar("purple"), "BUTTON");
-	Rect Turny1(10, 8, 12, 8, ToChar("yellow"), "TURNY1");
-	Patroller Cop(8, 5, ToChar("green"), "COP");
-	Scene Level(16, 16);
-
-	Cop.Construct(4, 2, 2, 2, 3);
-
-	 Player.MainMenu = &MainMenu;
-	Player Player(7, 7, 'p', "PLAYER");
-	Enemy Enemy1(0, 0, 'e', "ENEMY");
-	Rect Wall(3, 4, 6, 10, 'g', "WALL1");
-	Level.AddActor(Player);
-	Level.AddActor(Enemy1);
-	Level.AddRect(Turny1);
-	 Level.AddActor(Turny2);
-	Level.AddRect(Wall);
-	Level.AddActor(Button);
-	Level.AddActor(Cop);
-	Enemy1.moveChance[0] = 3;
-	Cop.moveChance[0] = 3;
-	 Level.DevMode = true;
-
-	Timer StopWatch;
-	double Total = 0;
-	int Ticks = 1;
-	double Highest = 0, Lowest = 1;
-
-	DevLog MainLog("MainLog", "txt");
-
-	while (GameRunning)
-	{
-		Level.Update();
-		Level.Render();
-		 std::cout << Player.CountNearby(Level) << std::endl;
-		double temp = StopWatch.Lap();
-		std::cout << "DeltaTime: " << temp << '\n';
-		Total += temp;
-		std::cout << "Average Time: " << (Total / Ticks) << '\n';
-		if (Highest < temp)
-			Highest = temp;
-		if (Lowest > temp)
-			Lowest = temp;
-		std::cout << "Highest Time: " << Highest << '\n';
-		std::cout << "Lowest Time: " << Lowest << '\n';
-		std::cout << "Tick: " << Ticks << '\n';
-		std::cout << "FPS: " << 1 / temp << '\n';
-		std::cout << "Timer: " << StopWatch.GetTime() << '\n';
-		MainLog.LOGLN("Your Mother");
-
-
-		Player.Move(Level);
-		Ticks++;
-		Turny1.Rotate(1, Turny1.GetCenterX(), Turny1.GetCenterY());
-
-		 Adds player collision to every rect in level
-		 if(Level.RectCollision(Player))
-		 	Player.SendBack();
-
-		 Adds player collision to just one rect
-		if (Wall.CheckCollision(Player))
-			Player.SendBack();
-
-		Enemy1.TurnRandom(true, true, true, true);
-		if (Player.CheckCollision(Enemy1))
-			GameRunning = false;
-
-		if (Player.CheckCollision(Button))
-		{
-			Wall.corner1.x = Wall.corner1.x == 4 ? 3 : 4;
-			 SaveGame();
-		}
-
-		Cop.Move(Player, Level);
-		if (!Cop.Alert)
-			Cop.MoveFoward(Level);
-		if (Cop.position.y <= 2)
-			Cop.direction = DOWN;
-		else if (Cop.position.y >= 13)
-			Cop.direction = UP;
-
-		if (Level.RectCollision(Cop))
-			Cop.SendBack();
-
-		for (int Index = 0; Index < Level.dynamicActors.size(); Index++)
-		{
-			if (Level.RectCollision(Level.dynamicActors[Index]))
-				Level.DestroyDynamicActor(Index);
-		}
-
-
-	}
-	Level.Update();
-	Level.Render(true);
-	std::cout << "\033[31mYOU DIED";
-	*/
-	
 }
 
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+//#define GLFW_DLL
+//#include <stdio.h>
+//
+//#include "engine/declarations/Application.h"
+//#include "exceptions/declarations/RuntimeException.h"
+//
+//int main(void) {
+//	DevLog MyLog("NewLog");
+//
+//	for (int i = 0; i < 100; i++)
+//		MyLog.LOGLN("Your mother");
+//
+//
+//
+//	/* Initialize the library */
+//	if (!glfwInit())
+//		return -1;
+//
+//
+//	GLFWwindow* window;
+//	/* Create a windowed mode window and its OpenGL context */
+//	window = glfwCreateWindow(640, 480, "WINDOW TITLE DEEP FRFR", NULL, NULL);
+//
+//
+//	GLuint VertexArrayID;
+//	glGenVertexArrays(1, &VertexArrayID);
+//	glBindVertexArray(VertexArrayID);
+//
+//	static const GLfloat g_vertex_buffer_data[] = {
+//		   -1.0f, -1.0f, 0.0f,
+//		   1.0f, -1.0f, 0.0f,
+//		   0.0f,  1.0f, 0.0f,
+//	};
+//
+//	// This will identify our vertex buffer
+//	GLuint vertexbuffer;
+//	// Generate 1 buffer, put the resulting identifier in vertexbuffer
+//	glGenBuffers(1, &vertexbuffer);
+//	// The following commands will talk about our 'vertexbuffer' buffer
+//	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+//	// Give our vertices to OpenGL.
+//	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
+//
+//
+//	if (!window)
+//	{
+//		glfwTerminate();
+//		return -1;
+//	}
+//
+//	/* Make the window's context current */
+//	glfwMakeContextCurrent(window);
+//
+//	/* Loop until the user closes the window */
+//	while (!glfwWindowShouldClose(window))
+//	{
+//		///* Render here */
+//		//glClear(GL_COLOR_BUFFER_BIT);
+//
+//		//glBegin(GL_QUADS);
+//		//glVertex2f(-0.5f, -0.5f);
+//		//glVertex2f(-0.2f, 0.5f);
+//		//glVertex2f(0.5f, -0.7f);
+//		//glVertex2f(0.5f, -0.7f);
+//		//glEnd();
+//
+//		///* Swap front and back buffers */
+//		//glfwSwapBuffers(window);
+//
+//		///* Poll for and process events */
+//		//glfwPollEvents();
+//
+//		// 1st attribute buffer : vertices
+//		glEnableVertexAttribArray(0);
+//		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+//		glVertexAttribPointer(
+//		   0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+//		   3,                  // size
+//		   GL_FLOAT,           // type
+//		   GL_FALSE,           // normalized?
+//		   0,                  // stride
+//		   (void*)0            // array buffer offset
+//		);
+//		// Draw the triangle !
+//		glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
+//		glDisableVertexAttribArray(0);
+//	}
+//
+//	glfwTerminate();
+//	return 0;
+//
+//	/*Application* app = new Application();
+//
+//	app->Startup();
+//
+//	delete app;*/
+//}
