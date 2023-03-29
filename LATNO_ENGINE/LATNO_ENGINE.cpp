@@ -170,12 +170,10 @@ int main()
 
 	while (!glfwWindowShouldClose(window))
 	{
-		
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT,nullptr);
-		glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
+
 
 		
 
