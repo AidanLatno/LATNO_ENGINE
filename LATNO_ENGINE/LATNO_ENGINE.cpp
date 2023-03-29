@@ -14,12 +14,15 @@
 
 void processInput(GLFWwindow* window);
 
+// struct that contains vertex and fragment shader
 struct ShaderProgramSource
 {
 	std::string VertexSource;
 	std::string FragmentSource;
 };
 
+
+// Reads shader from file
 static ShaderProgramSource ParseShader(const std::string& filepath)
 {
 	std::ifstream stream(filepath);
@@ -57,6 +60,8 @@ static ShaderProgramSource ParseShader(const std::string& filepath)
 }
 
 // vvv AIDANS CODE FOR OPEN GL SHADERS vvv
+
+// Compile shaders in memory so openGL knows how to use them
 static unsigned int CompileShader(unsigned int type, const std::string& source)
 {
 	unsigned int id = glCreateShader(type);
@@ -67,7 +72,7 @@ static unsigned int CompileShader(unsigned int type, const std::string& source)
 
 	int result;
 	glGetShaderiv(id, GL_COMPILE_STATUS, &result);
-	if (result == GL_FALSE)
+	if (result == GL_FALSE) // if shader failed to compile
 	{
 		int length;
 		glGetShaderiv(id, GL_INFO_LOG_LENGTH,&length);
@@ -87,26 +92,23 @@ static unsigned int CompileShader(unsigned int type, const std::string& source)
 
 }
 
+// Creates instance of passed in shader in memory
 static unsigned int CreateShader(const std::string& vertexShader, const std::string& fragmentShader)
 {
 	unsigned int program = glCreateProgram();
-	unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
-	unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+	unsigned int vertex = CompileShader(GL_VERTEX_SHADER, vertexShader);
+	unsigned int fragment = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
 
-	glAttachShader(program, vs);
-	glAttachShader(program, fs);
+	glAttachShader(program, vertex);
+	glAttachShader(program, fragment);
 	glLinkProgram(program);
 	glValidateProgram(program);
 
-	glDeleteShader(vs);
-	glDeleteShader(fs);
+	glDeleteShader(vertex);
+	glDeleteShader(fragment);
 
 	return program;
 }
-
-
-
-
 
 //#include "engine/declarations/Application.h"
 
@@ -132,6 +134,7 @@ int main()
 
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
+	// Vertecies of triangles
 	float positions[] = {
 		-0.5f, -0.5f,
 		0.5f, -0.5f,
@@ -139,6 +142,7 @@ int main()
 		-0.5f, 0.5f
 	};
 
+	// index buff for connecting points
 	unsigned int indicies[] =
 	{
 		0,1,2,
@@ -158,16 +162,21 @@ int main()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indicies), indicies, GL_STATIC_DRAW);
 
+	// Create shader
 	ShaderProgramSource shaderSource = ParseShader("resources/shaders/Basic.shader");
-
 	unsigned int shader = CreateShader(shaderSource.VertexSource, shaderSource.FragmentSource);
 	glUseProgram(shader);
 
+
 	while (!glfwWindowShouldClose(window))
 	{
+		
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT,nullptr);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINES);
+
 		
 
 		// Swap front and back buffers
