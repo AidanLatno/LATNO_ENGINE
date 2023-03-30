@@ -120,6 +120,13 @@ int main()
 	if (!glfwInit())
 		return -1;
 
+	// vv Make GL Version core instead of compat vv
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	// ^^ Make GL Version core instead of compat ^^
+
+
 	window = glfwCreateWindow(640, 480, "Window Title", NULL, NULL);
 	if (!window)
 	{
@@ -128,6 +135,8 @@ int main()
 	}
 
 	glfwMakeContextCurrent(window);
+
+	glfwSwapInterval(1); // Syncs swap interval with vsync
 
 	if (glewInit() != GLEW_OK)
 		std::cout << "ERROR!" << std::endl;
@@ -149,6 +158,12 @@ int main()
 		2,3,0
 	};
 
+	// vv Create and bind new vao vv
+	unsigned int vao;
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+	// ^^ Create and bind new vao ^^
+
 	unsigned int buffer;
 	glGenBuffers(1, &buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer);
@@ -167,15 +182,48 @@ int main()
 	unsigned int shader = CreateShader(shaderSource.VertexSource, shaderSource.FragmentSource);
 	glUseProgram(shader);
 
+	// vv clear buffers vv
+	glBindVertexArray(0);
+	glUseProgram(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	// ^^ clear buffers ^^
 
+	int location = glGetUniformLocation(shader, "u_Color");
+	glUniform4f(location, 0.0f, 1.0f, 0.0f, 1.0f);
+
+
+	float Red = 0.0f;
+	float Green = 0.0f;
+	float Blue = 0.0f;
+	float increment = 0.05f;
+	int count = 0;
 	while (!glfwWindowShouldClose(window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		// vv Re bind buffers every frame vv
+		glUseProgram(shader);
+		glBindVertexArray(vao);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
+		// ^^ Re bind buffers every frame ^^
+
+		// vv Change colors vv
+		if (Red > 1.0f)
+			increment = -0.05f;
+		else if(Red < 0.0f)
+			increment = 0.05f;
+
+		count++;
+
+		Blue = abs(sin(count));
+		Green = abs(cos(count));
+		Red += increment;
+		glUniform4f(location, Red, 1.0f, Blue, 1.0f); // set unifrom in shader 
+		// ^^ Change colors ^^
+
+		//draw call
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT,nullptr);
-
-
-		
 
 		// Swap front and back buffers
 		glfwSwapBuffers(window);
