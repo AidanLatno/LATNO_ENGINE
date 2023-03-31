@@ -74,7 +74,7 @@ int main()
 
 	// Blending -- Ignore for now
 	GLCall(glEnable(GL_BLEND));
-	GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+	//GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 	
 
 	VertexArray va;
@@ -95,7 +95,7 @@ int main()
 	shader.Bind();
 	shader.SetUniform4f("u_Color", 0.0f, 0.0f, 1.0f, 1.0f);
 
-	Texture texture("resources/textures/images.png");
+	Texture texture("resources/textures/cherno.png");
 	texture.Bind();
 	shader.SetUniform1i("u_Texture", 0);
 
