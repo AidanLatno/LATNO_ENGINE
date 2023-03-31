@@ -135,6 +135,13 @@
   <ItemGroup>
     <ClCompile Include="Animation\definitions\Animation.cpp" />
     <ClCompile Include="Animation\definitions\Frame.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\IndexBuffer.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Renderer.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Shader.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Texture.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\VertexArray.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\VertexBuffer.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\VertexBufferLayout.cpp" />
     <ClCompile Include="engine\definitions\Application.cpp" />
     <ClCompile Include="engine\definitions\Behavior.cpp" />
     <ClCompile Include="engine\definitions\Component.cpp" />
@@ -157,6 +164,7 @@
     <ClCompile Include="Shapes\definitions\Rect.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
     <ClCompile Include="engine\definitions\Window.cpp" />
+    <ClCompile Include="vendor\stb_img\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation\declarations\Animation.h" />
@@ -171,6 +179,13 @@
     <ClInclude Include="engine\declarations\LOS.h" />
     <ClInclude Include="engine\declarations\Menu.h" />
     <ClInclude Include="engine\declarations\PhysicsController.h" />
+    <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h" />
+    <ClInclude Include="engine\declarations\Rendering\Renderer.h" />
+    <ClInclude Include="engine\declarations\Rendering\Shader.h" />
+    <ClInclude Include="engine\declarations\Rendering\Texture.h" />
+    <ClInclude Include="engine\declarations\Rendering\VertexArray.h" />
+    <ClInclude Include="engine\declarations\Rendering\VertexBuffer.h" />
+    <ClInclude Include="engine\declarations\Rendering\VertexBufferLayout.h" />
     <ClInclude Include="engine\declarations\Route.h" />
     <ClInclude Include="engine\declarations\SaveSystem.h" />
     <ClInclude Include="engine\declarations\Scene.h" />
@@ -191,13 +206,17 @@
     <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
     <ClInclude Include="engine\declarations\Window.h" />
+    <ClInclude Include="vendor\stb_img\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Logs\AppLog.txt" />
-    <Text Include="Logs\NewLog.txt" />
+    <Text Include="Logs\GL_ERROR_LOG.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\textures\cherno.png" />
+    <Image Include="resources\textures\images.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
