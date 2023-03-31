@@ -72,7 +72,7 @@ int main()
 		2,3,0
 	};
 
-	// Blending
+	// Blending -- Ignore for now
 	GLCall(glEnable(GL_BLEND));
 	GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 	
