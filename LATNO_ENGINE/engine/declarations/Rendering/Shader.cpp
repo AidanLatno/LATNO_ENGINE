@@ -69,6 +69,7 @@ unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
 	glGetShaderiv(id, GL_COMPILE_STATUS, &result);
 	if (result == GL_FALSE) // if shader failed to compile
 	{
+		std::stringstream stream;
 		int length;
 		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
 
@@ -76,8 +77,12 @@ unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
 		char* message = (char*)alloca(length * sizeof(char));
 		// char message[length]; <--- equivalent to
 		glGetShaderInfoLog(id, length, &length, message);
-		std::cout << "Failed to compile" << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!" << std::endl;
+		stream << "Failed to compile" << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!";
+		DevLog::LOGLN(stream.str(), "GL_ERROR_LOG");
+		DevLog(message, "GL_ERROR_LOG");
+		std::cout << stream.str() << '\n';
 		std::cout << message << std::endl;
+
 		glDeleteShader(id);
 		return 0;
 
@@ -141,7 +146,7 @@ int Shader::GetUniformLocation(const std::string& name)
 
 	GLCall(int location = glGetUniformLocation(m_RendererID, name.c_str()));
 	if (location == -1)
-		DevLog::LOGLN("Warning: uniform '" + name + "' doesn't exist!", "EngineLog");
+		DevLog::LOGLN("Warning: uniform '" + name + "' doesn't exist!", "GL_ERROR_LOG");
 	
 	m_UniformLocationCache[name] = location;
 	return location;

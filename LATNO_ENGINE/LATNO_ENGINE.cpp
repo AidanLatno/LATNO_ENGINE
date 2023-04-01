@@ -10,7 +10,6 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include "engine/declarations/DeveloperLog.h"
 
 #include "engine/declarations/Rendering/VertexArray.h"
 #include "engine/declarations/Rendering/IndexBuffer.h"
@@ -19,12 +18,10 @@
 #include "engine/declarations/Rendering/Texture.h"
 
 
-bool processInput(GLFWwindow* window);
+bool processInput(GLFWwindow* window, unsigned int key);
 
 
-// vvv AIDANS CODE FOR OPEN GL SHADERS vvv
-
-//#include "engine/declarations/Application.h"
+//#include "engine/declarations/Application.h" // commented out to make compilation faster
 
 int main()
 {
@@ -41,7 +38,7 @@ int main()
 	// ^^ Make GL Version core instead of compat ^^
 
 
-	window = glfwCreateWindow(640, 480, "Window Title", NULL, NULL);
+	window = glfwCreateWindow(1000, 1000, "Window Title", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -57,12 +54,44 @@ int main()
 
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
+	
+	// Create shader
+
+	Shader shader("resources/shaders/Basic.shader");
+	shader.Bind();
+	shader.SetUniform4f("u_Color", 0.0f, 0.0f, 1.0f, 1.0f);
+
+	Texture texture("resources/textures/cherno.png");
+	texture.Bind();
+	shader.SetUniform1i("u_Texture", 0);
+
+	//float w = texture.GetWidth() * scale;
+	//float h = texture.GetHeight() * scale;
+
+	//while (w >= 10)
+	//{
+	//	w /= 10;
+	//}
+	//while (h >= 10)
+	//{
+	//	h /= 10;
+	//}
+
+	//// Vertecies of triangles
+	//float positions[] = {
+	//	-w, -h, 0.0f, 0.0f, // 0 - bottom left
+	//	w, -h, 1.0f, 0.0f, // 1 - bottom right
+	//	w, h, 1.0f, 1.0f, // 2 - top right
+	//	-w, h, 0.0f, 1.0f // 3 - top left
+	//};
+
+
 	// Vertecies of triangles
 	float positions[] = {
-		-0.5f, -0.5f, 0.0f, 0.0f, // 0
-		0.5f, -0.5f, 1.0f, 1.0f, // 1
-		0.5f, 0.5f, 1.0f, 1.0f, // 2
-		-0.5f, 0.5f, 0.0f, 1.0f // 3
+		-1.0f, -1.0f, 0.0f, 0.0f, // 0 - bottom left
+		1.0f, -1.0f, 1.0f, 0.0f, // 1 - bottom right
+		1.0f, 1.0f, 1.0f, 1.0f, // 2 - top right
+		-1.0f, 1.0f, 0.0f, 1.0f // 3 - top left
 	};
 
 	// index buff for connecting points
@@ -74,7 +103,7 @@ int main()
 
 	// Blending -- Ignore for now
 	GLCall(glEnable(GL_BLEND));
-	//GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+	GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 	
 
 	VertexArray va;
@@ -86,19 +115,7 @@ int main()
 	layout.Push<float>(2);
 	va.AddBuffer(vb, layout);
 
-
 	IndexBuffer ib(indicies, 6);
-
-	// Create shader
-
-	Shader shader("resources/shaders/Basic.shader");
-	shader.Bind();
-	shader.SetUniform4f("u_Color", 0.0f, 0.0f, 1.0f, 1.0f);
-
-	Texture texture("resources/textures/cherno.png");
-	texture.Bind();
-	shader.SetUniform1i("u_Texture", 0);
-
 
 	// vv clear buffers vv
 	va.Unbind();
@@ -110,25 +127,26 @@ int main()
 	Renderer renderer;
 	
 
-
-
 	float Red = 0.0f;
 	float increment = 0.02f;
+
+
+	glClearColor(1.0f, 1.0f, 1.0, 1.0f); // Set background white
+
 	while (!glfwWindowShouldClose(window))
 	{
-		renderer.Clear();
+		renderer.Clear(); // clear renderer (glClear(GL_COLOR_BUFFER_BIT);)
 
-		// vv Re bind buffers every frame vv
-		shader.Bind();
-		shader.SetUniform4f("u_Color", Red, 0.0f, 1.0f, 1.0f); // set unifrom in shader 
+		
+		shader.Bind(); // Re bind shader every frame
+		shader.SetUniform4f("u_Color", Red, 0.0f, 1.0f, 1.0f); // set unifrom for color in shader 
 		// ^^ Re bind buffers every frame ^^
 
 		
 		//vv Change colors vv
 
-		if (processInput(window))
+		if (processInput(window,GLFW_KEY_SPACE))
 		{
-		 
 			if (Red > 1.0f)
 				increment = -0.02f;
 			else if(Red < 0.0f)
@@ -141,14 +159,12 @@ int main()
 		// ^^ Change colors ^^
 
 		//draw call
-		glClearColor(1.0f, 1.0f, 1.0, 1.0f);
 		renderer.Draw(va, ib, shader);
 
 		// Swap front and back buffers
 		glfwSwapBuffers(window);
 
-		glfwPollEvents();
-		processInput(window);
+		glfwPollEvents(); // idk man
 	}
 	glfwTerminate();
 	return 0;
@@ -173,8 +189,8 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-bool processInput(GLFWwindow* window) {
-	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+bool processInput(GLFWwindow* window,unsigned int key) {
+	if (glfwGetKey(window, key) == GLFW_PRESS)
 		return true;
-
+	return false;
 }
