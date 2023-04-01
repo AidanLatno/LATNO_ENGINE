@@ -17,6 +17,9 @@
 #include "engine/declarations/Rendering/Shader.h"
 #include "engine/declarations/Rendering/Texture.h"
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+
 
 bool processInput(GLFWwindow* window, unsigned int key);
 
@@ -24,7 +27,7 @@ bool processInput(GLFWwindow* window, unsigned int key);
 
 int main()
 {
-
+	// vvv INITIALIZATION vv
 	GLFWwindow* window;
 
 	if (!glfwInit())
@@ -37,7 +40,7 @@ int main()
 	// ^^ Make GL Version core instead of compat ^^
 
 
-	window = glfwCreateWindow(1000, 1000, "Window Title", NULL, NULL);
+	window = glfwCreateWindow(960, 540, "Window Title", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -51,14 +54,26 @@ int main()
 	if (glewInit() != GLEW_OK)
 		std::cout << "ERROR!" << std::endl;
 
+	// Enabling Blending
+	GLCall(glEnable(GL_BLEND));
+	GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+
+	// ^^^ INITIALIZATION ^^^
+
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
+	// CREATING PROJECTION MATRIX
+	glm::mat4 projection = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
+	glm::vec4 vp(100.0f, 100.0f, 0.0f, 1.0f);
+
+	glm::vec4 result = projection * vp;
 	
 	// Create shader
 
 	Shader shader("resources/shaders/Basic.shader");
 	shader.Bind();
 	shader.SetUniform4f("u_Color", 0.0f, 0.0f, 1.0f, 1.0f);
+	shader.SetUniformMat4f("u_ModelViewProjectionMatrix", projection);
 
 	Texture texture("resources/textures/cherno.png");
 	texture.Bind();
@@ -85,13 +100,22 @@ int main()
 	//};
 
 
-	// Vertecies of triangles
 	float positions[] = {
-		-1.0f, -1.0f, 0.0f, 0.0f, // 0 - bottom left
-		1.0f, -1.0f, 1.0f, 0.0f, // 1 - bottom right
-		1.0f, 1.0f, 1.0f, 1.0f, // 2 - top right
-		-1.0f, 1.0f, 0.0f, 1.0f // 3 - top left
+		100.0f, 100.0f, 0.0f, 0.0f, // 0 - bottom left
+		200.0f, 100.0f, 1.0f, 0.0f, // 1 - bottom right
+		200.0f, 200.0f, 1.0f, 1.0f, // 2 - top right
+		100.0f, 200.0f, 0.0f, 1.0f // 3 - top left
 	};
+
+	// Vertecies of triangles
+	//float positions[] = {
+	//	-1.0f, -1.0f, 0.0f, 0.0f, // 0 - bottom left
+	//	1.0f, -1.0f, 1.0f, 0.0f, // 1 - bottom right
+	//	1.0f, 1.0f, 1.0f, 1.0f, // 2 - top right
+	//	-1.0f, 1.0f, 0.0f, 1.0f // 3 - top left
+	//};
+
+
 
 	// index buff for connecting points
 	unsigned int indicies[] =
@@ -99,10 +123,6 @@ int main()
 		0,1,2,
 		2,3,0
 	};
-
-	// Blending -- Ignore for now
-	GLCall(glEnable(GL_BLEND));
-	GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 	
 
 	VertexArray va;
@@ -115,6 +135,10 @@ int main()
 	va.AddBuffer(vb, layout);
 
 	IndexBuffer ib(indicies, 6);
+
+
+	
+
 
 	// vv clear buffers vv
 	va.Unbind();
