@@ -236,6 +236,8 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />
+    <Text Include="Logs\EngineLog.txt" />
+    <Text Include="Logs\AppLog.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />

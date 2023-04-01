@@ -209,6 +209,8 @@
     <ClInclude Include="vendor\stb_img\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Logs\AppLog.txt" />
+    <Text Include="Logs\EngineLog.txt" />
     <Text Include="Logs\GL_ERROR_LOG.txt" />
   </ItemGroup>
   <ItemGroup>
