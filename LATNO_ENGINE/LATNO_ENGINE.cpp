@@ -20,10 +20,6 @@
 
 bool processInput(GLFWwindow* window, unsigned int key);
 
-
-bool processInput(GLFWwindow* window);
-
-
 //#include "engine/declarations/Application.h" // commented out to make compilation faster
 
 int main()
