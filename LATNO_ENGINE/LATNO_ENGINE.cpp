@@ -64,6 +64,9 @@ int main()
 
 	// CREATING PROJECTION MATRIX
 	glm::mat4 projection = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
+	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
+	glm::vec3 translationA(200, 200, 0);
+	glm::vec3 translationB(400, 200, 0);
 	glm::vec4 vp(100.0f, 100.0f, 0.0f, 1.0f);
 
 	glm::vec4 result = projection * vp;
@@ -73,11 +76,14 @@ int main()
 	Shader shader("resources/shaders/Basic.shader");
 	shader.Bind();
 	shader.SetUniform4f("u_Color", 0.0f, 0.0f, 1.0f, 1.0f);
-	shader.SetUniformMat4f("u_ModelViewProjectionMatrix", projection);
 
 	Texture texture("resources/textures/cherno.png");
 	texture.Bind();
 	shader.SetUniform1i("u_Texture", 0);
+
+	Texture spriteTexture("resources/textures/sp.png");
+	
+
 
 	//float w = texture.GetWidth() * scale;
 	//float h = texture.GetHeight() * scale;
@@ -101,10 +107,10 @@ int main()
 
 
 	float positions[] = {
-		100.0f, 100.0f, 0.0f, 0.0f, // 0 - bottom left
-		200.0f, 100.0f, 1.0f, 0.0f, // 1 - bottom right
-		200.0f, 200.0f, 1.0f, 1.0f, // 2 - top right
-		100.0f, 200.0f, 0.0f, 1.0f // 3 - top left
+		-50.0f, -50.0f, 0.0f, 0.0f, // 0 - bottom left
+		50.0f, -50.0f, 1.0f, 0.0f, // 1 - bottom right
+		50.0f, 50.0f, 1.0f, 1.0f, // 2 - top right
+		-50.0f, 50.0f, 0.0f, 1.0f // 3 - top left
 	};
 
 	// Vertecies of triangles
@@ -156,33 +162,83 @@ int main()
 
 	glClearColor(1.0f, 1.0f, 1.0, 1.0f); // Set background white
 
+
 	while (!glfwWindowShouldClose(window))
 	{
 		renderer.Clear(); // clear renderer (glClear(GL_COLOR_BUFFER_BIT);)
 
 		
-		shader.Bind(); // Re bind shader every frame
-		shader.SetUniform4f("u_Color", Red, 0.0f, 1.0f, 1.0f); // set unifrom for color in shader 
-		// ^^ Re bind buffers every frame ^^
+		
 
 		
-		//vv Change colors vv
+		//vv INPUT vv
 
-		if (processInput(window,GLFW_KEY_SPACE))
+		if (processInput(window,GLFW_KEY_W))
 		{
-			if (Red > 1.0f)
-				increment = -0.02f;
-			else if(Red < 0.0f)
-				increment = 0.02f;
-			Red += increment;
+			translationA.y++;
+		}
+		if (processInput(window, GLFW_KEY_A))
+		{
+			translationA.x--;
+		}
+		if (processInput(window, GLFW_KEY_S))
+		{
+			translationA.y--;
+		}
+		if (processInput(window, GLFW_KEY_D))
+		{
+			translationA.x++;
 		}
 
 
-		
-		// ^^ Change colors ^^
+		if (processInput(window, GLFW_KEY_UP))
+		{
+			translationB.y++;
+		}
+		if (processInput(window, GLFW_KEY_LEFT))
+		{
+			translationB.x--;
+		}
+		if (processInput(window, GLFW_KEY_DOWN))
+		{
+			translationB.y--;
+		}
+		if (processInput(window, GLFW_KEY_RIGHT))
+		{
+			translationB.x++;
+		}
+		// ^^ INPUT ^^
 
-		//draw call
-		renderer.Draw(va, ib, shader);
+
+		
+
+		
+
+
+
+		// vvv FIRST OBJECT DRAW vvv
+		{
+			glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
+			glm::mat4 mvp = projection * view * model; // (Model View Projection)
+			shader.Bind(); // Re bind shader every frame
+			texture.Bind();
+			shader.SetUniform1i("u_Texture", 0);
+			shader.SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
+
+			renderer.Draw(va, ib, shader);
+		}
+		// ^^^ FIRST OBJECT DRAW ^^^
+
+
+		{
+			glm::mat4 model = glm::translate(glm::mat4(1.0f), translationB);
+			glm::mat4 mvp = projection * view * model; // (Model View Projection)
+			shader.Bind(); // Re bind shader every frame
+			spriteTexture.Bind(); // Re bind shader every frame
+			shader.SetUniform1i("u_Texture", 0);
+			shader.SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
+			renderer.Draw(va, ib, shader);
+		}
 
 		// Swap front and back buffers
 		glfwSwapBuffers(window);

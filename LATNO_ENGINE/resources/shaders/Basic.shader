@@ -22,7 +22,7 @@
 //	color = u_Color;
 //};
 
-// TEXTURE RENDERING STUFF BELOW (WORK IN PROGRESS)
+// TEXTURE RENDERING STUFF BELOW
 
 #shader vertex
 #version 330 core
