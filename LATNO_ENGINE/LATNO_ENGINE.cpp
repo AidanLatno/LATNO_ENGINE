@@ -18,16 +18,9 @@
 #include "engine/declarations/Rendering/Texture.h"
 #include "engine/declarations/Rendering/Sprite.h"
 
-#include "engine/declarations/Rendering/Tests/Test.h"
-#include "engine/declarations/Rendering/Tests/TestClearColor.h"
-#include "engine/declarations/Rendering/Tests/TestTexture.h"
-
-
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-#include "vendor/ImGui/imgui_impl_glfw_gl3.h"
-#include "vendor/ImGui/imgui.h"
 
 bool processInput(GLFWwindow* window, unsigned int key);
 
@@ -71,10 +64,13 @@ int main()
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
 	// CREATING PROJECTION MATRIX
-	glm::mat4 projection = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f);
+	glm::mat4 projection = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
 	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
 	glm::vec3 translationA(200, 200, 0);
 	glm::vec3 translationB(400, 200, 0);
+	glm::vec4 vp(100.0f, 100.0f, 0.0f, 1.0f);
+
+	glm::vec4 result = projection * vp;
 	
 	// Create shader
 
@@ -87,6 +83,29 @@ int main()
 	shader.SetUniform1i("u_Texture", 0);
 
 	Texture spriteTexture("resources/textures/sp.png");
+	
+
+
+	//float w = texture.GetWidth() * scale;
+	//float h = texture.GetHeight() * scale;
+
+	//while (w >= 10)
+	//{
+	//	w /= 10;
+	//}
+	//while (h >= 10)
+	//{
+	//	h /= 10;
+	//}
+
+	//// Vertecies of triangles
+	//float positions[] = {
+	//	-w, -h, 0.0f, 0.0f, // 0 - bottom left
+	//	w, -h, 1.0f, 0.0f, // 1 - bottom right
+	//	w, h, 1.0f, 1.0f, // 2 - top right
+	//	-w, h, 0.0f, 1.0f // 3 - top left
+	//};
+
 
 	float positions[] = {
 		-50.0f, -50.0f, 0.0f, 0.0f, // 0 - bottom left
@@ -94,6 +113,16 @@ int main()
 		50.0f, 50.0f, 1.0f, 1.0f, // 2 - top right
 		-50.0f, 50.0f, 0.0f, 1.0f // 3 - top left
 	};
+
+	// Vertecies of triangles
+	//float positions[] = {
+	//	-1.0f, -1.0f, 0.0f, 0.0f, // 0 - bottom left
+	//	1.0f, -1.0f, 1.0f, 0.0f, // 1 - bottom right
+	//	1.0f, 1.0f, 1.0f, 1.0f, // 2 - top right
+	//	-1.0f, 1.0f, 0.0f, 1.0f // 3 - top left
+	//};
+
+
 
 	// index buff for connecting points
 	unsigned int indicies[] =
@@ -126,150 +155,99 @@ int main()
 	// ^^ clear buffers ^^
 
 	Renderer renderer;
-
-	ImGui::CreateContext();
-	ImGui_ImplGlfwGL3_Init(window,true);
-	ImGui::StyleColorsDark();
 	
 
+	float Red = 0.0f;
+	float increment = 0.02f;
 
-	
 
-	test::Test* currentTest = nullptr;
-	test::TestClearColor test;
-	test::TestMenu* testMenu = new test::TestMenu(currentTest);
-	currentTest = testMenu;
+	glClearColor(1.0f, 1.0f, 1.0, 1.0f); // Set background white
 
-	testMenu->RegisterTest<test::TestClearColor>("Clear Color");
-	testMenu->RegisterTest<test::TestTexture>("Texture");
 
 	while (!glfwWindowShouldClose(window))
 	{
-		glClearColor(1.0f, 1.0f, 1.0, 1.0f); // Set background white
 		renderer.Clear(); // clear renderer (glClear(GL_COLOR_BUFFER_BIT);)
 
-	/*	test.OnUpdate(0.0f);
-		test.OnRender();*/
 		
-		ImGui_ImplGlfwGL3_NewFrame();
-		if (currentTest)
+		
+
+		
+		//vv INPUT vv
+
+		if (processInput(window,GLFW_KEY_W))
 		{
-			currentTest->OnUpdate(0.0f);
-			currentTest->OnRender();
-			ImGui::Begin("Test");
-			if (currentTest != testMenu && ImGui::Button("<-"))
-			{
-				delete currentTest;
-				currentTest = testMenu;
-			}
-			currentTest->OnImGuiRender();
-			ImGui::End();
-
+			translationA.y++;
 		}
-		//test.OnImGuiRender();
-		//
-		////vv INPUT vv
-
-		//if (processInput(window,GLFW_KEY_W))
-		//{
-		//	translationA.y++;
-		//}
-		//if (processInput(window, GLFW_KEY_A))
-		//{
-		//	translationA.x--;
-		//}
-		//if (processInput(window, GLFW_KEY_S))
-		//{
-		//	translationA.y--;
-		//}
-		//if (processInput(window, GLFW_KEY_D))
-		//{
-		//	translationA.x++;
-		//}
+		if (processInput(window, GLFW_KEY_A))
+		{
+			translationA.x--;
+		}
+		if (processInput(window, GLFW_KEY_S))
+		{
+			translationA.y--;
+		}
+		if (processInput(window, GLFW_KEY_D))
+		{
+			translationA.x++;
+		}
 
 
-		//if (processInput(window, GLFW_KEY_UP))
-		//{
-		//	translationB.y++;
-		//}
-		//if (processInput(window, GLFW_KEY_LEFT))
-		//{
-		//	translationB.x--;
-		//}
-		//if (processInput(window, GLFW_KEY_DOWN))
-		//{
-		//	translationB.y--;
-		//}
-		//if (processInput(window, GLFW_KEY_RIGHT))
-		//{
-		//	translationB.x++;
-		//}
-		//// ^^ INPUT ^^
+		if (processInput(window, GLFW_KEY_UP))
+		{
+			translationB.y++;
+		}
+		if (processInput(window, GLFW_KEY_LEFT))
+		{
+			translationB.x--;
+		}
+		if (processInput(window, GLFW_KEY_DOWN))
+		{
+			translationB.y--;
+		}
+		if (processInput(window, GLFW_KEY_RIGHT))
+		{
+			translationB.x++;
+		}
+		// ^^ INPUT ^^
 
-
-
-
-
-
-
-
-		//// vvv FIRST OBJECT DRAW vvv
-		//{
-		//	glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
-		//	glm::mat4 mvp = projection * view * model; // (Model View Projection)
-		//	shader.Bind(); // Re bind shader every frame
-		//	texture.Bind();
-		//	shader.SetUniform1i("u_Texture", 0);
-		//	shader.SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
-
-		//	renderer.Draw(va, ib, shader);
-		//}
-		//// ^^^ FIRST OBJECT DRAW ^^^
 
 		// vvv TESTING SPRITE RENDERER vvv
 
 		Sprite *rendererer;
 		rendererer = new Sprite(shader);
 
-		//{
-		//	glm::mat4 model = glm::translate(glm::mat4(1.0f), translationB);
-		//	glm::mat4 mvp = projection * view * model; // (Model View Projection)
-		//	shader.Bind(); // Re bind shader every frame
-		//	spriteTexture.Bind(); // Re bind shader every frame
-		//	shader.SetUniform1i("u_Texture", 0);
-		//	shader.SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
-		//	renderer.Draw(va, ib, shader);
-		//}
-
-
-		//{
-		//	ImGui::SliderFloat2("float", &translationA.x, 0.0f, 960.0f);            // Edit 1 float using a slider from 0.0f to 1.0f    
-		//	ImGui::SliderFloat2("float", &translationB.x, 0.0f, 960.0f);
-		//	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-		//}
-
 		rendererer->DrawSprite(spriteTexture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 
 
+		// vvv FIRST OBJECT DRAW vvv
+		{
+			glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
+			glm::mat4 mvp = projection * view * model; // (Model View Projection)
+			shader.Bind(); // Re bind shader every frame
+			texture.Bind();
+			shader.SetUniform1i("u_Texture", 0);
+			shader.SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
+
+			renderer.Draw(va, ib, shader);
+		}
+		// ^^^ FIRST OBJECT DRAW ^^^
 
 
-		ImGui::Render();
-		ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
-
+		{
+			glm::mat4 model = glm::translate(glm::mat4(1.0f), translationB);
+			glm::mat4 mvp = projection * view * model; // (Model View Projection)
+			shader.Bind(); // Re bind shader every frame
+			spriteTexture.Bind(); // Re bind shader every frame
+			shader.SetUniform1i("u_Texture", 0);
+			shader.SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
+			renderer.Draw(va, ib, shader);
+		}
 
 		// Swap front and back buffers
 		glfwSwapBuffers(window);
 
 		glfwPollEvents(); // idk man
 	}
-
-	delete currentTest;
-	if (currentTest != testMenu)
-		delete testMenu;
-
-	ImGui_ImplGlfwGL3_Shutdown();
-	ImGui::DestroyContext();
-
 	glfwTerminate();
 	return 0;
 
