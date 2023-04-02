@@ -16,7 +16,6 @@
 #include "engine/declarations/Rendering/VertexBufferLayout.h"
 #include "engine/declarations/Rendering/Shader.h"
 #include "engine/declarations/Rendering/Texture.h"
-#include "engine/declarations/Rendering/Sprite.h"
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
@@ -211,12 +210,10 @@ int main()
 		// ^^ INPUT ^^
 
 
-		// vvv TESTING SPRITE RENDERER vvv
+		
 
-		Sprite *rendererer;
-		rendererer = new Sprite(shader);
+		
 
-		rendererer->DrawSprite(spriteTexture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 
 
 		// vvv FIRST OBJECT DRAW vvv
