@@ -6,6 +6,8 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
+#include "../Shapes/declarations/Rect.h"
+
 
 namespace test
 {
@@ -34,9 +36,6 @@ namespace test
 
 		
 		m_VAO = std::make_unique<VertexArray>();
-		
-
-		VertexArray va;
 
 		m_VBO = std::make_unique<VertexBuffer>(positions, 4 * 4 * sizeof(float));
 
@@ -46,16 +45,13 @@ namespace test
 		m_VAO->AddBuffer(*m_VBO, layout);
 		m_IBO = std::make_unique<IndexBuffer>(indicies, 6);
 
-		IndexBuffer ib(indicies, 6);
-
 		m_Shader = std::make_unique<Shader>("resources/shaders/Basic.shader");
 		m_Shader->Bind();
-		m_Shader->SetUniform4f("u_Color", 0.0f, 0.0f, 1.0f, 1.0f);
 
-		m_TextureCherno = std::make_unique<Texture>("resources/textures/cherno.png");
+		m_TextureCherno = std::make_unique<Texture>("resources/textures/sqwallet.jpg");
 		m_Shader->SetUniform1i("u_Texture", 0);
 
-		m_TextureSprite = std::make_unique<Texture>("resources/textures/sp.png");
+		m_TextureSprite = std::make_unique<Texture>("resources/textures/ahh.png");
 
 	}
 
@@ -65,6 +61,100 @@ namespace test
 
 	void test::TestTexture::OnUpdate(float deltaTime)
 	{
+		if (CooldownA > 0)
+			CooldownA -= 1 / deltaTime;
+		if (CooldownB > 0)
+			CooldownB -= 1 / deltaTime;
+
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_SPACE) == GLFW_PRESS && CooldownA <= 0)
+		{
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_W) == GLFW_PRESS)
+			{
+				m_translationA.y += 60;
+			}
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_A) == GLFW_PRESS)
+			{
+				m_translationA.x -= 60;
+			}
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_S) == GLFW_PRESS)
+			{
+				m_translationA.y -= 60;
+			}
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_D) == GLFW_PRESS)
+			{
+				m_translationA.x += 60;
+			}
+			CooldownA = 10;
+		}
+
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT_SHIFT) == GLFW_PRESS && CooldownB <= 0)
+		{
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_UP) == GLFW_PRESS)
+			{
+				m_translationB.y += 60;
+			}
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_LEFT) == GLFW_PRESS)
+			{
+				m_translationB.x -= 60;
+			}
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_DOWN) == GLFW_PRESS)
+			{
+				m_translationB.y -= 60;
+			}
+			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT) == GLFW_PRESS)
+			{
+				m_translationB.x += 60;
+			}
+			CooldownB = 10;
+		}
+
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_W) == GLFW_PRESS)
+		{
+			if (m_translationA.y < 510)
+				m_translationA.y += 2;
+		}
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_A) == GLFW_PRESS)
+		{
+			if (m_translationA.x > 30)
+				m_translationA.x -= 2;
+		}
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_S) == GLFW_PRESS)
+		{
+			if (m_translationA.y > 30)
+				m_translationA.y -= 2;
+		}
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_D) == GLFW_PRESS)
+		{
+			if (m_translationA.x < 930)
+				m_translationA.x += 2;
+		}
+
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_UP) == GLFW_PRESS)
+		{
+			if(m_translationB.y < 510)
+				m_translationB.y += 3;
+		}
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_LEFT) == GLFW_PRESS)
+		{
+			if(m_translationB.x > 30)
+				m_translationB.x -= 3;
+		}
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_DOWN) == GLFW_PRESS)
+		{
+			if (m_translationB.y > 30)
+				m_translationB.y -= 3;
+		}
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT) == GLFW_PRESS)
+		{
+			if (m_translationB.x < 930)
+				m_translationB.x += 3;
+		}
+
+		
+
+		Rect bounds(m_translationA.x - 30, m_translationA.y - 30, m_translationA.x + 30, m_translationA.y + 30, 'e', "ASDAd");
+		if (bounds.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) }))
+			std::cout << "YOU DIED\n";
 	}
 
 	void test::TestTexture::OnRender()
@@ -73,40 +163,6 @@ namespace test
 		GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 		Renderer renderer;
-
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_W) == GLFW_PRESS)
-		{
-			m_translationA.y++;
-		}
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_A) == GLFW_PRESS)
-		{
-			m_translationA.x--;
-		}
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_S) == GLFW_PRESS)
-		{
-			m_translationA.y--;
-		}
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_D) == GLFW_PRESS)
-		{
-			m_translationA.x++;
-		}
-
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_UP) == GLFW_PRESS)
-		{
-			m_translationB.y++;
-		}
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_LEFT) == GLFW_PRESS)
-		{
-			m_translationB.x--;
-		}
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_DOWN) == GLFW_PRESS)
-		{
-			m_translationB.y--;
-		}
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT) == GLFW_PRESS)
-		{
-			m_translationB.x++;
-		}
 
 		m_TextureCherno->Bind();
 
@@ -124,7 +180,7 @@ namespace test
 
 
 		{
-			glm::mat4 model = glm::translate(glm::mat4(1.0f), m_translationB);
+			glm::mat4 model = glm::translate(glm::mat4(2.0f), m_translationB);
 			glm::mat4 mvp = m_projection * m_view * model; // (Model View Projection)
 			m_Shader->Bind(); // Re bind shader every frame
 			m_TextureSprite->Bind(); // Re bind shader every frame
@@ -136,8 +192,13 @@ namespace test
 
 	void test::TestTexture::OnImGuiRender()
 	{
-		ImGui::SliderFloat2("translationA", &m_translationA.x, 0.0f, 960.0f);            // Edit 1 float using a slider from 0.0f to 1.0f    
+		ImGui::SliderFloat2("translationA", &m_translationA.x, 0.0f, 960.0f);   
 		ImGui::SliderFloat2("translationB", &m_translationB.x, 0.0f, 960.0f);
+		ImGui::SliderFloat2("m_View", &m_view[0][0], 0.0f, 1.0f);
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+		ImGui::Text("COOL DOWN FOR C: %.3f", CooldownA);
+
+		ImGui::Text("COOL DOWN FOR SPRITE: %.3f", CooldownB);
 	}
 }

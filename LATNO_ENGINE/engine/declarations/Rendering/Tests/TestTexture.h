@@ -25,7 +25,7 @@ namespace test
 		std::unique_ptr <Shader> m_Shader;
 		std::unique_ptr<Texture> m_TextureCherno;
 		std::unique_ptr<Texture> m_TextureSprite;
-
+		float CooldownA, CooldownB;
 		glm::mat4 m_projection,m_view;
 		glm::vec3 m_translationA, m_translationB;
 	};

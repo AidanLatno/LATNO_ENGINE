@@ -5,6 +5,7 @@
 void Sprite::initRenderData()
 {
     float vertices[] = {
+
         0.0f, 1.0f, 0.0f, 1.0f,
         1.0f, 0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 0.0f, 0.0f,
@@ -15,7 +16,11 @@ void Sprite::initRenderData()
     };
 
     //me no understand
-    objectArray;
+
+    objectArray;// IMPORTANT DONT REMOVE
+
+    objectArray = VertexArray();
+    
     /*glGenVertexArrays(1, &this->objectArray);*/
 
     VertexBuffer vertexData(vertices, sizeof(vertices));
@@ -61,7 +66,7 @@ void Sprite::DrawSprite(Texture& texture, glm::vec2 position, glm::vec2 size, fl
     texture.Bind();
 
     objectArray.Bind();
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    GLCall(glDrawArrays(GL_TRIANGLES, 0, 6));
     objectArray.Unbind();
 
 }

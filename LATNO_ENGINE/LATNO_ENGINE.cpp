@@ -22,6 +22,7 @@
 #include "engine/declarations/Rendering/Tests/Test.h"
 #include "engine/declarations/Rendering/Tests/TestClearColor.h"
 #include "engine/declarations/Rendering/Tests/TestTexture.h"
+#include "engine//declarations/Rendering/Tests/TestDVD.h"
 
 
 #include "glm/glm.hpp"
@@ -138,24 +139,23 @@ int main()
 
 	test::Test* currentTest = nullptr;
 	test::TestClearColor test;
+	test::TestDVD dvdTest;
 	test::TestMenu* testMenu = new test::TestMenu(currentTest);
 	currentTest = testMenu;
 
 	testMenu->RegisterTest<test::TestClearColor>("Clear Color");
 	testMenu->RegisterTest<test::TestTexture>("Texture");
+	testMenu->RegisterTest<test::TestDVD>("dvdTest");
 
 	while (!glfwWindowShouldClose(window))
 	{
 		glClearColor(1.0f, 1.0f, 1.0, 1.0f); // Set background white
 		renderer.Clear(); // clear renderer (glClear(GL_COLOR_BUFFER_BIT);)
 
-		/*	test.OnUpdate(0.0f);
-			test.OnRender();*/
-
 		ImGui_ImplGlfwGL3_NewFrame();
 		if (currentTest)
 		{
-			currentTest->OnUpdate(0.0f);
+			currentTest->OnUpdate(ImGui::GetIO().Framerate);
 			currentTest->OnRender();
 			ImGui::Begin("Test");
 			if (currentTest != testMenu && ImGui::Button("<-"))
