@@ -16,6 +16,8 @@
 #include "engine/declarations/Rendering/VertexBufferLayout.h"
 #include "engine/declarations/Rendering/Shader.h"
 #include "engine/declarations/Rendering/Texture.h"
+#include "engine/declarations/Rendering/Sprite.h"
+
 
 #include "engine/declarations/Rendering/Tests/Test.h"
 #include "engine/declarations/Rendering/Tests/TestClearColor.h"
@@ -249,6 +251,12 @@ int main()
 		//rendererer->DrawSprite(spriteTexture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 
 
+		// vvv TESTING SPRITE RENDERER vvv
+
+		Sprite* rendererer;
+		rendererer = new Sprite(shader);
+
+		rendererer->DrawSprite(spriteTexture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 
 
 		ImGui::Render();
