@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies;$(SolutionDir)LATNO_ENGINE/vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies;$(SolutionDir)LATNO_ENGINE/vendor</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +138,9 @@
     <ClCompile Include="engine\declarations\Rendering\IndexBuffer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Renderer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Shader.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Tests\Test.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Tests\TestClearColor.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Tests\TestTexture.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Texture.cpp" />
     <ClCompile Include="engine\declarations\Rendering\VertexArray.cpp" />
     <ClCompile Include="engine\declarations\Rendering\VertexBuffer.cpp" />
@@ -164,6 +167,10 @@
     <ClCompile Include="Shapes\definitions\Rect.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
     <ClCompile Include="engine\definitions\Window.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="vendor\stb_img\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +189,9 @@
     <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h" />
     <ClInclude Include="engine\declarations\Rendering\Renderer.h" />
     <ClInclude Include="engine\declarations\Rendering\Shader.h" />
+    <ClInclude Include="engine\declarations\Rendering\Tests\Test.h" />
+    <ClInclude Include="engine\declarations\Rendering\Tests\TestClearColor.h" />
+    <ClInclude Include="engine\declarations\Rendering\Tests\TestTexture.h" />
     <ClInclude Include="engine\declarations\Rendering\Texture.h" />
     <ClInclude Include="engine\declarations\Rendering\VertexArray.h" />
     <ClInclude Include="engine\declarations\Rendering\VertexBuffer.h" />
@@ -206,7 +216,13 @@
     <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
     <ClInclude Include="engine\declarations\Window.h" />
+    <ClInclude Include="vendor\ImGui\imgui.h" />
+    <ClInclude Include="vendor\ImGui\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="vendor\ImGui\imgui_internal.h" />
     <ClInclude Include="vendor\stb_img\stb_image.h" />
+    <ClInclude Include="vendor\stb_img\stb_rect_pack.h" />
+    <ClInclude Include="vendor\stb_img\stb_textedit.h" />
+    <ClInclude Include="vendor\stb_img\stb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\AppLog.txt" />
