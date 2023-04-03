@@ -253,10 +253,10 @@ int main()
 
 		// vvv TESTING SPRITE RENDERER vvv
 
-		Sprite* rendererer;
+		/*Sprite* rendererer;
 		rendererer = new Sprite(shader);
 
-		rendererer->DrawSprite(spriteTexture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+		rendererer->DrawSprite(spriteTexture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));*/
 
 
 		ImGui::Render();
