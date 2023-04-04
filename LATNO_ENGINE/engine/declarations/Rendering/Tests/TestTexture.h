@@ -28,5 +28,7 @@ namespace test
 		float CooldownA, CooldownB;
 		glm::mat4 m_projection,m_view;
 		glm::vec3 m_translationA, m_translationB;
+		glm::vec4 color;
+		double score;
 	};
 }

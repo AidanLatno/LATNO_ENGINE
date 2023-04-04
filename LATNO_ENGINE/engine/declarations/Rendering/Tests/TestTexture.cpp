@@ -87,23 +87,23 @@ namespace test
 			CooldownA = 10;
 		}
 
-		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT_SHIFT) == GLFW_PRESS && CooldownB <= 0)
+		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS && CooldownB <= 0)
 		{
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_UP) == GLFW_PRESS)
 			{
-				m_translationB.y += 60;
+				m_translationB.y += 90;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_LEFT) == GLFW_PRESS)
 			{
-				m_translationB.x -= 60;
+				m_translationB.x -= 90;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_DOWN) == GLFW_PRESS)
 			{
-				m_translationB.y -= 60;
+				m_translationB.y -= 90;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT) == GLFW_PRESS)
 			{
-				m_translationB.x += 60;
+				m_translationB.x += 90;
 			}
 			CooldownB = 10;
 		}
@@ -150,16 +150,26 @@ namespace test
 				m_translationB.x += 3;
 		}
 
-		
+		color = glm::vec4(0.0, 0.0, 0.0, 1.0);
 
 		Rect bounds(m_translationA.x - 30, m_translationA.y - 30, m_translationA.x + 30, m_translationA.y + 30, 'e', "ASDAd");
+		Rect scoreBounds(m_translationA.x - 90, m_translationA.y - 90, m_translationA.x + 90, m_translationA.y + 90, 'e', "ASDAd");
+		if (scoreBounds.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) }))
+			score += 1 / deltaTime;
+
 		if (bounds.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) }))
-			std::cout << "YOU DIED\n";
+		{
+			if(score > 1)
+				std::cout << "YOU DIED, YOUR SCORE WAS " << score << "\n";
+			score = 0;
+			color = glm::vec4(1.0, 0.0, 0.0, 1.0);
+		}
+			
 	}
 
 	void test::TestTexture::OnRender()
 	{
-		GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
+		GLCall(glClearColor(color[0], color[1], color[2], color[3] ));
 		GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 		Renderer renderer;
@@ -192,13 +202,12 @@ namespace test
 
 	void test::TestTexture::OnImGuiRender()
 	{
-		ImGui::SliderFloat2("translationA", &m_translationA.x, 0.0f, 960.0f);   
-		ImGui::SliderFloat2("translationB", &m_translationB.x, 0.0f, 960.0f);
-		ImGui::SliderFloat2("m_View", &m_view[0][0], 0.0f, 1.0f);
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
 		ImGui::Text("COOL DOWN FOR C: %.3f", CooldownA);
 
 		ImGui::Text("COOL DOWN FOR SPRITE: %.3f", CooldownB);
+
+		ImGui::Text("SCORE: %.2f", score);
 	}
 }
