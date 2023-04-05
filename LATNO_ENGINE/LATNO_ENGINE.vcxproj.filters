@@ -60,12 +60,6 @@
     <ClCompile Include="exceptions\definitions\RuntimeException.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Animation\definitions\Animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation\definitions\Frame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Shapes\definitions\AdvancedRect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -198,12 +192,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="exceptions\declarations\RuntimeException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation\declarations\Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation\declarations\Frame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Shapes\declarations\AdvancedRect.h">

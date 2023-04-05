@@ -1,2 +1,2 @@
 #pragma once
-#include "../../Animation/declarations/Animation.h"
+#include "../../Entities/declarations/Patroller.h"
