@@ -70,72 +70,10 @@ int main()
 
 	// ^^^ INITIALIZATION ^^^
 
-	std::cout << glGetString(GL_VERSION) << std::endl;
-
-	// CREATING PROJECTION MATRIX
-	glm::mat4 projection = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f);
-	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0));
-	glm::vec3 translationA(200, 200, 0);
-	glm::vec3 translationB(400, 200, 0);
-
-	// Create shader
-
-	Shader shader("resources/shaders/Basic.shader");
-	shader.Bind();
-	shader.SetUniform4f("u_Color", 0.0f, 0.0f, 1.0f, 1.0f);
-
-	Texture texture("resources/textures/cherno.png");
-	texture.Bind();
-	shader.SetUniform1i("u_Texture", 0);
-
-	Texture spriteTexture("resources/textures/sp.png");
-
-	float positions[] = {
-		-50.0f, -50.0f, 0.0f, 0.0f, // 0 - bottom left
-		50.0f, -50.0f, 1.0f, 0.0f, // 1 - bottom right
-		50.0f, 50.0f, 1.0f, 1.0f, // 2 - top right
-		-50.0f, 50.0f, 0.0f, 1.0f // 3 - top left
-	};
-
-	// index buff for connecting points
-	unsigned int indicies[] =
-	{
-		0,1,2,
-		2,3,0
-	};
-
-
-	VertexArray va;
-
-	VertexBuffer vb(positions, 4 * 4 * sizeof(float));
-
-	VertexBufferLayout layout;
-	layout.Push<float>(2);
-	layout.Push<float>(2);
-	va.AddBuffer(vb, layout);
-
-	IndexBuffer ib(indicies, 6);
-
-
-
-
-
-	// vv clear buffers vv
-	va.Unbind();
-	shader.Unbind();
-	vb.Unbind();
-	ib.Unbind();
-	// ^^ clear buffers ^^
-
-	Renderer renderer;
 
 	ImGui::CreateContext();
 	ImGui_ImplGlfwGL3_Init(window, true);
 	ImGui::StyleColorsDark();
-
-
-
-
 
 	test::Test* currentTest = nullptr;
 	test::TestClearColor test;
@@ -150,7 +88,7 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		glClearColor(1.0f, 1.0f, 1.0, 1.0f); // Set background white
-		renderer.Clear(); // clear renderer (glClear(GL_COLOR_BUFFER_BIT);)
+		GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 		ImGui_ImplGlfwGL3_NewFrame();
 		if (currentTest)
@@ -167,66 +105,6 @@ int main()
 			ImGui::End();
 
 		}
-		//test.OnImGuiRender();
-		//
-		////vv INPUT vv
-
-		//if (processInput(window,GLFW_KEY_W))
-		//{
-		//	translationA.y++;
-		//}
-		//if (processInput(window, GLFW_KEY_A))
-		//{
-		//	translationA.x--;
-		//}
-		//if (processInput(window, GLFW_KEY_S))
-		//{
-		//	translationA.y--;
-		//}
-		//if (processInput(window, GLFW_KEY_D))
-		//{
-		//	translationA.x++;
-		//}
-
-
-		//if (processInput(window, GLFW_KEY_UP))
-		//{
-		//	translationB.y++;
-		//}
-		//if (processInput(window, GLFW_KEY_LEFT))
-		//{
-		//	translationB.x--;
-		//}
-		//if (processInput(window, GLFW_KEY_DOWN))
-		//{
-		//	translationB.y--;
-		//}
-		//if (processInput(window, GLFW_KEY_RIGHT))
-		//{
-		//	translationB.x++;
-		//}
-		//// ^^ INPUT ^^
-
-
-
-
-
-
-
-
-		//// vvv FIRST OBJECT DRAW vvv
-		//{
-		//	glm::mat4 model = glm::translate(glm::mat4(1.0f), translationA);
-		//	glm::mat4 mvp = projection * view * model; // (Model View Projection)
-		//	shader.Bind(); // Re bind shader every frame
-		//	texture.Bind();
-		//	shader.SetUniform1i("u_Texture", 0);
-		//	shader.SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
-
-		//	renderer.Draw(va, ib, shader);
-		//}
-		//// ^^^ FIRST OBJECT DRAW ^^^
-
 		// vvv TESTING SPRITE RENDERER vvv
 
 	
@@ -285,18 +163,6 @@ int main()
 	//
 	//	delete app;*/
 
-
-}
-// ^^^ AIDANS CODE FOR OPEN GL SHADERS ^^^
-
-
-
-// VVVVVVVVVVVV DEEP CODE VVVVVVVVVVVV
-
-
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-	glViewport(0, 0, width, height);
 }
 
 bool processInput(GLFWwindow* window, unsigned int key) {
