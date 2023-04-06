@@ -133,8 +133,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Animation\definitions\Animation.cpp" />
-    <ClCompile Include="Animation\definitions\Frame.cpp" />
     <ClCompile Include="engine\declarations\Rendering\IndexBuffer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Renderer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Shader.cpp" />
@@ -175,8 +173,6 @@
     <ClCompile Include="vendor\stb_img\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation\declarations\Animation.h" />
-    <ClInclude Include="Animation\declarations\Frame.h" />
     <ClInclude Include="engine\declarations\Application.h" />
     <ClInclude Include="engine\declarations\Behavior.h" />
     <ClInclude Include="engine\declarations\Component.h" />
