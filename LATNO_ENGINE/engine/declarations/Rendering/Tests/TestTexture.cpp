@@ -48,10 +48,12 @@ namespace test
 		m_Shader = std::make_unique<Shader>("resources/shaders/Basic.shader");
 		m_Shader->Bind();
 
-		m_TextureCherno = std::make_unique<Texture>("resources/textures/sqwallet.jpg");
+		m_TextureCherno = std::make_unique<Texture>("resources/textures/grr.png");
 		m_Shader->SetUniform1i("u_Texture", 0);
 
 		m_TextureSprite = std::make_unique<Texture>("resources/textures/ahh.png");
+		m_Enemy = std::make_unique<Texture>("resources/textures/sp.png");
+
 
 	}
 
@@ -66,23 +68,32 @@ namespace test
 		if (CooldownB > 0)
 			CooldownB -= 1 / deltaTime;
 
+		if (m_translationC.x < m_translationB.x)
+			m_translationC.x += 30 / deltaTime;
+		else if (m_translationC.x > m_translationB.x)
+			m_translationC.x -= 30 / deltaTime;
+		if (m_translationC.y < m_translationB.y)
+			m_translationC.y += 30 / deltaTime;
+		else if (m_translationC.y > m_translationB.y)
+			m_translationC.y -= 30 / deltaTime;
+
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_SPACE) == GLFW_PRESS && CooldownA <= 0)
 		{
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_W) == GLFW_PRESS)
 			{
-				m_translationA.y += 60;
+				m_translationA.y += 6000 / deltaTime;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_A) == GLFW_PRESS)
 			{
-				m_translationA.x -= 60;
+				m_translationA.x -= 6000 / deltaTime;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_S) == GLFW_PRESS)
 			{
-				m_translationA.y -= 60;
+				m_translationA.y -= 6000 / deltaTime;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_D) == GLFW_PRESS)
 			{
-				m_translationA.x += 60;
+				m_translationA.x += 6000 / deltaTime;
 			}
 			CooldownA = 10;
 		}
@@ -91,19 +102,19 @@ namespace test
 		{
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_UP) == GLFW_PRESS)
 			{
-				m_translationB.y += 90;
+				m_translationB.y += 9000 / deltaTime;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_LEFT) == GLFW_PRESS)
 			{
-				m_translationB.x -= 90;
+				m_translationB.x -= 9000 / deltaTime;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_DOWN) == GLFW_PRESS)
 			{
-				m_translationB.y -= 90;
+				m_translationB.y -= 9000 / deltaTime;
 			}
 			if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT) == GLFW_PRESS)
 			{
-				m_translationB.x += 90;
+				m_translationB.x += 9000 / deltaTime;
 			}
 			CooldownB = 10;
 		}
@@ -111,53 +122,55 @@ namespace test
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_W) == GLFW_PRESS)
 		{
 			if (m_translationA.y < 510)
-				m_translationA.y += 2;
+				m_translationA.y += 200 / deltaTime;
 		}
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_A) == GLFW_PRESS)
 		{
 			if (m_translationA.x > 30)
-				m_translationA.x -= 2;
+				m_translationA.x -= 200 / deltaTime;
 		}
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_S) == GLFW_PRESS)
 		{
 			if (m_translationA.y > 30)
-				m_translationA.y -= 2;
+				m_translationA.y -= 200 / deltaTime;
 		}
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_D) == GLFW_PRESS)
 		{
 			if (m_translationA.x < 930)
-				m_translationA.x += 2;
+				m_translationA.x += 200 / deltaTime;
 		}
 
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_UP) == GLFW_PRESS)
 		{
 			if(m_translationB.y < 510)
-				m_translationB.y += 3;
+				m_translationB.y += 300 / deltaTime;
 		}
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_LEFT) == GLFW_PRESS)
 		{
 			if(m_translationB.x > 30)
-				m_translationB.x -= 3;
+				m_translationB.x -= 300 / deltaTime;
 		}
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_DOWN) == GLFW_PRESS)
 		{
 			if (m_translationB.y > 30)
-				m_translationB.y -= 3;
+				m_translationB.y -= 300 / deltaTime;
 		}
 		if (glfwGetKey(glfwGetCurrentContext(), GLFW_KEY_RIGHT) == GLFW_PRESS)
 		{
 			if (m_translationB.x < 930)
-				m_translationB.x += 3;
+				m_translationB.x += 300 / deltaTime;
 		}
 
 		color = glm::vec4(0.0, 0.0, 0.0, 1.0);
 
 		Rect bounds(m_translationA.x - 30, m_translationA.y - 30, m_translationA.x + 30, m_translationA.y + 30, 'e', "ASDAd");
+		Rect boundsEnemy(m_translationC.x - 30, m_translationC.y - 30, m_translationC.x + 30, m_translationC.y + 30, 'e', "ASDAd");
 		Rect scoreBounds(m_translationA.x - 90, m_translationA.y - 90, m_translationA.x + 90, m_translationA.y + 90, 'e', "ASDAd");
 		if (scoreBounds.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) }))
 			score += 1 / deltaTime;
 
-		if (bounds.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) }))
+		if (bounds.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) })
+			|| boundsEnemy.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) }))
 		{
 			if(score > 1)
 				std::cout << "YOU DIED, YOUR SCORE WAS " << score << "\n";
@@ -194,6 +207,16 @@ namespace test
 			glm::mat4 mvp = m_projection * m_view * model; // (Model View Projection)
 			m_Shader->Bind(); // Re bind shader every frame
 			m_TextureSprite->Bind(); // Re bind shader every frame
+			m_Shader->SetUniform1i("u_Texture", 0);
+			m_Shader->SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
+			renderer.Draw(*m_VAO, *m_IBO, *m_Shader);
+		}
+
+		{
+			glm::mat4 model = glm::translate(glm::mat4(2.0f), m_translationC);
+			glm::mat4 mvp = m_projection * m_view * model; // (Model View Projection)
+			m_Shader->Bind(); // Re bind shader every frame
+			m_Enemy->Bind(); // Re bind shader every frame
 			m_Shader->SetUniform1i("u_Texture", 0);
 			m_Shader->SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
 			renderer.Draw(*m_VAO, *m_IBO, *m_Shader);
