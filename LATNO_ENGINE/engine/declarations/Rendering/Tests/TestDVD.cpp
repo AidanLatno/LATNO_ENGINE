@@ -99,6 +99,6 @@ namespace test
 	void TestDVD::OnImGuiRender()
 	{
 		ImGui::SliderFloat2("Position", &m_translation.x, 0.0f, 960.0f);
-		ImGui::SliderInt("Speed", &moveSpeed, 0, 1000);
+		ImGui::SliderInt("Speed", &moveSpeed, 0, 530);
 	}
 }
