@@ -115,6 +115,11 @@ void Shader::Bind() const
 	GLCall(glUseProgram(m_RendererID));
 }
 
+unsigned int Shader::GetRendererID()
+{
+	return m_RendererID;
+}
+
 void Shader::Unbind() const
 {
 

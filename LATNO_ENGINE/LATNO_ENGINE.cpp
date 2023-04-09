@@ -23,6 +23,7 @@
 #include "engine/declarations/Rendering/Tests/TestClearColor.h"
 #include "engine/declarations/Rendering/Tests/TestTexture.h"
 #include "engine//declarations/Rendering/Tests/TestDVD.h"
+#include "engine//declarations/Rendering/Tests/TestBuffer.h"
 
 
 #include "glm/glm.hpp"
@@ -78,12 +79,14 @@ int main()
 	test::Test* currentTest = nullptr;
 	test::TestClearColor test;
 	test::TestDVD dvdTest;
+	test::TestBuffer bufferTest;
 	test::TestMenu* testMenu = new test::TestMenu(currentTest);
 	currentTest = testMenu;
 
 	testMenu->RegisterTest<test::TestClearColor>("Clear Color");
 	testMenu->RegisterTest<test::TestTexture>("Texture");
 	testMenu->RegisterTest<test::TestDVD>("dvdTest");
+	testMenu->RegisterTest<test::TestBuffer>("bufferTest");
 
 	while (!glfwWindowShouldClose(window))
 	{

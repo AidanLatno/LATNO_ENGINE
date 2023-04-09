@@ -22,6 +22,7 @@ public:
 	~Shader();
 
 	void Bind() const;
+	unsigned int GetRendererID();
 	void Unbind() const;
 
 	// set uniforms

@@ -137,6 +137,7 @@
     <ClCompile Include="engine\declarations\Rendering\Renderer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Shader.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Tests\Test.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Tests\TestBuffer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Tests\TestClearColor.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Tests\TestDVD.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Tests\TestTexture.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="engine\declarations\Rendering\Renderer.h" />
     <ClInclude Include="engine\declarations\Rendering\Shader.h" />
     <ClInclude Include="engine\declarations\Rendering\Tests\Test.h" />
+    <ClInclude Include="engine\declarations\Rendering\Tests\TestBuffer.h" />
     <ClInclude Include="engine\declarations\Rendering\Tests\TestClearColor.h" />
     <ClInclude Include="engine\declarations\Rendering\Tests\TestDVD.h" />
     <ClInclude Include="engine\declarations\Rendering\Tests\TestTexture.h" />
