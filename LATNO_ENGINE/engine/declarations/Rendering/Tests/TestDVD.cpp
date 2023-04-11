@@ -39,8 +39,6 @@ namespace test
 
 		m_IBO->Bind();
 
-		
-
 		m_Shader = std::make_unique<Shader>("resources/shaders/Basic.shader");
 		m_Shader->Bind();
 
@@ -80,19 +78,15 @@ namespace test
 		GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 		Renderer renderer;
-
 		{
-			glm::mat4 model = glm::translate(glm::mat4(1.0f), m_translation);
-			glm::mat4 mvp = m_projection * m_view * model; // (Model View Projection)
-			m_Shader->Bind(); // Re bind shader every frame
+						glm::mat4 model = glm::translate(glm::mat4(1.0f), m_translation);
+glm::mat4 mvp = m_projection * m_view * model; // (Model View Projection)
 			m_TextureDVD->Bind();
 			m_Shader->SetUniform1i("u_Texture", 0);
 			m_Shader->SetUniformMat4f("u_ModelViewProjectionMatrix", mvp);
 
 			renderer.Draw(*m_VAO, *m_IBO, *m_Shader);
 		}
-
-		renderer.Draw(*m_VAO, *m_IBO, *m_Shader);
 
 	}
 
