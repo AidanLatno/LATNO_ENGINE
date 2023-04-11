@@ -7,7 +7,7 @@ layout(location = 0) in vec3 a_Position;
 uniform mat4 u_ViewProj;
 uniform mat4 u_Transform;
 
-out vec4 v_Color;
+
 
 void main()
 {
