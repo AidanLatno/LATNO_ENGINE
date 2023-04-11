@@ -15,7 +15,6 @@ namespace test
 		//^ copied this cause i saw it from DVD and needed it here (but i get what it does)
 	{
 		m_Shader = std::make_unique<Shader>("resources/shaders/Basic.shader");
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
 		float verticies[] = {
 			-0.5f, -0.5f, 0.0f,
@@ -37,11 +36,17 @@ namespace test
 		glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 		*/
 
+
+		
+
 		// I copied this cause i still dont understand bufferlayout
 		VertexBufferLayout layout;
-		layout.Push<float>(2);
-		layout.Push<float>(2);
+		layout.Push<float>(3);
+		
 		m_VAO->AddBuffer(*m_VBO, layout);
+		//glEnableVertexArrayAttrib(m_VBO, 0);
+		//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), 0);
+
 
 		uint32_t indicies[] = {
 			0, 1, 2, 2, 3, 0
@@ -73,16 +78,15 @@ namespace test
 		m_Shader->Bind();
 		Renderer renderer;
 
-		m_Shader->GetRendererID();
-
-		m_Shader->SetUniformMat4f("u_Transform", glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 0.0f)));
-
-		glm::mat4 vp = m_projection * m_view;
+		
+		auto vp = m_projection * m_view;
 		m_Shader->SetUniformMat4f("u_ViewProj", vp);
-
-		renderer.Draw(*m_VAO, *m_IBO, *m_Shader);
 		
 		m_VAO->Bind();
+
+		m_Shader->SetUniformMat4f("u_Transform", glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, 0.0f)));
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+		m_Shader->SetUniformMat4f("u_Transform", glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f)));
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 		
