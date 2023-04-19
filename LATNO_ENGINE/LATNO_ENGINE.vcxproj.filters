@@ -129,6 +129,12 @@
     <ClCompile Include="engine\declarations\Rendering\Tests\TestDVD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\declarations\Rendering\Tests\TestBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shapes\declarations\Circle.h">
@@ -273,6 +279,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\Rendering\Tests\TestDVD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\Rendering\Tests\TestBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\Rendering\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,7 +25,6 @@ private:
 public:
 	void Clear() const;
 
-	Sprite initSprite(Sprite toInit);
 
 	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const; 
 };

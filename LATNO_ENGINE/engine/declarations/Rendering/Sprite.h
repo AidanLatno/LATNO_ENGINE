@@ -12,9 +12,11 @@
 class Sprite
 {
 private:
-    std::string file;
-    float vertices[];
-    
+    Texture texture;
+    glm::vec2 Position;
+    float Rotation;
+    glm::vec2 Scale;
+
 public:
-    Sprite(std::string file, glm::vec3 position, glm::vec2 scale);
+    Sprite(glm::vec2 _position, glm::vec2 _scale, Texture _texture);
 };

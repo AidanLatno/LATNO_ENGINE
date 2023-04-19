@@ -136,6 +136,7 @@
     <ClCompile Include="engine\declarations\Rendering\IndexBuffer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Renderer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Shader.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Sprite.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Tests\Test.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Tests\TestBuffer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Tests\TestClearColor.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h" />
     <ClInclude Include="engine\declarations\Rendering\Renderer.h" />
     <ClInclude Include="engine\declarations\Rendering\Shader.h" />
+    <ClInclude Include="engine\declarations\Rendering\Sprite.h" />
     <ClInclude Include="engine\declarations\Rendering\Tests\Test.h" />
     <ClInclude Include="engine\declarations\Rendering\Tests\TestBuffer.h" />
     <ClInclude Include="engine\declarations\Rendering\Tests\TestClearColor.h" />

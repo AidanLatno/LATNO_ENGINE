@@ -10,7 +10,7 @@
 Shader::Shader(const std::string& filepath)
 	: m_FilePath(filepath)
 {
-	ShaderProgramSource shaderSource = ParseShader(filepath);
+	ShaderProgramSource shaderSource = Shader::ParseShader(filepath);
 	m_RendererID = CreateShader(shaderSource.VertexSource, shaderSource.FragmentSource);
 }
 
@@ -80,7 +80,7 @@ unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
 		GLCall(glGetShaderInfoLog(id, length, &length, message));
 		stream << "Failed to compile" << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!";
 		DevLog::LOGLN(stream.str(), "GL_ERROR_LOG");
-		DevLog(message, "GL_ERROR_LOG");
+		DevLog::LOGLN(message, "GL_ERROR_LOG");
 		std::cout << stream.str() << '\n';
 		std::cout << message << std::endl;
 
@@ -176,4 +176,9 @@ int Shader::GetUniformLocation(const std::string& name)
 	
 	m_UniformLocationCache[name] = location;
 	return location;
+}
+
+unsigned int Shader::GetID()
+{
+	return m_RendererID;
 }
