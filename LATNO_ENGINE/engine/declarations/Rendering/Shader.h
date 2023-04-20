@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
 #include <unordered_map>
-
-#include "glm/glm.hpp"
+#include "GL_Definitions.h"
 
 // struct that contains vertex and fragment shader
 struct ShaderProgramSource

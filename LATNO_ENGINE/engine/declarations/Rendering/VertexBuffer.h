@@ -1,4 +1,5 @@
 #pragma once
+#include "GL_Definitions.h"
 
 class VertexBuffer
 {

@@ -1,9 +1,7 @@
 #pragma once
 #include "Test.h"
 
-#include "../VertexBuffer.h"
-#include "../VertexBufferLayout.h"
-#include "../Texture.h"
+#include "../Renderer.h"
 
 #include <memory>
 

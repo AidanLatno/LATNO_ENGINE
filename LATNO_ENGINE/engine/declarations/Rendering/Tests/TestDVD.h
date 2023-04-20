@@ -1,9 +1,7 @@
 #pragma once
 
 #include "Test.h"
-#include "../VertexArray.h"
-#include "../Texture.h"
-#include "../IndexBuffer.h"
+#include "../Renderer.h"
 #include "../engine/declarations/Coords.h"
 
 namespace test

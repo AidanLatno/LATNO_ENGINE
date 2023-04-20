@@ -1,10 +1,7 @@
 #include "TestTexture.h"
 
 #include "../Renderer.h"
-#include "ImGui/imgui.h"
-#include "GLFW/glfw3.h"
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
+
 
 #include "../Shapes/declarations/Rect.h"
 

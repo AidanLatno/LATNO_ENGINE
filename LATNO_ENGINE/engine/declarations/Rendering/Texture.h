@@ -1,5 +1,5 @@
 #pragma once
-#include "Renderer.h"
+#include "Shader.h"
 
 class Texture
 {
@@ -19,7 +19,7 @@ public:
 
 	inline int GetWidth() const { return m_Width; }
 	inline int GetHeight() const { return m_Height; }
-
-	unsigned int GetID();
+	inline std::string GetPath() const { return m_FilePath; }
+	inline unsigned int GetID() const { return m_RendererID; }
 
 };

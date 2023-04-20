@@ -185,6 +185,7 @@
     <ClInclude Include="engine\declarations\LOS.h" />
     <ClInclude Include="engine\declarations\Menu.h" />
     <ClInclude Include="engine\declarations\PhysicsController.h" />
+    <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h" />
     <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h" />
     <ClInclude Include="engine\declarations\Rendering\Renderer.h" />
     <ClInclude Include="engine\declarations\Rendering\Shader.h" />
