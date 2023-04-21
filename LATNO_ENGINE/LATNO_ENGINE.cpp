@@ -75,16 +75,39 @@ int main()
 
 	Sprite cherno(glm::vec3(200, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png");
 	Sprite lilGuy(glm::vec3(400, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/grr.png");
-	Sprite scared(glm::vec3(100, 200, 0), glm::vec2(1.0f, 1.0f), "resources/textures/ahh.png");
+	Sprite scared(glm::vec3(100, 200, 0), glm::vec2(2.0f, 1.0f), "resources/textures/ahh.png");
+
+	std::vector<Sprite*> SpriteList;
+
+	for (int i = 0; i < 300; i++)
+	{
+		SpriteList.push_back(new Sprite(glm::vec3(rand() % 960, rand() % 540, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png"));
+	}
+
+	for (int i = 0; i < SpriteList.size(); i++)
+	{
+		renderer.AddSprite(SpriteList[i]);
+	}
 
 	renderer.AddSprite(&cherno);
 	renderer.AddSprite(&lilGuy);
 	renderer.AddSprite(&scared);
 	while (!glfwWindowShouldClose(window))
 	{
+		if (processInput(window, GLFW_KEY_W))
+			for (int i = 0; i < SpriteList.size(); i++)
+				SpriteList[i]->Position.y+= 10;
+
+
+		ImGui_ImplGlfwGL3_NewFrame();
+
 		renderer.RenderSprites(window);
 
-		renderer.m_translation.x += 1;
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+
+		ImGui::Render();
+		ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
 
 		glfwSwapBuffers(window);
 
