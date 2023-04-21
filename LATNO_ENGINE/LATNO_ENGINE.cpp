@@ -73,16 +73,16 @@ int main()
 
 	Renderer renderer;
 
-	Sprite cherno(glm::vec3(200, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png");
-	Sprite lilGuy(glm::vec3(400, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/grr.png");
-	Sprite scared(glm::vec3(100, 200, 0), glm::vec2(2.0f, 1.0f), "resources/textures/ahh.png");
+	Sprite cherno(glm::vec3(200, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png", "circ");
+	Sprite lilGuy(glm::vec3(400, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/grr.png", "AABB");
+	Sprite scared(glm::vec3(100, 200, 0), glm::vec2(2.0f, 1.0f), "resources/textures/ahh.png", "AABB");
 
 	std::vector<Sprite*> SpriteList;
 
-	for (int i = 0; i < 300; i++)
+	/*for (int i = 0; i < 300; i++)
 	{
 		SpriteList.push_back(new Sprite(glm::vec3(rand() % 960, rand() % 540, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png"));
-	}
+	}*/
 
 	for (int i = 0; i < SpriteList.size(); i++)
 	{

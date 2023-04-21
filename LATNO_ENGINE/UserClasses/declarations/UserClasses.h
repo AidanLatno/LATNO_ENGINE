@@ -4,3 +4,4 @@
 // INCLUDE ANY USER MADE CLASSES HERE
 #include "Player.h"
 #include "Button.h"
+#include "../../engine/declarations/Rendering/Renderer.h"

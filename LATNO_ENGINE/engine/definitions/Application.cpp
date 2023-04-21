@@ -24,6 +24,7 @@ void Application::Load()
 bool Application::Tick(double deltaTime)
 {
 	BehaviorTick(deltaTime);
+	
 	return true;
 }
 

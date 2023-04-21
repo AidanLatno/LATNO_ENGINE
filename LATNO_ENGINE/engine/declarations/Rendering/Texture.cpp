@@ -40,3 +40,18 @@ void Texture::Unbind() const
 {
 	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
 }
+
+void Texture::SetSize()
+{
+	GLint width, height;
+	glBindTexture(GL_TEXTURE_2D, m_RendererID);
+	glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &width);
+	glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &height);
+	glBindTexture(GL_TEXTURE_2D, 0);
+	Size = glm::vec2(width, height);
+}
+
+glm::vec2 Texture::GetSize()
+{
+	return Size;
+}
