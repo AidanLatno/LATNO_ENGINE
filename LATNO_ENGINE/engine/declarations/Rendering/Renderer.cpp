@@ -67,4 +67,34 @@ void Renderer::RenderSprites(GLFWwindow* window) const
  void Renderer::AddSprite(Sprite* sprite)
  {
 	 sprites.push_back(sprite);
+	 std::cout << "Added sprite with path \"" << sprite->texture->GetPath() << "\"\n";
+ }
+
+ void Renderer::RemoveSprite(Sprite* sprite)
+ {
+	 std::vector<Sprite*> tempArray;
+	 if (sprites.size() > 0)
+	 {
+		 for (int i = 0; i < sprites.size(); i++)
+		 {
+			 if (sprites[i] != sprite)
+				 tempArray.push_back(sprites[i]);
+		 }
+		 sprites.swap(tempArray);
+	 }
+	 std::cout << "Removed sprite with path \"" << sprite->texture->GetPath() << "\"\n";
+ }
+ void Renderer::RemoveSprite(int index)
+ {
+	 std::cout << "Removed sprite with path \"" << sprites[index]->texture->GetPath() << "\"\n";
+	 std::vector<Sprite*> tempArray;
+	 if (sprites.size() > 0)
+	 {
+		 for (int i = 0; i < sprites.size(); i++)
+		 {
+			 if (i != index)
+				 tempArray.push_back(sprites[i]);
+		 }
+		 sprites.swap(tempArray);
+	 }
  }

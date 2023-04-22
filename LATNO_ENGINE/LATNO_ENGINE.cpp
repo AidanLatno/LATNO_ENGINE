@@ -3,33 +3,17 @@
 
 
 
-#define GLEW_STATIC
-#include <glew.h>
-#include <GLFW/glfw3.h>
+
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>
 
-#include "engine/declarations/Rendering/Renderer.h"
-
-
-#include "engine/declarations/Rendering/Tests/Test.h"
-#include "engine/declarations/Rendering/Tests/TestClearColor.h"
-#include "engine/declarations/Rendering/Tests/TestTexture.h"
-#include "engine//declarations/Rendering/Tests/TestDVD.h"
-#include "engine//declarations/Rendering/Tests/TestBuffer.h"
-
-
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-
-#include "vendor/ImGui/imgui_impl_glfw_gl3.h"
-#include "vendor/ImGui/imgui.h"
+#include "engine/declarations/Application.h" // commented out to make compilation faster
 
 bool processInput(GLFWwindow* window, unsigned int key);
 
-//#include "engine/declarations/Application.h" // commented out to make compilation faster
+
 
 int main()
 {
@@ -71,48 +55,65 @@ int main()
 	ImGui_ImplGlfwGL3_Init(window, true);
 	ImGui::StyleColorsDark();
 
-	Renderer renderer;
+	Scene level1(960, 540, window);
 
-	Sprite cherno(glm::vec3(200, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png", "circ");
-	Sprite lilGuy(glm::vec3(400, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/grr.png", "AABB");
-	Sprite scared(glm::vec3(100, 200, 0), glm::vec2(2.0f, 1.0f), "resources/textures/ahh.png", "AABB");
+	Actor player(200, 200, 'e', "resources/textures/cherno.png", "PLAYER");
 
-	std::vector<Sprite*> SpriteList;
+	level1.AddActor(player);
 
-	/*for (int i = 0; i < 300; i++)
+	while (!glfwWindowShouldClose)
 	{
-		SpriteList.push_back(new Sprite(glm::vec3(rand() % 960, rand() % 540, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png"));
-	}*/
-
-	for (int i = 0; i < SpriteList.size(); i++)
-	{
-		renderer.AddSprite(SpriteList[i]);
-	}
-
-	renderer.AddSprite(&cherno);
-	renderer.AddSprite(&lilGuy);
-	renderer.AddSprite(&scared);
-	while (!glfwWindowShouldClose(window))
-	{
-		if (processInput(window, GLFW_KEY_W))
-			for (int i = 0; i < SpriteList.size(); i++)
-				SpriteList[i]->Position.y+= 10;
-
-
-		ImGui_ImplGlfwGL3_NewFrame();
-
-		renderer.RenderSprites(window);
-
-		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-
-
-		ImGui::Render();
-		ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+		level1.Render();
 
 		glfwSwapBuffers(window);
 
 		glfwPollEvents(); // idk man
 	}
+
+
+
+	//Renderer renderer;
+
+	//Sprite cherno(glm::vec3(200, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png", "circ");
+	//Sprite lilGuy(glm::vec3(400, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/grr.png", "AABB");
+	//Sprite scared(glm::vec3(100, 200, 0), glm::vec2(2.0f, 1.0f), "resources/textures/ahh.png", "AABB");
+
+	//std::vector<Sprite*> SpriteList;
+
+	///*for (int i = 0; i < 300; i++)
+	//{
+	//	SpriteList.push_back(new Sprite(glm::vec3(rand() % 960, rand() % 540, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png"));
+	//}*/
+
+	//for (int i = 0; i < SpriteList.size(); i++)
+	//{
+	//	renderer.AddSprite(SpriteList[i]);
+	//}
+
+	//renderer.AddSprite(&cherno);
+	//renderer.AddSprite(&lilGuy);
+	//renderer.AddSprite(&scared);
+	//while (!glfwWindowShouldClose(window))
+	//{
+	//	if (processInput(window, GLFW_KEY_W))
+	//		for (int i = 0; i < SpriteList.size(); i++)
+	//			SpriteList[i]->Position.y+= 10;
+
+
+	//	ImGui_ImplGlfwGL3_NewFrame();
+
+	//	renderer.RenderSprites(window);
+
+	//	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+
+
+	//	ImGui::Render();
+	//	ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+
+	//	glfwSwapBuffers(window);
+
+	//	glfwPollEvents(); // idk man
+	//}
 
 	//test::Test* currentTest = nullptr;
 	//test::TestClearColor test;

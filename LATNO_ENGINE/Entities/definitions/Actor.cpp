@@ -4,10 +4,11 @@
 
 namespace Latno_Entities 
 {
-	Actor::Actor(int _x, int _y, char _ch, std::string _name)
+	Actor::Actor(int _x, int _y, char _ch, std::string SpritePath, std::string _name)
 	{
 		position.x = _x;
 		position.y = _y;
+		sprite = new Sprite(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		ch = _ch;
 		name = _name;
 		preData.x = _x;
@@ -15,9 +16,10 @@ namespace Latno_Entities
 		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
 	}
 
-	Actor::Actor(Coords _Pos, char _ch, std::string _name)
+	Actor::Actor(Coords _Pos, char _ch, std::string SpritePath, std::string _name)
 	{
 		position = _Pos;
+		sprite = new Sprite(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		ch = _ch;
 		name = _name;
 		preData = _Pos;

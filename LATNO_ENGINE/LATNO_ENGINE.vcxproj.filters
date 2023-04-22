@@ -129,9 +129,6 @@
     <ClCompile Include="engine\declarations\Rendering\Tests\TestDVD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Tests\TestBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -281,10 +278,10 @@
     <ClInclude Include="engine\declarations\Rendering\Tests\TestDVD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Tests\TestBuffer.h">
+    <ClInclude Include="engine\declarations\Rendering\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Sprite.h">
+    <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

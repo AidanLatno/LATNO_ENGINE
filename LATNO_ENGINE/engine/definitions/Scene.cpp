@@ -15,8 +15,9 @@ std::string Scene::Convert(Coords _direction) const
 	return "xx";
 }
 
-Scene::Scene(int _width, int _length)
+Scene::Scene(int _width, int _length, GLFWwindow* _window)
 {
+	window = _window;
 	devModeColor = ToChar("void");
 	fillColor = ToChar("white");
 	sizeX = _width;
@@ -32,8 +33,9 @@ Scene::Scene(int _width, int _length)
 			grid[y][x] = fillColor;
 }
 
-Scene::Scene(Coords _size)
+Scene::Scene(Coords _size, GLFWwindow* _window)
 {
+	window = _window;
 	sizeX = _size.x;
 	sizeY = _size.y;
 	area = sizeY * sizeX;
@@ -61,11 +63,13 @@ Scene::~Scene()
 void Scene::AddActor(Latno_Entities::Actor &_actor)
 {
 	actors.push_back(&_actor);
+	renderer.AddSprite(_actor.sprite);
 }
 
 void Scene::AddDynamicActor(Latno_Entities::Actor _actor)
 {
 	dynamicActors.push_back(_actor);
+	renderer.AddSprite(_actor.sprite);
 }
 
 void Scene::DestroyActor(Latno_Entities::Actor *deletedActor)
@@ -80,6 +84,9 @@ void Scene::DestroyActor(Latno_Entities::Actor *deletedActor)
 		}
 		actors.swap(tempArray);
 	}
+
+	renderer.RemoveSprite(deletedActor->sprite);
+
 }
 
 void Scene::DestroyDynamicActor(int _index)
@@ -97,6 +104,8 @@ void Scene::DestroyDynamicActor(int _index)
 	dynamicActors.swap(tempArray);
 	// for(int i = 0; i < dynamicactor.size(); i++)
 	// 	dynamicactor[i] = TempArray[i];
+
+	renderer.RemoveSprite(_index);
 }
 
 void Scene::AddRect(Rect &_rect)
@@ -145,120 +154,10 @@ void Scene::Update()
 					if(x >= rects[i]->corner1.x && x <= rects[i]->corner2.x && y >= rects[i]->corner1.y && y <= rects[i]->corner2.y)
 						grid[y][x] = rects[i]->ch;
 }
-/*
+
 void Scene::Render(bool _displayChars, bool _clearScreen) const
 {
-	if (_clearScreen)
-		CLEAR_SCREEN;
-	std::string str;
-	
-	for(int y = 0; y < sizeY; y++)
-	{
-		for(int x = 0; x < sizeX; x++)
-		{
-			if(!_displayChars)
-			{
-				auto it = escape_codes.find(grid[y][x]);
-				if (it != escape_codes.end()) {
-					str = it->second;
-				}
-				else {
-					str = "\033[0m";
-				}
-				
-				if (actors.size() > 0)
-				{
-					for (int i = 0; i < actors.size(); i++)
-					{
-						if (y == actors[i]->position.y && x == actors[i]->position.x)
-						{
-							std::cout << str << Convert(actors[i]->direction) << "\033[0m";
-							break;
-						}
-						else if (i == actors.size() - 1)
-						{
-							std::cout << str + "  \033[0m";
-							break;
-						}
-					}
-				}
-			}
-			else
-				std::cout << grid[y][x] << ' ';
-		}
-		std::cout << '\n';
-	}
-}
-*/
-void Scene::Render(bool _displayChars, bool _clearScreen) const
-{
-	if (_clearScreen)
-		CLEAR_SCREEN;
-
-	std::string output;
-	for (int y = 0; y < sizeY; y++)
-	{
-		for (int x = 0; x < sizeX; x++)
-		{
-			if (!_displayChars)
-			{
-				switch (grid[y][x])
-				{
-				case 'p':
-					output += "\033[44m";
-					break;
-				case '.':
-					output += "\033[47m";
-					break;
-				case 'e':
-					output += "\033[41m";
-					break;
-				case '#':
-					output += "\033[45m";
-					break;
-				case 'a':
-					output += "\033[43m";
-					break;
-				case 'g':
-					output += "\033[42m";
-					break;
-				case 'b':
-					output += "\033[46m";
-					break;
-				default:
-					output += "\033[0m";
-				}
-
-				if (actors.size() > 0)
-				{
-					bool actor_found = false;
-					for (int i = 0; i < actors.size(); i++)
-					{
-						if (y == actors[i]->position.y && x == actors[i]->position.x)
-						{
-							output += Convert(actors[i]->direction);
-							actor_found = true;
-							break;
-						}
-					}
-					if (!actor_found)
-					{
-						output += "  ";
-					}
-				}
-				else
-				{
-					output += "  ";
-				}
-			}
-			else
-			{
-				output += grid[y][x] += ' ';
-			}
-		}
-		output += "\n\033[0m";
-	}
-	std::cout << output;
+	renderer.RenderSprites(window);
 }
 
 

@@ -11,7 +11,7 @@ Menu::Menu(int Options,std::string DisplayNames[])
 	}
 	Width = (int)TempWordlen + 4;
 	Length = Options * 2 - 1;
-	MenuScene = new Scene(Width,Length);
+	//MenuScene = new Scene(Width,Length);
 	Selector = new AdvancedActor(0,0,'>',"SELECTOR");
 	MenuScene->AddActor(*Selector);
 	OptionsAmount = Options;

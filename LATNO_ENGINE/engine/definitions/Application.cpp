@@ -33,7 +33,7 @@ void Application::Startup()
 	DevLog::CLEAR("EngineLog");
 	srand(time(NULL));
 
-	Scene level(20, 20);
+	/*Scene level(20, 20);
 	Button button(1, 1, ToChar("purple"), "BUTTON");
 	Player player(16, 16,ToChar("blue"), "Player");
 	Rect Wall(6, 9, 15, 12, ToChar("yellow"), "WALL");
@@ -58,7 +58,7 @@ void Application::Startup()
 	playerPtr = &player;
 
 	button.currentScene = levelPtr;
-	player.currentScene = levelPtr;
+	player.currentScene = levelPtr;*/
 
 	Load();
 }

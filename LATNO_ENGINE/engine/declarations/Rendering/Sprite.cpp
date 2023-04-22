@@ -2,6 +2,8 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
+
+
 Sprite::Sprite(glm::vec3 _position, glm::vec2 _scale, Texture _texture, std::string _enum)
 {
 	texture = std::make_unique<Texture>(_texture.GetPath());
@@ -21,9 +23,9 @@ Sprite::Sprite(glm::vec3 _position, glm::vec2 _scale, Texture _texture, std::str
 	else if(_enum == "circ")
 		collisiontype = CollisionType::CIRCULAR;
 }
-Sprite::Sprite(glm::vec3 _position, glm::vec2 _scale, std::string _texture, std::string _enum)
+Sprite::Sprite(glm::vec3 _position, glm::vec2 _scale, std::string path, std::string _enum)
 {
-	texture = std::make_unique<Texture>(_texture);
+	texture = std::make_unique<Texture>(path);
 	shader = std::make_unique<Shader>("resources/shaders/Basic.shader");
 
 	Position = _position;

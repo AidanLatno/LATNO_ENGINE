@@ -16,6 +16,8 @@ public:
 	Renderer();
 	void Clear() const;
 	void AddSprite(Sprite* sprite);
+	void RemoveSprite(Sprite* sprite);
+	void RemoveSprite(int index);
 	void RenderSprites(GLFWwindow* window) const;
 	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const; 
 

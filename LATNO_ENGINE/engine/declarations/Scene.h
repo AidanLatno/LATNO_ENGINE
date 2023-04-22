@@ -1,10 +1,13 @@
 #pragma once
 #include "../../Shapes/declarations/Circle.h"
 
+
 class Scene
 {
 	private:
 		std::string Convert(Coords Direction) const;
+		Renderer renderer;
+		GLFWwindow* window;
 	public:
 		bool devMode = false;
 		char devModeColor;
@@ -17,8 +20,8 @@ class Scene
 		std::vector<Rect*> rects;
 		char** grid;
 
-		Scene(int Width,int Length);
-		Scene(Coords Size);
+		Scene(int Width,int Length,GLFWwindow* _window);
+		Scene(Coords Size, GLFWwindow* _window);
 
 		~Scene();
 

@@ -1,11 +1,14 @@
 #pragma once
 #include "../../engine/declarations/Route.h"
+#include "../../engine/declarations/Rendering/Renderer.h"
+
 
 namespace Latno_Entities 
 {
 	class Actor : public Latno::Component
 	{
 		public:
+			Sprite* sprite;
 			Coords preData;
 			Coords position;
 			char ch;
@@ -13,8 +16,8 @@ namespace Latno_Entities
 			Coords direction = UP; // "< " " >" "^^" "vv"
 			
 
-			Actor(int _x,int _y,char _ch,std::string _Name);
-			Actor(Coords _Pos,char _ch,std::string _Name);
+			Actor(int _x,int _y,char _ch,std::string SpritePath, std::string _Name = "");
+			Actor(Coords _Pos,char _ch, std::string SpritePath, std::string _Name = "");
 			Actor();
 
 			void SetCoords(int x,int y);
