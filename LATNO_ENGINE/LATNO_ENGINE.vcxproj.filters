@@ -278,6 +278,9 @@
     <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Trash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />
@@ -292,6 +295,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\cherno.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\can.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

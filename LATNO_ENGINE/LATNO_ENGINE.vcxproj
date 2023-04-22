@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -165,7 +165,6 @@
     <ClCompile Include="Shapes\definitions\Circle.cpp" />
     <ClCompile Include="Shapes\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
-    <ClCompile Include="engine\definitions\Window.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_demo.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_draw.cpp" />
@@ -214,7 +213,7 @@
     <ClInclude Include="UserClasses\declarations\Button.h" />
     <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
-    <ClInclude Include="engine\declarations\Window.h" />
+    <ClInclude Include="UserClasses\declarations\Trash.h" />
     <ClInclude Include="vendor\ImGui\imgui.h" />
     <ClInclude Include="vendor\ImGui\imgui_impl_glfw_gl3.h" />
     <ClInclude Include="vendor\ImGui\imgui_internal.h" />
@@ -232,6 +231,7 @@
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\textures\can.png" />
     <Image Include="resources\textures\cherno.png" />
     <Image Include="resources\textures\images.png" />
   </ItemGroup>

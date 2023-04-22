@@ -1,6 +1,6 @@
 #pragma once
-#include "../../engine/declarations/Route.h"
 #include "../../engine/declarations/Rendering/Renderer.h"
+#include "../../Shapes/declarations/CollisionBox.h"
 
 
 namespace Latno_Entities 
@@ -9,8 +9,11 @@ namespace Latno_Entities
 	{
 		private:
 			Coords position;
+			glm::vec2 scale;
 		public:
 			Sprite* sprite;
+			CollisionBox* collisionBox;
+
 			Coords preData;
 			
 			std::string name;
@@ -20,6 +23,8 @@ namespace Latno_Entities
 
 			Actor(int _x,int _y,std::string SpritePath, std::string _Name = "");
 			Actor(Coords _Pos, std::string SpritePath, std::string _Name = "");
+			Actor(Coords _Pos, std::string SpritePath, std::string _name, std::string SpritePath, std::string _name = "");
+
 			Actor();
 
 			void SetCoords(int x,int y);
@@ -32,6 +37,10 @@ namespace Latno_Entities
 			Coords GetPos() const;
 			void SetPos(Coords _pos);
 			void SetScale(float x, float y);
+
+			void SetScale(glm::vec2 _scale);
+			glm::vec2 GetScale();
+
 
 	};
 }

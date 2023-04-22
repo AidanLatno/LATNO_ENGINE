@@ -1,21 +1,22 @@
 #pragma once
+#include "glm/glm.hpp"
 
-#include "../../Engine/declarations/Window.h"
+#include "../../engine/declarations/Route.h"
 
 #include <string>
 
 class CollisionBox
 {
 public:
-	CollisionBox(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _name);
-	CollisionBox(Coords _pos1, Coords _pos2, char _ch, std::string _name);
+	CollisionBox(int _x1, int _y1, int _x2, int _y2, std::string _name);
+	CollisionBox(Coords _pos1, Coords _pos2, std::string _name);
+	CollisionBox(Coords pos, glm::vec2 _scale);
 
 	std::string name;
 	Coords corner1;
 	Coords corner2;
 	bool isCollider = true;
 
-	bool CheckCollision(Latno_Entities::Actor actor) const;
 	bool CheckCollision(Coords point) const;
 	bool CheckOverlap(CollisionBox rect) const;
 	void SwapCheck();

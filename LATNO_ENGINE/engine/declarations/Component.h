@@ -23,7 +23,6 @@ namespace Latno
                 if(doesLogOnNonOverload)
                     DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "EngineLog");
             }
-            
     };
     
 }

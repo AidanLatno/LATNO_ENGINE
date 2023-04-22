@@ -14,7 +14,7 @@ public:
 	}
 	void Update(double deltaTime) override
 	{
-		Move(*currentScene);
+		ManageInput(*currentScene);
 	}
 
 };

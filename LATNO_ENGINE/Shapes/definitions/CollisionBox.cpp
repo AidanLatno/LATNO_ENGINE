@@ -7,33 +7,30 @@
 #include "../../engine/declarations/Coords.h"
 
 
-CollisionBox::CollisionBox(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _Name)
+CollisionBox::CollisionBox(int _x1, int _y1, int _x2, int _y2, std::string _Name)
 {
 	corner1.x = _x1;
 	corner2.x = _x2;
 	corner1.y = _y1;
 	corner2.y = _y2;
-	ch = _ch;
 	name = _Name;
 
 	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
 }
 
-CollisionBox::CollisionBox(Coords _pos1, Coords _pos2, char _ch, std::string _name)
+CollisionBox::CollisionBox(Coords _pos1, Coords _pos2, std::string _name)
 {
 	corner1 = _pos1;
 	corner2 = _pos2;
-	ch = _ch;
 	name = _name;
 	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
 }
 
-bool CollisionBox::CheckCollision(Latno_Entities::Actor actor) const
+CollisionBox(Coords pos, glm::vec2 _scale)
 {
-	if (actor.GetPos().x >= corner1.x && actor.GetPos().x <= corner2.x && actor.GetPos().y >= corner1.y && actor.GetPos().y <= corner2.y)
-		return true;
-	return false;
+
 }
+
 
 bool CollisionBox::CheckCollision(Coords point) const
 {

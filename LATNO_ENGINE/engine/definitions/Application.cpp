@@ -46,7 +46,7 @@ void Application::Startup(GLFWwindow* _window)
 	Scene level(960, 540, window);
 
 	Player player(100, 100, "resources/textures/leafs.png");
-	//Actor mouseTarget()
+	Latno_Entities::Actor mouseTarget(50, 50, "resources/textures/can.png", "Trash");
 	player.currentScene = &level;
 
 	playerPtr = &player;
@@ -68,7 +68,7 @@ void Application::Run()
 		ImGui_ImplGlfwGL3_NewFrame();
 
 		levelPtr->Render();
-		
+
 		DevLog::LOGLN("HELLO WORLD", "MainLog");
 
 		if (!Tick(prevDeltaTime))

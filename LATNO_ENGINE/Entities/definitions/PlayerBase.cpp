@@ -2,7 +2,7 @@
 #include "../declarations/PlayerBase.h"
 namespace Latno_Entities 
 {
-    void PlayerBase::Move(Scene &Scene)
+    void PlayerBase::ManageInput(Scene &Scene)
     {
         preData = GetPos();
         if (glfwGetKey(Scene.window, GLFW_KEY_W) == GLFW_PRESS && GetPos().y > 0)

@@ -10,6 +10,9 @@ namespace Latno_Entities
 		position.y = _y;
 		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		sprite = new Sprite(glm::vec3(_x, _y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+
+		// collisionBox = new CollisionBox();
+		
 		name = _name;
 		preData.x = _x;
 		preData.y = _y;
@@ -17,11 +20,31 @@ namespace Latno_Entities
 
 	}
 
+	Actor::Actor(int _x, int _y, glm::vec2 _scale, std::string SpritePath, std::string _name)
+	{
+		position.x = _x;
+		position.y = _y;
+		scale = _scale;
+		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+		sprite = new Sprite(glm::vec3(_x, _y, 0), scale, SpritePath, "AABB");
+
+
+		// collisionBox = new CollisionBox();
+
+		name = _name;
+		preData.x = _x;
+		preData.y = _y;
+	}
+
 	Actor::Actor(Coords _Pos, std::string SpritePath, std::string _name)
 	{
 		position = _Pos;
 		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		sprite = new Sprite(glm::vec3(_Pos.x, _Pos.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+
+		// collisionBox = new CollisionBox();
+
+
 		name = _name;
 		preData = _Pos;
 		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
@@ -97,5 +120,14 @@ namespace Latno_Entities
 	void Actor::SetScale(float x, float y)
 	{
 		sprite->Scale = glm::vec2(x, y);
+	}
+
+	void SetScale(glm::vec2 _scale)
+	{
+		scale = _scale; 
+	}
+	glm::vec2 GetScale()
+	{
+		return scale;
 	}
 }
