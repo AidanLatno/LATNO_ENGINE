@@ -43,16 +43,26 @@ void Application::Startup(GLFWwindow* _window)
 	DevLog::CLEAR("GL_ERROR_LOG");
 	srand(time(NULL));
 
-	Scene level(960, 540, window);
+	Scene level(864, 988, window);
 
-	Player player(100, 100, "resources/textures/leafs.png");
-	Latno_Entities::Actor mouseTarget(50, 50, "resources/textures/can.png", "Trash");
+	Player player(100, 100, "resources/textures/cleaner.png");
+	Latno_Entities::Actor land(864 / 2, 988 / 2, "resources/textures/land.png");
+	Latno_Entities::Actor water(864 / 2, 988 / 2, "resources/textures/water.png");
+
+	water.SetScale({ 50, 50 });
+	land.SetScale({ 50, 50 });
+	player.SetScale({ 10, 10 });
+
 	player.currentScene = &level;
 
+	waterPtr = &water;
+	backgroundPtr = &land;
 	playerPtr = &player;
 	levelPtr = &level;
 
 	level.AddActor(player);
+	level.AddActor(water);
+	level.AddActor(land);
 
 	Load();
 }
@@ -73,6 +83,7 @@ void Application::Run()
 
 		if (!Tick(prevDeltaTime))
 			return;
+			
 
 		prevDeltaTime = DeltaCalc.GetTime();
 		DeltaCalc.Reset();

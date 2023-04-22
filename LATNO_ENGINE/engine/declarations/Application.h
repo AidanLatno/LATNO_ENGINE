@@ -19,4 +19,7 @@ public:
 	Button *buttonPtr;
 	CollisionBox *wallPtr;
 	CollisionBox* wall2Ptr;
+	Latno_Entities::Actor* backgroundPtr;
+	Latno_Entities::Actor* waterPtr;
+
 };

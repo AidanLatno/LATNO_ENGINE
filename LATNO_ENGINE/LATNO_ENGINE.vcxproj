@@ -137,10 +137,6 @@
     <ClCompile Include="engine\declarations\Rendering\Renderer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Shader.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Sprite.cpp" />
-    <ClCompile Include="engine\declarations\Rendering\Tests\Test.cpp" />
-    <ClCompile Include="engine\declarations\Rendering\Tests\TestClearColor.cpp" />
-    <ClCompile Include="engine\declarations\Rendering\Tests\TestDVD.cpp" />
-    <ClCompile Include="engine\declarations\Rendering\Tests\TestTexture.cpp" />
     <ClCompile Include="engine\declarations\Rendering\Texture.cpp" />
     <ClCompile Include="engine\declarations\Rendering\VertexArray.cpp" />
     <ClCompile Include="engine\declarations\Rendering\VertexBuffer.cpp" />
@@ -165,6 +161,7 @@
     <ClCompile Include="Shapes\definitions\Circle.cpp" />
     <ClCompile Include="Shapes\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
+    <ClCompile Include="UserClasses\definitions\ProgressBar.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_demo.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_draw.cpp" />
@@ -186,10 +183,6 @@
     <ClInclude Include="engine\declarations\Rendering\Renderer.h" />
     <ClInclude Include="engine\declarations\Rendering\Shader.h" />
     <ClInclude Include="engine\declarations\Rendering\Sprite.h" />
-    <ClInclude Include="engine\declarations\Rendering\Tests\Test.h" />
-    <ClInclude Include="engine\declarations\Rendering\Tests\TestClearColor.h" />
-    <ClInclude Include="engine\declarations\Rendering\Tests\TestDVD.h" />
-    <ClInclude Include="engine\declarations\Rendering\Tests\TestTexture.h" />
     <ClInclude Include="engine\declarations\Rendering\Texture.h" />
     <ClInclude Include="engine\declarations\Rendering\VertexArray.h" />
     <ClInclude Include="engine\declarations\Rendering\VertexBuffer.h" />
@@ -212,6 +205,7 @@
     <ClInclude Include="engine\declarations\Timer.h" />
     <ClInclude Include="UserClasses\declarations\Button.h" />
     <ClInclude Include="UserClasses\declarations\Player.h" />
+    <ClInclude Include="UserClasses\declarations\ProgressBar.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
     <ClInclude Include="UserClasses\declarations\Trash.h" />
     <ClInclude Include="vendor\ImGui\imgui.h" />
@@ -226,6 +220,7 @@
     <Text Include="Logs\AppLog.txt" />
     <Text Include="Logs\EngineLog.txt" />
     <Text Include="Logs\GL_ERROR_LOG.txt" />
+    <Text Include="UserClasses\NewFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />

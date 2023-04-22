@@ -1,8 +1,4 @@
 // LATNO_ENGINE.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-
-
 
 #include <iostream>
 #include <string>
@@ -32,7 +28,7 @@ int main()
 	// ^^ Make GL Version core instead of compat ^^
 
 
-	window = glfwCreateWindow(960, 540, "Window Title", NULL, NULL);
+	window = glfwCreateWindow(864, 988, "Window Title", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -57,6 +53,22 @@ int main()
 	ImGui_ImplGlfwGL3_Init(window, true);
 	ImGui::StyleColorsDark();
 
+
+	float progress = 0.0f; // progress value between 0 and 1
+
+	ImGui::ProgressBar(progress, ImVec2(0.0f, 0.0f));
+
+	while (progress < 1.0f) {
+		// update progress value
+		progress += 0.01f;
+
+		// render progress bar
+		ImGui::ProgressBar(progress, ImVec2(0.0f, 0.0f));
+
+		// render ImGui frame
+		//ImGui::Render();
+	}
+	
 	Application* app = new Application();
 	app->Startup(window);
 	
@@ -72,7 +84,6 @@ int main()
 
 	//	glfwpollevents(); // idk man
 	//}
-
 	delete app;
 
 	return 0;

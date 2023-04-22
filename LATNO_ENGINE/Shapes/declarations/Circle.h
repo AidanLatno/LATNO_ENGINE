@@ -1,5 +1,5 @@
 #pragma once
-#include "CollisionBox.h"
+#include "../../Entities/declarations/Actor.h"
 
 class Circle
 {

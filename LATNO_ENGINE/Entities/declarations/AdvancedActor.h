@@ -19,7 +19,6 @@ namespace Latno_Entities {
 			void TurnRight(int TurnAmount);
 			void TurnLeft(int TurnAmount);
 			void TurnRandom(bool Up = true,bool Right = true,bool Down = true,bool Left = true);
-			bool IsNearby(Actor Actor,int Size) const;
 			int CountNearby(Scene Scene, int Size);
 
 	};

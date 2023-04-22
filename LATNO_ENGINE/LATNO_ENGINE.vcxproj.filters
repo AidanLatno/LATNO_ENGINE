@@ -75,9 +75,6 @@
     <ClCompile Include="engine\definitions\PhysicsController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="engine\definitions\Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="engine\declarations\Rendering\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,15 +99,6 @@
     <ClCompile Include="engine\declarations\Rendering\Texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Tests\Test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Tests\TestClearColor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Tests\TestTexture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="vendor\ImGui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -123,10 +111,10 @@
     <ClCompile Include="vendor\ImGui\imgui_impl_glfw_gl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Tests\TestDVD.cpp">
+    <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
+    <ClCompile Include="UserClasses\definitions\ProgressBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -215,9 +203,6 @@
     <ClInclude Include="engine\declarations\PhysicsController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="engine\declarations\Rendering\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -242,15 +227,6 @@
     <ClInclude Include="engine\declarations\Rendering\Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Tests\Test.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Tests\TestClearColor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Tests\TestTexture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="vendor\ImGui\imgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -269,9 +245,6 @@
     <ClInclude Include="vendor\stb_img\stb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Tests\TestDVD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="engine\declarations\Rendering\Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -281,11 +254,15 @@
     <ClInclude Include="UserClasses\declarations\Trash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UserClasses\declarations\ProgressBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />
     <Text Include="Logs\EngineLog.txt" />
     <Text Include="Logs\AppLog.txt" />
+    <Text Include="UserClasses\NewFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />

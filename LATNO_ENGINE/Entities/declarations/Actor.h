@@ -9,13 +9,19 @@ namespace Latno_Entities
 	{
 		private:
 			Coords position;
-			glm::vec2 scale;
 		public:
+			glm::vec2 scale = { 1,1 };
+
 			Sprite* sprite;
 			CollisionBox* collisionBox;
 
 			Coords preData;
-			
+
+			glm::vec2 size;
+            unsigned int Radius;
+
+
+
 			std::string name;
 			Coords direction = UP; // "< " " >" "^^" "vv"
 			float speed = 1.0f;
@@ -23,7 +29,7 @@ namespace Latno_Entities
 
 			Actor(int _x,int _y,std::string SpritePath, std::string _Name = "");
 			Actor(Coords _Pos, std::string SpritePath, std::string _Name = "");
-			Actor(Coords _Pos, std::string SpritePath, std::string _name, std::string SpritePath, std::string _name = "");
+			Actor(int _x, int _y, glm::vec2 _scale, std::string SpritePath, std::string _name, std::string _enum = "AABB");
 
 			Actor();
 
@@ -36,7 +42,8 @@ namespace Latno_Entities
 
 			Coords GetPos() const;
 			void SetPos(Coords _pos);
-			void SetScale(float x, float y);
+			void SetSpriteScale(float x, float y);
+			void SetCollisionSize(glm::vec2 scale);
 
 			void SetScale(glm::vec2 _scale);
 			glm::vec2 GetScale();

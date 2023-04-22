@@ -11,43 +11,54 @@ namespace Latno_Entities
 		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		sprite = new Sprite(glm::vec3(_x, _y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 
-		// collisionBox = new CollisionBox();
+		size.x = 50 * scale.x;
+		size.y = 50 * scale.y;
+		collisionBox = new CollisionBox(position, size, "AABB");
+		collisionBox->size.x = 50 * scale.x;
+		collisionBox->size.y = 50 * scale.y;
+		
 		
 		name = _name;
 		preData.x = _x;
 		preData.y = _y;
 		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
-
+		SetPos(GetPos());
 	}
 
-	Actor::Actor(int _x, int _y, glm::vec2 _scale, std::string SpritePath, std::string _name)
+	Actor::Actor(int _x, int _y, glm::vec2 _scale, std::string SpritePath, std::string _name, std::string _enum)
 	{
 		position.x = _x;
 		position.y = _y;
 		scale = _scale;
+		
+
+		
+		
 		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
-		sprite = new Sprite(glm::vec3(_x, _y, 0), scale, SpritePath, "AABB");
+		sprite = new Sprite(glm::vec3(_x, _y, 0), scale, SpritePath, _enum);
 
+		size.x = 50 * scale.x;
+		size.y = 50 * scale.y;
+		collisionBox = new CollisionBox(position, size, "AABB");
 
-		// collisionBox = new CollisionBox();
+		collisionBox->size.x = 50 * _scale.x;
+		collisionBox->size.y = 50 * _scale.y;
 
 		name = _name;
 		preData.x = _x;
 		preData.y = _y;
+		SetPos(GetPos());
 	}
 
 	Actor::Actor(Coords _Pos, std::string SpritePath, std::string _name)
 	{
 		position = _Pos;
-		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		sprite = new Sprite(glm::vec3(_Pos.x, _Pos.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
-
-		// collisionBox = new CollisionBox();
-
 
 		name = _name;
 		preData = _Pos;
 		//LOGLN("Actor named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(position.x) + ", " + std::to_string(position.y) + ")");
+		SetPos(GetPos());
 	}
 
 	Actor::Actor()
@@ -115,19 +126,31 @@ namespace Latno_Entities
 	{
 		position = _pos;
 		sprite->Position = glm::vec3(position.x, position.y, 0);
+		collisionBox->position = _pos;
+		collisionBox->topLeft = { position.x - size.x / 2, position.y + size.y / 2 };
+		collisionBox->botRight = { position.x + size.x / 2, position.y - size.y / 2 };
+		
 	}
 
-	void Actor::SetScale(float x, float y)
+	void Actor::SetSpriteScale(float x, float y)
 	{
 		sprite->Scale = glm::vec2(x, y);
 	}
-
-	void SetScale(glm::vec2 _scale)
+	void Actor::SetCollisionSize(glm::vec2 scale)
 	{
-		scale = _scale; 
+		collisionBox->size.x = 50 * scale.x;
+		collisionBox->size.y = 50 * scale.y;
 	}
-	glm::vec2 GetScale()
+	
+	glm::vec2 Actor::GetScale()
 	{
 		return scale;
 	}
+	void Actor::SetScale(glm::vec2 _scale)
+	{
+		scale = _scale; 
+		SetSpriteScale(scale.x,scale.y);
+		SetCollisionSize(scale);
+	}
+	
 }
