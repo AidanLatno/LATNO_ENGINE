@@ -53,22 +53,6 @@ int main()
 	ImGui_ImplGlfwGL3_Init(window, true);
 	ImGui::StyleColorsDark();
 
-
-	float progress = 0.0f; // progress value between 0 and 1
-
-	ImGui::ProgressBar(progress, ImVec2(0.0f, 0.0f));
-
-	while (progress < 1.0f) {
-		// update progress value
-		progress += 0.01f;
-
-		// render progress bar
-		ImGui::ProgressBar(progress, ImVec2(0.0f, 0.0f));
-
-		// render ImGui frame
-		//ImGui::Render();
-	}
-	
 	Application* app = new Application();
 	app->Startup(window);
 	
