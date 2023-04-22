@@ -73,8 +73,8 @@ char getch()
 
 
 
-#define UP Coords(0,-1)
-#define DOWN Coords(0,1)
+#define UP Coords(0,1)
+#define DOWN Coords(0,-1)
 #define RIGHT Coords(1,0)
 #define LEFT Coords(-1,0)
 

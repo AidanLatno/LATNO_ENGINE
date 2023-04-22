@@ -61,9 +61,9 @@ bool LOS::CheckCollision(Latno_Entities::Actor actor) const
 	float d1, d2, d3;
 	bool has_neg, has_pos;
 
-	d1 = sign(actor.position, Points[0], Points[1]);
-	d2 = sign(actor.position, Points[1], Points[2]);
-	d3 = sign(actor.position, Points[2], Points[0]);
+	d1 = sign(actor.GetPos(), Points[0], Points[1]);
+	d2 = sign(actor.GetPos(), Points[1], Points[2]);
+	d3 = sign(actor.GetPos(), Points[2], Points[0]);
 
 	has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
 	has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);

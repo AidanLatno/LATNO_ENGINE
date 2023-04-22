@@ -29,7 +29,7 @@ Rect::Rect(Coords _pos1, Coords _pos2, char _ch, std::string _name)
 
 bool Rect::CheckCollision(Latno_Entities::Actor actor) const
 {
-	if (actor.position.x >= corner1.x && actor.position.x <= corner2.x && actor.position.y >= corner1.y && actor.position.y <= corner2.y)
+	if (actor.GetPos().x >= corner1.x && actor.GetPos().x <= corner2.x && actor.GetPos().y >= corner1.y && actor.GetPos().y <= corner2.y)
 		return true;
 	return false;
 }
@@ -57,17 +57,17 @@ void Rect::SwapCheck()
 	}
 }
 
-int Rect::GetCenterX()
+int Rect::GetCenterX() const
 {
 	return abs((corner1.x + corner2.x) / 2);
 }
 
-int Rect::GetCenterY()
+int Rect::GetCenterY() const
 {
 	return abs((corner1.y + corner2.y) / 2);
 }
 
-Coords Rect::GetCenter()
+Coords Rect::GetCenter() const
 {
 	return { GetCenterX(), GetCenterY() };
 }

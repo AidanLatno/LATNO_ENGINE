@@ -8,8 +8,8 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
     currentScene->dynamicActors.clear();
 
 
-    Coords targetPos = ChaseActor.position;
-    Node* currentNode = &nodeGrid[position.y][position.x];
+    Coords targetPos = ChaseActor.GetPos();
+    Node* currentNode = &nodeGrid[GetPos().y][GetPos().x];
 
     Node* startingNode = currentNode;
     Node* endNode = &nodeGrid[targetPos.y][targetPos.x];
@@ -67,7 +67,7 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
                     }
                     else
                     {
-                        position = nodeTrace->pos;
+                        SetPos(nodeTrace->pos);
                         return;
                     }
             }
@@ -134,7 +134,7 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
             if (skip)
                 continue;
 
-            neighbor->gCost = neighbor->pos.FindDistance(position) * 10;
+            neighbor->gCost = neighbor->pos.FindDistance(GetPos()) * 10;
             neighbor->hCost = neighbor->pos.FindDistance(targetPos) * 10;
 
             // if new path to neighbor is shorter or neighbor is not in Open

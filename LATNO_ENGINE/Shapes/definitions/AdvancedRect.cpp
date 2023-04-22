@@ -12,7 +12,7 @@ void AdvancedRect::RebuildRect(Coords _Direction, int _Distance, int _Width = 0)
 	Coords EndPoint;
 	Tracer.direction = extendDirection;
 	Tracer.MoveForward(distance);
-	EndPoint = Tracer.position;
+	EndPoint = Tracer.GetPos();
 
 	if (extendDirection.IsEqual(RIGHT) || extendDirection.IsEqual(DOWN))
 	{
@@ -54,7 +54,7 @@ AdvancedRect AdvancedRect::R_RebuildRect(Coords _Direction, int _Distance, int _
 	Coords EndPoint;
 	Tracer.direction = extendDirection;
 	Tracer.MoveForward(distance);
-	EndPoint = Tracer.position;
+	EndPoint = Tracer.GetPos();
 
 	if (extendDirection.IsEqual(RIGHT) || extendDirection.IsEqual(DOWN))
 	{

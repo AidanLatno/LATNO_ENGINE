@@ -16,8 +16,8 @@ public:
 	{
 		if (currentScene->ActorCollision(*this))
 		{
-			position.x = rand() % currentScene->sizeX;
-			position.y = rand() % currentScene->sizeY;
+			SetPos({ rand() % currentScene->sizeY, GetPos().y });
+			SetPos({ GetPos().x, rand() % currentScene->sizeY });
 		}
 	}
 

@@ -8,7 +8,8 @@ namespace Latno_Entities
 	{
 		position.x = _x;
 		position.y = _y;
-		sprite = new Sprite(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+		sprite = new Sprite(glm::vec3(_x, _y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		ch = _ch;
 		name = _name;
 		preData.x = _x;
@@ -19,7 +20,8 @@ namespace Latno_Entities
 	Actor::Actor(Coords _Pos, char _ch, std::string SpritePath, std::string _name)
 	{
 		position = _Pos;
-		sprite = new Sprite(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+		sprite = new Sprite(glm::vec3(_Pos.x, _Pos.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		ch = _ch;
 		name = _name;
 		preData = _Pos;
@@ -84,4 +86,18 @@ namespace Latno_Entities
 	}
 
 
+	Coords Actor::GetPos() const
+	{
+		return position;
+	}
+	void Actor::SetPos(Coords _pos)
+	{
+		position = _pos;
+		sprite->Position = glm::vec3(position.x, position.y, 0);
+	}
+
+	void Actor::SetScale(float x, float y)
+	{
+		sprite->Scale = glm::vec2(x, y);
+	}
 }

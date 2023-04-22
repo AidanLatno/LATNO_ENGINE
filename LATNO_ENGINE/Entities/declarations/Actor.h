@@ -7,13 +7,16 @@ namespace Latno_Entities
 {
 	class Actor : public Latno::Component
 	{
+		private:
+			Coords position;
 		public:
 			Sprite* sprite;
 			Coords preData;
-			Coords position;
+			
 			char ch;
 			std::string name;
 			Coords direction = UP; // "< " " >" "^^" "vv"
+			float speed = 1.0f;
 			
 
 			Actor(int _x,int _y,char _ch,std::string SpritePath, std::string _Name = "");
@@ -26,6 +29,10 @@ namespace Latno_Entities
 			bool CheckCollision(Coords Point) const;
 			bool IsNearby(Actor Actor) const;
 			bool IsNearby(Coords Point) const;
+
+			Coords GetPos() const;
+			void SetPos(Coords _pos);
+			void SetScale(float x, float y);
 
 	};
 }

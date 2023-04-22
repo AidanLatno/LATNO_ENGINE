@@ -14,8 +14,6 @@ public:
     float Rotation;
     glm::vec2 Scale;
 
-    void ChangeTexture(std::string path);
-
     Sprite(glm::vec3 _position, glm::vec2 _scale, Texture _texture, std::string _enum);
     Sprite(glm::vec3 _position, glm::vec2 _scale, std::string path, std::string _enum);
 

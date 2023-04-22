@@ -19,8 +19,8 @@ public:
 	bool CheckCollision(Coords point) const;
 	bool CheckOverlap(Rect rect) const;
 	void SwapCheck();
-	int GetCenterX();
-	int GetCenterY();
-	Coords GetCenter();
+	int GetCenterX() const;
+	int GetCenterY() const;
+	Coords GetCenter() const;
 	void Rotate(int turnAmount = 1, int h = 0, int k = 0, int angle = 90);
 };

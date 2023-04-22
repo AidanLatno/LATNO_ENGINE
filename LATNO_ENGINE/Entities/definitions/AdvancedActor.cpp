@@ -3,19 +3,19 @@
 
 void Latno_Entities::AdvancedActor::SendBack()
 {
-	position = preData;
+	SetPos(preData);
 }
 
 void Latno_Entities::AdvancedActor::MoveForward(Scene &_scene, int _speed)
 {
 	for(int i = 0; i < _speed; i++)
 	{
-		preData = position;
-		position += direction;
+		preData = GetPos();
+		SetPos(GetPos() + direction * speed);
 
-		if(position.x >= _scene.sizeX || position.y >= _scene.sizeY || position.x < 0 || position.y < 0)
+		if(GetPos().x >= _scene.sizeX || GetPos().y >= _scene.sizeY || GetPos().x < 0 || GetPos().y < 0)
 		{
-			position = preData;
+			SetPos(preData);
 			return;
 		}
 	}
@@ -23,22 +23,19 @@ void Latno_Entities::AdvancedActor::MoveForward(Scene &_scene, int _speed)
 
 void Latno_Entities::AdvancedActor::MoveForward(int _speed)
 {
-	preData = position;
-	position += direction * _speed;
+	preData = GetPos();
+	SetPos(GetPos() + direction * speed);
 }
 
 void Latno_Entities::AdvancedActor::MoveForward(int _sizeX, int _sizeY, int _speed)
 {
-	for(int i = 0; i < _speed; i++)
-	{
-		preData = position;
-		position += direction;
+	preData = GetPos();
+	SetPos(GetPos() + direction * speed);
 
-		if(position.x >= _sizeX || position.y >= _sizeY || position.x < 0 || position.y < 0)
-		{
-			position = preData;
-			return;
-		}
+	if(GetPos().x >= _sizeX || GetPos().y >= _sizeY || GetPos().x < 0 || GetPos().y < 0)
+	{
+		SetPos(preData);
+		return;
 	}
 }
 
@@ -91,7 +88,7 @@ void Latno_Entities::AdvancedActor::TurnRandom(bool up, bool right, bool down, b
 
 bool Latno_Entities::AdvancedActor::IsNearby(Actor _actor, int _size) const
 {
-	Rect AreaScanner(position.x - _size, position.y - _size, position.x + _size, position.y + _size, '.', "AREASCANNER");
+	Rect AreaScanner(GetPos().x - _size, GetPos().y - _size, GetPos().x + _size, GetPos().y + _size, '.', "AREASCANNER");
 	return AreaScanner.CheckCollision(_actor);
 }
 

@@ -7,8 +7,8 @@ class Scene
 	private:
 		std::string Convert(Coords Direction) const;
 		Renderer renderer;
-		GLFWwindow* window;
 	public:
+		GLFWwindow* window;
 		bool devMode = false;
 		char devModeColor;
 		char fillColor;

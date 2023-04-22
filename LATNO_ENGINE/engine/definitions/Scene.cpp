@@ -141,11 +141,11 @@ void Scene::Update()
 
 	if(actors.size() > 0)
 		for(int i = 0; i < dynamicActors.size(); i++)
-			grid[dynamicActors[i].position.y][dynamicActors[i].position.x] = dynamicActors[i].ch;
+			grid[dynamicActors[i].GetPos().y][dynamicActors[i].GetPos().x] = dynamicActors[i].ch;
 
 	if(actors.size() > 0)
 		for (int i = 0; i < actors.size(); i++)
-			grid[actors[i]->position.y][actors[i]->position.x] = actors[i]->ch;
+			grid[actors[i]->GetPos().y][actors[i]->GetPos().x] = actors[i]->ch;
 
 	if(rects.size() > 0)
 		for(int y = 0; y < sizeX; y++)
@@ -167,7 +167,7 @@ bool Scene::ActorCollision(Latno_Entities::Actor _actor) const
 	if (actors.size() > 0)
 	{
 		for (int i = 0; i < actors.size(); i++)
-			if (actors[i]->position.IsEqual(_actor.position) && actors[i]->name != _actor.name)
+			if (actors[i]->GetPos().IsEqual(_actor.GetPos()) && actors[i]->name != _actor.name)
 				return true;
 	}
 	return false;
@@ -178,7 +178,7 @@ bool Scene::ActorCollision(Coords _point) const
 	if (actors.size() > 0)
 	{
 		for (int i = 0; i < actors.size(); i++)
-			if (actors[i]->position.IsEqual(_point))
+			if (actors[i]->GetPos().IsEqual(_point))
 				return true;
 	}
 	return false;
@@ -189,7 +189,7 @@ bool Scene::DynamicActorCollision(Latno_Entities::Actor _actor)
 	if (dynamicActors.size() > 0)
 	{
 		for (int i = 0; i < dynamicActors.size(); i++)
-			if (dynamicActors[i].position.IsEqual(_actor.position) && dynamicActors[i].name != _actor.name)
+			if (dynamicActors[i].GetPos().IsEqual(_actor.GetPos()) && dynamicActors[i].name != _actor.name)
 				return true;
 	}
 	return false;
@@ -200,7 +200,7 @@ bool Scene::DynamicActorCollision(Coords _point)
 	if (dynamicActors.size() > 0)
 	{
 		for (int i = 0; i < dynamicActors.size(); i++)
-			if (dynamicActors[i].position.IsEqual(_point))
+			if (dynamicActors[i].GetPos().IsEqual(_point))
 				return true;
 	}
 	return false;
@@ -238,10 +238,10 @@ bool Scene::RectCollision(Latno_Entities::Actor const Actor) const
 	{
 		for (int i = 0; i < rects.size(); i++)
 		{
-			if (!(Actor.position.x >= rects[i]->corner1.x && Actor.position.x <= rects[i]->corner2.x))
+			if (!(Actor.GetPos().x >= rects[i]->corner1.x && Actor.GetPos().x <= rects[i]->corner2.x))
 				continue;
 
-			if (Actor.position.y >= rects[i]->corner2.y && Actor.position.y <= rects[i]->corner2.y)
+			if (Actor.GetPos().y >= rects[i]->corner2.y && Actor.GetPos().y <= rects[i]->corner2.y)
 				return true;
 		}
 	}

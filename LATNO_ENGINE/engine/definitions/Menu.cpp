@@ -45,7 +45,7 @@ int Menu::OpenMenu(std::string Title,bool clear)
 		if(Input == 'w' || Input == 'W')
 		{
 			Selector->direction = UP;
-			if(Selector->position.y != 0)
+			if(Selector->GetPos().y != 0)
 			{
 				Selector->MoveForward(*MenuScene);
 				Selector->MoveForward(*MenuScene);
@@ -54,7 +54,7 @@ int Menu::OpenMenu(std::string Title,bool clear)
 		else if(Input == 's' || Input == 'S')
 		{
 			Selector->direction = DOWN;
-			if(Selector->position.y != MenuScene->GetSize().y - 1)
+			if(Selector->GetPos().y != MenuScene->GetSize().y - 1)
 			{
 				Selector->MoveForward(*MenuScene);
 				Selector->MoveForward(*MenuScene);
@@ -64,7 +64,7 @@ int Menu::OpenMenu(std::string Title,bool clear)
 		{
 			for(int i = 0; i < OptionsAmount; i++)
 			{
-				if(Selector->position.y == i * 2)
+				if(Selector->GetPos().y == i * 2)
 					return i;
 			}
 		}

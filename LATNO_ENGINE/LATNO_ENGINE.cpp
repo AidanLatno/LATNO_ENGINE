@@ -57,52 +57,45 @@ int main()
 
 	Scene level1(960, 540, window);
 
-	Actor player(200, 200, 'e', "resources/textures/cherno.png", "PLAYER");
+	PlayerBase player(200, 200, 'e', "resources/textures/cherno.png", "AABB");
 
 	level1.AddActor(player);
 
-	while (!glfwWindowShouldClose)
+	float i = 1.0f;
+	while (!glfwWindowShouldClose(window))
 	{
+
+		ImGui_ImplGlfwGL3_NewFrame();
+
 		level1.Render();
+
+		player.Move(level1);
+
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+		ImGui::Render();
+		ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
 
 		glfwSwapBuffers(window);
 
 		glfwPollEvents(); // idk man
 	}
 
+	//Scene level(960, 540, window);
+	//
+	//Actor A_cherno(200, 400, 'e', "resources/textures/cherno.png", "AABB");
 
+	//level.AddActor(A_cherno);
 
-	//Renderer renderer;
-
-	//Sprite cherno(glm::vec3(200, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png", "circ");
-	//Sprite lilGuy(glm::vec3(400, 400, 0), glm::vec2(1.0f, 1.0f), "resources/textures/grr.png", "AABB");
-	//Sprite scared(glm::vec3(100, 200, 0), glm::vec2(2.0f, 1.0f), "resources/textures/ahh.png", "AABB");
-
-	//std::vector<Sprite*> SpriteList;
-
-	///*for (int i = 0; i < 300; i++)
-	//{
-	//	SpriteList.push_back(new Sprite(glm::vec3(rand() % 960, rand() % 540, 0), glm::vec2(1.0f, 1.0f), "resources/textures/cherno.png"));
-	//}*/
-
-	//for (int i = 0; i < SpriteList.size(); i++)
-	//{
-	//	renderer.AddSprite(SpriteList[i]);
-	//}
-
-	//renderer.AddSprite(&cherno);
-	//renderer.AddSprite(&lilGuy);
-	//renderer.AddSprite(&scared);
 	//while (!glfwWindowShouldClose(window))
 	//{
 	//	if (processInput(window, GLFW_KEY_W))
-	//		for (int i = 0; i < SpriteList.size(); i++)
-	//			SpriteList[i]->Position.y+= 10;
+	//		A_cherno.position.x += 1;
 
 
 	//	ImGui_ImplGlfwGL3_NewFrame();
 
-	//	renderer.RenderSprites(window);
+	//	level.Render();
+	//	/*renderer.RenderSprites(window);*/
 
 	//	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 
