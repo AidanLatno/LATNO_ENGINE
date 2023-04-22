@@ -10,7 +10,6 @@ public:
 	CollisionBox(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _name);
 	CollisionBox(Coords _pos1, Coords _pos2, char _ch, std::string _name);
 
-	char ch;
 	std::string name;
 	Coords corner1;
 	Coords corner2;

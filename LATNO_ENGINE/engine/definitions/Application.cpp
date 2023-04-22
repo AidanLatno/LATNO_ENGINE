@@ -45,8 +45,8 @@ void Application::Startup(GLFWwindow* _window)
 
 	Scene level(960, 540, window);
 
-	Player player(0, 0, "resources/textures/grr.png");
-
+	Player player(100, 100, "resources/textures/leafs.png");
+	//Actor mouseTarget()
 	player.currentScene = &level;
 
 	playerPtr = &player;

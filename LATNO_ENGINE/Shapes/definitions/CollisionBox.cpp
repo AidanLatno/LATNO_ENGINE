@@ -15,6 +15,7 @@ CollisionBox::CollisionBox(int _x1, int _y1, int _x2, int _y2, char _ch, std::st
 	corner2.y = _y2;
 	ch = _ch;
 	name = _Name;
+
 	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
 }
 

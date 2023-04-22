@@ -19,6 +19,4 @@ public:
 	Button *buttonPtr;
 	CollisionBox *wallPtr;
 	CollisionBox* wall2Ptr;
-
-
 };
