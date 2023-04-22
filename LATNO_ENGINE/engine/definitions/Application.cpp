@@ -1,5 +1,13 @@
 #include "../declarations/Application.h"
 
+Application::~Application() 
+{
+	ImGui_ImplGlfwGL3_Shutdown();
+	ImGui::DestroyContext();
+
+	glfwTerminate();
+}
+
 void Application::BehaviorTick(double deltaTime)
 {
 	for (int i = 0; i < Latno::BehaviorList.size(); i++)
@@ -28,37 +36,23 @@ bool Application::Tick(double deltaTime)
 	return true;
 }
 
-void Application::Startup()
+void Application::Startup(GLFWwindow* _window)
 {
+	window = _window;
 	DevLog::CLEAR("EngineLog");
+	DevLog::CLEAR("GL_ERROR_LOG");
 	srand(time(NULL));
 
-	/*Scene level(20, 20);
-	Button button(1, 1, ToChar("purple"), "BUTTON");
-	Player player(16, 16,ToChar("blue"), "Player");
-	Rect Wall(6, 9, 15, 12, ToChar("yellow"), "WALL");
-	Rect Wall2(13, 5, 15, 12, ToChar("yellow"), "WALL2");
+	Scene level(960, 540, window);
 
-	Enemy enemy(3, 3, ToChar("red"), "Enemy");
+	Player player(0, 0, "resources/textures/grr.png");
 
-	enemy.currentScene = &level;
+	player.currentScene = &level;
 
-	
-	level.AddActor(player);
-	level.AddActor(button);
-	level.AddActor(enemy);
-	level.AddRect(Wall);
-	level.AddRect(Wall2);
-
-	wall2Ptr = &Wall2;
-	wallPtr = &Wall;
-	enemyPtr = &enemy;
-	buttonPtr = &button;
-	levelPtr = &level;
 	playerPtr = &player;
+	levelPtr = &level;
 
-	button.currentScene = levelPtr;
-	player.currentScene = levelPtr;*/
+	level.AddActor(player);
 
 	Load();
 }
@@ -71,12 +65,10 @@ void Application::Run()
 
 	while (true)
 	{
-		levelPtr->Update();
+		ImGui_ImplGlfwGL3_NewFrame();
+
 		levelPtr->Render();
-
-		std::cout << 1/prevDeltaTime << '\n';
-
-		enemyPtr->Chase(*levelPtr, *playerPtr);
+		
 		DevLog::LOGLN("HELLO WORLD", "MainLog");
 
 		if (!Tick(prevDeltaTime))
@@ -84,5 +76,11 @@ void Application::Run()
 
 		prevDeltaTime = DeltaCalc.GetTime();
 		DeltaCalc.Reset();
+
+		ImGui::Render();
+
+		ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
+		glfwSwapBuffers(window);
+		glfwPollEvents(); // idk man
 	}
 }

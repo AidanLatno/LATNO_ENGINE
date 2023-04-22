@@ -21,7 +21,7 @@
     <ClCompile Include="Shapes\definitions\Circle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Shapes\definitions\Rect.cpp">
+    <ClCompile Include="Shapes\definitions\CollisionBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\Component.cpp">
@@ -31,9 +31,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\LOS.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\Scene.cpp">
@@ -137,7 +134,7 @@
     <ClInclude Include="Shapes\declarations\Circle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Shapes\declarations\Rect.h">
+    <ClInclude Include="Shapes\declarations\CollisionBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Shapes\declarations\Triangle.h">
@@ -162,9 +159,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\LOS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\Route.h">

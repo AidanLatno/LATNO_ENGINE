@@ -22,11 +22,11 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
     {
         for (Node* i : OpenList)
         {
-            currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, ToChar("green"), "ASD"));
+            currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, "ASD"));
         }
         for (Node* i : ClosedList)
         {
-            currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, ToChar("red"), "ASD"));
+            currentScene->AddDynamicActor(Actor(i->pos.x, i->pos.y, "ASD"));
         }
 
         Node* currentNode = startingNode;
@@ -61,7 +61,7 @@ void Latno_Entities::Enemy::Chase(Scene &Scene, Latno_Entities::Actor ChaseActor
                 if (nodeTrace->parentNode != nullptr)
                     if (nodeTrace->parentNode != startingNode)
                     {
-                        currentScene->AddDynamicActor(Actor(nodeTrace->pos, 'p', "path"));
+                        currentScene->AddDynamicActor(Actor(nodeTrace->pos, "path"));
                         DevLog::LOGLN("(" + std::to_string(nodeTrace->pos.x) + ", " + std::to_string(nodeTrace->pos.y) + ")", "MainLog");
                         nodeTrace = nodeTrace->parentNode;
                     }

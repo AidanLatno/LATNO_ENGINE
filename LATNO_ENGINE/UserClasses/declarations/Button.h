@@ -4,7 +4,7 @@
 // CUSTOM TEMPLATE CLASS
 // NOT PART OF ENGINE
 
-class Button : public AdvancedActor
+class Button : public Latno_Entities::AdvancedActor
 {
 	using AdvancedActor::AdvancedActor;
 public:
@@ -20,5 +20,4 @@ public:
 			SetPos({ GetPos().x, rand() % currentScene->sizeY });
 		}
 	}
-
 };

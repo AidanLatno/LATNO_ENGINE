@@ -151,7 +151,6 @@
     <ClCompile Include="engine\definitions\Coords.cpp" />
     <ClCompile Include="engine\definitions\DeveloperLog.cpp" />
     <ClCompile Include="engine\definitions\LOS.cpp" />
-    <ClCompile Include="engine\definitions\Menu.cpp" />
     <ClCompile Include="engine\definitions\PhysicsController.cpp" />
     <ClCompile Include="engine\definitions\Scene.cpp" />
     <ClCompile Include="Entities\definitions\Actor.cpp" />
@@ -164,7 +163,7 @@
     <ClCompile Include="LATNO_ENGINE.cpp" />
     <ClCompile Include="Shapes\definitions\AdvancedRect.cpp" />
     <ClCompile Include="Shapes\definitions\Circle.cpp" />
-    <ClCompile Include="Shapes\definitions\Rect.cpp" />
+    <ClCompile Include="Shapes\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
     <ClCompile Include="engine\definitions\Window.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
@@ -182,7 +181,6 @@
     <ClInclude Include="engine\declarations\DeveloperLog.h" />
     <ClInclude Include="engine\declarations\Engine.h" />
     <ClInclude Include="engine\declarations\LOS.h" />
-    <ClInclude Include="engine\declarations\Menu.h" />
     <ClInclude Include="engine\declarations\PhysicsController.h" />
     <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h" />
     <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h" />
@@ -210,7 +208,7 @@
     <ClInclude Include="engine\declarations\Node.h" />
     <ClInclude Include="Shapes\declarations\AdvancedRect.h" />
     <ClInclude Include="Shapes\declarations\Circle.h" />
-    <ClInclude Include="Shapes\declarations\Rect.h" />
+    <ClInclude Include="Shapes\declarations\CollisionBox.h" />
     <ClInclude Include="Shapes\declarations\Triangle.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
     <ClInclude Include="UserClasses\declarations\Button.h" />

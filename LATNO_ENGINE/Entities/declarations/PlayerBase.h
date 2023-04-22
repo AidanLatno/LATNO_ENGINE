@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../engine/declarations/Menu.h"
+#include "../../shapes/declarations/Triangle.h"
 
 namespace Latno_Entities
 {
@@ -9,9 +9,7 @@ namespace Latno_Entities
         using AdvancedActor::AdvancedActor;
         public:
             int Points = 0;
-            Menu* MainMenu;
             void Move(Scene &Scene);
-            void MenuFunctionality();
 
     };
 }

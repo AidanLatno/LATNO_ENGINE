@@ -3,11 +3,11 @@
 #include <string>
 #include <math.h>
 
-#include "../declarations/Rect.h"
+#include "../declarations/CollisionBox.h"
 #include "../../engine/declarations/Coords.h"
 
 
-Rect::Rect(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _Name)
+CollisionBox::CollisionBox(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _Name)
 {
 	corner1.x = _x1;
 	corner2.x = _x2;
@@ -18,7 +18,7 @@ Rect::Rect(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _Name)
 	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
 }
 
-Rect::Rect(Coords _pos1, Coords _pos2, char _ch, std::string _name)
+CollisionBox::CollisionBox(Coords _pos1, Coords _pos2, char _ch, std::string _name)
 {
 	corner1 = _pos1;
 	corner2 = _pos2;
@@ -27,14 +27,14 @@ Rect::Rect(Coords _pos1, Coords _pos2, char _ch, std::string _name)
 	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
 }
 
-bool Rect::CheckCollision(Latno_Entities::Actor actor) const
+bool CollisionBox::CheckCollision(Latno_Entities::Actor actor) const
 {
 	if (actor.GetPos().x >= corner1.x && actor.GetPos().x <= corner2.x && actor.GetPos().y >= corner1.y && actor.GetPos().y <= corner2.y)
 		return true;
 	return false;
 }
 
-bool Rect::CheckCollision(Coords point) const
+bool CollisionBox::CheckCollision(Coords point) const
 {
 	if (point.x >= corner1.x && point.x <= corner2.x && point.y >= corner1.y && point.y <= corner2.y)
 		return true;
@@ -42,12 +42,12 @@ bool Rect::CheckCollision(Coords point) const
 }
 
 
-bool Rect::CheckOverlap(Rect rect) const
+bool CollisionBox::CheckOverlap(CollisionBox rect) const
 {
 	return false;
 }
 
-void Rect::SwapCheck()
+void CollisionBox::SwapCheck()
 {
 	if (corner1.x > corner2.x || corner1.y > corner2.y)
 	{
@@ -57,22 +57,22 @@ void Rect::SwapCheck()
 	}
 }
 
-int Rect::GetCenterX() const
+int CollisionBox::GetCenterX() const
 {
 	return abs((corner1.x + corner2.x) / 2);
 }
 
-int Rect::GetCenterY() const
+int CollisionBox::GetCenterY() const
 {
 	return abs((corner1.y + corner2.y) / 2);
 }
 
-Coords Rect::GetCenter() const
+Coords CollisionBox::GetCenter() const
 {
 	return { GetCenterX(), GetCenterY() };
 }
 
-void Rect::Rotate(int turnAmount, int h, int k, int angle)
+void CollisionBox::Rotate(int turnAmount, int h, int k, int angle)
 {
 	Coords temp1 = this->corner1;
 	Coords temp2 = this->corner2;

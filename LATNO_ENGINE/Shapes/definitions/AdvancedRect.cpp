@@ -8,7 +8,7 @@ void AdvancedRect::RebuildRect(Coords _Direction, int _Distance, int _Width = 0)
 	distance = _Distance;
 	width = _Width;
 
-	Latno_Entities::AdvancedActor Tracer(corner1.x, corner1.y, '.', "RECT_TRACER");
+	Latno_Entities::AdvancedActor Tracer(corner1.x, corner1.y, "RECT_TRACER");
 	Coords EndPoint;
 	Tracer.direction = extendDirection;
 	Tracer.MoveForward(distance);
@@ -50,7 +50,7 @@ AdvancedRect AdvancedRect::R_RebuildRect(Coords _Direction, int _Distance, int _
 	distance = _Distance;
 	width = _Width;
 
-	Latno_Entities::AdvancedActor Tracer(corner1.x, corner1.y, '.', "RECT_TRACER");
+	Latno_Entities::AdvancedActor Tracer(corner1.x, corner1.y, "empty");
 	Coords EndPoint;
 	Tracer.direction = extendDirection;
 	Tracer.MoveForward(distance);

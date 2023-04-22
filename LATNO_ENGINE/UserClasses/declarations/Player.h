@@ -4,7 +4,7 @@
 // CUSTOM TEMPLATE CLASS
 // NOT PART OF ENGINE
 
-class Player : public PlayerBase
+class Player : public Latno_Entities::PlayerBase
 {
 	using PlayerBase::PlayerBase;
 public:

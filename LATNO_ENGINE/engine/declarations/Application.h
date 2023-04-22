@@ -4,20 +4,21 @@
 class Application
 {
 public:
+	~Application();
+	GLFWwindow* window;
 	void BehaviorTick(double deltaTime);
 	void BehaviorLoad();
 	void Load();
 	bool Tick(double deltaTime);
-	void Startup();
+	void Startup(GLFWwindow* _window);
 	void Run();
 
 	// Declare variable pointers below
 	Player *playerPtr;
 	Scene *levelPtr;
 	Button *buttonPtr;
-	Enemy *enemyPtr;
-	Rect *wallPtr;
-	Rect* wall2Ptr;
+	CollisionBox *wallPtr;
+	CollisionBox* wall2Ptr;
 
 
 };

@@ -108,51 +108,9 @@ void Scene::DestroyDynamicActor(int _index)
 	renderer.RemoveSprite(_index);
 }
 
-void Scene::AddRect(Rect &_rect)
+void Scene::AddRect(CollisionBox &_rect)
 {
 	rects.push_back(&_rect);
-}
-
-void Scene::Update()
-{
-	if(!devMode)
-		{
-			for (int y = 0; y < sizeY; ++y)
-				for (int x = 0; x < sizeX; ++x)
-					grid[y][x] = fillColor;
-		}
-		else
-		{
-			bool even = true;
-			for (int y = 0; y < sizeY; ++y)
-			{
-				for (int x = 0; x < sizeX; ++x)
-				{
-					even = !even;
-					if(even)
-						grid[y][x] = fillColor;
-					else
-						grid[y][x] = devModeColor;
-				}
-				if(sizeX % 2 == 0 && sizeY % 2 == 0)
-					even = !even;
-			}
-		}
-
-	if(actors.size() > 0)
-		for(int i = 0; i < dynamicActors.size(); i++)
-			grid[dynamicActors[i].GetPos().y][dynamicActors[i].GetPos().x] = dynamicActors[i].ch;
-
-	if(actors.size() > 0)
-		for (int i = 0; i < actors.size(); i++)
-			grid[actors[i]->GetPos().y][actors[i]->GetPos().x] = actors[i]->ch;
-
-	if(rects.size() > 0)
-		for(int y = 0; y < sizeX; y++)
-			for(int x = 0; x < sizeY; x++)
-				for(int i = 0; i < rects.size(); i++)
-					if(x >= rects[i]->corner1.x && x <= rects[i]->corner2.x && y >= rects[i]->corner1.y && y <= rects[i]->corner2.y)
-						grid[y][x] = rects[i]->ch;
 }
 
 void Scene::Render(bool _displayChars, bool _clearScreen) const
@@ -227,7 +185,7 @@ void Scene::SetActorIndex(Latno_Entities::Actor &_passedActor,int _index)
 	actors[_index] = &_passedActor;
 }
 
-void Scene::SetRectIndex(Rect &_passedRect, int _index)
+void Scene::SetRectIndex(CollisionBox &_passedRect, int _index)
 {
 	rects[_index] = &_passedRect;
 }

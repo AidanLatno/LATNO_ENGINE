@@ -13,14 +13,13 @@ namespace Latno_Entities
 			Sprite* sprite;
 			Coords preData;
 			
-			char ch;
 			std::string name;
 			Coords direction = UP; // "< " " >" "^^" "vv"
 			float speed = 1.0f;
 			
 
-			Actor(int _x,int _y,char _ch,std::string SpritePath, std::string _Name = "");
-			Actor(Coords _Pos,char _ch, std::string SpritePath, std::string _Name = "");
+			Actor(int _x,int _y,std::string SpritePath, std::string _Name = "");
+			Actor(Coords _Pos, std::string SpritePath, std::string _Name = "");
 			Actor();
 
 			void SetCoords(int x,int y);

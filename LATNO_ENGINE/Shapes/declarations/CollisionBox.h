@@ -1,13 +1,14 @@
 #pragma once
 
 #include "../../Engine/declarations/Window.h"
+
 #include <string>
 
-class Rect
+class CollisionBox
 {
 public:
-	Rect(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _name);
-	Rect(Coords _pos1, Coords _pos2, char _ch, std::string _name);
+	CollisionBox(int _x1, int _y1, int _x2, int _y2, char _ch, std::string _name);
+	CollisionBox(Coords _pos1, Coords _pos2, char _ch, std::string _name);
 
 	char ch;
 	std::string name;
@@ -17,7 +18,7 @@ public:
 
 	bool CheckCollision(Latno_Entities::Actor actor) const;
 	bool CheckCollision(Coords point) const;
-	bool CheckOverlap(Rect rect) const;
+	bool CheckOverlap(CollisionBox rect) const;
 	void SwapCheck();
 	int GetCenterX() const;
 	int GetCenterY() const;

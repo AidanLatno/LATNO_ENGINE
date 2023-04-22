@@ -3,7 +3,7 @@
 #include "../Renderer.h"
 
 
-#include "../Shapes/declarations/Rect.h"
+#include "../Shapes/declarations/CollisionBox.h"
 
 
 namespace test
@@ -160,9 +160,9 @@ namespace test
 
 		color = glm::vec4(0.0, 0.0, 0.0, 1.0);
 
-		Rect bounds(m_translationA.x - 30, m_translationA.y - 30, m_translationA.x + 30, m_translationA.y + 30, 'e', "ASDAd");
-		Rect boundsEnemy(m_translationC.x - 30, m_translationC.y - 30, m_translationC.x + 30, m_translationC.y + 30, 'e', "ASDAd");
-		Rect scoreBounds(m_translationA.x - 90, m_translationA.y - 90, m_translationA.x + 90, m_translationA.y + 90, 'e', "ASDAd");
+		CollisionBox bounds(m_translationA.x - 30, m_translationA.y - 30, m_translationA.x + 30, m_translationA.y + 30, 'e', "ASDAd");
+		CollisionBox boundsEnemy(m_translationC.x - 30, m_translationC.y - 30, m_translationC.x + 30, m_translationC.y + 30, 'e', "ASDAd");
+		CollisionBox scoreBounds(m_translationA.x - 90, m_translationA.y - 90, m_translationA.x + 90, m_translationA.y + 90, 'e', "ASDAd");
 		if (scoreBounds.CheckCollision({ static_cast<int>(m_translationB.x),static_cast<int>(m_translationB.y) }))
 			score += 1 / deltaTime;
 

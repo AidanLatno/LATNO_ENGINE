@@ -1,9 +1,9 @@
 #pragma once
 #include "../../Entities/declarations/AdvancedActor.h"
 
-class AdvancedRect : public Rect
+class AdvancedRect : public CollisionBox
 {
-using Rect::Rect;
+using CollisionBox::CollisionBox;
 public:
 	Coords extendDirection;
 	int distance;
