@@ -114,26 +114,6 @@ bool CollisionBox::CheckCollisions(CollisionBox other)
 	other.topLeft = { other.position.x - other.size.x / 2, other.position.y + other.size.y / 2 };
 	other.botRight = { other.position.x + other.size.x / 2, other.position.y - other.size.y / 2 };
 
-	ImGui::Text("Top Left x: %f", topLeft.x);
-	ImGui::Text("Top Left y: %f", topLeft.y);
-
-	ImGui::Text("Bot Right x: %f", botRight.x);
-	ImGui::Text("Bot Right y: %f", botRight.y);
-
-	ImGui::Text("Other Top Left x: %f", other.topLeft.x);
-	ImGui::Text("Other Top Left y: %f", other.topLeft.y);
-
-	ImGui::Text("Other Bot Right x: %f", other.botRight.x);
-	ImGui::Text("Other Bot Right y: %f", other.botRight.y);
-
-
-	ImGui::Text("Size X: %f", size.x);
-	ImGui::Text("Size Y: %f", size.y);
-
-
-	ImGui::Text("Other Size X: %f", other.size.x);
-	ImGui::Text("Other Size Y: %f", other.size.y);
-
 	if (topLeft.x > other.botRight.x || other.topLeft.x > botRight.x) {
 		return false;
 	}

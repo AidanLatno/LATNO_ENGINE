@@ -105,7 +105,7 @@ void Scene::DestroyDynamicActor(int _index)
 	// for(int i = 0; i < dynamicactor.size(); i++)
 	// 	dynamicactor[i] = TempArray[i];
 
-	renderer.RemoveSprite(_index);
+	renderer.RemoveSprite(actors.size() + _index);
 }
 
 void Scene::AddRect(CollisionBox &_rect)

@@ -19,8 +19,6 @@ namespace Latno_Entities {
         void Update(double deltaTime) override
         {
             SetPos({ GetPos().x, GetPos().y - 10 });
-
-            std::cout << "a;sldhg ";
         }
     };
 }

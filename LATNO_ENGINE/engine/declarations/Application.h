@@ -22,5 +22,10 @@ public:
 	CollisionBox* wall2Ptr;
 	Latno_Entities::Actor* backgroundPtr;
 	Latno_Entities::Actor* waterPtr;
+	ProgressBar* barPtr;
+
+	const std::string TrashSprites[2] = { "resources/textures/trash1.png","resources/textures/trash2.png" };
+
+	int carryingCapacity;
 
 };

@@ -48,29 +48,33 @@ void Application::Startup(GLFWwindow* _window)
 
 	Scene level(864, 980, window);
 
-	Player player(475, 50, "resources/textures/cleaner.png");
+	Player player(475, 50, "resources/textures/boat1.png");
 	Latno_Entities::Actor land(475, 275, "resources/textures/land.png");
 	Latno_Entities::Actor water(475, 275, "resources/textures/water.png");
+
 	player.AddTag("player");
-	
 
-
+	ProgressBar progressBar(485, 50, "resources/textures/redBar.png");
 	water.SetScale({ 7, 5.5 });
 	land.SetScale({ 10, 5.5 });
-	player.SetScale({ 1, 0.7f });
+	player.SetScale({ 0.5, 0.5f });
 
 	player.speed = 6;
 
 	player.currentScene = &level;
+	progressBar.currentScene = &level;
+	
 
 	waterPtr = &water;
 	backgroundPtr = &land;
 	playerPtr = &player;
 	levelPtr = &level;
+	barPtr = &progressBar;
 
 	level.AddActor(water);
 	level.AddActor(land);
 	level.AddActor(player);
+	level.AddActor(progressBar);
 
 	Load();
 }
@@ -98,17 +102,24 @@ void Application::Run()
 		if (countDown <= 0) {
 			countDown = 2 - difficultyMod;
 
-			Latno_Entities::Trash t(rand() % 764 + 100, 500, "resources/textures/trash1.png");
+			Latno_Entities::Trash t(rand() % 764 + 100, 500, TrashSprites[rand() % 2]);
 			t.AddTag("trash");
 			levelPtr->AddDynamicActor(t);
 		}
 
 		for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
 		{
-			levelPtr->dynamicActors[i].SetPos(levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - 1);
+			levelPtr->dynamicActors[i].SetPos({ levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - 3 });
+			if (levelPtr->dynamicActors[i].GetPos().y < -5)  {
+				levelPtr->DestroyDynamicActor(i);
+				i--;
+				continue;
+			}
 
-			if (levelPtr->dynamicActors[i]->CheckCollision(playerPtr)) {
-				 levelPtr->DestroyDynamicActor(i);
+			if (levelPtr->dynamicActors[i].collisionBox->CheckCollisions(*playerPtr->collisionBox))
+			{
+				levelPtr->DestroyDynamicActor(i);
+				carryingCapacity++;
 				 i--;
 			}
 		}
@@ -117,6 +128,7 @@ void Application::Run()
 		DeltaCalc.Reset();
 
 		ImGui::Text("DeltaTime: %f", prevDeltaTime);
+		ImGui::Text("FPS: %f", ImGui::GetIO().Framerate);
 
 		ImGui::Render();
 
