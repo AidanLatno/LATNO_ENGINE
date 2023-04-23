@@ -13,15 +13,23 @@ public:
 	void Startup(GLFWwindow* _window);
 	void Run();
 
+	int passed = 0;
+
 	// Declare variable pointers below
 	float countDown = 10;
+	float binCountDown = 0.2;
 	Player *playerPtr;
 	Scene *levelPtr;
-	Button *buttonPtr;
-	CollisionBox *wallPtr;
-	CollisionBox* wall2Ptr;
+	Latno_Entities::Actor* binPtr;
 	Latno_Entities::Actor* backgroundPtr;
 	Latno_Entities::Actor* waterPtr;
+	Latno_Entities::Actor* num1Ptr;
+	Latno_Entities::Actor* num2Ptr;
+	Latno_Entities::Actor* num3Ptr;
+	Latno_Entities::Actor* scorePtr;
+	Latno_Entities::Actor* insPtr;
+
+
 	ProgressBar* barPtr;
 
 	const std::string TrashSprites[2] = { "resources/textures/trash1.png","resources/textures/trash2.png" };

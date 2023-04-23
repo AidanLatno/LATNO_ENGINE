@@ -11,6 +11,7 @@ bool processInput(GLFWwindow* window, unsigned int key);
 
 
 
+
 int main()
 {
 	// vvv INITIALIZATION vv
@@ -28,13 +29,13 @@ int main()
 	// ^^ Make GL Version core instead of compat ^^
 
 
-	window = glfwCreateWindow(864, 980, "Window Title", NULL, NULL);
+	window = glfwCreateWindow(WINDOW_LENGTH, WINDOW_HEIGHT, "Stream Sweepers", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
 		return -1;
 	}
-	glfwSetWindowSizeLimits(window, 864, 980, 864, 980);
+	glfwSetWindowSizeLimits(window, WINDOW_LENGTH, WINDOW_HEIGHT, WINDOW_LENGTH, WINDOW_HEIGHT);
 	glfwMakeContextCurrent(window);
 
 	glfwSwapInterval(1); // Syncs swap interval with vsync

@@ -67,7 +67,6 @@ void Renderer::RenderSprites(GLFWwindow* window) const
  void Renderer::AddSprite(Sprite* sprite)
  {
 	 sprites.push_back(sprite);
-	 std::cout << "Added sprite with path \"" << sprite->texture->GetPath() << "\"\n";
  }
 
  void Renderer::RemoveSprite(Sprite* sprite)

@@ -10,7 +10,7 @@ namespace Latno_Entities {
 
 			void SendBack();
 
-			void MoveForward(Scene &Scene,int Speed = 1);
+			void MoveForward(Scene &Scene, float deltaTime);
 
 			void MoveForward(int Speed = 1);
 

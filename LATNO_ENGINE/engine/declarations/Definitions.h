@@ -1,5 +1,8 @@
 #pragma once
 
+//Screen size
+#define WINDOW_HEIGHT 960
+#define WINDOW_LENGTH 864
 
 // DO NOT REMOVE
 // ENABLES STATIC LINKING WITH GLEW LIBRARY

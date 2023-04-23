@@ -2,32 +2,33 @@
 #include "../declarations/PlayerBase.h"
 namespace Latno_Entities 
 {
-    void PlayerBase::ManageInput(Scene &Scene)
+    void PlayerBase::ManageInput(Scene &Scene,float deltaTime)
     {
         preData = GetPos();
        
-        if (glfwGetKey(Scene.window, GLFW_KEY_A) == GLFW_PRESS && GetPos().x > 200)
+        if (glfwGetKey(Scene.window, GLFW_KEY_A) == GLFW_PRESS && GetPos().x > 160)
         {
             direction = LEFT;
-            MoveForward(Scene);
+            MoveForward(Scene, deltaTime);
         }
       
-        if (glfwGetKey(Scene.window, GLFW_KEY_D) == GLFW_PRESS && GetPos().x < Scene.GetSize().x - 40)
+        if (glfwGetKey(Scene.window, GLFW_KEY_D) == GLFW_PRESS && GetPos().x < Scene.GetSize().x - 75)
         {
 			direction = RIGHT;
-			MoveForward(Scene);
+			MoveForward(Scene, deltaTime);
         }
-        if (glfwGetKey(Scene.window, GLFW_KEY_W) == GLFW_PRESS && GetPos().y > Scene.GetSize().y - 40)
+        if (glfwGetKey(Scene.window, GLFW_KEY_W) == GLFW_PRESS && GetPos().y < Scene.GetSize().y - 100)
         {
+            deltaTime /= 2;
             direction = UP;
-            MoveForward(Scene);
+            MoveForward(Scene, deltaTime);
         }
 
-        if (glfwGetKey(Scene.window, GLFW_KEY_S) == GLFW_PRESS && GetPos().y < 20)
+        if (glfwGetKey(Scene.window, GLFW_KEY_S) == GLFW_PRESS && GetPos().y > 20)
         {
-
+            deltaTime /= 2;
             direction = DOWN;
-            MoveForward(Scene);
+            MoveForward(Scene, deltaTime);
         }
     }
 }

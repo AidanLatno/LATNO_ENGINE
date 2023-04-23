@@ -6,18 +6,15 @@ void Latno_Entities::AdvancedActor::SendBack()
 	SetPos(preData);
 }
 
-void Latno_Entities::AdvancedActor::MoveForward(Scene &_scene, int _speed)
+void Latno_Entities::AdvancedActor::MoveForward(Scene &_scene, float deltaTime)
 {
-	for(int i = 0; i < _speed; i++)
-	{
-		preData = GetPos();
-		SetPos(GetPos() + direction * speed);
+	preData = GetPos();
+	SetPos(GetPos() + (direction * (speed * deltaTime)));
 
-		if(GetPos().x >= _scene.sizeX || GetPos().y >= _scene.sizeY || GetPos().x < 0 || GetPos().y < 0)
-		{
-			SetPos(preData);
-			return;
-		}
+	if(GetPos().x >= _scene.sizeX || GetPos().y >= _scene.sizeY || GetPos().x < 0 || GetPos().y < 0)
+	{
+		SetPos(preData);
+		return;
 	}
 }
 

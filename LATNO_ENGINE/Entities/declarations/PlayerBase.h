@@ -9,7 +9,7 @@ namespace Latno_Entities
         using AdvancedActor::AdvancedActor;
         public:
             int Points = 0;
-            void ManageInput(Scene &Scene);
+            void ManageInput(Scene &Scene, float deltaTime);
 
     };
 }

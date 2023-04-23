@@ -204,6 +204,7 @@
     <ClInclude Include="Shapes\declarations\Triangle.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
     <ClInclude Include="UserClasses\declarations\Button.h" />
+    <ClInclude Include="UserClasses\declarations\ProgressBarv2.h" />
     <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\ProgressBar.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
@@ -220,7 +221,7 @@
     <Text Include="Logs\AppLog.txt" />
     <Text Include="Logs\EngineLog.txt" />
     <Text Include="Logs\GL_ERROR_LOG.txt" />
-    <Text Include="UserClasses\NewFile.txt" />
+    <Text Include="resources\NewFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />
