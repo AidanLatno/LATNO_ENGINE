@@ -8,24 +8,6 @@
 #include "../../engine/declarations/Rendering/GL_Definitions.h"
 
 
-CollisionBox::CollisionBox(int _x1, int _y1, int _x2, int _y2, std::string _Name)
-{
-	corner1.x = _x1;
-	corner2.x = _x2;
-	corner1.y = _y1;
-	corner2.y = _y2;
-	name = _Name;
-
-	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
-}
-
-CollisionBox::CollisionBox(Coords _pos1, Coords _pos2, std::string _name)
-{
-	corner1 = _pos1;
-	corner2 = _pos2;
-	name = _name;
-	//LOGLN("Rect Named \"" + name + "\" was succesfully created with the coords: (" + std::to_string(corner1.x) + ", " + std::to_string(corner1.y) + "),(" + std::to_string(corner2.x) + ", " + std::to_string(corner2.y) + ")");
-}
 
 CollisionBox::CollisionBox(Coords _pos, glm::vec2 _size, std::string _enum)
 {
@@ -48,43 +30,12 @@ CollisionBox::CollisionBox(Coords _pos, glm::vec2 _size, std::string _enum)
 }
 
 
-bool CollisionBox::CheckCollision(Coords point) const
-{
-	if (point.x >= corner1.x && point.x <= corner2.x && point.y >= corner1.y && point.y <= corner2.y)
-		return true;
-	return false;
-}
-
 
 bool CollisionBox::CheckOverlap(CollisionBox rect) const
 {
 	return false;
 }
 
-void CollisionBox::SwapCheck()
-{
-	if (corner1.x > corner2.x || corner1.y > corner2.y)
-	{
-		Coords temp = corner1;
-		corner1 = corner2;
-		corner2 = temp;
-	}
-}
-
-int CollisionBox::GetCenterX() const
-{
-	return abs((corner1.x + corner2.x) / 2);
-}
-
-int CollisionBox::GetCenterY() const
-{
-	return abs((corner1.y + corner2.y) / 2);
-}
-
-Coords CollisionBox::GetCenter() const
-{
-	return { GetCenterX(), GetCenterY() };
-}
 
 void CollisionBox::Rotate(int turnAmount, int h, int k, int angle)
 {
@@ -100,7 +51,6 @@ void CollisionBox::Rotate(int turnAmount, int h, int k, int angle)
 		corner2.x = (temp2.x * Coords().dCos(angle) - temp2.y * Coords().dSin(angle)) + h;
 		corner2.y = (temp2.x * Coords().dSin(angle) + temp2.y * Coords().dCos(angle)) + k;
 	}
-	SwapCheck();
 }
 
 bool CollisionBox::CheckCollisions(CollisionBox other)
@@ -108,11 +58,11 @@ bool CollisionBox::CheckCollisions(CollisionBox other)
 	//if (collisionType == CollisionType::AABB)
 	//{
 
-	topLeft = { position.x - size.x / 2, position.y + size.y / 2 };
-	botRight = { position.x + size.x / 2, position.y - size.y / 2 };
+	topLeft = { position.x - (size.x / 2), position.y + (size.y / 2 )};
+	botRight = { position.x + (size.x / 2), position.y - (size.y / 2 )};
 
-	other.topLeft = { other.position.x - other.size.x / 2, other.position.y + other.size.y / 2 };
-	other.botRight = { other.position.x + other.size.x / 2, other.position.y - other.size.y / 2 };
+	other.topLeft = { other.position.x - (other.size.x / 2), other.position.y + (other.size.y / 2 )};
+	other.botRight = { other.position.x + (other.size.x / 2), other.position.y -( other.size.y / 2 )};
 
 	if (topLeft.x > other.botRight.x || other.topLeft.x > botRight.x) {
 		return false;

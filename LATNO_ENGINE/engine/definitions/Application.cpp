@@ -54,7 +54,7 @@ void Application::Startup(GLFWwindow* _window)
 
 	player.AddTag("player");
 
-	ProgressBar progressBar(485, 50, "resources/textures/redBar.png");
+	ProgressBar progressBar(485, 57.5, "resources/textures/redBar.png");
 	water.SetScale({ 7, 5.5 });
 	land.SetScale({ 10, 5.5 });
 	player.SetScale({ 0.5, 0.5f });
@@ -110,7 +110,8 @@ void Application::Run()
 		for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
 		{
 			levelPtr->dynamicActors[i].SetPos({ levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - 3 });
-			if (levelPtr->dynamicActors[i].GetPos().y < -5)  {
+			if (levelPtr->dynamicActors[i].GetPos().y < -5)
+			{
 				levelPtr->DestroyDynamicActor(i);
 				i--;
 				continue;
@@ -118,9 +119,10 @@ void Application::Run()
 
 			if (levelPtr->dynamicActors[i].collisionBox->CheckCollisions(*playerPtr->collisionBox))
 			{
+				playerPtr->SwapTexture("resources/textures/can.png");
 				levelPtr->DestroyDynamicActor(i);
-				carryingCapacity++;
-				 i--;
+				barPtr->amountHave++;
+				i--;
 			}
 		}
 		
@@ -129,6 +131,7 @@ void Application::Run()
 
 		ImGui::Text("DeltaTime: %f", prevDeltaTime);
 		ImGui::Text("FPS: %f", ImGui::GetIO().Framerate);
+		ImGui::Text("FPS: %f", ImGui::GetIO().MousePos);
 
 		ImGui::Render();
 

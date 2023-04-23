@@ -39,6 +39,7 @@ namespace Latno_Entities
 			bool CheckCollision(Coords Point) const;
 			bool IsNearby(Actor Actor) const;
 			bool IsNearby(Coords Point) const;
+			void SwapTexture(std::string path);
 
 			Coords GetPos() const;
 			void SetPos(Coords _pos);

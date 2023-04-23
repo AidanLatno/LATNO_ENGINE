@@ -26,6 +26,5 @@ public:
 
 	const std::string TrashSprites[2] = { "resources/textures/trash1.png","resources/textures/trash2.png" };
 
-	int carryingCapacity;
 
 };

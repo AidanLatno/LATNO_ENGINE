@@ -277,8 +277,5 @@
     <Image Include="resources\textures\can.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\..\..\OneDrive\Desktop\land.png">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>

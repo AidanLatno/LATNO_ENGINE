@@ -6,12 +6,11 @@ class ProgressBar : public Latno_Entities::AdvancedActor
 	using AdvancedActor::AdvancedActor;
 public:
 	glm::vec2 scale;
-
+	int amountHave;
 
 	void Start() override
 	{
-		Latno_Entities::Actor progressBar(485, 50, "resources/textures/redBar.png");
-		progressBar.SetScale({ 0.1, 0.25 });
+		SetScale({ 0.1, 0.3 });
 
 	}
 	void Update(double deltaTime) override

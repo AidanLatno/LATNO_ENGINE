@@ -152,5 +152,11 @@ namespace Latno_Entities
 		SetSpriteScale(scale.x,scale.y);
 		SetCollisionSize(scale);
 	}
+
+	void Actor::SwapTexture(std::string path)
+	{
+		sprite->texture.reset();
+		sprite->texture = std::make_unique<Texture>(path);
+	}
 	
 }
