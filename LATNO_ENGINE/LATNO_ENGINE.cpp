@@ -28,13 +28,13 @@ int main()
 	// ^^ Make GL Version core instead of compat ^^
 
 
-	window = glfwCreateWindow(864, 988, "Window Title", NULL, NULL);
+	window = glfwCreateWindow(864, 980, "Window Title", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
 		return -1;
 	}
-
+	glfwSetWindowSizeLimits(window, 864, 980, 864, 980);
 	glfwMakeContextCurrent(window);
 
 	glfwSwapInterval(1); // Syncs swap interval with vsync

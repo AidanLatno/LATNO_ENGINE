@@ -26,12 +26,15 @@ void Application::Load()
 {
 	BehaviorLoad();
 	DevLog::LOGLN("App Load Finished", "EngineLog");
+
 	Run();
 
 }
 bool Application::Tick(double deltaTime)
 {
 	BehaviorTick(deltaTime);
+
+	countDown -= 1 * deltaTime;
 	
 	return true;
 }
@@ -43,15 +46,20 @@ void Application::Startup(GLFWwindow* _window)
 	DevLog::CLEAR("GL_ERROR_LOG");
 	srand(time(NULL));
 
-	Scene level(864, 988, window);
+	Scene level(864, 980, window);
 
-	Player player(100, 100, "resources/textures/cleaner.png");
-	Latno_Entities::Actor land(864 / 2, 988 / 2, "resources/textures/land.png");
-	Latno_Entities::Actor water(864 / 2, 988 / 2, "resources/textures/water.png");
+	Player player(475, 50, "resources/textures/cleaner.png");
+	Latno_Entities::Actor land(475, 275, "resources/textures/land.png");
+	Latno_Entities::Actor water(475, 275, "resources/textures/water.png");
+	player.AddTag("player");
+	
 
-	water.SetScale({ 50, 50 });
-	land.SetScale({ 50, 50 });
-	player.SetScale({ 10, 10 });
+
+	water.SetScale({ 7, 5.5 });
+	land.SetScale({ 10, 5.5 });
+	player.SetScale({ 1, 0.7f });
+
+	player.speed = 6;
 
 	player.currentScene = &level;
 
@@ -60,9 +68,9 @@ void Application::Startup(GLFWwindow* _window)
 	playerPtr = &player;
 	levelPtr = &level;
 
-	level.AddActor(player);
 	level.AddActor(water);
 	level.AddActor(land);
+	level.AddActor(player);
 
 	Load();
 }
@@ -72,6 +80,9 @@ void Application::Run()
 	DevLog AppLog("AppLog");
 	Timer DeltaCalc;
 	double prevDeltaTime = 0;
+
+	float timer;
+	float difficultyMod = 0;
 
 	while (true)
 	{
@@ -83,10 +94,29 @@ void Application::Run()
 
 		if (!Tick(prevDeltaTime))
 			return;
-			
 
+		if (countDown <= 0) {
+			countDown = 2 - difficultyMod;
+
+			Latno_Entities::Trash t(rand() % 764 + 100, 500, "resources/textures/trash1.png");
+			t.AddTag("trash");
+			levelPtr->AddDynamicActor(t);
+		}
+
+		for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
+		{
+			levelPtr->dynamicActors[i].SetPos(levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - 1);
+
+			if (levelPtr->dynamicActors[i]->CheckCollision(playerPtr)) {
+				 levelPtr->DestroyDynamicActor(i);
+				 i--;
+			}
+		}
+		
 		prevDeltaTime = DeltaCalc.GetTime();
 		DeltaCalc.Reset();
+
+		ImGui::Text("DeltaTime: %f", prevDeltaTime);
 
 		ImGui::Render();
 

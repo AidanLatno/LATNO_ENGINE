@@ -14,6 +14,7 @@ public:
 	void Run();
 
 	// Declare variable pointers below
+	float countDown = 10;
 	Player *playerPtr;
 	Scene *levelPtr;
 	Button *buttonPtr;

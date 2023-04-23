@@ -226,6 +226,7 @@
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\..\OneDrive\Desktop\land.png" />
     <Image Include="resources\textures\can.png" />
     <Image Include="resources\textures\cherno.png" />
     <Image Include="resources\textures\images.png" />

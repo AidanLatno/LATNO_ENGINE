@@ -18,9 +18,9 @@ namespace Latno_Entities {
         // Register the callback function
         void Update(double deltaTime) override
         {
-            SetPos({ GetPos().x, GetPos().y - 1 });
+            SetPos({ GetPos().x, GetPos().y - 10 });
 
-          
+            std::cout << "a;sldhg ";
         }
     };
 }
