@@ -60,6 +60,7 @@ void Application::Startup(GLFWwindow* _window)
 	Latno_Entities::Actor num1(190, 520, "resources/textures/0.png");
 	Latno_Entities::Actor num2(230, 520, "resources/textures/0.png");
 	Latno_Entities::Actor num3(270, 520, "resources/textures/0.png");
+	Latno_Entities::Actor num4(310, 520, "resources/textures/0.png");
 	Latno_Entities::Actor ins(475, 275, "resources/textures/instructions.png");
 
 	player.AddTag("player");
@@ -79,6 +80,7 @@ void Application::Startup(GLFWwindow* _window)
 	num1.SetScale({  0.5, 0.25 });
 	num2.SetScale({  0.5, 0.25 });
 	num3.SetScale({  0.5, 0.25 });
+	num4.SetScale({ 0.5, 0.25 });
 	score.SetScale({ 1.8, 0.4});
 
 	player.speed = 400;
@@ -96,6 +98,7 @@ void Application::Startup(GLFWwindow* _window)
 	num1Ptr = &num1;
 	num2Ptr = &num2;
 	num3Ptr = &num3;
+	num4Ptr = &num4;
 	scorePtr = &score;
 	insPtr = &ins;
 
@@ -107,6 +110,7 @@ void Application::Startup(GLFWwindow* _window)
 	level.AddActor(num1);
 	level.AddActor(num2);
 	level.AddActor(num3);
+	level.AddActor(num4);
 	level.AddActor(score);
 	level.AddActor(ins);
 
@@ -126,19 +130,36 @@ void Application::Run()
 
 	while (true)
 	{
+		Timer TimeTest;
 		ImGui_ImplGlfwGL3_NewFrame();
 		levelPtr->Render();
+		{
+			float temp = TimeTest.Lap();
+			if (temp > RenderingMax)
+				RenderingMax = temp;
+		}
+		ImGui::Text("Rendering: %f", RenderingMax);
 
 		if (!Tick(prevDeltaTime))
 			return;
 
+		{
+			float temp = TimeTest.Lap();
+			if (temp > TickMax)
+				TickMax = temp;
+		}
+		ImGui::Text("Tick Method: %f", TickMax);
+		// SUMMON TRASH
 		if (countDown <= 0) {
 			levelPtr->DestroyActor(insPtr);
-			countDown = 1.3 - difficultyMod;
+			countDown = 2 - difficultyMod;
 			int ranNum = rand() % 8;
 			if (ranNum < 6)
 			{
-				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 200) + 160, 500, TrashSprites[rand() % 2]);
+				int ran = rand() % 3;
+				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 200) + 160, 500, TrashSprites[ran]);
+				if(ran == 2)
+					t.SetScale({0.4, 0.4});
 				t.AddTag("trash");
 				levelPtr->AddDynamicActor(t);
 			}
@@ -158,6 +179,12 @@ void Application::Run()
 				levelPtr->AddDynamicActor(t);
 			}
 		}
+		{
+			float temp = TimeTest.Lap();
+			if (temp > SummonTrashMax)
+				SummonTrashMax = temp;
+		}
+		ImGui::Text("Summon Trash: %f", SummonTrashMax);
 
 		// Trash logic
 		for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
@@ -204,6 +231,15 @@ void Application::Run()
 			}
 		}
 
+		{
+			float temp = TimeTest.Lap();
+			if (temp > DynamicActorLogicMax)
+				DynamicActorLogicMax = temp;
+		}
+		ImGui::Text("Dynamic Actor Logic: %f", DynamicActorLogicMax);
+
+		// Boat Texture Swapping
+
 		if (playerPtr->amountInBoat < playerPtr->carryingCapacity)
 			barPtr->SwapTexture("resources/textures/greenBar.jpg");
 		else
@@ -236,13 +272,19 @@ void Application::Run()
 
 		}
 
+		{
+			float temp = TimeTest.Lap();
+			if (temp > BoatTextureSwappingMax)
+				BoatTextureSwappingMax = temp;
+		}
+		ImGui::Text("Boat Texture Swaping: %f", BoatTextureSwappingMax);
+
 
 		if (binCountDown <= 0)
 		{
 			binCountDown = 0.2;
 			if (playerPtr->collisionBox->CheckCollisions(*binPtr->collisionBox))
 			{
-
 				if (playerPtr->amountInBoat > 0)
 				{
 					playerPtr->score += 5;
@@ -252,13 +294,17 @@ void Application::Run()
 			}
 		}
 
-
-
+		{
+			float temp = TimeTest.Lap();
+			if (temp > CollisionWithBinMax)
+				CollisionWithBinMax = temp;
+		}
+		ImGui::Text("Check collision with bin: %f", CollisionWithBinMax);
 
 		int m = playerPtr->score;
-		int numArray[3];
+		int numArray[4];
 
-		for (int i = 2; i >= 0; i--) {
+		for (int i = 3; i >= 0; i--) {
 			numArray[i] = m % 10;
 			m /= 10;
 		}
@@ -376,6 +422,51 @@ void Application::Run()
 
 		}
 
+		switch (numArray[3])
+		{
+		case 0:
+			num4Ptr->SwapTexture("resources/textures/0.png");
+			break;
+		case 1:
+			num4Ptr->SwapTexture("resources/textures/1.png");
+			break;
+		case 2:
+			num4Ptr->SwapTexture("resources/textures/2.png");
+			break;
+		case 3:
+			num4Ptr->SwapTexture("resources/textures/3.png");
+			break;
+		case 4:
+			num4Ptr->SwapTexture("resources/textures/4.png");
+			break;
+		case 5:
+			num4Ptr->SwapTexture("resources/textures/5.png");
+			break;
+		case 6:
+			num4Ptr->SwapTexture("resources/textures/6.png");
+			break;
+		case 7:
+			num4Ptr->SwapTexture("resources/textures/7.png");
+			break;
+		case 8:
+			num4Ptr->SwapTexture("resources/textures/8.png");
+			break;
+		case 9:
+			num4Ptr->SwapTexture("resources/textures/8.png");
+			break;
+		default:
+			num4Ptr->SwapTexture("resources/textures/0.png");
+			break;
+
+		}
+
+		{
+			float temp = TimeTest.Lap();
+			if (temp > ScoreRenderingMax)
+				ScoreRenderingMax = temp;
+		}
+		ImGui::Text("Score rendering: %f", ScoreRenderingMax);
+
 		if (passed >= 3)
 		{
 			Latno_Entities::Actor diedScreen(475, 275, "resources/textures/death.png");
@@ -398,8 +489,14 @@ void Application::Run()
 	}
 	Renderer render;
 
-	render.AddSprite(new Sprite(glm::vec3( 475, 275,0 ), glm::vec2( 9,3 ), "resources/textures/death.png", "AABB"));
-	render.RenderSprites(window);
+	
 
-	while (true);
+	while (true)
+	{
+		render.AddSprite(new Sprite(glm::vec3( 475, 275,0 ), glm::vec2( 9,3 ), "resources/textures/death.png", "AABB"));
+		render.RenderSprites(window);
+
+		glfwSwapBuffers(window);
+		glfwPollEvents(); // idk man
+	}
 }

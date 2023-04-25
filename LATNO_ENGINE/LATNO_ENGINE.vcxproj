@@ -227,9 +227,36 @@
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\textures\0.png" />
+    <Image Include="resources\textures\1.png" />
+    <Image Include="resources\textures\2.png" />
+    <Image Include="resources\textures\3.png" />
+    <Image Include="resources\textures\4.png" />
+    <Image Include="resources\textures\5.png" />
+    <Image Include="resources\textures\6.png" />
+    <Image Include="resources\textures\7.png" />
+    <Image Include="resources\textures\8.png" />
+    <Image Include="resources\textures\9.png" />
+    <Image Include="resources\textures\boat1.png" />
+    <Image Include="resources\textures\boat2.png" />
+    <Image Include="resources\textures\boat3.png" />
+    <Image Include="resources\textures\boat4.png" />
+    <Image Include="resources\textures\boat5.png" />
     <Image Include="resources\textures\can.png" />
     <Image Include="resources\textures\cherno.png" />
+    <Image Include="resources\textures\death.png" />
+    <Image Include="resources\textures\fish1.png" />
+    <Image Include="resources\textures\fish2.png" />
+    <Image Include="resources\textures\greenBar.jpg" />
     <Image Include="resources\textures\images.png" />
+    <Image Include="resources\textures\instructions.png" />
+    <Image Include="resources\textures\land.png" />
+    <Image Include="resources\textures\redBar.png" />
+    <Image Include="resources\textures\score.png" />
+    <Image Include="resources\textures\Screenshot_2023-04-23_at_2.52.49_PM.png" />
+    <Image Include="resources\textures\trash1.png" />
+    <Image Include="resources\textures\trash2.png" />
+    <Image Include="resources\textures\water.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
