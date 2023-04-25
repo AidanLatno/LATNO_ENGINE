@@ -203,7 +203,6 @@
     <ClInclude Include="Shapes\declarations\CollisionBox.h" />
     <ClInclude Include="Shapes\declarations\Triangle.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
-    <ClInclude Include="UserClasses\declarations\Button.h" />
     <ClInclude Include="UserClasses\declarations\ProgressBarv2.h" />
     <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\ProgressBar.h" />

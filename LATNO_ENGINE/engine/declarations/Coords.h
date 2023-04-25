@@ -4,11 +4,11 @@
 
 struct Coords
 {
-	int x;
-	int y;
+	float x;
+	float y;
 
 	Coords();
-	Coords(int _x, int _y);
+	Coords(float _x, float _y);
 
 	Coords operator = (Coords obj);
 
@@ -23,22 +23,22 @@ struct Coords
 	Coords operator *= (Coords obj);
 	Coords operator /= (Coords obj);
 	Coords operator %= (Coords obj);
-	Coords operator * (int obj);
-	Coords operator / (int obj);
-	Coords operator % (int obj);
-	Coords operator *= (int obj);
-	Coords operator /= (int obj);
-	Coords operator %= (int obj);
+	Coords operator * (float obj);
+	Coords operator / (float obj);
+	Coords operator % (float obj);
+	Coords operator *= (float obj);
+	Coords operator /= (float obj);
+	Coords operator %= (float obj);
 
 	bool IsEqual(Coords a) const;
-	Coords AddX(int Adder) const;
-	Coords AddY(int Adder) const;
-	Coords Add(int Adder1,int Adder2) const;
-	void Rotate(int TurnAmount,int h,int k,int Angle);
+	Coords AddX(float Adder) const;
+	Coords AddY(float Adder) const;
+	Coords Add(float Adder1, float Adder2) const;
+	void Rotate(float TurnAmount, float h, float k, float Angle);
 	double FindDistance(Coords a);
 
 
-	int dSin(int theta);
+	float dSin(float theta);
 	
-	int dCos(int theta);
+	float dCos(float theta);
 };

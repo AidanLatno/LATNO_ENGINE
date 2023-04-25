@@ -18,13 +18,11 @@ public:
 	const std::string TrashSprites[3] = { "resources/textures/trash1.png","resources/textures/trash2.png", "resources/textures/can.png" };
 
 
-	float RenderingMax = 0;
-	float TickMax = 0;
-	float SummonTrashMax = 0;
-	float DynamicActorLogicMax = 0;
-	float BoatTextureSwappingMax = 0;
-	float CollisionWithBinMax = 0;
-	float ScoreRenderingMax = 0;
+	float testCount1 = 0;
+	float testCount2 = 0;
+	float testCount3 = 0;
+	float testCount4 = 0;
+	float testCount5 = 0;
 
 	// Declare variable pointers below
 
@@ -43,6 +41,9 @@ public:
 
 	ProgressBar* barPtr;
 
+	//Declare Custom Methods below
+
+	std::string GetNumPath(int num);
 	
 
 

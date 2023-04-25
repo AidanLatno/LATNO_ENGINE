@@ -33,7 +33,7 @@ void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& 
 
 void Renderer::RenderSprites(GLFWwindow* window) const
 {
-	GLCall(glClearColor(1.0f,1.0f,0.0f,1.0f));
+	GLCall(glClearColor(0.0f,0.0f,1.0f,1.0f));
 	GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 	for (Sprite* sprite : sprites)
@@ -81,11 +81,11 @@ void Renderer::RenderSprites(GLFWwindow* window) const
 		 }
 		 sprites.swap(tempArray);
 	 }
-	 std::cout << "Removed sprite with path \"" << sprite->texture->GetPath() << "\"\n";
+	 //std::cout << "Removed sprite with path \"" << sprite->texture->GetPath() << "\"\n";
  }
  void Renderer::RemoveSprite(int index)
  {
-	 std::cout << "Removed sprite with path \"" << sprites[index]->texture->GetPath() << "\"\n";
+	 //std::cout << "Removed sprite with path \"" << sprites[index]->texture->GetPath() << "\"\n";
 	 std::vector<Sprite*> tempArray;
 	 if (sprites.size() > 0)
 	 {

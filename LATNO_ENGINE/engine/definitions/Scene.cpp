@@ -228,5 +228,5 @@ bool Scene::IsIn(Latno_Entities::Actor *_actor) const
 
 Coords Scene::GetSize() const
 {
-	return {sizeX,sizeY};
+	return {(float)sizeX,(float)sizeY};
 }

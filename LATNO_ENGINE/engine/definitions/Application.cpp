@@ -1,5 +1,47 @@
 #include "../declarations/Application.h"
 
+
+std::string Application::GetNumPath(int num)
+{
+	switch (num)
+	{
+	case 0:
+		return "resources/textures/0.png";
+		break;
+	case 1:
+		return "resources/textures/1.png";
+		break;
+	case 2:
+		return "resources/textures/2.png";
+		break;
+	case 3:
+		return "resources/textures/3.png";
+		break;
+	case 4:
+		return "resources/textures/4.png";
+		break;
+	case 5:
+		return "resources/textures/5.png";
+		break;
+	case 6:
+		return "resources/textures/6.png";
+		break;
+	case 7:
+		return "resources/textures/7.png";
+		break;
+	case 8:
+		return "resources/textures/8.png";
+		break;
+	case 9:
+		return "resources/textures/9.png";
+		break;
+	default:
+		return "resources/textures/0.png";
+		break;
+
+	}
+}
+
 Application::~Application() 
 {
 	ImGui_ImplGlfwGL3_Shutdown();
@@ -131,62 +173,79 @@ void Application::Run()
 	while (true)
 	{
 		Timer TimeTest;
+		// vv RENDERING vv
 		ImGui_ImplGlfwGL3_NewFrame();
 		levelPtr->Render();
-		{
-			float temp = TimeTest.Lap();
-			if (temp > RenderingMax)
-				RenderingMax = temp;
-		}
-		ImGui::Text("Rendering: %f", RenderingMax);
 
+		// vv TICK vv
 		if (!Tick(prevDeltaTime))
 			return;
 
-		{
-			float temp = TimeTest.Lap();
-			if (temp > TickMax)
-				TickMax = temp;
-		}
-		ImGui::Text("Tick Method: %f", TickMax);
-		// SUMMON TRASH
+		ImGui::Text("Destroy insPtr and get rand num: %f", testCount1);
+		ImGui::Text("Spawn Rand trash: %f", testCount2);
+		ImGui::Text("Spawn fish 1: %f", testCount3);
+		ImGui::Text("Spawn fish 2: %f", testCount4);
+
+
+		// vv SUMMON TRASH vv
 		if (countDown <= 0) {
+			TimeTest.Reset();
 			levelPtr->DestroyActor(insPtr);
-			countDown = 2 - difficultyMod;
+			countDown = 1 - difficultyMod;
 			int ranNum = rand() % 8;
+			//TEMP:
+			{
+				float temp = TimeTest.Lap();
+				if (temp > testCount1)
+					testCount1 = temp;
+			}
+			TimeTest.Reset();
 			if (ranNum < 6)
 			{
 				int ran = rand() % 3;
-				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 200) + 160, 500, TrashSprites[ran]);
+				
+				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 500, TrashSprites[ran]);
+				
 				if(ran == 2)
-					t.SetScale({0.4, 0.4});
+					t.SetScale({0.5, 0.4});
+
+
 				t.AddTag("trash");
+				
 				levelPtr->AddDynamicActor(t);
+				
 			}
 			else if (ranNum == 7)
 			{
-				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 200) + 160, 500, "resources/textures/fish1.png");
+				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 500, "resources/textures/fish1.png");
 				t.AddTag("fish");
 				t.SetScale({ 0.5,0.5 });
 				levelPtr->AddDynamicActor(t);
+				//TEMP:
+				{
+					float temp = TimeTest.Lap();
+					if (temp > testCount3)
+						testCount3 = temp;
+				}
 			}
 			else
 			{
-				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 200) + 160, 500, "resources/textures/fish2.png");
+				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 500, "resources/textures/fish2.png");
 				t.AddTag("fish");
 
 				t.SetScale({ 0.5,0.5 });
 				levelPtr->AddDynamicActor(t);
+				//TEMP:
+				{
+					float temp = TimeTest.Lap();
+					if (temp > testCount4)
+						testCount4 = temp;
+				}
 			}
 		}
-		{
-			float temp = TimeTest.Lap();
-			if (temp > SummonTrashMax)
-				SummonTrashMax = temp;
-		}
-		ImGui::Text("Summon Trash: %f", SummonTrashMax);
+		// ^^ SUMMON TRASH ^^
 
-		// Trash logic
+		// vv DYNAMIC ACTOR LOGIC vv
 		for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
 		{
 			if (!levelPtr->dynamicActors[i].IfHasTag("DEATH"))
@@ -214,15 +273,18 @@ void Application::Run()
 			{
 				if (levelPtr->dynamicActors[i].collisionBox->CheckCollisions(*playerPtr->collisionBox))
 				{
-					/*for (int i = 0; i < playerPtr->amountInBoat; i++)
-					{
+					for (int i = 0; i < playerPtr->amountInBoat; i++)
+					{/*
 						int x = rand() % (playerPtr->GetPos().x - 2) + (playerPtr->GetPos().x + 2);
-						int y = rand() % (playerPtr->GetPos().y - 2) + (playerPtr->GetPos().y + 2);
+						int y = rand() % (playerPtr->GetPos().y - 2) + (playerPtr->GetPos().y + 2);*/
+
+						int x = playerPtr->GetPos().x + (rand() % 90)-45;
+						int y = playerPtr->GetPos().y- rand() % 20 + 40;
 						Latno_Entities::Actor t(x, y, TrashSprites[rand() % 2]);
 						t.AddTag("trash");
 						levelPtr->AddDynamicActor(t);
 
-					}*/
+					}
 					playerPtr->amountInBoat = 0;
 
 
@@ -230,16 +292,10 @@ void Application::Run()
 				}
 			}
 		}
+		// ^^ DYNAMIC ACTOR LOGIC ^^
 
-		{
-			float temp = TimeTest.Lap();
-			if (temp > DynamicActorLogicMax)
-				DynamicActorLogicMax = temp;
-		}
-		ImGui::Text("Dynamic Actor Logic: %f", DynamicActorLogicMax);
 
-		// Boat Texture Swapping
-
+		// vv BOAT TEXTURE SWAPPING vv
 		if (playerPtr->amountInBoat < playerPtr->carryingCapacity)
 			barPtr->SwapTexture("resources/textures/greenBar.jpg");
 		else
@@ -268,18 +324,10 @@ void Application::Run()
 		default:
 			playerPtr->SwapTexture("resources/textures/boat1.png");
 			break;
-
-
 		}
+		// ^^ BOAT TEXTURE SWAPPING ^^
 
-		{
-			float temp = TimeTest.Lap();
-			if (temp > BoatTextureSwappingMax)
-				BoatTextureSwappingMax = temp;
-		}
-		ImGui::Text("Boat Texture Swaping: %f", BoatTextureSwappingMax);
-
-
+		// vv BIN COLLECTION vv
 		if (binCountDown <= 0)
 		{
 			binCountDown = 0.2;
@@ -293,14 +341,9 @@ void Application::Run()
 
 			}
 		}
+		// ^^ BIN COLLECTION ^^
 
-		{
-			float temp = TimeTest.Lap();
-			if (temp > CollisionWithBinMax)
-				CollisionWithBinMax = temp;
-		}
-		ImGui::Text("Check collision with bin: %f", CollisionWithBinMax);
-
+		// vv SCORE COUNTER vv
 		int m = playerPtr->score;
 		int numArray[4];
 
@@ -308,165 +351,15 @@ void Application::Run()
 			numArray[i] = m % 10;
 			m /= 10;
 		}
-		switch (numArray[0])
-		{
-		case 0:
-			num1Ptr->SwapTexture("resources/textures/0.png");
-			break;
-		case 1:
-			num1Ptr->SwapTexture("resources/textures/1.png");
-			break;
-		case 2:
-			num1Ptr->SwapTexture("resources/textures/2.png");
-			break;
-		case 3:
-			num1Ptr->SwapTexture("resources/textures/3.png");
-			break;
-		case 4:
-			num1Ptr->SwapTexture("resources/textures/4.png");
-			break;
-		case 5:
-			num1Ptr->SwapTexture("resources/textures/5.png");
-			break;
-		case 6:
-			num1Ptr->SwapTexture("resources/textures/6.png");
-			break;
-		case 7:
-			num1Ptr->SwapTexture("resources/textures/7.png");
-			break;
-		case 8:
-			num1Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		case 9:
-			num1Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		default:
-			num1Ptr->SwapTexture("resources/textures/0.png");
-			break;
 
-		}
+		num1Ptr->SwapTexture(GetNumPath(numArray[0]));
+		num2Ptr->SwapTexture(GetNumPath(numArray[1]));
+		num3Ptr->SwapTexture(GetNumPath(numArray[2]));
+		num4Ptr->SwapTexture(GetNumPath(numArray[3]));
 
-		switch (numArray[1])
-		{
-		case 0:
-			num2Ptr->SwapTexture("resources/textures/0.png");
-			break;
-		case 1:
-			num2Ptr->SwapTexture("resources/textures/1.png");
-			break;
-		case 2:
-			num2Ptr->SwapTexture("resources/textures/2.png");
-			break;
-		case 3:
-			num2Ptr->SwapTexture("resources/textures/3.png");
-			break;
-		case 4:
-			num2Ptr->SwapTexture("resources/textures/4.png");
-			break;
-		case 5:
-			num2Ptr->SwapTexture("resources/textures/5.png");
-			break;
-		case 6:
-			num2Ptr->SwapTexture("resources/textures/6.png");
-			break;
-		case 7:
-			num2Ptr->SwapTexture("resources/textures/7.png");
-			break;
-		case 8:
-			num2Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		case 9:
-			num2Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		default:
-			num2Ptr->SwapTexture("resources/textures/0.png");
-			break;
+		// ^^ SCORE COUNTER ^^
 
-		}
-
-		switch (numArray[2])
-		{
-		case 0:
-			num3Ptr->SwapTexture("resources/textures/0.png");
-			break;
-		case 1:
-			num3Ptr->SwapTexture("resources/textures/1.png");
-			break;
-		case 2:
-			num3Ptr->SwapTexture("resources/textures/2.png");
-			break;
-		case 3:
-			num3Ptr->SwapTexture("resources/textures/3.png");
-			break;
-		case 4:
-			num3Ptr->SwapTexture("resources/textures/4.png");
-			break;
-		case 5:
-			num3Ptr->SwapTexture("resources/textures/5.png");
-			break;
-		case 6:
-			num3Ptr->SwapTexture("resources/textures/6.png");
-			break;
-		case 7:
-			num3Ptr->SwapTexture("resources/textures/7.png");
-			break;
-		case 8:
-			num3Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		case 9:
-			num3Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		default:
-			num3Ptr->SwapTexture("resources/textures/0.png");
-			break;
-
-		}
-
-		switch (numArray[3])
-		{
-		case 0:
-			num4Ptr->SwapTexture("resources/textures/0.png");
-			break;
-		case 1:
-			num4Ptr->SwapTexture("resources/textures/1.png");
-			break;
-		case 2:
-			num4Ptr->SwapTexture("resources/textures/2.png");
-			break;
-		case 3:
-			num4Ptr->SwapTexture("resources/textures/3.png");
-			break;
-		case 4:
-			num4Ptr->SwapTexture("resources/textures/4.png");
-			break;
-		case 5:
-			num4Ptr->SwapTexture("resources/textures/5.png");
-			break;
-		case 6:
-			num4Ptr->SwapTexture("resources/textures/6.png");
-			break;
-		case 7:
-			num4Ptr->SwapTexture("resources/textures/7.png");
-			break;
-		case 8:
-			num4Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		case 9:
-			num4Ptr->SwapTexture("resources/textures/8.png");
-			break;
-		default:
-			num4Ptr->SwapTexture("resources/textures/0.png");
-			break;
-
-		}
-
-		{
-			float temp = TimeTest.Lap();
-			if (temp > ScoreRenderingMax)
-				ScoreRenderingMax = temp;
-		}
-		ImGui::Text("Score rendering: %f", ScoreRenderingMax);
-
+		// vv LOSE DETECTION vv
 		if (passed >= 3)
 		{
 			Latno_Entities::Actor diedScreen(475, 275, "resources/textures/death.png");
@@ -476,6 +369,7 @@ void Application::Run()
 			levelPtr->Render();
 			break;
 		}
+		// ^^ LOSE DETECTION ^^
 
 		prevDeltaTime = DeltaCalc.GetTime();
 		DeltaCalc.Reset();
@@ -484,7 +378,7 @@ void Application::Run()
 
 		ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
 		glfwSwapBuffers(window);
-		glfwPollEvents(); // idk man
+		glfwPollEvents();
 
 	}
 	Renderer render;

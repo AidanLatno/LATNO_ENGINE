@@ -8,7 +8,6 @@ namespace Latno
 	{
 		tagVector.push_back(TagToAdd);
 		int x = tagVector.size();
-		DevLog::LOGLN('"' + TagToAdd + '"' + " added to TagVector at index position " + std::to_string(tagVector.size()), "MainLog");
 	}
 
 	void Behavior::RemoveTag(std::string TagToRemove)
@@ -16,7 +15,6 @@ namespace Latno
 		for (int i = 0; i < tagVector.size() - 1; i++) {
 			if (tagVector[i] == TagToRemove) {
 				tagVector.erase(tagVector.begin() + i);
-				DevLog::LOGLN('"' + TagToRemove + '"' + " removed from TagVector at index position " + std::to_string(i), "MainLog");
 			}
 		}
 

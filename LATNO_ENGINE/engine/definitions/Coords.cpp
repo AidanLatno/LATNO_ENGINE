@@ -7,7 +7,7 @@ Coords::Coords()
 	x = 0;
 	y = 0;
 }
-Coords::Coords(int _x, int _y)
+Coords::Coords(float _x, float _y)
 {
 	x = _x;
 	y = _y;
@@ -36,10 +36,6 @@ Coords Coords::operator / (Coords obj)
 {
 	return Coords{x / obj.x,y / obj.y};
 }
-Coords Coords::operator % (Coords obj)
-{
-	return Coords{x % obj.x,y % obj.y};
-}
 
 Coords Coords::operator += (Coords obj)
 {
@@ -66,29 +62,29 @@ Coords Coords::operator %= (Coords obj)
 	*this = *this % obj;
 	return *this;
 }
-Coords Coords::operator * (int obj)
+Coords Coords::operator * (float obj)
 {
 	return Coords{x * obj,y * obj};
 }
-Coords Coords::operator / (int obj)
+Coords Coords::operator / (float obj)
 {
 	return Coords{x / obj,y / obj};
 }
-Coords Coords::operator % (int obj)
+Coords Coords::operator % (float obj)
 {
-	return Coords{x % obj,y % obj};
+	return Coords{ static_cast<int>(x) % static_cast<int>(obj), static_cast<int>(y) % static_cast<int>(obj)};
 }
-Coords Coords::operator *= (int obj)
+Coords Coords::operator *= (float obj)
 {
 	*this = *this * obj;
 	return *this;
 }
-Coords Coords::operator /= (int obj)
+Coords Coords::operator /= (float obj)
 {
 	*this = *this / obj;
 	return *this;
 }
-Coords Coords::operator %= (int obj)
+Coords Coords::operator %= (float obj)
 {
 	*this = *this % obj;
 	return *this;
@@ -100,19 +96,19 @@ bool Coords::IsEqual(Coords a) const
 		return true;
 	return false;
 }
-Coords Coords::AddX(int Adder) const
+Coords Coords::AddX(float Adder) const
 {
 	return {x + Adder,y};
 }
-Coords Coords::AddY(int Adder) const
+Coords Coords::AddY(float Adder) const
 {
 	return {x,y + Adder};
 }
-Coords Coords::Add(int Adder1,int Adder2) const
+Coords Coords::Add(float Adder1, float Adder2) const
 {
 	return {x + Adder1,y + Adder2};
 }
-void Coords::Rotate(int TurnAmount = 1,int h = 0,int k = 0,int Angle = 90)
+void Coords::Rotate(float TurnAmount = 1, float h = 0, float k = 0, float Angle = 90)
 {
 	Coords Temp = *this;
 	Temp-={h,k};
@@ -129,12 +125,12 @@ double Coords::FindDistance(Coords a)
 }
 
 
-int Coords::dSin(int theta)
+float Coords::dSin(float theta)
 {
-	return (int)(sin(theta * 3.14159265359/180));
+	return sin(theta * 3.14159265359/180);
 }
 
-int Coords::dCos(int theta)
+float Coords::dCos(float theta)
 {
-	return (int)(cos(theta * 3.14159265359/180));
+	return cos(theta * 3.14159265359/180);
 }
