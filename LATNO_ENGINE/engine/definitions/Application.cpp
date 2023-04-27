@@ -103,6 +103,10 @@ void Application::Startup(GLFWwindow* _window)
 	Latno_Entities::Actor num2(230, 520, "resources/textures/0.png");
 	Latno_Entities::Actor num3(270, 520, "resources/textures/0.png");
 	Latno_Entities::Actor num4(310, 520, "resources/textures/0.png");
+	Latno_Entities::Actor heart1(310, 520, "resources/textures/full_heart.png");
+	Latno_Entities::Actor heart2(310, 520, "resources/textures/full_heart.png");
+	Latno_Entities::Actor heart3(310, 520, "resources/textures/full_heart.png");
+
 	Latno_Entities::Actor ins(475, 275, "resources/textures/instructions.png");
 
 	player.AddTag("player");
@@ -143,6 +147,9 @@ void Application::Startup(GLFWwindow* _window)
 	num4Ptr = &num4;
 	scorePtr = &score;
 	insPtr = &ins;
+	heart1ptr = &heart1;
+	heart2ptr = &heart2;
+	heart3ptr = &heart3;
 
 	level.AddActor(bin);
 	level.AddActor(water);
@@ -153,6 +160,9 @@ void Application::Startup(GLFWwindow* _window)
 	level.AddActor(num2);
 	level.AddActor(num3);
 	level.AddActor(num4);
+	level.AddActor(heart1);
+	level.AddActor(heart2);
+	level.AddActor(heart3);
 	level.AddActor(score);
 	level.AddActor(ins);
 
@@ -172,7 +182,6 @@ void Application::Run()
 
 	while (true)
 	{
-		Timer TimeTest;
 		// vv RENDERING vv
 		ImGui_ImplGlfwGL3_NewFrame();
 		levelPtr->Render();
@@ -181,25 +190,13 @@ void Application::Run()
 		if (!Tick(prevDeltaTime))
 			return;
 
-		ImGui::Text("Destroy insPtr and get rand num: %f", testCount1);
-		ImGui::Text("Spawn Rand trash: %f", testCount2);
-		ImGui::Text("Spawn fish 1: %f", testCount3);
-		ImGui::Text("Spawn fish 2: %f", testCount4);
-
-
 		// vv SUMMON TRASH vv
-		if (countDown <= 0) {
-			TimeTest.Reset();
+		if (countDown <= 0)
+		{
 			levelPtr->DestroyActor(insPtr);
-			countDown = 1 - difficultyMod;
+			countDown = 0.7 - difficultyMod;
 			int ranNum = rand() % 8;
-			//TEMP:
-			{
-				float temp = TimeTest.Lap();
-				if (temp > testCount1)
-					testCount1 = temp;
-			}
-			TimeTest.Reset();
+			
 			if (ranNum < 6)
 			{
 				int ran = rand() % 3;
@@ -221,12 +218,6 @@ void Application::Run()
 				t.AddTag("fish");
 				t.SetScale({ 0.5,0.5 });
 				levelPtr->AddDynamicActor(t);
-				//TEMP:
-				{
-					float temp = TimeTest.Lap();
-					if (temp > testCount3)
-						testCount3 = temp;
-				}
 			}
 			else
 			{
@@ -235,12 +226,6 @@ void Application::Run()
 
 				t.SetScale({ 0.5,0.5 });
 				levelPtr->AddDynamicActor(t);
-				//TEMP:
-				{
-					float temp = TimeTest.Lap();
-					if (temp > testCount4)
-						testCount4 = temp;
-				}
 			}
 		}
 		// ^^ SUMMON TRASH ^^
@@ -256,7 +241,7 @@ void Application::Run()
 				{
 					levelPtr->DestroyDynamicActor(i);
 					i--;
-					passed++;
+					Lives--;
 					continue;
 				}
 
@@ -278,8 +263,8 @@ void Application::Run()
 						int x = rand() % (playerPtr->GetPos().x - 2) + (playerPtr->GetPos().x + 2);
 						int y = rand() % (playerPtr->GetPos().y - 2) + (playerPtr->GetPos().y + 2);*/
 
-						int x = playerPtr->GetPos().x + (rand() % 90)-45;
-						int y = playerPtr->GetPos().y- rand() % 20 + 40;
+						int x = playerPtr->GetPos().x + (rand() % 90-45);
+						int y = playerPtr->GetPos().y - (rand() % 20 + 40);
 						Latno_Entities::Actor t(x, y, TrashSprites[rand() % 2]);
 						t.AddTag("trash");
 						levelPtr->AddDynamicActor(t);
@@ -293,6 +278,13 @@ void Application::Run()
 			}
 		}
 		// ^^ DYNAMIC ACTOR LOGIC ^^
+
+		// vv HEART TEXTURE SWAPPING vv
+		
+
+
+
+		// ^^ HEART TEXTURE SWAPPING ^^
 
 
 		// vv BOAT TEXTURE SWAPPING vv
@@ -360,7 +352,7 @@ void Application::Run()
 		// ^^ SCORE COUNTER ^^
 
 		// vv LOSE DETECTION vv
-		if (passed >= 3)
+		if (Lives <= 0)
 		{
 			Latno_Entities::Actor diedScreen(475, 275, "resources/textures/death.png");
 			diedScreen.AddTag("DEATH");
@@ -383,9 +375,9 @@ void Application::Run()
 	}
 	Renderer render;
 
-	
+	DevLog::LOGLN("Score: " + std::to_string(playerPtr->score), "ScoreLog");
 
-	while (true)
+	while (!(glfwGetKey(window,GLFW_KEY_ENTER) == GLFW_PRESS))
 	{
 		render.AddSprite(new Sprite(glm::vec3( 475, 275,0 ), glm::vec2( 9,3 ), "resources/textures/death.png", "AABB"));
 		render.RenderSprites(window);

@@ -14,15 +14,8 @@ public:
 	void Run();
 	float countDown = 10;
 	float binCountDown = 0.2;
-	int passed = 0;
+	int Lives = 3;
 	const std::string TrashSprites[3] = { "resources/textures/trash1.png","resources/textures/trash2.png", "resources/textures/can.png" };
-
-
-	float testCount1 = 0;
-	float testCount2 = 0;
-	float testCount3 = 0;
-	float testCount4 = 0;
-	float testCount5 = 0;
 
 	// Declare variable pointers below
 
@@ -35,6 +28,9 @@ public:
 	Latno_Entities::Actor* num2Ptr;
 	Latno_Entities::Actor* num3Ptr;
 	Latno_Entities::Actor* num4Ptr;
+	Latno_Entities::Actor* heart1ptr;
+	Latno_Entities::Actor* heart2ptr;
+	Latno_Entities::Actor* heart3ptr;
 	Latno_Entities::Actor* scorePtr;
 	Latno_Entities::Actor* insPtr;
 

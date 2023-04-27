@@ -37,7 +37,7 @@ bool CollisionBox::CheckOverlap(CollisionBox rect) const
 }
 
 
-void CollisionBox::Rotate(int turnAmount, int h, int k, int angle)
+void CollisionBox::Rotate(float turnAmount, float h, float k, float angle)
 {
 	Coords temp1 = this->corner1;
 	Coords temp2 = this->corner2;
@@ -73,20 +73,6 @@ bool CollisionBox::CheckCollisions(CollisionBox other)
 		return false;
 	}
 	return true;
-
-	//if (botLeft.x <= other.topRight.x && topRight.y >= other.botLeft.y)
-	//	std::cout << "First check true\n\n";
-	//else
-	//	std::cout << "first false\n";
-	//if (botLeft.y <= other.topRight.y && topRight.x >= other.botLeft.x)
-	//	std::cout << "Second check true\n\n";
-
-	//else
-	//	std::cout << "second false\n";
-	//	bool x = botLeft.x <= other.topRight.x && topRight.y <= other.botLeft.y;
-	//	bool y = botLeft.y <= other.topRight.y && topRight.x >= other.botLeft.x;
-	//	return x || y;
-	//}
 
 	if (collisionType == CollisionType::RADIUS)
 	{

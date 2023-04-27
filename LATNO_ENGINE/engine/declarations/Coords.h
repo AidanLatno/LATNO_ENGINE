@@ -16,19 +16,15 @@ struct Coords
 	Coords operator - (Coords obj);
 	Coords operator * (Coords obj);
 	Coords operator / (Coords obj);
-	Coords operator % (Coords obj);
 
 	Coords operator += (Coords obj);
 	Coords operator -= (Coords obj);
 	Coords operator *= (Coords obj);
 	Coords operator /= (Coords obj);
-	Coords operator %= (Coords obj);
 	Coords operator * (float obj);
 	Coords operator / (float obj);
-	Coords operator % (float obj);
 	Coords operator *= (float obj);
 	Coords operator /= (float obj);
-	Coords operator %= (float obj);
 
 	bool IsEqual(Coords a) const;
 	Coords AddX(float Adder) const;

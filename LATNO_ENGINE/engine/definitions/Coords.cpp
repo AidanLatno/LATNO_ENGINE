@@ -57,11 +57,6 @@ Coords Coords::operator /= (Coords obj)
 	*this = *this / obj;
 	return *this;
 }
-Coords Coords::operator %= (Coords obj)
-{
-	*this = *this % obj;
-	return *this;
-}
 Coords Coords::operator * (float obj)
 {
 	return Coords{x * obj,y * obj};
@@ -69,10 +64,6 @@ Coords Coords::operator * (float obj)
 Coords Coords::operator / (float obj)
 {
 	return Coords{x / obj,y / obj};
-}
-Coords Coords::operator % (float obj)
-{
-	return Coords{ static_cast<int>(x) % static_cast<int>(obj), static_cast<int>(y) % static_cast<int>(obj)};
 }
 Coords Coords::operator *= (float obj)
 {
@@ -82,11 +73,6 @@ Coords Coords::operator *= (float obj)
 Coords Coords::operator /= (float obj)
 {
 	*this = *this / obj;
-	return *this;
-}
-Coords Coords::operator %= (float obj)
-{
-	*this = *this % obj;
 	return *this;
 }
 
