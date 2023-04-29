@@ -181,7 +181,7 @@ void Application::Run()
 {
 	DevLog AppLog("AppLog");
 	Timer DeltaCalc;
-	double prevDeltaTime = 0;
+	float prevDeltaTime = 0;
 
 	float timer;
 	float difficultyMod = 0;
@@ -200,7 +200,7 @@ void Application::Run()
 		if (countDown <= 0)
 		{
 			levelPtr->DestroyActor(insPtr);
-			countDown = 0.7 - difficultyMod;
+			countDown = 1 - difficultyMod;
 			int ranNum = rand() % 8;
 			
 			if (ranNum < 6)
@@ -240,10 +240,10 @@ void Application::Run()
 		for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
 		{
 			if (!levelPtr->dynamicActors[i].IfHasTag("DEATH"))
-				levelPtr->dynamicActors[i].SetPos({ levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - 1 });
+				levelPtr->dynamicActors[i].SetPos({ levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - (100 * prevDeltaTime) });
 			if (levelPtr->dynamicActors[i].IfHasTag("trash"))
 			{
-				if (levelPtr->dynamicActors[i].GetPos().y < -5)
+				if (levelPtr->dynamicActors[i].GetPos().y < - 5)
 				{
 					levelPtr->DestroyDynamicActor(i);
 					i--;
