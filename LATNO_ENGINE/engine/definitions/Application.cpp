@@ -103,9 +103,9 @@ void Application::Startup(GLFWwindow* _window)
 	Latno_Entities::Actor num2(230, 520, "resources/textures/0.png");
 	Latno_Entities::Actor num3(270, 520, "resources/textures/0.png");
 	Latno_Entities::Actor num4(310, 520, "resources/textures/0.png");
-	Latno_Entities::Actor heart1(310, 520, "resources/textures/full_heart.png");
-	Latno_Entities::Actor heart2(310, 520, "resources/textures/full_heart.png");
-	Latno_Entities::Actor heart3(310, 520, "resources/textures/full_heart.png");
+	Latno_Entities::Actor heart1(820, 520, "resources/textures/full_heart.png");
+	Latno_Entities::Actor heart2(870, 520, "resources/textures/full_heart.png");
+	Latno_Entities::Actor heart3(920, 520, "resources/textures/full_heart.png");
 
 	Latno_Entities::Actor ins(475, 275, "resources/textures/instructions.png");
 
@@ -126,6 +126,12 @@ void Application::Startup(GLFWwindow* _window)
 	num1.SetScale({  0.5, 0.25 });
 	num2.SetScale({  0.5, 0.25 });
 	num3.SetScale({  0.5, 0.25 });
+	num4.SetScale({ 0.5, 0.25 });
+
+	heart1.SetScale({ 0.5, 0.25 });
+	heart2.SetScale({ 0.5, 0.25 });
+	heart3.SetScale({ 0.5, 0.25 });
+
 	num4.SetScale({ 0.5, 0.25 });
 	score.SetScale({ 1.8, 0.4});
 
@@ -281,7 +287,12 @@ void Application::Run()
 
 		// vv HEART TEXTURE SWAPPING vv
 		
-
+		if (Lives == 2)
+			heart1ptr->SwapTexture("resources/textures/empty_heart.png");
+		if (Lives == 1)
+			heart2ptr->SwapTexture("resources/textures/empty_heart.png");
+		if (Lives == 0)
+			heart3ptr->SwapTexture("resources/textures/empty_heart.png");
 
 
 		// ^^ HEART TEXTURE SWAPPING ^^
