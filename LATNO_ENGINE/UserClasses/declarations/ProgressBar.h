@@ -17,7 +17,7 @@ public:
 	}
 	void Update(double deltaTime) override
 	{
-		float ySize = 0.03 * player->amountInBoat;
+		double ySize = 0.03 * player->amountInBoat;
 		int changeOfYPos = 0;
 
 		if (player->amountInBoat < player->carryingCapacity) {

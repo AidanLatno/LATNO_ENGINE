@@ -97,6 +97,7 @@ void Application::Startup(GLFWwindow* _window)
 	Latno_Entities::Actor water(475, 275, "resources/textures/water.png");
 
 	Latno_Entities::Actor bin(800, 80, "None");
+	Latno_Entities::Actor rock(200, 325, "None");
 
 	Latno_Entities::Actor score(80, 520, "resources/textures/score.png");
 	Latno_Entities::Actor num1(190, 520, "resources/textures/0.png");
@@ -116,7 +117,7 @@ void Application::Startup(GLFWwindow* _window)
 
 	progressBar.player = &player;
 
-
+	rock.SetScale({ 2,1.7 });
 	bin.SetScale({ 1,0.5 });
 	water.SetScale({ 7, 5.5 });
 	land.SetScale({ 10, 5.5 });
@@ -147,6 +148,7 @@ void Application::Startup(GLFWwindow* _window)
 	levelPtr = &level;
 	barPtr = &progressBar;
 	binPtr = &bin;
+	rockPtr = &rock;
 	num1Ptr = &num1;
 	num2Ptr = &num2;
 	num3Ptr = &num3;
@@ -157,6 +159,7 @@ void Application::Startup(GLFWwindow* _window)
 	heart2ptr = &heart2;
 	heart3ptr = &heart3;
 
+	level.AddActor(rock);
 	level.AddActor(bin);
 	level.AddActor(water);
 	level.AddActor(land);
@@ -192,6 +195,9 @@ void Application::Run()
 		ImGui_ImplGlfwGL3_NewFrame();
 		levelPtr->Render();
 
+		if (playerPtr->collisionBox->CheckCollisions(*rockPtr->collisionBox))
+			playerPtr->SendBack();
+
 		// vv TICK vv
 		if (!Tick(prevDeltaTime))
 			return;
@@ -200,7 +206,32 @@ void Application::Run()
 		if (countDown <= 0)
 		{
 			levelPtr->DestroyActor(insPtr);
-			countDown = 1 - difficultyMod;
+			if (playerPtr->score < 50)
+				countDown = 2.5;
+			else if (playerPtr->score < 100)
+				countDown = 2.2;
+			else if (playerPtr->score < 200)
+				countDown = 2;
+			else if (playerPtr->score < 300)
+				countDown = 1.7;
+			else if (playerPtr->score < 400)
+				countDown = 1.6;
+			else if (playerPtr->score < 500)
+				countDown = 1.5;
+			else if (playerPtr->score < 600)
+				countDown = 1.4;
+			else if (playerPtr->score < 700)
+				countDown = 1.3;
+			else if (playerPtr->score < 800)
+				countDown = 1.2;
+			else if (playerPtr->score < 900)
+				countDown = 1.1;
+			else if (playerPtr->score < 1000)
+				countDown = 1;
+			else if (playerPtr->score < 1100)
+				countDown = 0.9;
+			else
+				countDown = 0.8;
 			int ranNum = rand() % 8;
 			
 			if (ranNum < 6)
@@ -269,8 +300,8 @@ void Application::Run()
 						int x = rand() % (playerPtr->GetPos().x - 2) + (playerPtr->GetPos().x + 2);
 						int y = rand() % (playerPtr->GetPos().y - 2) + (playerPtr->GetPos().y + 2);*/
 
-						int x = playerPtr->GetPos().x + (rand() % 90-45);
-						int y = playerPtr->GetPos().y - (rand() % 20 + 40);
+						float x = playerPtr->GetPos().x + (rand() % 90-45);
+						float y = playerPtr->GetPos().y - (rand() % 20 + 40);
 						Latno_Entities::Actor t(x, y, TrashSprites[rand() % 2]);
 						t.AddTag("trash");
 						levelPtr->AddDynamicActor(t);
@@ -338,6 +369,10 @@ void Application::Run()
 			{
 				if (playerPtr->amountInBoat > 0)
 				{
+					Latno_Entities::Actor five( 850, 80, "resources/textures/5.png");
+					five.AddTag("points");
+					five.SetScale({ 0.5, 0.25 });
+					levelPtr->AddDynamicActor(five); // Point Indicator
 					playerPtr->score += 5;
 					playerPtr->amountInBoat--;
 				}
@@ -345,6 +380,20 @@ void Application::Run()
 			}
 		}
 		// ^^ BIN COLLECTION ^^
+
+		// vv Point Indicator Removal vv
+		if (binCountDown <= 0.01)
+		{
+			for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
+			{
+				if (levelPtr->dynamicActors[i].IfHasTag("points"))
+				{
+					levelPtr->DestroyDynamicActor(i);
+					i--;
+				}
+			}
+		}
+		// ^^ Point Indicator Removal ^^
 
 		// vv SCORE COUNTER vv
 		int m = playerPtr->score;
@@ -387,10 +436,15 @@ void Application::Run()
 	Renderer render;
 
 	DevLog::LOGLN("Score: " + std::to_string(playerPtr->score), "ScoreLog");
-
+	render.AddSprite(new Sprite(glm::vec3(475, 275, 0), glm::vec2(9, 3), "resources/textures/death.png", "AABB"));
+	render.AddSprite(scorePtr->sprite);
+	render.AddSprite(num1Ptr->sprite);
+	render.AddSprite(num2Ptr->sprite);
+	render.AddSprite(num3Ptr->sprite);
+	render.AddSprite(num4Ptr->sprite);
 	while (!(glfwGetKey(window,GLFW_KEY_ENTER) == GLFW_PRESS))
 	{
-		render.AddSprite(new Sprite(glm::vec3( 475, 275,0 ), glm::vec2( 9,3 ), "resources/textures/death.png", "AABB"));
+		
 		render.RenderSprites(window);
 
 		glfwSwapBuffers(window);

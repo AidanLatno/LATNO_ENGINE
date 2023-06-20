@@ -12,7 +12,7 @@ public:
 	bool Tick(double deltaTime);
 	void Startup(GLFWwindow* _window);
 	void Run();
-	float countDown = 10;
+	double countDown = 10.0;
 	float binCountDown = 0.2;
 	int Lives = 3;
 	const std::string TrashSprites[3] = { "resources/textures/trash1.png","resources/textures/trash2.png", "resources/textures/can.png" };
@@ -33,7 +33,7 @@ public:
 	Latno_Entities::Actor* heart3ptr;
 	Latno_Entities::Actor* scorePtr;
 	Latno_Entities::Actor* insPtr;
-
+	Latno_Entities::Actor* rockPtr;
 
 	ProgressBar* barPtr;
 

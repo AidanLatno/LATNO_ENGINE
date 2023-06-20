@@ -2,7 +2,7 @@
 #include "../declarations/PlayerBase.h"
 namespace Latno_Entities 
 {
-    void PlayerBase::ManageInput(Scene &Scene,float deltaTime)
+    void PlayerBase::ManageInput(Scene &Scene,double deltaTime)
     {
         preData = GetPos();
        
@@ -29,6 +29,10 @@ namespace Latno_Entities
             deltaTime /= 2;
             direction = DOWN;
             MoveForward(Scene, deltaTime);
+        }
+        if (glfwGetKey(Scene.window, GLFW_KEY_SPACE) == GLFW_PRESS)
+        {
+            score += 20;
         }
     }
 }
