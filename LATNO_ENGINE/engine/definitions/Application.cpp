@@ -228,7 +228,7 @@ void Application::Run()
 				countDown = 1.1;
 			else if (playerPtr->score < 1000)
 				countDown = 1;
-			else if (playerPtr->score < 1100)
+			else
 				countDown = 0.9;
 			int ranNum = rand() % 8;
 			
