@@ -205,38 +205,68 @@ void Application::Run()
 		// vv SUMMON TRASH vv
 		if (countDown <= 0)
 		{
+			// vv Fish Storm vv
+			if (rand() % 30 == 0)
+			{
+				std::cout << "FISH SWARM" << std::endl;
+				for (int i = 0; i < 20; i++)
+				{
+					if (rand() % 2 + 1 == 1)
+					{
+						Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 600 + rand() % 350, "resources/textures/fish1.png");
+						t.AddTag("fish");
+						t.SetScale({ 0.5,0.5 });
+						levelPtr->AddDynamicActor(t);
+					}
+					else
+					{
+						Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 600 + rand() % 350, "resources/textures/fish2.png");
+						t.AddTag("fish");
+
+						t.SetScale({ 0.5,0.5 });
+						levelPtr->AddDynamicActor(t);
+					}
+				}
+				countDown = 5;
+			}
+
+			// ^^ Fish Storm ^^
+
 			levelPtr->DestroyActor(insPtr);
-			if (playerPtr->score < 50)
-				countDown = 2.5;
-			else if (playerPtr->score < 100)
-				countDown = 2.2;
-			else if (playerPtr->score < 200)
-				countDown = 2;
-			else if (playerPtr->score < 300)
-				countDown = 1.7;
-			else if (playerPtr->score < 400)
-				countDown = 1.6;
-			else if (playerPtr->score < 500)
-				countDown = 1.5;
-			else if (playerPtr->score < 600)
-				countDown = 1.4;
-			else if (playerPtr->score < 700)
-				countDown = 1.3;
-			else if (playerPtr->score < 800)
-				countDown = 1.2;
-			else if (playerPtr->score < 900)
-				countDown = 1.1;
-			else if (playerPtr->score < 1000)
-				countDown = 1;
-			else
-				countDown = 0.9;
+			if(countDown != 5)
+			{
+				if (playerPtr->score < 50)
+					countDown = 2;
+				else if (playerPtr->score < 100)
+					countDown = 1.9;
+				else if (playerPtr->score < 200)
+					countDown = 1.8;
+				else if (playerPtr->score < 300)
+					countDown = 1.7;
+				else if (playerPtr->score < 400)
+					countDown = 1.6;
+				else if (playerPtr->score < 500)
+					countDown = 1.5;
+				else if (playerPtr->score < 600)
+					countDown = 1.4;
+				else if (playerPtr->score < 700)
+					countDown = 1.3;
+				else if (playerPtr->score < 800)
+					countDown = 1.2;
+				else if (playerPtr->score < 900)
+					countDown = 1.1;
+				else if (playerPtr->score < 1000)
+					countDown = 1;
+				else
+					countDown = 0.9;
+			}
 			int ranNum = rand() % 8;
 			
 			if (ranNum < 6)
 			{
 				int ran = rand() % 3;
 				
-				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 500, TrashSprites[ran]);
+				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 600, TrashSprites[ran]);
 				
 				if(ran == 2)
 					t.SetScale({0.5, 0.4});
@@ -249,14 +279,14 @@ void Application::Run()
 			}
 			else if (ranNum == 7)
 			{
-				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 500, "resources/textures/fish1.png");
+				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 600, "resources/textures/fish1.png");
 				t.AddTag("fish");
 				t.SetScale({ 0.5,0.5 });
 				levelPtr->AddDynamicActor(t);
 			}
 			else
 			{
-				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 500, "resources/textures/fish2.png");
+				Latno_Entities::Actor t(rand() % (WINDOW_LENGTH - 220) + 160, 600, "resources/textures/fish2.png");
 				t.AddTag("fish");
 
 				t.SetScale({ 0.5,0.5 });
@@ -269,6 +299,8 @@ void Application::Run()
 		for (int i = 0; i < levelPtr->dynamicActors.size(); i++)
 		{
 			if (!levelPtr->dynamicActors[i].IfHasTag("DEATH"))
+				levelPtr->dynamicActors[i].SetPos({ levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - (100 * prevDeltaTime) });
+			if(levelPtr->dynamicActors[i].IfHasTag("fish"))
 				levelPtr->dynamicActors[i].SetPos({ levelPtr->dynamicActors[i].GetPos().x, levelPtr->dynamicActors[i].GetPos().y - (100 * prevDeltaTime) });
 			if (levelPtr->dynamicActors[i].IfHasTag("trash"))
 			{
