@@ -188,7 +188,6 @@
     <ClInclude Include="engine\declarations\Rendering\VertexBuffer.h" />
     <ClInclude Include="engine\declarations\Rendering\VertexBufferLayout.h" />
     <ClInclude Include="engine\declarations\Route.h" />
-    <ClInclude Include="engine\declarations\SaveSystem.h" />
     <ClInclude Include="engine\declarations\Scene.h" />
     <ClInclude Include="Entities\declarations\Actor.h" />
     <ClInclude Include="Entities\declarations\AdvancedActor.h" />
@@ -207,7 +206,6 @@
     <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\ProgressBar.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
-    <ClInclude Include="UserClasses\declarations\Trash.h" />
     <ClInclude Include="vendor\ImGui\imgui.h" />
     <ClInclude Include="vendor\ImGui\imgui_impl_glfw_gl3.h" />
     <ClInclude Include="vendor\ImGui\imgui_internal.h" />
@@ -220,42 +218,13 @@
     <Text Include="Logs\AppLog.txt" />
     <Text Include="Logs\EngineLog.txt" />
     <Text Include="Logs\GL_ERROR_LOG.txt" />
-    <Text Include="resources\NewFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="resources\textures\0.png" />
-    <Image Include="resources\textures\1.png" />
-    <Image Include="resources\textures\2.png" />
-    <Image Include="resources\textures\3.png" />
-    <Image Include="resources\textures\4.png" />
-    <Image Include="resources\textures\5.png" />
-    <Image Include="resources\textures\6.png" />
-    <Image Include="resources\textures\7.png" />
-    <Image Include="resources\textures\8.png" />
-    <Image Include="resources\textures\9.png" />
-    <Image Include="resources\textures\boat1.png" />
-    <Image Include="resources\textures\boat2.png" />
-    <Image Include="resources\textures\boat3.png" />
-    <Image Include="resources\textures\boat4.png" />
-    <Image Include="resources\textures\boat5.png" />
-    <Image Include="resources\textures\can.png" />
-    <Image Include="resources\textures\cherno.png" />
-    <Image Include="resources\textures\death.png" />
-    <Image Include="resources\textures\fish1.png" />
-    <Image Include="resources\textures\fish2.png" />
-    <Image Include="resources\textures\greenBar.jpg" />
     <Image Include="resources\textures\images.png" />
-    <Image Include="resources\textures\instructions.png" />
-    <Image Include="resources\textures\land.png" />
-    <Image Include="resources\textures\redBar.png" />
-    <Image Include="resources\textures\score.png" />
-    <Image Include="resources\textures\Screenshot_2023-04-23_at_2.52.49_PM.png" />
-    <Image Include="resources\textures\trash1.png" />
-    <Image Include="resources\textures\trash2.png" />
-    <Image Include="resources\textures\water.png" />
+    <Image Include="resources\textures\mateo.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

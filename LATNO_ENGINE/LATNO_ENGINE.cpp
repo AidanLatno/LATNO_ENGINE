@@ -29,7 +29,7 @@ int main()
 	// ^^ Make GL Version core instead of compat ^^
 
 
-	window = glfwCreateWindow(WINDOW_LENGTH, WINDOW_HEIGHT, "Stream Sweepers", NULL, NULL);
+	window = glfwCreateWindow(WINDOW_LENGTH, WINDOW_HEIGHT, "LATNO ENGINE", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -54,7 +54,7 @@ int main()
 	ImGui_ImplGlfwGL3_Init(window, true);
 	ImGui::StyleColorsDark();
 
-	Application* app = new Application();
+	Latno::Application* app = new Latno::Application();
 	app->Startup(window);
 	
 	//while (!glfwwindowshouldclose(window))

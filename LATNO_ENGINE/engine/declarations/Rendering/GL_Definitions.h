@@ -26,7 +26,7 @@ inline bool GLLogCall(const char* function, const char* file, int line)
 	while (GLenum error = glGetError())
 	{
 		stream << "[OpenGL Error] (" << error << "): " << function << " " << file << ": " << line;
-		DevLog::LOGLN(stream.str(), "GL_ERROR_LOG");
+		Latno::DevLog::LOGLN(stream.str(), "GL_ERROR_LOG");
 		std::cout << stream.str();
 		return false;
 	}

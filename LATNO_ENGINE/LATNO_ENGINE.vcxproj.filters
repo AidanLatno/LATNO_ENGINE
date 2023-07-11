@@ -152,9 +152,6 @@
     <ClInclude Include="engine\declarations\Route.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\SaveSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="engine\declarations\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -248,9 +245,6 @@
     <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Trash.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="UserClasses\declarations\ProgressBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -262,7 +256,6 @@
     <Text Include="Logs\GL_ERROR_LOG.txt" />
     <Text Include="Logs\EngineLog.txt" />
     <Text Include="Logs\AppLog.txt" />
-    <Text Include="resources\NewFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />
@@ -271,91 +264,7 @@
     <Image Include="resources\textures\images.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="resources\textures\cherno.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\can.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\redBar.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\land.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\instructions.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\death.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\fish1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\fish2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\greenBar.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\water.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\score.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Screenshot_2023-04-23_at_2.52.49_PM.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\trash1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\trash2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\boat5.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\0.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\3.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\4.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\5.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\6.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\7.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\8.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\9.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\boat1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\boat2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\boat3.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\boat4.png">
+    <Image Include="resources\textures\mateo.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

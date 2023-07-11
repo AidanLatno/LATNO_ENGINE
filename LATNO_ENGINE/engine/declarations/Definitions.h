@@ -1,8 +1,8 @@
 #pragma once
 
 //Screen size
-#define WINDOW_HEIGHT 960
-#define WINDOW_LENGTH 864
+#define WINDOW_HEIGHT 1000
+#define WINDOW_LENGTH 1000
 
 // DO NOT REMOVE
 // ENABLES STATIC LINKING WITH GLEW LIBRARY
@@ -80,40 +80,6 @@ char getch()
 #define DOWN Coords(0,-1)
 #define RIGHT Coords(1,0)
 #define LEFT Coords(-1,0)
-
-
-const std::unordered_map<char, std::string> escape_codes =
-{
-    { 'p', "\033[44m" },
-    { '.', "\033[47m" },
-    { 'e', "\033[41m" },
-    { '#', "\033[45m" },
-    { 'a', "\033[43m" },
-    { 'g', "\033[42m" },
-    { 'b', "\033[46m" }
-};
-
-inline void SlowPrint(const std::string message, int milPerChar = 60)
-{
-    for (const char c : message)
-    {
-        std::cout << c << std::flush;
-        std::this_thread::sleep_for(std::chrono::milliseconds(milPerChar));
-    }
-}
-// red,blue,empty or white,void or black,purple,yellow,green,cyan
-inline char ToChar(std::string Color)
-{
-    if (Color == "red") return 'e';
-    else if (Color == "blue") return 'p';
-    else if (Color == "empty" || Color == "white") return '.';
-    else if (Color == "purple") return '#';
-    else if (Color == "yellow") return 'a';
-    else if (Color == "green") return 'g';
-    else if (Color == "cyan") return 'b';
-    else if (Color == "void" || Color == "black") return 'v';
-    return '.';
-}
 
 inline char GetInput()
 {

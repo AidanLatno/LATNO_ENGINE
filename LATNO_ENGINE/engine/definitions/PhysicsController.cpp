@@ -1,6 +1,8 @@
 #include "../declarations/PhysicsController.h"
-
-void PhysicsController::ApplyGravity()
+namespace Latno
 {
+	void PhysicsController::ApplyGravity()
+	{
 
+	}
 }

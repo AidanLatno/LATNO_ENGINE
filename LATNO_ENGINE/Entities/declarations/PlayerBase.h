@@ -2,7 +2,7 @@
 
 #include "../../shapes/declarations/Triangle.h"
 
-namespace Latno_Entities
+namespace Latno
 {
     class PlayerBase : public AdvancedActor
     {

@@ -2,7 +2,7 @@
 
 #include "../declarations/Route.h"
 
-namespace Latno_Entities
+namespace Latno
 {
     void Route::Swap()
     {

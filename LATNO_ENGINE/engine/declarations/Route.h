@@ -2,7 +2,7 @@
 
 #include "Coords.h"
 
-namespace Latno_Entities
+namespace Latno
 {
     struct Route
     {

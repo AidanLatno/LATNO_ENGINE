@@ -1,6 +1,6 @@
 #pragma once
 #include "../declarations/PlayerBase.h"
-namespace Latno_Entities 
+namespace Latno
 {
     void PlayerBase::ManageInput(Scene &Scene,double deltaTime)
     {

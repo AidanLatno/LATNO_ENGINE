@@ -1,14 +1,16 @@
 #pragma once
 #include "../../Entities/declarations/Actor.h"
-
-class Circle
+namespace Latno
 {
-public:
-	Coords center;
-	float radius;
-	char ch;
+	class Circle
+	{
+	public:
+		Coords center;
+		float radius;
+		char ch;
 
-	Circle(Coords _center, int _radius, char _ch);
+		Circle(Coords _center, int _radius, char _ch);
 
-	bool CheckCollision(Coords point);
-};
+		bool CheckCollision(Coords point);
+	};
+}

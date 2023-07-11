@@ -1,23 +1,25 @@
 #pragma once
-
-class Node
+namespace Latno
 {
-public:
-	Coords pos;
-	int gCost; // Distance from starting node
-	int hCost; // Distance from end node
-	int fCost; // g + h;
-	Node* parentNode;
-
-	Node()
+	class Node
 	{
-		gCost = NULL;
-		hCost = NULL;
-		fCost = NULL;
-	}
+	public:
+		Coords pos;
+		int gCost; // Distance from starting node
+		int hCost; // Distance from end node
+		int fCost; // g + h;
+		Node* parentNode;
 
-	void CalcFCost()
-	{
-		fCost = gCost = hCost;
-	}
-};
+		Node()
+		{
+			gCost = NULL;
+			hCost = NULL;
+			fCost = NULL;
+		}
+
+		void CalcFCost()
+		{
+			fCost = gCost = hCost;
+		}
+	};
+}

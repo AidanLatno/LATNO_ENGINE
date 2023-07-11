@@ -4,7 +4,7 @@
 #include "../../engine/declarations/Node.h"
 
 
-namespace Latno_Entities
+namespace Latno
 {
     class Enemy : public AdvancedActor
     {
@@ -16,7 +16,7 @@ namespace Latno_Entities
     
     public:
         int moveChance[2] = {0,10}; // First Num is range, second is size  Ex
-        void Chase(Scene &scene, Latno_Entities::Actor chaseActor);
+        void Chase(Scene &scene, Actor chaseActor);
         Coords **nodeValues;
         Node **nodeGrid;
         

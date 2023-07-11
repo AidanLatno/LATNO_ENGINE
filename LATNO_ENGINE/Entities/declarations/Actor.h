@@ -3,7 +3,7 @@
 #include "../../Shapes/declarations/CollisionBox.h"
 
 
-namespace Latno_Entities 
+namespace Latno
 {
 	class Actor : public Latno::Component
 	{

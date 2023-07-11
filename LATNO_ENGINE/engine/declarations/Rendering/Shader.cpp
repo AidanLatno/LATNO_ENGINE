@@ -79,8 +79,8 @@ unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
 		// char message[length]; <--- equivalent to
 		GLCall(glGetShaderInfoLog(id, length, &length, message));
 		stream << "Failed to compile" << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!";
-		DevLog::LOGLN(stream.str(), "GL_ERROR_LOG");
-		DevLog::LOGLN(message, "GL_ERROR_LOG");
+		Latno::DevLog::LOGLN(stream.str(), "GL_ERROR_LOG");
+		Latno::DevLog::LOGLN(message, "GL_ERROR_LOG");
 		std::cout << stream.str() << '\n';
 		std::cout << message << std::endl;
 
@@ -172,7 +172,7 @@ int Shader::GetUniformLocation(const std::string& name)
 
 	GLCall(int location = glGetUniformLocation(m_RendererID, name.c_str()));
 	if (location == -1)
-		DevLog::LOGLN("Warning: uniform '" + name + "' doesn't exist!", "GL_ERROR_LOG");
+		Latno::DevLog::LOGLN("Warning: uniform '" + name + "' doesn't exist!", "GL_ERROR_LOG");
 	
 	m_UniformLocationCache[name] = location;
 	return location;

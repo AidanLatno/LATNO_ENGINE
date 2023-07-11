@@ -1,7 +1,7 @@
 #pragma once
 #include "../../engine/declarations/PhysicsController.h"
 
-namespace Latno_Entities {
+namespace Latno {
 	class AdvancedActor: public Actor
 	{
 		using Actor::Actor;

@@ -1,15 +1,17 @@
 #pragma once
 #include "Scene.h"
 
-
-class PhysicsController : public Latno::Component
+namespace Latno
 {
-	Latno_Entities::Actor* attachedActor;
-	Scene* mainScene;
+	class PhysicsController : public Latno::Component
+	{
+		Actor* attachedActor;
+		Scene* mainScene;
 
-	void UpdateInfo();
+		void UpdateInfo();
 
-	void ApplyGravity();
+		void ApplyGravity();
 
 
-};
+	};
+}

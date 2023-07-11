@@ -2,12 +2,11 @@
 
 #include "../declarations/Actor.h"
 
-namespace Latno_Entities 
+namespace Latno 
 {
 	Actor::Actor(int _x, int _y, std::string SpritePath, std::string _name)
 	{
-		position.x = _x;
-		position.y = _y;
+		position = Coords(_x, _y);
 		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		sprite = new Sprite(glm::vec3(_x, _y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 
@@ -26,8 +25,7 @@ namespace Latno_Entities
 
 	Actor::Actor(int _x, int _y, glm::vec2 _scale, std::string SpritePath, std::string _name, std::string _enum)
 	{
-		position.x = _x;
-		position.y = _y;
+		position = Coords(_x, _y);
 		scale = _scale;
 		
 
@@ -51,8 +49,10 @@ namespace Latno_Entities
 
 	Actor::Actor(Coords _Pos, std::string SpritePath, std::string _name)
 	{
-		position = _Pos;
+		position = Coords(_Pos.x, _Pos.y);
 		sprite = new Sprite(glm::vec3(_Pos.x, _Pos.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
+		collisionBox = new CollisionBox(position, size, "AABB");
+
 
 		name = _name;
 		preData = _Pos;

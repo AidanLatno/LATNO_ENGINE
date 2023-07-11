@@ -1,20 +1,22 @@
 #pragma once
 #include "Component.h"
-
-class Timer
+namespace Latno
 {
-private:
-	std::chrono::steady_clock::time_point StartTime;
-	std::chrono::steady_clock::time_point EndTime;
-	std::chrono::steady_clock::time_point LastLap;
+	class Timer
+	{
+	private:
+		std::chrono::steady_clock::time_point StartTime;
+		std::chrono::steady_clock::time_point EndTime;
+		std::chrono::steady_clock::time_point LastLap;
 
-public:
-	Timer();
+	public:
+		Timer();
 
-	~Timer();
+		~Timer();
 
-	void Finish();
-	void Reset();
-	double GetTime();
-	double Lap();
-};
+		void Finish();
+		void Reset();
+		double GetTime();
+		double Lap();
+	};
+}
