@@ -1,0 +1,2 @@
+#include "../declarations/Bishop.h"
+

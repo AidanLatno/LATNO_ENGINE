@@ -161,7 +161,15 @@
     <ClCompile Include="Shapes\definitions\Circle.cpp" />
     <ClCompile Include="Shapes\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
-    <ClCompile Include="UserClasses\definitions\ProgressBar.cpp" />
+    <ClCompile Include="UserClasses\definitions\Bishop.cpp" />
+    <ClCompile Include="UserClasses\definitions\Board.cpp" />
+    <ClCompile Include="UserClasses\definitions\King.cpp" />
+    <ClCompile Include="UserClasses\definitions\Knight.cpp" />
+    <ClCompile Include="UserClasses\definitions\Pawn.cpp" />
+    <ClCompile Include="UserClasses\definitions\Piece.cpp" />
+    <ClCompile Include="UserClasses\definitions\Queen.cpp" />
+    <ClCompile Include="UserClasses\definitions\Rook.cpp" />
+    <ClCompile Include="UserClasses\definitions\Square.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_demo.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_draw.cpp" />
@@ -202,9 +210,15 @@
     <ClInclude Include="Shapes\declarations\CollisionBox.h" />
     <ClInclude Include="Shapes\declarations\Triangle.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
-    <ClInclude Include="UserClasses\declarations\ProgressBarv2.h" />
-    <ClInclude Include="UserClasses\declarations\Player.h" />
-    <ClInclude Include="UserClasses\declarations\ProgressBar.h" />
+    <ClInclude Include="UserClasses\declarations\Bishop.h" />
+    <ClInclude Include="UserClasses\declarations\Board.h" />
+    <ClInclude Include="UserClasses\declarations\King.h" />
+    <ClInclude Include="UserClasses\declarations\Knight.h" />
+    <ClInclude Include="UserClasses\declarations\Pawn.h" />
+    <ClInclude Include="UserClasses\declarations\Piece.h" />
+    <ClInclude Include="UserClasses\declarations\Queen.h" />
+    <ClInclude Include="UserClasses\declarations\Rook.h" />
+    <ClInclude Include="UserClasses\declarations\Square.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
     <ClInclude Include="vendor\ImGui\imgui.h" />
     <ClInclude Include="vendor\ImGui\imgui_impl_glfw_gl3.h" />
@@ -223,8 +237,21 @@
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="resources\textures\Hcc_Heart_Background.png" />
+    <Image Include="resources\textures\black-bishop.png" />
+    <Image Include="resources\textures\black-king.png" />
+    <Image Include="resources\textures\black-knight.png" />
+    <Image Include="resources\textures\black-pawn.png" />
+    <Image Include="resources\textures\black-queen.png" />
+    <Image Include="resources\textures\black-rook.png" />
+    <Image Include="resources\textures\black-square.png" />
     <Image Include="resources\textures\images.png" />
+    <Image Include="resources\textures\white-king.png" />
+    <Image Include="resources\textures\white-knight.png" />
+    <Image Include="resources\textures\white-pawn.png" />
+    <Image Include="resources\textures\white-queen.png" />
+    <Image Include="resources\textures\white-rook.png" />
+    <Image Include="resources\textures\white-square.png" />
+    <Image Include="resources\textures\w_bishop_png_256px.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

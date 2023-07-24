@@ -114,7 +114,31 @@
     <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserClasses\definitions\ProgressBar.cpp">
+    <ClCompile Include="UserClasses\definitions\Board.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Square.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Piece.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Rook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Pawn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Bishop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Knight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Queen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\King.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -188,9 +212,6 @@
     <ClInclude Include="UserClasses\declarations\UserClasses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="engine\declarations\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -245,10 +266,31 @@
     <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserClasses\declarations\ProgressBar.h">
+    <ClInclude Include="UserClasses\declarations\Board.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserClasses\declarations\ProgressBarv2.h">
+    <ClInclude Include="UserClasses\declarations\Square.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Piece.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Pawn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Rook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Knight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Bishop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Queen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\King.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -264,7 +306,46 @@
     <Image Include="resources\textures\images.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="resources\textures\Hcc_Heart_Background.png">
+    <Image Include="resources\textures\black-bishop.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\black-king.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\black-knight.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\black-pawn.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\black-queen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\black-rook.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\black-square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\w_bishop_png_256px.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\white-king.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\white-knight.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\white-pawn.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\white-queen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\white-rook.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\white-square.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -1,0 +1,2 @@
+#include "../declarations/Queen.h"
+
