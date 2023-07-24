@@ -36,13 +36,15 @@ void Renderer::RenderSprites(GLFWwindow* window) const
 	GLCall(glClearColor(0.0f,0.0f,1.0f,1.0f));
 	GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
+	float ratio = (float)WINDOW_LENGTH / WINDOW_HEIGHT;
+
 	for (Sprite* sprite : sprites)
 	{
 		float positions[] = {
-			-50.0f * sprite->Scale.x, -50.0f * sprite->Scale.y, 0.0f, 0.0f, // 0 - bottom left
-			50.0f * sprite->Scale.x, -50.0f * sprite->Scale.y, 1.0f, 0.0f, // 1 - bottom right
-			50.0f * sprite->Scale.x, 50.0f * sprite->Scale.y, 1.0f, 1.0f, // 2 - top right
-			-50.0f * sprite->Scale.x, 50.0f * sprite->Scale.y, 0.0f, 1.0f // 3 - top left
+			-200.0f * sprite->Scale.x / 9, -200.0f * sprite->Scale.y * ratio / 16, 0.0f, 0.0f, // 0 - bottom left
+			200.0f * sprite->Scale.x / 9, -200.0f * sprite->Scale.y * ratio / 16, 1.0f, 0.0f, // 1 - bottom right
+			200.0f * sprite->Scale.x / 9, 200.0f * sprite->Scale.y * ratio / 16, 1.0f, 1.0f, // 2 - top right
+			-200.0f * sprite->Scale.x / 9, 200.0f * sprite->Scale.y * ratio / 16, 0.0f, 1.0f // 3 - top left
 		};
 		VertexBuffer vbo(positions,4*4*sizeof(float));
 		VertexArray vao;

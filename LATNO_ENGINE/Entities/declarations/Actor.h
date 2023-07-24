@@ -29,7 +29,7 @@ namespace Latno
 
 			Actor(int _x,int _y,std::string SpritePath, std::string _Name = "");
 			Actor(Coords _Pos, std::string SpritePath, std::string _Name = "");
-			Actor(int _x, int _y, glm::vec2 _scale, std::string SpritePath, std::string _name, std::string _enum = "AABB");
+			Actor(int _x, int _y, glm::vec2 _scale, std::string SpritePath, std::string _name);
 
 			Actor();
 

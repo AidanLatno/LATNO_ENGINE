@@ -223,8 +223,8 @@
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\textures\Hcc_Heart_Background.png" />
     <Image Include="resources\textures\images.png" />
-    <Image Include="resources\textures\mateo.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

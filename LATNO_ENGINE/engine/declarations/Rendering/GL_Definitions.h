@@ -14,6 +14,7 @@
 
 #include <sstream>
 #include "../DeveloperLog.h"
+#include "../Definitions.h"
 
 inline void GLClearError()
 {

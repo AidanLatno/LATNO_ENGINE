@@ -14,20 +14,13 @@ public:
     float Rotation;
     glm::vec2 Scale;
 
-    Sprite(glm::vec3 _position, glm::vec2 _scale, Texture _texture, std::string _enum);
-    Sprite(glm::vec3 _position, glm::vec2 _scale, std::string path, std::string _enum);
+    Sprite(glm::vec3 _position, glm::vec2 _scale, Texture _texture);
+    Sprite(glm::vec3 _position, glm::vec2 _scale, std::string path);
 
 
     // Deep collision
     glm::vec2 Size;
     unsigned int Radius;
  
-    enum CollisionType
-    {
-        AABB,
-        CIRCULAR
-    };
-    CollisionType collisiontype;
-    
-    bool CheckCollisions(Sprite sprite2);
+   
 };

@@ -47,7 +47,7 @@ namespace Latno
 		DevLog::CLEAR("GL_ERROR_LOG");
 		srand(time(NULL));
 		
-		Actor guy({WINDOW_LENGTH/2,WINDOW_HEIGHT/4},"resources/textures/mateo.jpg");
+		Actor guy({200,200},"resources/textures/Hcc_Heart_Background.png");
 
 		Scene levels(WINDOW_LENGTH, WINDOW_HEIGHT, window);
 		levels.AddActor(guy);
