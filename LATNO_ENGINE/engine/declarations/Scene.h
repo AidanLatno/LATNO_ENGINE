@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Shapes/declarations/Circle.h"
+#include "../../Entities/declarations/Actor.h"
 
 namespace Latno
 {

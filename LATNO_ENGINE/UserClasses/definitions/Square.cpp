@@ -1,3 +1,0 @@
-#include "../declarations/Square.h"
-
-

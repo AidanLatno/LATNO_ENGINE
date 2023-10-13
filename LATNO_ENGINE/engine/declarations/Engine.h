@@ -1,2 +1,2 @@
 #pragma once
-#include "../../Entities/declarations/Patroller.h"
+#include "../../Entities/declarations/Enemy.h"

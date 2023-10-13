@@ -14,68 +14,40 @@ namespace Latno
 		y = _y;
 	}
 
-	Coords Coords::operator = (Coords obj)
-	{
-		x = obj.x;
-		y = obj.y;
-		return *this;
-	}
+	
 
-	Coords Coords::operator + (Coords obj)
-	{
-		return Coords{ x + obj.x,y + obj.y };
-	}
-	Coords Coords::operator - (Coords obj)
-	{
-		return Coords{ x - obj.x,y - obj.y };
-	}
-	Coords Coords::operator * (Coords obj)
-	{
-		return Coords{ x * obj.x,y * obj.y };
-	}
-	Coords Coords::operator / (Coords obj)
-	{
-		return Coords{ x / obj.x,y / obj.y };
-	}
+	Coords Coords::operator + (Coords obj) { return Coords{ x + obj.x,y + obj.y }; }
+	Coords Coords::operator - (Coords obj) { return Coords{ x - obj.x,y - obj.y }; }
+	Coords Coords::operator * (Coords obj) { return Coords{ x * obj.x,y * obj.y }; }
+	Coords Coords::operator / (Coords obj) { return Coords{ x / obj.x,y / obj.y }; }
 
-	Coords Coords::operator += (Coords obj)
-	{
-		*this = *this + obj;
-		return *this;
-	}
-	Coords Coords::operator -= (Coords obj)
-	{
-		*this = *this - obj;
-		return *this;
-	}
-	Coords Coords::operator *= (Coords obj)
-	{
-		*this = *this * obj;
-		return *this;
-	}
-	Coords Coords::operator /= (Coords obj)
-	{
-		*this = *this / obj;
-		return *this;
-	}
-	Coords Coords::operator * (float obj)
-	{
-		return Coords{ x * obj,y * obj };
-	}
-	Coords Coords::operator / (float obj)
-	{
-		return Coords{ x / obj,y / obj };
-	}
-	Coords Coords::operator *= (float obj)
-	{
-		*this = *this * obj;
-		return *this;
-	}
-	Coords Coords::operator /= (float obj)
-	{
-		*this = *this / obj;
-		return *this;
-	}
+	Coords Coords::operator = (Coords obj) { x = obj.x; y = obj.y; return *this; }
+	Coords Coords::operator += (Coords obj) { *this = *this + obj; return *this; }
+	Coords Coords::operator -= (Coords obj) { *this = *this - obj; return *this; }
+	Coords Coords::operator *= (Coords obj) { *this = *this * obj; return *this; }
+	Coords Coords::operator /= (Coords obj) { *this = *this / obj; return *this; }
+
+	Coords Coords::operator * (float obj) { return Coords{ x * obj,y * obj }; }
+	Coords Coords::operator / (float obj) { return Coords{ x / obj,y / obj }; }
+	Coords Coords::operator + (float obj) { return Coords{ x + obj,y + obj }; }
+	Coords Coords::operator - (float obj) { return Coords{ x - obj,y - obj }; }
+
+	Coords Coords::operator = (float obj) { x = obj; y = obj; return *this; }
+	Coords Coords::operator *= (float obj) { *this = *this * obj; return *this; }
+	Coords Coords::operator /= (float obj) { *this = *this / obj; return *this; }
+	Coords Coords::operator += (float obj) { *this = *this + obj; return *this; }
+	Coords Coords::operator -= (float obj) { *this = *this - obj; return *this; }
+
+	Coords Coords::operator * (glm::vec2 obj) { return { x * obj.x,y * obj.y }; }
+	Coords Coords::operator / (glm::vec2 obj) { return { x / obj.x,y / obj.y }; }
+	Coords Coords::operator + (glm::vec2 obj) { return { x + obj.x,y + obj.y }; }
+	Coords Coords::operator - (glm::vec2 obj) { return { x - obj.x,y - obj.y }; }
+
+	Coords Coords::operator = (glm::vec2 obj) { x = obj.x; y = obj.y; return *this; }
+	Coords Coords::operator *= (glm::vec2 obj) { *this = *this * obj; return *this; }
+	Coords Coords::operator /= (glm::vec2 obj) { *this = *this / obj; return *this; }
+	Coords Coords::operator += (glm::vec2 obj) { *this = *this + obj; return *this; }
+	Coords Coords::operator -= (glm::vec2 obj) { *this = *this - obj; return *this; }
 
 	bool Coords::IsEqual(Coords a) const
 	{
@@ -83,23 +55,11 @@ namespace Latno
 			return true;
 		return false;
 	}
-	Coords Coords::AddX(float Adder) const
-	{
-		return { x + Adder,y };
-	}
-	Coords Coords::AddY(float Adder) const
-	{
-		return { x,y + Adder };
-	}
-	Coords Coords::Add(float Adder1, float Adder2) const
-	{
-		return { x + Adder1,y + Adder2 };
-	}
-	void Coords::Rotate(float TurnAmount = 1, float h = 0, float k = 0, float Angle = 90)
+	void Coords::Rotate(float Angle = 90, float h = 0, float k = 0, float Rotations = 1)
 	{
 		Coords Temp = *this;
-		Temp -= {h, k};
-		for (int i = 0; i < TurnAmount; i++)
+		Temp -= Coords(h, k);
+		for (int i = 0; i < Rotations; i++)
 		{
 			x = (Temp.x * dCos(Angle) - Temp.y * dSin(Angle)) + h;
 			y = (Temp.x * dSin(Angle) + Temp.y * dCos(Angle)) + k;

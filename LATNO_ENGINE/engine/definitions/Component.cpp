@@ -4,8 +4,8 @@ namespace Latno
 {
     Component::Component()
     {
-        if (Latno::BehaviorList.size() > 0) id = Latno::BehaviorList[Latno::BehaviorList.size() - 1]->id + 1;
-        else id = 0;
+        if (Latno::BehaviorList.size() > 0) SetID(Latno::BehaviorList[Latno::BehaviorList.size() - 1]->GetID() + 1);
+        else SetID(0);
         Latno::BehaviorList.push_back(this);
     }
 

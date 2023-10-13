@@ -7,9 +7,29 @@
 #include <vector>
 #include <iostream>
 
-static int S_RepititionCounter = 0;
+static int S_RepititionCounter = 0; // Counts number of times the last line has been repeated
 namespace Latno
 {
+	/*
+	* Class Name: DevLog
+	* Usage: Writes to and creates files for logging purposes. DO NOT USE EVERY FRAME. Limit usage as the class is very slow.
+	* 
+	* Constructor: Requires a name, then creates a file with that name. Any messages logged afterwards will be logged to the same file.
+	* 
+	* Methods:
+	*	LOG(string message)
+	*		- Adds a message to the file
+	*	LOGLN(string message)
+	*		- Adds a message to the file with a newline after message.
+	*	CLEAR()
+	*		- Clears the file and Logs list.
+	* 
+	* Static Methods:
+	*	LOG(string message, string file)
+	*		- Adds a line into specified file.
+	*	LOGLN(string message, string file)
+	*		- Adds a line into specified file with a newline after message.
+	*/
 	class DevLog
 	{
 	public:
@@ -32,7 +52,9 @@ namespace Latno
 			std::ofstream file(fileName + ".txt");
 		}
 
-		// vv Static Logging vv
+
+
+		// vv STATIC LOGGIN vv
 		static inline void LOG(std::string message, std::string file)
 		{
 			std::vector<std::string> StaticLogs;
@@ -56,6 +78,7 @@ namespace Latno
 				StaticLogFile.close();
 			}
 
+			// Check for and count repitition
 			if (StaticLogs.size() >= 1 && StaticLogs[StaticLogs.size() - 1] == message)
 				S_RepititionCounter++;
 			else
@@ -96,6 +119,7 @@ namespace Latno
 				StaticLogFile.close();
 			}
 
+			// Check for and count repitition
 			if (StaticLogs.size() >= 1 && StaticLogs[StaticLogs.size() - 1] == message + '\n')
 				S_RepititionCounter++;
 			else

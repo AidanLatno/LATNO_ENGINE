@@ -18,9 +18,6 @@
     <ClCompile Include="LATNO_ENGINE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Shapes\definitions\Circle.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Shapes\definitions\CollisionBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -28,9 +25,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\Coords.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\LOS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\Scene.cpp">
@@ -45,19 +39,7 @@
     <ClCompile Include="Entities\definitions\Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Entities\definitions\Patroller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Entities\definitions\PlayerBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Route.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="exceptions\definitions\RuntimeException.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Shapes\definitions\AdvancedRect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\Timer.cpp">
@@ -114,42 +96,9 @@
     <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Board.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Square.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Piece.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Rook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Pawn.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Bishop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Knight.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Queen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\King.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shapes\declarations\Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Shapes\declarations\CollisionBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Shapes\declarations\Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\Behavior.h">
@@ -170,12 +119,6 @@
     <ClInclude Include="engine\declarations\Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\LOS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Route.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="engine\declarations\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -188,19 +131,7 @@
     <ClInclude Include="Entities\declarations\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entities\declarations\Patroller.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Entities\declarations\PlayerBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="exceptions\declarations\Definitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="exceptions\declarations\RuntimeException.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Shapes\declarations\AdvancedRect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\Timer.h">
@@ -266,33 +197,6 @@
     <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Board.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Square.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Piece.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Pawn.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Rook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Knight.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Bishop.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Queen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\King.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />
@@ -306,43 +210,7 @@
     <Image Include="resources\textures\images.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="resources\textures\black-bishop.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\black-king.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\black-knight.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\black-pawn.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\black-queen.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\black-rook.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="resources\textures\black-square.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\w_bishop_png_256px.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\white-king.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\white-knight.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\white-pawn.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\white-queen.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\white-rook.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\white-square.png">

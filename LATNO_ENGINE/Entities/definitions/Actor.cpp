@@ -7,7 +7,6 @@ namespace Latno
 	Actor::Actor(int _x, int _y, std::string SpritePath, std::string _name)
 	{
 		position = Coords(_x, _y);
-		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		sprite = new Sprite(glm::vec3(_x, _y, 0), glm::vec2(1.0f, 1.0f), SpritePath);
 
 		size.x = 50 * scale.x;
@@ -28,10 +27,6 @@ namespace Latno
 		position = Coords(_x, _y);
 		scale = _scale;
 		
-
-		
-		
-		//sprite = std::make_unique<Sprite>(glm::vec3(position.x, position.y, 0), glm::vec2(1.0f, 1.0f), SpritePath, "AABB");
 		sprite = new Sprite(glm::vec3(_x, _y, 0), scale, SpritePath);
 
 		size.x = 50 * scale.x;
@@ -61,7 +56,7 @@ namespace Latno
 
 	Actor::Actor()
 	{
-		position = {0,0};
+		position = Coords{0,0};
 		name = "UN-NAMED_ACTOR";
 	}
 
@@ -80,7 +75,7 @@ namespace Latno
 
 	bool Actor::CheckCollision(Actor Actor) const
 	{
-		if(collisionBox->CheckCollisions(*Actor.collisionBox))
+		if(collisionBox->CheckCollision(*Actor.collisionBox))
 			return true;
 		return false;
 	}

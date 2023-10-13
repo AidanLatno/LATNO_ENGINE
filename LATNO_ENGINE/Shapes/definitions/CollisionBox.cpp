@@ -7,6 +7,7 @@
 #include "../../engine/declarations/Coords.h"
 #include "../../engine/declarations/Rendering/GL_Definitions.h"
 
+
 namespace Latno
 {
 	CollisionBox::CollisionBox(Coords _pos, glm::vec2 _size, std::string _enum)
@@ -29,31 +30,27 @@ namespace Latno
 
 	}
 
-
-
-	bool CollisionBox::CheckOverlap(CollisionBox rect) const
+	void CollisionBox::Rotate(float angle = 90, float h = 0, float k = 0, float Rotations = 1)
 	{
-		return false;
-	}
 
+		Coords temp1 = { 0,0 };
+		Coords temp2 = { 0,0 };
+		temp1 = topLeft;
+		temp2 = botRight;
 
-	void CollisionBox::Rotate(float turnAmount, float h, float k, float angle)
-	{
-		Coords temp1 = this->corner1;
-		Coords temp2 = this->corner2;
-		temp1 -= { h, k };
-		temp2 -= { h, k };
+		temp1 -= Coords( h, k );
+		temp2 -= Coords( h, k );
 
-		for (int i = 0; i < turnAmount; i++)
+		for (int i = 0; i < Rotations; i++)
 		{
-			corner1.x = (temp1.x * Coords().dCos(angle) - temp1.y * Coords().dSin(angle)) + h;
-			corner1.y = (temp1.x * Coords().dSin(angle) + temp1.y * Coords().dCos(angle)) + k;
-			corner2.x = (temp2.x * Coords().dCos(angle) - temp2.y * Coords().dSin(angle)) + h;
-			corner2.y = (temp2.x * Coords().dSin(angle) + temp2.y * Coords().dCos(angle)) + k;
+			topLeft.x = (temp1.x * Coords().dCos(angle) - temp1.y * Coords().dSin(angle)) + h;
+			topLeft.y = (temp1.x * Coords().dSin(angle) + temp1.y * Coords().dCos(angle)) + k;
+			botRight.x = (temp2.x * Coords().dCos(angle) - temp2.y * Coords().dSin(angle)) + h;
+			botRight.y = (temp2.x * Coords().dSin(angle) + temp2.y * Coords().dCos(angle)) + k;
 		}
 	}
 
-	bool CollisionBox::CheckCollisions(CollisionBox other)
+	bool CollisionBox::CheckCollision(CollisionBox other)
 	{
 		//if (collisionType == CollisionType::AABB)
 		//{

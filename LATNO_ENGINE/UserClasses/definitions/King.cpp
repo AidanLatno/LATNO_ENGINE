@@ -1,2 +1,0 @@
-#include "../declarations/King.h"
-

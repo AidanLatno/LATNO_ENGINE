@@ -23,7 +23,7 @@ namespace Latno
 
 
 			std::string name;
-			Coords direction = UP; // "< " " >" "^^" "vv"
+			Coords direction = UP;
 			float speed = 1.0f;
 			
 
@@ -37,8 +37,6 @@ namespace Latno
 			void SetCoords(Coords Pos);
 			bool CheckCollision(Actor Actor) const;
 			bool CheckCollision(Coords Point) const;
-			bool IsNearby(Actor Actor) const;
-			bool IsNearby(Coords Point) const;
 			void SwapTexture(std::string path);
 
 			Coords GetPos() const;

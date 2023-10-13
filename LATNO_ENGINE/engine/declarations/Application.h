@@ -18,9 +18,10 @@ namespace Latno
 		Scene* currentScene;
 
 		// Declare variable pointers below
+		
+
 		Actor* man;
 		Scene* level;
-
 
 		//Declare Custom Methods below
 

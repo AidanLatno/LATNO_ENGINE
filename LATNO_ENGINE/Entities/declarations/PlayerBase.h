@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../shapes/declarations/Triangle.h"
+#include "../../Entities/declarations/AdvancedActor.h"
 
 namespace Latno
 {

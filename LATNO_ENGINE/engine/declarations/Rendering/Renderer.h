@@ -2,7 +2,6 @@
 
 #include <glew.h>
 #include <sstream>
-#include "../DeveloperLog.h"
 
 #include "VertexBufferlayout.h"
 #include "IndexBuffer.h"

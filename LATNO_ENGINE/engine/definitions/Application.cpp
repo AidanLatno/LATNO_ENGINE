@@ -47,20 +47,11 @@ namespace Latno
 		DevLog::CLEAR("GL_ERROR_LOG");
 		srand(time(NULL));
 		
-		Actor guy({200,200},"resources/textures/white-square.png");
-
 		Scene levels(WINDOW_LENGTH, WINDOW_HEIGHT, window);
-		levels.AddActor(guy);
+		
 
 		level = &levels;
 		currentScene = level;
-
-		Board board;
-
-		for (Latno::Actor a : board.initBoard({WINDOW_LENGTH/4,WINDOW_HEIGHT/6}))
-		{
-			level->AddDynamicActor(a);
-		}
 
 		Load();
 
@@ -87,7 +78,7 @@ namespace Latno
 				return;
 
 		
-			std::cout << currentScene->dynamicActors.size() << std::endl;
+			
 
 			prevDeltaTime = DeltaCalc.GetTime();
 			DeltaCalc.Reset();

@@ -1,3 +1,0 @@
-#ifndef RUNTIME_EXCEPTION 1
-#define RUNTIME_EXCEPTION 1
-#endif

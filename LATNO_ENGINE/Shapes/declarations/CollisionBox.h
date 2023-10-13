@@ -1,11 +1,38 @@
 #pragma once
-#include "glm/glm.hpp"
+#include "../../engine/declarations/Coords.h"
 
-#include "../../engine/declarations/Route.h"
-
-#include <string>
 namespace Latno
 {
+	/*
+	* Class Name: CollisionBox
+	* Purpose: Can detect collisions between itself and other collision boxes. This is not automatic, collision methods must be called.
+	* 
+	* Enums:
+	*	CollisionType
+	*		- AABB and RADIUS collisions
+	*		- AABB is box collision that uses top left and bottom right points
+	*		- RADIUS is circular collision (Not yet functional)
+	* 
+	* Variables:
+	*	collisionType
+	*		- Specifies type of collision
+	*	position
+	*		- position within the scene
+	*	size
+	*		- size of box in AABB collision (width,length)
+	*	radius
+	*		- Radius of the circle in the RADIUS collision type
+	*	topLeft
+	*		- Top left corner of the box in AABB collision
+	*	botRight
+	*		- Bottom right corner of the box in AABB collision
+	* Methods:
+	*	Rotate(float Angle, float h, float k, float Rotations)
+	*		- Rotates this box by the given angle, around the point (h,k). Repeats this process for the amount provided by the Rotations parameter.
+	*		- Default angle is 90, default point for (h,k) is (0,0) and rotations is set to 1.
+	*	CheckCollision(CollisionBox other)
+	*		- Returns true if this is colliding with the parameter
+	*/
 	class CollisionBox
 	{
 	public:
@@ -17,19 +44,13 @@ namespace Latno
 		CollisionType collisionType;
 		CollisionBox(Coords pos, glm::vec2 _size, std::string _enum = "AABB");
 
-		std::string name;
-		Coords corner1;
-		Coords corner2;
-		bool isCollider = true;
-
 		Coords position;
 		glm::vec2 size;
 		float radius;
 		glm::vec2 topLeft;
 		glm::vec2 botRight;
 
-		bool CheckOverlap(CollisionBox rect) const;
-		void Rotate(float turnAmount = 1, float h = 0, float k = 0, float angle = 90);
-		bool CheckCollisions(CollisionBox other);
+		void Rotate(float Angle, float h, float k, float Rotations);
+		bool CheckCollision(CollisionBox other);
 	};
 }
