@@ -86,4 +86,9 @@ namespace Latno
 
 		return false;
 	}
+
+	bool CheckCollision(Coords point) // Ehhh do later
+	{
+		return false; 
+	}
 }

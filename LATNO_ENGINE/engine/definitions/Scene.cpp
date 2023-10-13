@@ -83,7 +83,7 @@ namespace Latno
 		if (actors.size() > 0)
 		{
 			for (int i = 0; i < actors.size(); i++)
-				if (actors[i]->GetPos().IsEqual(_actor.GetPos()) && actors[i]->name != _actor.name)
+				if (actors[i]->collisionBox->CheckCollision(*_actor.collisionBox))
 					return true;
 		}
 		return false;

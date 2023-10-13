@@ -30,7 +30,7 @@ namespace Latno
 	*	Rotate(float Angle, float h, float k, float Rotations)
 	*		- Rotates this box by the given angle, around the point (h,k). Repeats this process for the amount provided by the Rotations parameter.
 	*		- Default angle is 90, default point for (h,k) is (0,0) and rotations is set to 1.
-	*	CheckCollision(CollisionBox other)
+	*	CheckCollision(CollisionBox other),(Coords point)
 	*		- Returns true if this is colliding with the parameter
 	*/
 	class CollisionBox
@@ -52,5 +52,6 @@ namespace Latno
 
 		void Rotate(float Angle, float h, float k, float Rotations);
 		bool CheckCollision(CollisionBox other);
+		bool CheckCollision(Coords point);
 	};
 }
