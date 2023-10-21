@@ -43,6 +43,7 @@ namespace Latno
 	Actor::Actor()
 	{
 		position = Coords{0,0};
+		collisionBox = new CollisionBox(position, { 50, 50 }, "AABB");
 	}
 
 	bool Actor::CheckCollision(Actor Actor) const

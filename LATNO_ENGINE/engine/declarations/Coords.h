@@ -7,7 +7,7 @@ namespace Latno
 	/*
 	* Class Name: Coords
 	* Purpose: Acts as Latno Engine's "2d Vectors" or position. The name coords is short for coordinates.
-	*		   Keeps track of position as well as vectors in 2d space.
+	*		   Keeps track of position as well as vectors in 2d space. Contains 2 floats, an x and a y.
 	* Constructor: Initializes x and y
 	* 
 	* Methods:
@@ -22,6 +22,10 @@ namespace Latno
 	*		- find the sin of theta in degrees.
 	*	dCos(float theta)
 	*		- find the cosine of theta in degrees.
+	* 
+	* Overloads
+	*	+,-,/,*,=,+=,-=,/=,*= are all overriden for the following types: Coords,float,glm::vec2
+	*	
 	*/
 	struct Coords
 	{
@@ -63,6 +67,7 @@ namespace Latno
 		Coords operator /= (glm::vec2 obj);
 		Coords operator += (glm::vec2 obj);
 		Coords operator -= (glm::vec2 obj);
+		operator glm::vec2() const;
 
 		bool IsEqual(Coords a) const;
 		void Rotate(float Angle, float h, float k, float Rotations);

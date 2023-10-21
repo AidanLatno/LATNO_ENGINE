@@ -4,8 +4,8 @@
 #include <math.h>
 
 #include "../declarations/CollisionBox.h"
-#include "../../engine/declarations/Coords.h"
-#include "../../engine/declarations/Rendering/GL_Definitions.h"
+#include "../declarations/Coords.h"
+#include "../declarations/Rendering/GL_Definitions.h"
 
 
 namespace Latno
@@ -87,7 +87,7 @@ namespace Latno
 		return false;
 	}
 
-	bool CheckCollision(Coords point) // Ehhh do later
+	bool CollisionBox::CheckCollision(Coords point) // Ehhh do later
 	{
 		return false; 
 	}
