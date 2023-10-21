@@ -49,8 +49,6 @@ namespace Latno
 	Coords Coords::operator += (glm::vec2 obj) { *this = *this + obj; return *this; }
 	Coords Coords::operator -= (glm::vec2 obj) { *this = *this - obj; return *this; }
 
-	Coords::operator glm::vec2() const { return glm::vec2(x,y); }
-
 	bool Coords::IsEqual(Coords a) const
 	{
 		if (x == a.x && y == a.y)

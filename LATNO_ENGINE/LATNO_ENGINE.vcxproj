@@ -153,7 +153,7 @@
     <ClCompile Include="Entities\definitions\Enemy.cpp" />
     <ClCompile Include="Entities\definitions\PlayerBase.cpp" />
     <ClCompile Include="LATNO_ENGINE.cpp" />
-    <ClCompile Include="engine\definitions\CollisionBox.cpp" />
+    <ClCompile Include="Shapes\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_demo.cpp" />
@@ -185,7 +185,7 @@
     <ClInclude Include="Entities\declarations\Enemy.h" />
     <ClInclude Include="Entities\declarations\PlayerBase.h" />
     <ClInclude Include="engine\declarations\Node.h" />
-    <ClInclude Include="engine\declarations\CollisionBox.h" />
+    <ClInclude Include="Shapes\declarations\CollisionBox.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
     <ClInclude Include="vendor\ImGui\imgui.h" />
