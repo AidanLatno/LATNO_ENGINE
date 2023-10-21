@@ -12,7 +12,6 @@ namespace Latno
 		collisionBox = new CollisionBox(position, { 50 * scale.x, 50 * scale.y }, "AABB");
 		
 		preData = position;
-		SetPos(GetPos()); // No clue why but this fixes things, DONT DELETE
 	}
 
 	Actor::Actor(float _x, float _y, glm::vec2 _scale, std::string SpritePath)
@@ -26,7 +25,6 @@ namespace Latno
 
 
 		preData = position;
-		SetPos(GetPos()); // No clue why but this fixes things, DONT DELETE
 	}
 
 	Actor::Actor(Coords _Pos, std::string SpritePath)
@@ -37,7 +35,6 @@ namespace Latno
 
 
 		preData = _Pos;
-		SetPos(GetPos()); // No clue why but this fixes things, DONT DELETE
 	}
 
 	Actor::Actor()
@@ -47,15 +44,11 @@ namespace Latno
 
 	bool Actor::CheckCollision(Actor Actor) const
 	{
-		if(collisionBox->CheckCollision(*Actor.collisionBox))
-			return true;
-		return false;
+		return collisionBox->CheckCollision(*Actor.collisionBox);
 	}
 	bool Actor::CheckCollision(Coords point) const
 	{
-		if (collisionBox->CheckCollision(point))
-			return true;
-		return false;
+		return collisionBox->CheckCollision(point);
 	}
 
 	Coords Actor::GetPos() const
@@ -99,7 +92,4 @@ namespace Latno
 		sprite->texture.reset();
 		sprite->texture = std::make_unique<Texture>(path);
 	}
-	
 }
-
-// preData

@@ -7,11 +7,6 @@
 
 #include "engine/declarations/Application.h" // commented out to make compilation faster
 
-bool processInput(GLFWwindow* window, unsigned int key);
-
-
-
-
 int main()
 {
 	// vvv INITIALIZATION vv
@@ -57,25 +52,8 @@ int main()
 	Latno::Application* app = new Latno::Application();
 	app->Startup(window);
 	
-	//while (!glfwwindowshouldclose(window))
-	//{
-	//	imgui_implglfwgl3_newframe();
-	//	app->tick();
-
-	//	imgui::render();
-	//	imgui_implglfwgl3_renderdrawdata(imgui::getdrawdata());
-
-	//	glfwswapbuffers(window);
-
-	//	glfwpollevents(); // idk man
-	//}
+	
 	delete app;
 
 	return 0;
-}
-
-bool processInput(GLFWwindow* window, unsigned int key) {
-	if (glfwGetKey(window, key) == GLFW_PRESS)
-		return true;
-	return false;
 }

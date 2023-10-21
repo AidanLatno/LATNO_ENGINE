@@ -19,14 +19,12 @@ namespace Latno
         }
         if (glfwGetKey(Scene.window, GLFW_KEY_W) == GLFW_PRESS && GetPos().y < Scene.GetSize().y - 100)
         {
-            deltaTime /= 2;
             direction = UP;
             MoveForward(Scene, deltaTime);
         }
 
         if (glfwGetKey(Scene.window, GLFW_KEY_S) == GLFW_PRESS && GetPos().y > 20)
         {
-            deltaTime /= 2;
             direction = DOWN;
             MoveForward(Scene, deltaTime);
         }

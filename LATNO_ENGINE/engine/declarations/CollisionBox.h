@@ -1,5 +1,5 @@
 #pragma once
-#include "../../engine/declarations/Coords.h"
+#include "Coords.h"
 
 namespace Latno
 {

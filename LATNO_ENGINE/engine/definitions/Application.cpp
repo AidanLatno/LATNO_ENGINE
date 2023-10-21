@@ -47,12 +47,16 @@ namespace Latno
 		DevLog::CLEAR("GL_ERROR_LOG");
 		srand(time(NULL));
 		
-		Scene levels(WINDOW_LENGTH, WINDOW_HEIGHT, window);
+		Scene levelInit(WINDOW_LENGTH, WINDOW_HEIGHT, window);
+		PlayerBase playerInit({ 200,200 }, "resources/textures/person.png");
 		
+		levelInit.AddActor(playerInit);
 
-		level = &levels;
+		level = &levelInit;
+		player = &playerInit;
 		currentScene = level;
 
+		player->speed = 200;
 		Load();
 
 
@@ -76,8 +80,8 @@ namespace Latno
 			// vv TICK vv
 			if (!Tick(prevDeltaTime))
 				return;
-
-		
+			
+			player->ManageInput(*level, prevDeltaTime);
 			
 
 			prevDeltaTime = DeltaCalc.GetTime();

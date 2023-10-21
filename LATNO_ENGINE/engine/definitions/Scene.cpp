@@ -105,7 +105,7 @@ namespace Latno
 		if (dynamicActors.size() > 0)
 		{
 			for (int i = 0; i < dynamicActors.size(); i++)
-				if (dynamicActors[i].GetPos().IsEqual(_actor.GetPos()) && dynamicActors[i].name != _actor.name)
+				if (dynamicActors[i].collisionBox->CheckCollision(*_actor.collisionBox))
 					return true;
 		}
 		return false;
@@ -116,7 +116,7 @@ namespace Latno
 		if (dynamicActors.size() > 0)
 		{
 			for (int i = 0; i < dynamicActors.size(); i++)
-				if (dynamicActors[i].GetPos().IsEqual(_point))
+				if (dynamicActors[i].collisionBox->CheckCollision(_point))
 					return true;
 		}
 		return false;
