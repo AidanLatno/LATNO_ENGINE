@@ -19,9 +19,8 @@ namespace Latno
 
 		// Declare variable pointers below
 		
-
-		Actor* man;
 		Scene* level;
+		PlayerBase* player;
 
 		//Declare Custom Methods below
 

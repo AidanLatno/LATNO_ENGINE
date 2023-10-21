@@ -3,6 +3,14 @@
 
 namespace Latno
 {
+	/*
+	* Class Name: Scene
+	* Purpose: The scene is the world your game is in. It contains all actors and will take their textures to render them.
+	*		   You can have multiple scenes and switch between them using the mainscene pointer in the application.
+	* 
+	* Constructors:
+	*	
+	*/
 	class Scene
 	{
 	private:

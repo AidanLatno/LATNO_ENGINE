@@ -18,7 +18,7 @@
     <ClCompile Include="LATNO_ENGINE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Shapes\definitions\CollisionBox.cpp">
+    <ClCompile Include="engine\definitions\CollisionBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\Component.cpp">
@@ -98,7 +98,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shapes\declarations\CollisionBox.h">
+    <ClInclude Include="engine\declarations\CollisionBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\Behavior.h">
@@ -214,6 +214,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\white-square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\person.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
