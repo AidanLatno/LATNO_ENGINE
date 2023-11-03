@@ -81,13 +81,15 @@ namespace Latno
 			if (!Tick(prevDeltaTime))
 				return;
 			
-			player->ManageInput(*level, prevDeltaTime);
+			player->ManageInput(*level);
 			
 
 			prevDeltaTime = DeltaCalc.GetTime();
 			DeltaCalc.Reset();
 
 			ImGui::Render();
+
+			GLOBAL_DELTA_TIME = prevDeltaTime;
 
 			ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
 			glfwSwapBuffers(window);

@@ -35,6 +35,9 @@ namespace Latno
 	*	speed
 	*		- used for movement speed (if needed)
 	* Methods:
+	*	SendBack()
+	*		- Sets the users position to the previous position (preData).
+	*		- Should only be used if preData is set or if Advanced actor methods are used for movement.
 	*	CheckCollision(Actor Actor)
 	*		- Returns true if parameter actor is colliding with this
 	*	CheckCollision(Coords Point)
@@ -78,6 +81,7 @@ namespace Latno
 
 			Actor();
 
+			void SendBack();
 			bool CheckCollision(Actor Actor) const;
 			bool CheckCollision(Coords Point) const;
 			void SwapTexture(std::string path);

@@ -39,3 +39,5 @@
 #define DOWN Coords(0,-1)
 #define RIGHT Coords(1,0)
 #define LEFT Coords(-1,0)
+
+extern double GLOBAL_DELTA_TIME;

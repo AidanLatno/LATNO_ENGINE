@@ -67,13 +67,12 @@ namespace Latno
 			}
 		}
 		dynamicActors.swap(tempArray);
-		// for(int i = 0; i < dynamicactor.size(); i++)
-		// 	dynamicactor[i] = TempArray[i];
+
 
 		renderer.RemoveSprite(actors.size() + _index);
 	}
 
-	void Scene::Render(bool _displayChars, bool _clearScreen) const
+	void Scene::Render() const
 	{
 		renderer.RenderSprites(window);
 	}

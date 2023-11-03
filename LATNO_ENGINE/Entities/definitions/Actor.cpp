@@ -42,6 +42,11 @@ namespace Latno
 		position = Coords{0,0};
 	}
 
+	void Actor::SendBack()
+	{
+		SetPos(preData);
+	}
+
 	bool Actor::CheckCollision(Actor Actor) const
 	{
 		return collisionBox->CheckCollision(*Actor.collisionBox);

@@ -3,6 +3,10 @@
 
 namespace Latno
 {
+	/*
+	* Class Name: PhysicsController
+	* Purpose: Applying physics to game objects
+	*/
 	class PhysicsController : public Latno::Component
 	{
 		Actor* attachedActor;

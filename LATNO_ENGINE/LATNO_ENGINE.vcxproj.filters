@@ -96,6 +96,9 @@
     <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\definitions\Definitions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">

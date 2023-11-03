@@ -9,7 +9,7 @@ namespace Latno
         using AdvancedActor::AdvancedActor;
         public:
             int score = 0;
-            void ManageInput(Scene &Scene, double deltaTime);
+            void ManageInput(Scene &Scene);
 
     };
 }

@@ -145,6 +145,7 @@
     <ClCompile Include="engine\definitions\Behavior.cpp" />
     <ClCompile Include="engine\definitions\Component.cpp" />
     <ClCompile Include="engine\definitions\Coords.cpp" />
+    <ClCompile Include="engine\definitions\Definitions.cpp" />
     <ClCompile Include="engine\definitions\DeveloperLog.cpp" />
     <ClCompile Include="engine\definitions\PhysicsController.cpp" />
     <ClCompile Include="engine\definitions\Scene.cpp" />
