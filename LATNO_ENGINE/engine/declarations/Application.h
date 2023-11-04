@@ -5,25 +5,19 @@ namespace Latno
 {
 	class Application
 	{
-	public:
-		~Application();
-		GLFWwindow* window;
-		DevLog* AppLog;
+	private:
+		void Run();
 		void BehaviorTick(double deltaTime);
 		void BehaviorLoad();
-		void Load();
-		bool Tick(double deltaTime);
-		void Startup(GLFWwindow* _window);
-		void Run();
+	public:
+		GLFWwindow* window;
+		DevLog* AppLog;
 		Scene* currentScene;
-
-		// Declare variable pointers below
 		
-		Scene* level;
-		PlayerBase* player;
+		virtual void Load();
+		virtual bool Tick(double deltaTime);
+		void Startup();
 
-		//Declare Custom Methods below
-
-
+		~Application();
 	};
 }

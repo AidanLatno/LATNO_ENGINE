@@ -16,59 +16,80 @@ namespace Latno
 			Latno::BehaviorList[i]->Update(deltaTime);
 		}
 	}
+	void Application::Load()
+	{
+		// To be overriden
+	}
 	void Application::BehaviorLoad()
 	{
 		for (int i = 0; i < Latno::BehaviorList.size(); i++)
 		{
 			Latno::BehaviorList[i]->Start();
 		}
-	}
-	void Application::Load()
-	{
-		BehaviorLoad();
 		AppLog = new DevLog("AppLog");
 
 		DevLog::LOGLN("App Load Finished", "EngineLog");
-
-		Run();
-
 	}
 	bool Application::Tick(double deltaTime)
 	{
-		BehaviorTick(deltaTime);
-
+		// To be overriden
 		return true;
 	}
 
-	void Application::Startup(GLFWwindow* _window)
+	void Application::Startup()
 	{
-		window = _window;
+		if (!glfwInit())
+		{
+			return;
+		}
+
+		// vv Make GL Version core instead of compact vv
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		// ^^ Make GL Version core instead of compat ^^
+
+
+		window = glfwCreateWindow(WINDOW_LENGTH, WINDOW_HEIGHT, "LATNO ENGINE", NULL, NULL); // Creates window context
+		if (!window)
+		{
+			glfwTerminate();
+			return;
+		}
+		glfwSetWindowSizeLimits(window, WINDOW_LENGTH, WINDOW_HEIGHT, WINDOW_LENGTH, WINDOW_HEIGHT);
+		glfwMakeContextCurrent(window);
+
+		glfwSwapInterval(1); // Syncs swap interval with vsync
+
+		if (glewInit() != GLEW_OK) // Checks glew state for errors
+			std::cout << "ERROR!" << std::endl;
+
+		// Enabling Blending
+		GLCall(glEnable(GL_BLEND));
+		GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+
+		// ^^^ INITIALIZATION ^^^
+		ImGui::CreateContext();
+		ImGui_ImplGlfwGL3_Init(window, true);
+		ImGui::StyleColorsDark();
+
+		
+
 		DevLog::CLEAR("EngineLog");
 		DevLog::CLEAR("GL_ERROR_LOG");
 		srand(time(NULL));
 		
-		Scene levelInit(WINDOW_LENGTH, WINDOW_HEIGHT, window);
-		PlayerBase playerInit({ 200,200 }, "resources/textures/person.png");
-		
-		levelInit.AddActor(playerInit);
-
-		level = &levelInit;
-		player = &playerInit;
-		currentScene = level;
-
-		player->speed = 200;
 		Load();
+		BehaviorLoad();
+		Run();
 
-
+		delete this;
 	}
 
 	void Application::Run()
 	{
-		Timer DeltaCalc;
+		Timer DeltaCalc; // Used to calculate deltaTime
 		float prevDeltaTime = 0;
-
-		float timer;
-		float difficultyMod = 0;
 
 		while (true)
 		{
@@ -80,10 +101,9 @@ namespace Latno
 			// vv TICK vv
 			if (!Tick(prevDeltaTime))
 				return;
-			
-			player->ManageInput(*level);
-			
 
+			BehaviorTick(prevDeltaTime);
+			
 			prevDeltaTime = DeltaCalc.GetTime();
 			DeltaCalc.Reset();
 

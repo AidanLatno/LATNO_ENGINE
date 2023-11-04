@@ -156,6 +156,7 @@
     <ClCompile Include="LATNO_ENGINE.cpp" />
     <ClCompile Include="engine\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
+    <ClCompile Include="UserClasses\definitions\ExampleApp.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_demo.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_draw.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="engine\declarations\Node.h" />
     <ClInclude Include="engine\declarations\CollisionBox.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
+    <ClInclude Include="UserClasses\declarations\ExampleApp.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
     <ClInclude Include="vendor\ImGui\imgui.h" />
     <ClInclude Include="vendor\ImGui\imgui_impl_glfw_gl3.h" />
