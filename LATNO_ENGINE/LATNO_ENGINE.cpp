@@ -7,6 +7,5 @@ int main()
 	ExampleApp* app = new ExampleApp();
 	app->Startup();
 
-
 	return 0;
 }
