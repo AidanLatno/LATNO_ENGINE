@@ -59,7 +59,7 @@ namespace Latno
                 if (doesLogOnNonOverload)
                     DevLog::LOGLN("Start() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "EngineLog");
             }
-            virtual void Update(double deltaTime)
+            virtual void Update()
             {
                 if (doesLogOnNonOverload)
                     DevLog::LOGLN("Update() METHOD CALLED ON NON OVERLOADED BEHAVIOR", "EngineLog");

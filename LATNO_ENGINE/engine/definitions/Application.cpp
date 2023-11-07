@@ -9,11 +9,11 @@ namespace Latno
 		glfwTerminate();
 	}
 
-	void Application::BehaviorTick(double deltaTime)
+	void Application::BehaviorTick()
 	{
 		for (int i = 0; i < Latno::BehaviorList.size(); i++)
 		{
-			Latno::BehaviorList[i]->Update(deltaTime);
+			Latno::BehaviorList[i]->Update();
 		}
 	}
 	void Application::Load()
@@ -30,7 +30,7 @@ namespace Latno
 
 		DevLog::LOGLN("App Load Finished", "EngineLog");
 	}
-	bool Application::Tick(double deltaTime)
+	bool Application::Tick()
 	{
 		// To be overriden
 		return true;
@@ -99,10 +99,10 @@ namespace Latno
 
 
 			// vv TICK vv
-			if (!Tick(prevDeltaTime))
+			if (!Tick())
 				return;
 
-			BehaviorTick(prevDeltaTime);
+			BehaviorTick();
 			
 			prevDeltaTime = DeltaCalc.GetTime();
 			DeltaCalc.Reset();

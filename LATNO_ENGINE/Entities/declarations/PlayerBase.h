@@ -8,8 +8,8 @@ namespace Latno
     {
         using AdvancedActor::AdvancedActor;
         public:
-            int score = 0;
             void ManageInput(Scene &Scene);
 
+            void Update() override;
     };
 }

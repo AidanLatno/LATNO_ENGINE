@@ -7,7 +7,7 @@ namespace Latno
 	{
 	private:
 		void Run();
-		void BehaviorTick(double deltaTime);
+		void BehaviorTick();
 		void BehaviorLoad();
 	public:
 		GLFWwindow* window;
@@ -15,7 +15,7 @@ namespace Latno
 		Scene* currentScene;
 		
 		virtual void Load();
-		virtual bool Tick(double deltaTime);
+		virtual bool Tick();
 		void Startup();
 
 		~Application();

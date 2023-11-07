@@ -28,9 +28,18 @@ namespace Latno
             direction = DOWN;
             MoveForward(Scene);
         }
-        if (glfwGetKey(Scene.window, GLFW_KEY_SPACE) == GLFW_PRESS)
+        if (glfwGetKey(Scene.window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
         {
-            score += 20;
+            speed = 1000;
         }
+        if (glfwGetKey(Scene.window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
+        {
+            speed = 200;
+        }
+    }
+
+    void PlayerBase::Update()
+    {
+        ManageInput(*currentScene);
     }
 }
