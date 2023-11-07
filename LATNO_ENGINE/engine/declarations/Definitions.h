@@ -1,8 +1,8 @@
 #pragma once
 
 // SCREEN SIZE (Change to fit your application)
-#define WINDOW_HEIGHT 720
-#define WINDOW_LENGTH 1280
+#define WINDOW_HEIGHT 1080
+#define WINDOW_LENGTH 1920
 
 
 // ENABLE STATIC LINKING WITH GLEW AND GLFW LIBRARY

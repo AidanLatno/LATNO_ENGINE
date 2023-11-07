@@ -20,5 +20,6 @@ namespace Latno
         public:
             void ManageInput(Scene &Scene);
 
+            void Update() override;
     };
 }
