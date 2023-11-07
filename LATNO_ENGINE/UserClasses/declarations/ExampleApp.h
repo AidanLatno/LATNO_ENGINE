@@ -6,7 +6,7 @@ using namespace Latno; // Not neccesary but makes it easier
 
 /*
 */
-class ExampleApp : public Latno::Application
+class ExampleApp : public Application
 {
 public:
 	Scene* level;
