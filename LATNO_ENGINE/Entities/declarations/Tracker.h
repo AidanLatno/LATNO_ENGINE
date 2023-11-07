@@ -6,7 +6,15 @@
 
 namespace Latno
 {
-    class Enemy : public AdvancedActor
+    /*
+    * Class Name: Enemy
+    * Purpose: Takes in an actor and uses an A* path tracing algorithm to follow that actor.
+    * Parents: AdvancedActor -> Actor -> Component -> Behavior
+    * 
+    * DOES NOT WORK YET
+    * DEEEEEPPPP HELPPPPP
+    */
+    class Tracker : public AdvancedActor
     {
     using AdvancedActor::AdvancedActor;
     private:

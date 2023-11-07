@@ -151,7 +151,7 @@
     <ClCompile Include="engine\definitions\Scene.cpp" />
     <ClCompile Include="Entities\definitions\Actor.cpp" />
     <ClCompile Include="Entities\definitions\AdvancedActor.cpp" />
-    <ClCompile Include="Entities\definitions\Enemy.cpp" />
+    <ClCompile Include="Entities\definitions\Tracker.cpp" />
     <ClCompile Include="Entities\definitions\PlayerBase.cpp" />
     <ClCompile Include="LATNO_ENGINE.cpp" />
     <ClCompile Include="engine\definitions\CollisionBox.cpp" />
@@ -184,7 +184,7 @@
     <ClInclude Include="engine\declarations\Scene.h" />
     <ClInclude Include="Entities\declarations\Actor.h" />
     <ClInclude Include="Entities\declarations\AdvancedActor.h" />
-    <ClInclude Include="Entities\declarations\Enemy.h" />
+    <ClInclude Include="Entities\declarations\Tracker.h" />
     <ClInclude Include="Entities\declarations\PlayerBase.h" />
     <ClInclude Include="engine\declarations\Node.h" />
     <ClInclude Include="engine\declarations\CollisionBox.h" />

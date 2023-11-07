@@ -28,9 +28,5 @@ namespace Latno
             direction = DOWN;
             MoveForward(Scene);
         }
-        if (glfwGetKey(Scene.window, GLFW_KEY_SPACE) == GLFW_PRESS)
-        {
-            score += 20;
-        }
     }
 }

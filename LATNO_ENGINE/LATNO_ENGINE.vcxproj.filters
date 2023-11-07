@@ -36,7 +36,7 @@
     <ClCompile Include="Entities\definitions\AdvancedActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Entities\definitions\Enemy.cpp">
+    <ClCompile Include="Entities\definitions\Tracker.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Entities\definitions\PlayerBase.cpp">
@@ -134,7 +134,7 @@
     <ClInclude Include="Entities\declarations\AdvancedActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entities\declarations\Enemy.h">
+    <ClInclude Include="Entities\declarations\Tracker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entities\declarations\PlayerBase.h">
