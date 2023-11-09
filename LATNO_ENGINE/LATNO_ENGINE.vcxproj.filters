@@ -228,5 +228,8 @@
     <Image Include="resources\textures\person.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\textures\nike.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

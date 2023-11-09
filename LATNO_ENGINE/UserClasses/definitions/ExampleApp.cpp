@@ -9,6 +9,7 @@ void ExampleApp::Load() {
 
 	currentScene = level;
 	player->speed = 200;
+	player->SetScale({ 2.7864, 1 });
 }
 
 
