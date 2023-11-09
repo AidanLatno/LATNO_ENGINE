@@ -2,7 +2,7 @@
 
 void ExampleApp::Load() {
 	level = new Scene(WINDOW_HEIGHT, WINDOW_LENGTH, window);
-	player = new PlayerBase({ 100,100 }, "resources/textures/person.png");
+	player = new PlayerBase({ 100,100 }, "resources/textures/nike.png");
 	player->currentScene = level;
 
 	level->AddActor(*player);

@@ -1,7 +1,7 @@
 #include "Renderer.h"
 
 Renderer::Renderer()
-	: m_projection(glm::ortho(0.0f, 960.0f, 0.0f, 540.0f)),
+	: m_projection(glm::ortho(0.0f, (float)WINDOW_LENGTH, 0.0f, (float)WINDOW_HEIGHT, 0.0f, 10.0f)),
 	  m_view(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, 0)))
 {
 	// index buff for connecting points
@@ -41,10 +41,10 @@ void Renderer::RenderSprites(GLFWwindow* window) const
 	for (Sprite* sprite : sprites)
 	{
 		float positions[] = {
-			-200.0f * sprite->Scale.x / 9, -200.0f * sprite->Scale.y * ratio / 16, 0.0f, 0.0f, // 0 - bottom left
-			200.0f * sprite->Scale.x / 9, -200.0f * sprite->Scale.y * ratio / 16, 1.0f, 0.0f, // 1 - bottom right
-			200.0f * sprite->Scale.x / 9, 200.0f * sprite->Scale.y * ratio / 16, 1.0f, 1.0f, // 2 - top right
-			-200.0f * sprite->Scale.x / 9, 200.0f * sprite->Scale.y * ratio / 16, 0.0f, 1.0f // 3 - top left
+			-200.0f * sprite->Scale.x, -200.0f * sprite->Scale.y, 0.0f, 0.0f, // 0 - bottom left
+			200.0f * sprite->Scale.x, -200.0f * sprite->Scale.y, 1.0f, 0.0f, // 1 - bottom right
+			200.0f * sprite->Scale.x, 200.0f * sprite->Scale.y, 1.0f, 1.0f, // 2 - top right
+			-200.0f * sprite->Scale.x, 200.0f * sprite->Scale.y, 0.0f, 1.0f // 3 - top left
 		};
 		VertexBuffer vbo(positions,4*4*sizeof(float));
 		VertexArray vao;
