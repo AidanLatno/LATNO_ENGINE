@@ -10,7 +10,6 @@ class ExampleApp : public Application
 {
 public:
 	Scene* level;
-	Scene* level2;
 	PlayerBase* player;
 	Actor* thing;
 

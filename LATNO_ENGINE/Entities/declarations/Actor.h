@@ -63,6 +63,7 @@ namespace Latno
 		private:
 			Coords position;
 			void SetSpriteScale(float x, float y);
+			float SpriteRatio = 1;
 		public:
 			glm::vec2 scale = { 1,1 };
 

@@ -8,8 +8,9 @@ namespace Latno
 	{
 		position = Coords(_x, _y);
 		sprite = new Sprite(glm::vec3(_x, _y, 0), glm::vec2(1.0f, 1.0f), SpritePath);
+		SpriteRatio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
 
-		collisionBox = new CollisionBox(position, { 50 * scale.x, 50 * scale.y }, "AABB");
+		collisionBox = new CollisionBox(position, { 50 * scale.x * SpriteRatio, 50 * scale.y }, "AABB");
 		
 		preData = position;
 	}
@@ -20,8 +21,9 @@ namespace Latno
 		scale = _scale;
 		
 		sprite = new Sprite(glm::vec3(_x, _y, 0), scale, SpritePath);
+		SpriteRatio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
 
-		collisionBox = new CollisionBox(position, { 50 * scale.x, 50 * scale.y }, "AABB");
+		collisionBox = new CollisionBox(position, { 50 * scale.x * SpriteRatio, 50 * scale.y }, "AABB");
 
 
 		preData = position;
@@ -31,7 +33,9 @@ namespace Latno
 	{
 		position = _Pos;
 		sprite = new Sprite(glm::vec3(_Pos.x, _Pos.y, 0), glm::vec2(1.0f, 1.0f), SpritePath);
-		collisionBox = new CollisionBox(position, { 50, 50 }, "AABB");
+		SpriteRatio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
+
+		collisionBox = new CollisionBox(position, { 50 * SpriteRatio, 50 }, "AABB");
 
 
 		preData = _Pos;
@@ -47,9 +51,9 @@ namespace Latno
 		SetPos(preData);
 	}
 
-	bool Actor::CheckCollision(Actor Actor) const
+	bool Actor::CheckCollision(Actor actor) const
 	{
-		return collisionBox->CheckCollision(*Actor.collisionBox);
+		return collisionBox->CheckCollision(*actor.collisionBox);
 	}
 	bool Actor::CheckCollision(Coords point) const
 	{
@@ -77,7 +81,7 @@ namespace Latno
 	}
 	void Actor::SetCollisionSize(glm::vec2 scale)
 	{
-		collisionBox->size.x = 50 * scale.x;
+		collisionBox->size.x = 50 * scale.x * SpriteRatio;
 		collisionBox->size.y = 50 * scale.y;
 	}
 	
@@ -87,7 +91,7 @@ namespace Latno
 	}
 	void Actor::SetScale(glm::vec2 _scale)
 	{
-		scale = _scale; 
+		scale = _scale;
 		SetSpriteScale(scale.x,scale.y);
 		SetCollisionSize(scale);
 	}
@@ -96,5 +100,7 @@ namespace Latno
 	{
 		sprite->texture.reset();
 		sprite->texture = std::make_unique<Texture>(path);
+		SpriteRatio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
+		SetScale(GetScale()); // Updates collisionBox scaling
 	}
 }

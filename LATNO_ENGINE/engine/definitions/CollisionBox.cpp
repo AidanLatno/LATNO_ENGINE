@@ -69,9 +69,10 @@ namespace Latno
 		if (topLeft.y < other.botRight.y || other.topLeft.y < botRight.y) {
 			return false;
 		}
+
 		return true;
 
-		if (collisionType == CollisionType::RADIUS)
+		/*if (collisionType == CollisionType::RADIUS)
 		{
 
 			glm::vec2 center(position.x + radius, position.y + radius);
@@ -84,7 +85,7 @@ namespace Latno
 			return glm::length(difference) < radius;
 		}
 
-		return false;
+		return false;*/
 	}
 
 	bool CollisionBox::CheckCollision(Coords point) // Ehhh do later
