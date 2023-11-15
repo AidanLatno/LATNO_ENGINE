@@ -147,6 +147,7 @@
     <ClCompile Include="engine\definitions\Coords.cpp" />
     <ClCompile Include="engine\definitions\Definitions.cpp" />
     <ClCompile Include="engine\definitions\DeveloperLog.cpp" />
+    <ClCompile Include="engine\definitions\InputManager.cpp" />
     <ClCompile Include="engine\definitions\PhysicsController.cpp" />
     <ClCompile Include="engine\definitions\Scene.cpp" />
     <ClCompile Include="Entities\definitions\Actor.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="engine\declarations\Definitions.h" />
     <ClInclude Include="engine\declarations\DeveloperLog.h" />
     <ClInclude Include="engine\declarations\Engine.h" />
+    <ClInclude Include="engine\declarations\InputManager.h" />
     <ClInclude Include="engine\declarations\PhysicsController.h" />
     <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h" />
     <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h" />

@@ -36,15 +36,16 @@ void Renderer::RenderSprites(GLFWwindow* window) const
 	GLCall(glClearColor(0.0f,0.0f,1.0f,1.0f));
 	GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
-	float ratio = (float)WINDOW_LENGTH / WINDOW_HEIGHT;
+	
 
 	for (Sprite* sprite : sprites)
 	{
+		float ratio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
 		float positions[] = {
-			-200.0f * sprite->Scale.x, -200.0f * sprite->Scale.y, 0.0f, 0.0f, // 0 - bottom left
-			200.0f * sprite->Scale.x, -200.0f * sprite->Scale.y, 1.0f, 0.0f, // 1 - bottom right
-			200.0f * sprite->Scale.x, 200.0f * sprite->Scale.y, 1.0f, 1.0f, // 2 - top right
-			-200.0f * sprite->Scale.x, 200.0f * sprite->Scale.y, 0.0f, 1.0f // 3 - top left
+			-50.0f * sprite->Scale.x * ratio, -50.0f * sprite->Scale.y, 0.0f, 0.0f, // 0 - bottom left
+			50.0f * sprite->Scale.x * ratio, -50.0f * sprite->Scale.y, 1.0f, 0.0f, // 1 - bottom right
+			50.0f * sprite->Scale.x * ratio, 50.0f * sprite->Scale.y, 1.0f, 1.0f, // 2 - top right
+			-50.0f * sprite->Scale.x * ratio, 50.0f * sprite->Scale.y, 0.0f, 1.0f // 3 - top left
 		};
 		VertexBuffer vbo(positions,4*4*sizeof(float));
 		VertexArray vao;
@@ -54,7 +55,6 @@ void Renderer::RenderSprites(GLFWwindow* window) const
 		layout.Push<float>(2);
 		vao.AddBuffer(vbo, layout);
 
-		//m_VBO->ReassignData(positions, 4 * 4 * sizeof(float));
 
 		glm::mat4 model = glm::translate(glm::mat4(2.0f), sprite->Position);
 		glm::mat4 mvp = m_projection * m_view * model; // (Model View Projection)

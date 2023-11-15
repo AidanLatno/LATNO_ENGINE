@@ -102,6 +102,9 @@
     <ClCompile Include="UserClasses\definitions\ExampleApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\definitions\InputManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -204,6 +207,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UserClasses\declarations\ExampleApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\InputManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

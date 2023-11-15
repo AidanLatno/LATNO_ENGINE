@@ -4,12 +4,12 @@
 
 namespace Latno
 {
-	Scene::Scene(int _width, int _length, GLFWwindow* _window)
+	Scene::Scene(int _length, int _height, GLFWwindow* _window)
 	{
 		window = _window;
-		sizeX = _width;
-		sizeY = _length;
-		area = _length * _width;
+		sizeX = _length;
+		sizeY = _height;
+		area = _length * _height;
 	}
 
 	Scene::Scene(Coords _size, GLFWwindow* _window)

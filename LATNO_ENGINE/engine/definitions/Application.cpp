@@ -56,7 +56,7 @@ namespace Latno
 			glfwTerminate();
 			return;
 		}
-		glfwSetWindowSizeLimits(window, WINDOW_LENGTH, WINDOW_HEIGHT, WINDOW_LENGTH, WINDOW_HEIGHT);
+		//glfwSetWindowSizeLimits(window, WINDOW_LENGTH, WINDOW_HEIGHT, WINDOW_LENGTH, WINDOW_HEIGHT);
 		glfwMakeContextCurrent(window);
 
 		glfwSwapInterval(1); // Syncs swap interval with vsync

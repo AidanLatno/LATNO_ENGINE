@@ -10,8 +10,9 @@ class ExampleApp : public Application
 {
 public:
 	Scene* level;
+	Scene* level2;
 	PlayerBase* player;
-	Actor* corners[4];
+	Actor* thing;
 
 	void Load() override;
 	bool Tick() override;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Definitions.h"
+#include "InputManager.h"
 
 namespace Latno 
 {

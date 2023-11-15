@@ -9,7 +9,7 @@ namespace Latno
 	*		   You can have multiple scenes and switch between them using the mainscene pointer in the application.
 	* 
 	* Constructors:
-	*	Scene(int Width, int Length, GLFWwindow* _window);
+	*	Scene(int Length, int Height, GLFWwindow* _window);
 	*	Scene(Coords Size, GLFWwindow* _window);
 	*
 	*	~Scene();
@@ -74,7 +74,7 @@ namespace Latno
 		std::vector<Latno::Actor*> actors;
 		std::vector<Latno::Actor> dynamicActors;
 
-		Scene(int Width, int Length, GLFWwindow* _window);
+		Scene(int Length, int Height, GLFWwindow* _window);
 		Scene(Coords Size, GLFWwindow* _window);
 
 		~Scene();
