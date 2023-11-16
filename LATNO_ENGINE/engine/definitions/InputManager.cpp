@@ -1,11 +1,21 @@
 #include "../declarations/InputManager.h"
-
-bool InputManager::KeyPressed(Key key)
+namespace Latno
 {
-	return glfwGetKey(window, key) == GLFW_PRESS;
-}
+	GLFWwindow* InputManager::window = NULL;
 
-bool InputManager::KeyReleased(Key key)
-{
-	return glfwGetKey(window, key) == GLFW_RELEASE;
+	bool InputManager::KeyPressed(Key key)
+	{
+		return glfwGetKey(window, key) == GLFW_PRESS;
+	}
+
+	bool InputManager::KeyReleased(Key key)
+	{
+		return glfwGetKey(window, key) == GLFW_RELEASE;
+	}
+	Coords InputManager::GetMousePos()
+	{
+		double x, y;
+		glfwGetCursorPos(window, &x, &y);
+		return Coords(x, WINDOW_HEIGHT - y);
+	}
 }

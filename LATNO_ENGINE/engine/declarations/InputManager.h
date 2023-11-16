@@ -1,12 +1,14 @@
 #pragma once
-#include "Definitions.h"
+#include "Coords.h"
 
-
-static class InputManager
+namespace Latno
 {
-private:
-	static GLFWwindow* window;
-public:
-	static bool KeyPressed(Key key);
-	static bool KeyReleased(Key key);
-};
+	class InputManager
+	{
+	public:
+		static GLFWwindow* window;
+		static bool KeyPressed(Key key);
+		static bool KeyReleased(Key key);
+		static Coords GetMousePos();
+	};
+}

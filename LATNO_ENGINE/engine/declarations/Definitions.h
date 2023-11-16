@@ -11,6 +11,9 @@
 #include <GLFW/glfw3.h>
 #include "glm/glm.hpp" // include glm (openGL math library)
 
+#include "../../vendor/ImGui/imgui_impl_glfw_gl3.h"
+#include "../../vendor/ImGui/imgui.h"
+
 // Extra definitions for apple (Probably doesnt work)
 #ifdef __APPLE__
 #include <unistd.h>
@@ -171,8 +174,6 @@ enum Key {
     KEY_MENU = 348,
 
     KEY_LAST = 348
-
-
 };
 
 //

@@ -8,12 +8,10 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-#include "../../../vendor/ImGui/imgui_impl_glfw_gl3.h"
-#include "../../../vendor/ImGui/imgui.h"
+
 #include "../../../vendor/stb_img/stb_image.h"
 
 #include <sstream>
-#include "../DeveloperLog.h"
 #include "../Definitions.h"
 
 inline void GLClearError()

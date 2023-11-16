@@ -6,33 +6,33 @@ namespace Latno
     {
         preData = GetPos();
        
-        if (glfwGetKey(Scene.window, GLFW_KEY_A) == GLFW_PRESS && GetPos().x > 0)
+        if (InputManager::KeyPressed(KEY_A) && GetPos().x > 0)
         {
             direction = LEFT;
             MoveForward(Scene);
         }
       
-        if (glfwGetKey(Scene.window, GLFW_KEY_D) == GLFW_PRESS && GetPos().x < Scene.GetSize().x)
+        if (InputManager::KeyPressed(KEY_D) && GetPos().x < Scene.GetSize().x)
         {
 			direction = RIGHT;
 			MoveForward(Scene);
         }
-        if (glfwGetKey(Scene.window, GLFW_KEY_W) == GLFW_PRESS && GetPos().y < Scene.GetSize().y)
+        if (InputManager::KeyPressed(KEY_W) && GetPos().y < Scene.GetSize().y)
         {
             direction = UP;
             MoveForward(Scene);
         }
 
-        if (glfwGetKey(Scene.window, GLFW_KEY_S) == GLFW_PRESS && GetPos().y > 0)
+        if (InputManager::KeyPressed(KEY_S) && GetPos().y > 0)
         {
             direction = DOWN;
             MoveForward(Scene);
         }
-        if (glfwGetKey(Scene.window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
+        if (InputManager::KeyPressed(KEY_LEFT_SHIFT))
         {
             speed = 1000;
         }
-        if (glfwGetKey(Scene.window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE)
+        if (InputManager::KeyReleased(KEY_LEFT_SHIFT))
         {
             speed = 200;
         }

@@ -1,6 +1,6 @@
 #pragma once
 #include <math.h>
-#include "Timer.h"
+#include "Definitions.h"
 
 namespace Latno
 {

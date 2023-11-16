@@ -6,7 +6,8 @@ void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {
     // these three lines were default at event.c code
     Slot* slot = static_cast<Slot*>(glfwGetWindowUserPointer(window));
-    printf("%08x to %i at %0.3f: Cursor position: %f %f\n",
+
+    ImGui::Text("%08x to %i at %0.3f: Cursor position: %f %f\n",
         counter++, slot->number, glfwGetTime(), xpos, ypos);
 
     // these code copied from "cursorPosCallback" default optix sample function, commented above
