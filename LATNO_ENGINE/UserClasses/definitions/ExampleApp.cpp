@@ -18,9 +18,6 @@ bool ExampleApp::Tick() {
 	ImGui::Text("Player position:  x - %.2f  y - %.2f",player->GetPos().x, player->GetPos().y);
 	ImGui::Text("IsColliding: %d", collide);
 
-	//cursor_position_callback(window, 100, 100);
-
-
 	Coords mousePos = InputManager::GetMousePos();
 	player->SetPos(mousePos);
 	ImGui::Text("Mouse position:  x - %.2f  y - %.2f", mousePos.x, mousePos.y);

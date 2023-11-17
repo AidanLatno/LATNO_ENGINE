@@ -179,13 +179,3 @@ enum Key {
 //
 // BM--------------------------------------------------------------------------------------------------------------
 // mouse movement+ and cursor output
-typedef struct
-{
-    GLFWwindow* window;
-    int number;
-    int closeable;
-} Slot;
-
-static unsigned int counter = 0;
-
-void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
