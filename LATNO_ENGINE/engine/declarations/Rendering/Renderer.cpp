@@ -33,7 +33,7 @@ void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& 
 
 void Renderer::RenderSprites(GLFWwindow* window) const
 {
-	GLCall(glClearColor(0.0f,0.0f,1.0f,1.0f));
+	GLCall(glClearColor(BackgroundColor[0], BackgroundColor[1], BackgroundColor[2], BackgroundColor[3]));
 	GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 	
@@ -98,4 +98,12 @@ void Renderer::RenderSprites(GLFWwindow* window) const
 		 }
 		 sprites.swap(tempArray);
 	 }
+ }
+
+ void Renderer::SetBackgroundColor(float r, float g, float b, float a)
+ {
+	 BackgroundColor[0] = r;
+	 BackgroundColor[1] = g;
+	 BackgroundColor[2] = b;
+	 BackgroundColor[3] = a;
  }

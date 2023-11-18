@@ -150,4 +150,9 @@ namespace Latno
 	{
 		return { (float)sizeX,(float)sizeY };
 	}
+
+	void Scene::SetBackgroundColor(float r, float g, float b, float a)
+	{
+		renderer.SetBackgroundColor(r, g, b, a);
+	}
 }

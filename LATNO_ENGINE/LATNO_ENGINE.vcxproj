@@ -152,6 +152,7 @@
     <ClCompile Include="engine\definitions\Scene.cpp" />
     <ClCompile Include="Entities\definitions\Actor.cpp" />
     <ClCompile Include="Entities\definitions\AdvancedActor.cpp" />
+    <ClCompile Include="Entities\definitions\Button.cpp" />
     <ClCompile Include="Entities\definitions\Tracker.cpp" />
     <ClCompile Include="Entities\definitions\PlayerBase.cpp" />
     <ClCompile Include="LATNO_ENGINE.cpp" />
@@ -167,6 +168,7 @@
   <ItemGroup>
     <ClInclude Include="engine\declarations\Application.h" />
     <ClInclude Include="engine\declarations\Behavior.h" />
+    <ClInclude Include="Entities\declarations\Button.h" />
     <ClInclude Include="engine\declarations\Component.h" />
     <ClInclude Include="engine\declarations\Coords.h" />
     <ClInclude Include="engine\declarations\Definitions.h" />

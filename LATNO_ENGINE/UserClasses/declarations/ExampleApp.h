@@ -15,4 +15,8 @@ public:
 
 	void Load() override;
 	bool Tick() override;
+
+	int count = 0;
+	float average = 0;
+	float fps = 0;
 };

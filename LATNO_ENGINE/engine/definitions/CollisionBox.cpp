@@ -12,6 +12,8 @@ namespace Latno
 {
 	CollisionBox::CollisionBox(Coords _pos, glm::vec2 _size, std::string _enum)
 	{
+		size = _size;
+
 		if (size.x >= size.y)
 			radius = size.x / 2;
 		else if (size.y >= size.x)
@@ -25,9 +27,8 @@ namespace Latno
 		position = _pos;
 
 
-		topLeft = { position.x - size.x / 2, position.y + size.y / 2 };
-		botRight = { position.x + size.x / 2, position.y - size.y / 2 };
-
+		topLeft = { position.x - size.x, position.y + size.y};
+		botRight = { position.x + size.x, position.y - size.y};
 	}
 
 	void CollisionBox::Rotate(float angle = 90, float h = 0, float k = 0, float Rotations = 1)
@@ -55,11 +56,11 @@ namespace Latno
 		//if (collisionType == CollisionType::AABB)
 		//{
 
-		topLeft = { position.x - (size.x / 2), position.y + (size.y / 2) };
-		botRight = { position.x + (size.x / 2), position.y - (size.y / 2) };
+		topLeft = { position.x - size.x, position.y + size.y };
+		botRight = { position.x + size.x, position.y - size.y };
 
-		other.topLeft = { other.position.x - (other.size.x / 2), other.position.y + (other.size.y / 2) };
-		other.botRight = { other.position.x + (other.size.x / 2), other.position.y - (other.size.y / 2) };
+		other.topLeft = { other.position.x - other.size.x, other.position.y + other.size.y };
+		other.botRight = { other.position.x + other.size.x, other.position.y - other.size.y };
 
 		if (topLeft.x > other.botRight.x || other.topLeft.x > botRight.x) {
 			return false;

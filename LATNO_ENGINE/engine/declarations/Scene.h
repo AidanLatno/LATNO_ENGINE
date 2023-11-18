@@ -92,5 +92,6 @@ namespace Latno
 		void SetActorIndex(Latno::Actor& PassedActor, int Index);
 		bool IsIn(Latno::Actor* Actor) const;
 		Coords GetSize() const;
+		void SetBackgroundColor(float r, float g, float b, float a = 1.0f);
 	};
 }
