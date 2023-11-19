@@ -1,6 +1,7 @@
 #pragma once
 #include <math.h>
 #include "Definitions.h"
+#include "../../engine/declarations/Rendering/Renderer.h"
 
 namespace Latno
 {

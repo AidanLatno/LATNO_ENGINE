@@ -10,6 +10,8 @@ namespace Latno
 	* Variables:
 	*	oldState
 	*		- Keeps track of the previous state of all keys, using the key value as the index
+	*	window
+	*		- Keeps a reference to the window context to pull input from
 	*/
 	class InputManager
 	{

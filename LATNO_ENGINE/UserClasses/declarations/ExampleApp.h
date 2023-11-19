@@ -11,7 +11,7 @@ class ExampleApp : public Application
 public:
 	Scene* level;
 	PlayerBase* player;
-	Actor* thing;
+	SpawnActorButton* button;
 
 	void Load() override;
 	bool Tick() override;

@@ -1,5 +1,4 @@
 #pragma once
-#include "../../engine/declarations/Rendering/Renderer.h"
 #include "../../engine/declarations/CollisionBox.h"
 
 

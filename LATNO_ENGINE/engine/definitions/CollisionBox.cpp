@@ -89,8 +89,13 @@ namespace Latno
 		return false;*/
 	}
 
-	bool CollisionBox::CheckCollision(Coords point) // Ehhh do later
+	bool CollisionBox::CheckCollision(Coords point)
 	{
-		return false; 
+		topLeft = { position.x - size.x, position.y + size.y };
+		botRight = { position.x + size.x, position.y - size.y };
+
+		if (point.x >= topLeft.x && point.x <= botRight.x && point.y <= topLeft.y && point.y >= botRight.y)
+			return true;
+		return false;
 	}
 }

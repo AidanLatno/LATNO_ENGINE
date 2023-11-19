@@ -108,6 +108,9 @@
     <ClCompile Include="Entities\definitions\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -216,6 +219,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Entities\declarations\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\SpawnActorButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

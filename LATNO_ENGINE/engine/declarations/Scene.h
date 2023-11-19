@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Entities/declarations/Actor.h"
+#include "../../Entities/declarations/Button.h"
 
 namespace Latno
 {

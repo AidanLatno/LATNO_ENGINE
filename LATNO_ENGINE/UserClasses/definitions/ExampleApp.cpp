@@ -2,12 +2,13 @@
 
 void ExampleApp::Load() {
 	level = new Scene(WINDOW_LENGTH, WINDOW_HEIGHT, window);
-	player = new PlayerBase({ 100,100 }, "resources/textures/nike.png");
-	thing = new Actor({ 300,300 }, "resources/textures/person.png");
+	player = new PlayerBase({ 100,100 }, "resources/textures/person.png");
+	button = new SpawnActorButton( { WINDOW_LENGTH/2,WINDOW_HEIGHT/2 }, "resources/textures/nike.png" );
 	player->currentScene = level;
+	button->SetScene(level);
 
-	level->AddActor(*thing);
 	level->AddActor(*player);
+	level->AddActor(*button);
 
 	currentScene = level;
 
@@ -16,17 +17,18 @@ void ExampleApp::Load() {
 
 
 bool ExampleApp::Tick() {
-	
-
-	bool collide = player->CheckCollision(*thing);
-	ImGui::Text("Player position:  x - %.2f  y - %.2f",player->GetPos().x, player->GetPos().y);
-	ImGui::Text("IsColliding: %d", collide);
-
 	Coords mousePos = InputManager::GetMousePos();
 	if(InputManager::KeyDown(KEY_K))
 	{
 		currentScene->AddDynamicActor(Actor({mousePos.x,mousePos.y},"resources/textures/person.png"));
 	}
+	if (InputManager::KeyPressed(KEY_K))
+	{
+		currentScene->dynamicActors[currentScene->dynamicActors.size() - 1].SetPos(mousePos);
+	}
+
+	ImGui::Text("IsColliding: %d", player->CheckCollision(mousePos));
+
 	ImGui::Text("Mouse position:  x - %.2f  y - %.2f", mousePos.x, mousePos.y);
 	
 	ImGui::Text("Actor Count: %d", currentScene->dynamicActors.size());
