@@ -73,7 +73,7 @@ namespace Latno
 		ImGui_ImplGlfwGL3_Init(window, true);
 		ImGui::StyleColorsDark();
 
-		InputManager::window = window;
+		InputManager::SetWindow(window);
 
 		DevLog::CLEAR("EngineLog");
 		DevLog::CLEAR("GL_ERROR_LOG");
