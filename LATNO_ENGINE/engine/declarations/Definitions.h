@@ -14,6 +14,8 @@
 #include "../../vendor/ImGui/imgui_impl_glfw_gl3.h"
 #include "../../vendor/ImGui/imgui.h"
 
+#include "al.h"
+#include "alc.h"
 // Extra definitions for apple (Probably doesnt work)
 #ifdef __APPLE__
 #include <unistd.h>

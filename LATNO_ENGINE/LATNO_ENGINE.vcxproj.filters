@@ -111,6 +111,9 @@
     <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\definitions\AudioManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -224,14 +227,20 @@
     <ClInclude Include="UserClasses\declarations\SpawnActorButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="engine\declarations\AudioManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />
     <Text Include="Logs\EngineLog.txt" />
     <Text Include="Logs\AppLog.txt" />
+    <Text Include="EngineLog.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\Basic.shader" />
+    <None Include="resources\audio\credits-opening1.ogg" />
+    <None Include="OpenAL32.dll" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\images.png">
@@ -249,5 +258,16 @@
     <Image Include="resources\textures\nike.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\audio\pacman_dies.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\audio\pacman_intro.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="resources\audio\canary.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
