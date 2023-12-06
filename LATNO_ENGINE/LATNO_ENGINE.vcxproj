@@ -151,6 +151,7 @@
     <ClCompile Include="engine\declarations\Rendering\VertexBufferLayout.cpp" />
     <ClCompile Include="engine\definitions\Application.cpp" />
     <ClCompile Include="engine\definitions\AudioManager.cpp" />
+    <ClCompile Include="engine\definitions\Sound.cpp" />
     <ClCompile Include="engine\definitions\Behavior.cpp" />
     <ClCompile Include="engine\definitions\Component.cpp" />
     <ClCompile Include="engine\definitions\Coords.cpp" />
@@ -178,6 +179,7 @@
   <ItemGroup>
     <ClInclude Include="engine\declarations\Application.h" />
     <ClInclude Include="engine\declarations\AudioManager.h" />
+    <ClInclude Include="engine\declarations\Sound.h" />
     <ClInclude Include="engine\declarations\Behavior.h" />
     <ClInclude Include="Entities\declarations\Button.h" />
     <ClInclude Include="engine\declarations\Component.h" />

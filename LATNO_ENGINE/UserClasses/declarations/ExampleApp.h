@@ -12,9 +12,11 @@ public:
 	Scene* level;
 	PlayerBase* player;
 	SpawnActorButton* button;
+	AudioManager* audio;
 
 	void Load() override;
 	bool Tick() override;
+	void End() override;
 
 	int count = 0;
 	float average = 0;

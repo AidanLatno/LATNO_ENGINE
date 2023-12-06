@@ -36,6 +36,12 @@ namespace Latno
 		return true;
 	}
 
+	void Application::End()
+	{
+		// To be overriden
+		// Use for memory cleanup
+	}
+
 	void Application::Startup()
 	{
 		if (!glfwInit())

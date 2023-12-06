@@ -25,8 +25,19 @@ namespace Latno
 	*	void BehaviorLoad()
 	*		- Runs through the start methods for all behaviors
 	*	virtual void Load()
+	*		- Override in your child classes.
+			- Runs once on application load.
+			- Use to initialize game state variables and actors
 	*	virtual bool Tick(double deltaTime)
+	*		- Override in your child classes.
+	*		- Runs every frame
+	*		- Use for game logic
+	*	virtual void End()
+	*		- Override in your child classes.
+	*		- Gets called after the application's destructor is called.
+	*		- Use to clean up memory.
 	*	void Startup()
+	*		- Call in LATNO_ENGINE.cpp after creating your instance of the application to start up the app.
 	* 
 	*/
 	class Application
@@ -42,6 +53,7 @@ namespace Latno
 		
 		virtual void Load();
 		virtual bool Tick();
+		virtual void End();
 		void Startup();
 
 		~Application();

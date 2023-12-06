@@ -111,6 +111,9 @@
     <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\definitions\Sound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="engine\definitions\AudioManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -225,6 +228,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UserClasses\declarations\SpawnActorButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\Sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\AudioManager.h">

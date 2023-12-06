@@ -1,6 +1,6 @@
 #pragma once
 
-#include "AudioManager.h"
+#include "Coords.h"
 
 namespace Latno 
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include "Component.h"
+#include "AudioManager.h"
 namespace Latno
 {
 	/*

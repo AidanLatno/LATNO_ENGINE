@@ -6,25 +6,21 @@ int main()
 {
 	// Replace "your_audio_file.wav" with the actual path to your audio file
 
-	/*ExampleApp* app = new ExampleApp;
-
+	ExampleApp* app = new ExampleApp;
 	app->Startup();
-
-	delete app;*/
+	delete app;
 
 
 	//AudioManager::play("resources/audio/pacman_intro.wav");
+	//AudioManager man("resources/audio/canary.wav");
+	//man.play();
 
-	AudioManager man("resources/audio/pacman_intro.wav");
-	man.play();
-
-	// Your main application loop
-	int counter = 0;
-	while (true) {
-		if (counter % 200 == 0) system("cls");
-		std::cout << counter << std::endl;
-		counter++;
-	}
+	//// Your main application loop
+	//int counter = 0;
+	//while (true) {
+	//	std::cout << counter << std::endl;
+	//	counter++;
+	//}
 
 	return 0;
 

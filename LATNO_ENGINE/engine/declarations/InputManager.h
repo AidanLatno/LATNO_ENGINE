@@ -1,5 +1,5 @@
 #pragma once
-#include "Coords.h"
+#include "Component.h"
 
 namespace Latno
 {
