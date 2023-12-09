@@ -10,9 +10,9 @@ class ExampleApp : public Application
 {
 public:
 	Scene* level;
-	PlayerBase* player;
 	SpawnActorButton* button;
 	AudioManager* audio;
+	PlayerExample* player;
 
 	void Load() override;
 	bool Tick() override;

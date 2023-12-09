@@ -103,4 +103,18 @@ namespace Latno
 		SpriteRatio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
 		SetScale(GetScale()); // Updates collisionBox scaling
 	}
+
+	void Actor::Animate(float timeBetweenFrames, std::vector<std::string>& spriteList)
+	{
+		animSwapTime += 1 * GLOBAL_DELTA_TIME;
+		if (animSwapTime >= timeBetweenFrames)
+		{
+			animSwapTime = 0;
+
+			if (animIndex >= spriteList.size())
+				animIndex = 0;
+
+			SwapTexture(spriteList[animIndex++]);
+		}
+	}
 }

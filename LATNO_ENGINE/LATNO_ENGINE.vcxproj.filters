@@ -117,6 +117,9 @@
     <ClCompile Include="engine\definitions\AudioManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserClasses\definitions\PlayerExample.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -236,6 +239,9 @@
     <ClInclude Include="engine\declarations\AudioManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UserClasses\declarations\PlayerExample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />
@@ -262,6 +268,30 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\nike.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Idle\pos8.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -6,19 +6,24 @@ void ExampleApp::Load() {
 	//		 You may also use smart pointers to manage memory automatically
 
 	level = new Scene(WINDOW_LENGTH, WINDOW_HEIGHT, window);
-	player = new PlayerBase({ 100,100 }, "resources/textures/person.png");
 	button = new SpawnActorButton( { WINDOW_LENGTH/2,WINDOW_HEIGHT/2 }, "resources/textures/nike.png" );
 	audio = new AudioManager;
+	player = new PlayerExample({ WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/idle/pos1.png");
 	player->currentScene = level;
 	button->SetScene(level);
 
-
-	level->AddActor(*player);
 	level->AddActor(*button);
+	level->AddActor(*player);
+	
 
 	currentScene = level;
 
 	level->SetBackgroundColor(0, 0, 0);
+
+	AppLog = new DevLog("AppLog");
+
+
+	AppLog->LOG("HELLO");
 }
 
 
@@ -35,7 +40,7 @@ bool ExampleApp::Tick() {
 		
 	}
 
-	ImGui::Text("IsColliding: %d", player->CheckCollision(mousePos));
+	ImGui::Text("IsColliding: %d", player->CheckCollision(*button));
 
 	ImGui::Text("Mouse position:  x - %.2f  y - %.2f", mousePos.x, mousePos.y);
 	

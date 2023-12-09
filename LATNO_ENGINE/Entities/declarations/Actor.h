@@ -54,7 +54,10 @@ namespace Latno
 	*		- Sets scale for collisionBox
 	*	SetScale(glm::vec2 _scale)
 	*		- Sets scale for actor as well as sprite and collisionBox
-	*	GetScale();
+	*	GetScale()
+	*		- Returns the scale
+	*	Animate(float timeBetweenFrames, std::vector<Sprite>& spriteList)
+	*		- Runs through the animation loop using the spriteList
 	* 
 	*/
 	class Actor : public Latno::Component
@@ -63,11 +66,15 @@ namespace Latno
 			Coords position;
 			void SetSpriteScale(float x, float y);
 			float SpriteRatio = 1;
+			float animSwapTime;
+			int animIndex = 0;
 		public:
 			glm::vec2 scale = { 1,1 };
 
 			Sprite* sprite;
 			CollisionBox* collisionBox;
+
+			
 
 			Coords preData;
 
@@ -89,6 +96,8 @@ namespace Latno
 			Coords GetPos() const;
 			void SetPos(Coords _pos);
 			void SetCollisionSize(glm::vec2 scale);
+
+			void Animate(float timeBetweenFrames, std::vector<std::string>& spriteList);
 
 			void SetScale(glm::vec2 _scale);
 			glm::vec2 GetScale();
