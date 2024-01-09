@@ -1,4 +1,7 @@
 #include "../declarations/ExampleApp.h"
+static float TPS;
+static int ticks = 0;
+static float timer;
 
 void ExampleApp::Load() {
 	// Initialization of actors
@@ -6,7 +9,7 @@ void ExampleApp::Load() {
 	//		 You may also use smart pointers to manage memory automatically
 
 	level = new Scene(WINDOW_LENGTH, WINDOW_HEIGHT, window);
-	button = new SpawnActorButton( { WINDOW_LENGTH/2,WINDOW_HEIGHT/2 }, "resources/textures/nike.png" );
+	button = new SpawnActorButton( { WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/nike.png" );
 	audio = new AudioManager;
 	player = new PlayerExample({ WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/idle/pos1.png");
 	player->currentScene = level;
@@ -36,9 +39,10 @@ bool ExampleApp::Tick() {
 	}
 	if (InputManager::KeyPressed(KEY_K))
 	{
-		currentScene->dynamicActors[currentScene->dynamicActors.size() - 1].SetPos(mousePos);
+		currentScene->AddDynamicActor(Actor({ mousePos.x,mousePos.y }, "resources/textures/person.png"));
 		
 	}
+	
 
 	ImGui::Text("IsColliding: %d", player->CheckCollision(*button));
 
@@ -68,6 +72,17 @@ bool ExampleApp::Tick() {
 	ImGui::Text("FPS: %.4f", fps);
 	ImGui::Text("average: %.4f", average);
 	ImGui::Text("count: %d", count);
+
+	timer += GLOBAL_DELTA_TIME;
+
+	if (timer >= 1)
+	{
+		timer = 0;
+		TPS = ticks;
+		ticks = 0;
+	}
+
+	ImGui::Text("FixedTick TPS: %.4f", TPS);
 	
 	return true;
 }
@@ -77,4 +92,9 @@ void ExampleApp::End()
 	delete level;
 	delete player;
 	delete button;
+}
+
+void ExampleApp::FixedTick()
+{
+	ticks++;
 }

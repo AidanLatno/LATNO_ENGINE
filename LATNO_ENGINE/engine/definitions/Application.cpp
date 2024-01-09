@@ -1,4 +1,7 @@
 #include "../declarations/Application.h"
+static float fixedTime = 0;
+static float count = 0;
+
 namespace Latno
 {
 	Application::~Application()
@@ -40,6 +43,12 @@ namespace Latno
 	{
 		// To be overriden
 		// Use for memory cleanup
+	}
+
+	void Application::FixedTick()
+	{
+		// To be overriden
+		// Runs 20 times every second
 	}
 
 	void Application::Startup()
@@ -107,20 +116,29 @@ namespace Latno
 			// vv TICK vv
 			if (!Tick())
 				return;
+			if (fixedTime > 0.05f)
+			{
+				fixedTime = 0;
+				FixedTick();
+			}
 
 			BehaviorTick();
+
+			count += GLOBAL_DELTA_TIME;
+			ImGui::Text("Seconds: %.2f", count/100);
 			
-			prevDeltaTime = DeltaCalc.GetTime();
-			DeltaCalc.Reset();
 
 			ImGui::Render();
-
-			GLOBAL_DELTA_TIME = prevDeltaTime;
+			
 
 			ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
 			glfwSwapBuffers(window);
 			glfwPollEvents();
 
+			prevDeltaTime = DeltaCalc.GetTime();
+			DeltaCalc.Reset();
+			fixedTime += prevDeltaTime;
+			GLOBAL_DELTA_TIME = prevDeltaTime;
 		}
 	}
 }
