@@ -9,9 +9,10 @@ namespace Latno
     class Pathfinder
     {
     private:
-        AdvancedActor* actorRef;
+        
     
     public:
+        AdvancedActor* actorRef;
         std::vector<Coords> path;
 
         std::vector<std::vector<Node>> grid;

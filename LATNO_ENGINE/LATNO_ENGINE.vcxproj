@@ -117,7 +117,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022;$(SolutionDir)Dependencies/SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;Gdi32.lib;Shell32.lib;glew32s.lib;OpenAL32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -136,7 +136,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022;$(SolutionDir)Dependencies/SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;Gdi32.lib;Shell32.lib;glew32s.lib;OpenAL32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -163,7 +163,7 @@
     <ClCompile Include="Entities\definitions\Actor.cpp" />
     <ClCompile Include="Entities\definitions\AdvancedActor.cpp" />
     <ClCompile Include="Entities\definitions\Button.cpp" />
-    <ClCompile Include="Entities\definitions\Tracker.cpp" />
+    <ClCompile Include="Entities\definitions\Pathfinder.cpp" />
     <ClCompile Include="Entities\definitions\PlayerBase.cpp" />
     <ClCompile Include="LATNO_ENGINE.cpp" />
     <ClCompile Include="engine\definitions\CollisionBox.cpp" />
@@ -202,7 +202,7 @@
     <ClInclude Include="engine\declarations\Scene.h" />
     <ClInclude Include="Entities\declarations\Actor.h" />
     <ClInclude Include="Entities\declarations\AdvancedActor.h" />
-    <ClInclude Include="Entities\declarations\Tracker.h" />
+    <ClInclude Include="Entities\declarations\Pathfinder.h" />
     <ClInclude Include="Entities\declarations\PlayerBase.h" />
     <ClInclude Include="engine\declarations\Node.h" />
     <ClInclude Include="engine\declarations\CollisionBox.h" />

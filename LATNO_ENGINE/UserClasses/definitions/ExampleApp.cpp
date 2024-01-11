@@ -12,6 +12,10 @@ void ExampleApp::Load() {
 	button = new SpawnActorButton( { WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/nike.png" );
 	audio = new AudioManager;
 	player = new PlayerExample({ WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/idle/pos1.png");
+	pathFind = new Pathfinder;
+
+	pathFind->actorRef = player;
+
 	player->currentScene = level;
 	button->SetScene(level);
 
@@ -32,14 +36,25 @@ void ExampleApp::Load() {
 
 bool ExampleApp::Tick() {
 	Coords mousePos = InputManager::GetMousePos();
-	if(InputManager::KeyDown(KEY_K))
+	//if(InputManager::KeyDown(KEY_K))
+	//{
+	//	currentScene->AddDynamicActor(Actor({mousePos.x,mousePos.y},"resources/textures/person.png"));
+	//	audio->PlayWavFile(rand() % 2 == 1 ? "resources/audio/pacman_intro.wav" : "resources/audio/pacman_dies.wav");
+	//}
+	if (InputManager::KeyDown(KEY_K))
 	{
-		currentScene->AddDynamicActor(Actor({mousePos.x,mousePos.y},"resources/textures/person.png"));
-		audio->PlayWavFile(rand() % 2 == 1 ? "resources/audio/pacman_intro.wav" : "resources/audio/pacman_dies.wav");
-	}
-	if (InputManager::KeyPressed(KEY_K))
-	{
-		currentScene->AddDynamicActor(Actor({ mousePos.x,mousePos.y }, "resources/textures/person.png"));
+		//currentScene->AddDynamicActor(Actor({ mousePos.x,mousePos.y }, "resources/textures/person.png"));
+
+		std::vector<Coords> path = pathFind->GetPath(button->GetPos());
+
+		std::cout << "Pressed\n";
+		std::cout << "Size: " << path.size();
+
+		for (int i = 0; i < path.size(); ++i)
+		{
+			std::cout << "x: " << path[i].x << ", y: " << path[i].y << std::endl;
+			currentScene->AddDynamicActor(Actor(path[i], "resources/textures/white-square.png"));
+		}
 		
 	}
 	

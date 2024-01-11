@@ -14,6 +14,8 @@ public:
 	AudioManager* audio;
 	PlayerExample* player;
 
+	Pathfinder* pathFind;
+
 	void Load() override;
 	bool Tick() override;
 	void End() override;

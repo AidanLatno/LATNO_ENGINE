@@ -1,4 +1,3 @@
-#include "Scene.h"
 #include "../declarations/Pathfinder.h"
 
 
@@ -10,9 +9,11 @@ namespace Latno
 
 	std::vector<Coords> Pathfinder::GetPath(Coords dest)
 	{
-		grid.resize(actorRef->currentScene.sizeY, std::vector<pathCosts>(actorRef->currentScene.sizeX));
+		grid.resize(actorRef->currentScene->sizeY, std::vector<Node>(actorRef->currentScene->sizeX));
 
-		return FindPath(dest, actorRef->GetPos());
+		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
+		path.clear();
+		return THEpath;
 	}
 
 	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords current)
