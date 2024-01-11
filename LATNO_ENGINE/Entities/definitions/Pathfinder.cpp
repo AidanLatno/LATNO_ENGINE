@@ -9,7 +9,7 @@ namespace Latno
 
 	std::vector<Coords> Pathfinder::GetPath(Coords dest)
 	{
-		grid.resize(actorRef->currentScene->sizeY, std::vector<Node>(actorRef->currentScene->sizeX));
+		grid.resize(actorRef->currentScene->sizeY/100, std::vector<Node>(actorRef->currentScene->sizeX/100));
 
 		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
 		path.clear();
@@ -21,6 +21,7 @@ namespace Latno
 		int curX = current.x;
 		int curY = current.y;
 
+		std::cout << "it iterates\n";
 
 		// STATIC CASTTT ONNN TOPPP 
 		Coords node1 = { static_cast<float>(curX - 1), static_cast<float>(curY + 1) }; // top left
@@ -43,7 +44,7 @@ namespace Latno
 			grid[curX][curY].parentX = curX;
 			grid[curX][curY].parentY = curY;
 		}
-		else if (current != dest)
+		if (current != dest)
 		{
 			std::vector<Coords> tempVec;
 			for (Coords point : nodeArr)
@@ -78,14 +79,17 @@ namespace Latno
 			}
 			path.push_back(lowestFCostCoord);
 			FindPath(dest, lowestFCostCoord);
-
 		}
+		
 		else if (current == dest)
 		{
 			std::cout << "REACHED DEST.";
 		}
 		else
 			std::cout << "ERROR";
+
+		
+
 		return path;
 
 	}
