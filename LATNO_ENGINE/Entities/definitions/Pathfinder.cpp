@@ -89,7 +89,8 @@ namespace Latno
 			Coords lowestFCostCoord;
 			for (Coords j : tempVec)
 			{
-				if (grid[(int)j.y][(int)j.x].fCost < lowestFCost)
+				float _fCost = grid[(int)j.y][(int)j.x].fCost;
+				if (_fCost < lowestFCost)
 				{
 					if (grid[(int)j.y][(int)j.x].open) {
 						lowestFCost = grid[(int)j.y][(int)j.x].fCost;
@@ -124,9 +125,18 @@ namespace Latno
 	{
 		Node node;
 
-		node.gCost = std::abs(pos.x - start.x) + std::abs(pos.y - start.y);
-		node.hCost = std::sqrt(std::pow(dest.x - pos.x, 2) + std::pow(dest.y - pos.y, 2));
-		node.fCost = node.gCost + node.hCost;
+		// Calculate gCost. For diagonal movement, use a different cost.
+		float diagonalCost = std::sqrt(2); // Cost for diagonal movement
+		int dx = std::abs(pos.x - start.x);
+		int dy = std::abs(pos.y - start.y);
+		int minD = std::min(dx, dy);
+		int straightD = dx + dy;
+		node.gCost = minD * diagonalCost + (straightD - 2 * minD);
+
+		// Use Euclidean distance for hCost (heuristic cost).
+		node.hCost = std::sqrt(std::pow(dest.x - pos.x, 2) + std::pow(dest.y - pos.y, 2)); // Euclidean distance to destination
+
+		node.fCost = node.gCost + node.hCost; // Total cost
 
 		return node;
 	}
