@@ -73,6 +73,7 @@ namespace Latno
 		int area;
 		std::vector<Latno::Actor*> actors;
 		std::vector<Latno::Actor> dynamicActors;
+		std::vector<Coords> path;
 
 		Scene(int Length, int Height, GLFWwindow* _window);
 		Scene(Coords Size, GLFWwindow* _window);
@@ -93,5 +94,6 @@ namespace Latno
 		bool IsIn(Latno::Actor* Actor) const;
 		Coords GetSize() const;
 		void SetBackgroundColor(float r, float g, float b, float a = 1.0f);
+
 	};
 }

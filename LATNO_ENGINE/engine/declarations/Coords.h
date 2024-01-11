@@ -37,6 +37,8 @@ namespace Latno
 		Coords operator * (Coords obj);
 		Coords operator / (Coords obj);
 		
+		bool operator != (Coords obj);
+        bool operator == (Coords obj);
 		Coords operator = (Coords obj);
 		Coords operator += (Coords obj);
 		Coords operator -= (Coords obj);
@@ -48,6 +50,8 @@ namespace Latno
 		Coords operator + (float obj);
 		Coords operator - (float obj);
 
+		bool operator != (float obj);
+        bool operator == (float obj);
 		Coords operator = (float obj);
 		Coords operator *= (float obj);
 		Coords operator /= (float obj);
@@ -59,6 +63,8 @@ namespace Latno
 		Coords operator + (glm::vec2 obj);
 		Coords operator - (glm::vec2 obj);
 
+		bool operator != (glm::vec2 obj);
+		bool operator == (glm::vec2 obj);
 		Coords operator = (glm::vec2 obj);
 		Coords operator *= (glm::vec2 obj);
 		Coords operator /= (glm::vec2 obj);

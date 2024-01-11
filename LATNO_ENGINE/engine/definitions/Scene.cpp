@@ -155,4 +155,5 @@ namespace Latno
 	{
 		renderer.SetBackgroundColor(r, g, b, a);
 	}
+
 }

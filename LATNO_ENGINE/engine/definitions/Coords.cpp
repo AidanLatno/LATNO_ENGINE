@@ -21,6 +21,8 @@ namespace Latno
 	Coords Coords::operator * (Coords obj) { return Coords{ x * obj.x,y * obj.y }; }
 	Coords Coords::operator / (Coords obj) { return Coords{ x / obj.x,y / obj.y }; }
 
+	bool Coords::operator != (Coords obj) { return (x != obj.x || y != obj.y); }
+	bool Coords::operator == (Coords obj) { return (x == obj.x && y == obj.y); }
 	Coords Coords::operator = (Coords obj) { x = obj.x; y = obj.y; return *this; }
 	Coords Coords::operator += (Coords obj) { *this = *this + obj; return *this; }
 	Coords Coords::operator -= (Coords obj) { *this = *this - obj; return *this; }
@@ -32,6 +34,8 @@ namespace Latno
 	Coords Coords::operator + (float obj) { return Coords{ x + obj,y + obj }; }
 	Coords Coords::operator - (float obj) { return Coords{ x - obj,y - obj }; }
 
+	bool Coords::operator != (float obj) { return (x != obj || y != obj); }
+	bool Coords::operator == (float obj) { return (x == obj && y == obj); }
 	Coords Coords::operator = (float obj) { x = obj; y = obj; return *this; }
 	Coords Coords::operator *= (float obj) { *this = *this * obj; return *this; }
 	Coords Coords::operator /= (float obj) { *this = *this / obj; return *this; }
@@ -43,6 +47,8 @@ namespace Latno
 	Coords Coords::operator + (glm::vec2 obj) { return { x + obj.x,y + obj.y }; }
 	Coords Coords::operator - (glm::vec2 obj) { return { x - obj.x,y - obj.y }; }
 
+	bool Coords::operator != (glm::vec2 obj) { return (x != obj.x || y != obj.y); }
+	bool Coords::operator == (glm::vec2 obj) { return (x == obj.x && y == obj.y); }
 	Coords Coords::operator = (glm::vec2 obj) { x = obj.x; y = obj.y; return *this; }
 	Coords Coords::operator *= (glm::vec2 obj) { *this = *this * obj; return *this; }
 	Coords Coords::operator /= (glm::vec2 obj) { *this = *this / obj; return *this; }

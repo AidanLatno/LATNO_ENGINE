@@ -19,11 +19,13 @@ namespace Latno
 	class Node
 	{
 	public:
-		Coords pos;
-		int gCost; // Distance from starting node
-		int hCost; // Distance from end node
-		int fCost; // g + h;
+		float gCost; // Distance from starting node
+		float hCost; // Distance from end node
+		float fCost; // g + h;
 		Node* parentNode;
+		int parentX;
+		int parentY;
+		bool open;
 
 		Node()
 		{
@@ -34,7 +36,7 @@ namespace Latno
 
 		void CalcFCost()
 		{
-			fCost = gCost = hCost;
+			fCost = gCost + hCost;
 		}
 	};
 }
