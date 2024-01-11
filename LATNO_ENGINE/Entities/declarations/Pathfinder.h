@@ -22,7 +22,7 @@ namespace Latno
 
         Node SetCosts(Coords start, Coords pos, Coords dest);
         
-    
+        ~Pathfinder();
 
 
 

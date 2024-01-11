@@ -9,7 +9,17 @@ namespace Latno
 
 	std::vector<Coords> Pathfinder::GetPath(Coords dest)
 	{
-		grid.resize(actorRef->currentScene->sizeY/100, std::vector<Node>(actorRef->currentScene->sizeX/100));
+		int y = actorRef->currentScene->sizeY;
+		int x = actorRef->currentScene->sizeX;
+	
+		//grid.resize(actorRef->currentScene->sizeY/100, std::vector<Node>(actorRef->currentScene->sizeX/100));
+
+		grid.resize(y);
+
+		// Resize each of the inner vectors to the new X size
+		for (int i = 0; i < y; ++i) {
+			grid[i].resize(x);
+		}
 
 		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
 		path.clear();
@@ -20,8 +30,11 @@ namespace Latno
 	{
 		int curX = current.x;
 		int curY = current.y;
+		Coords actorPos = actorRef->GetPos();
 
 		std::cout << "it iterates\n";
+		// DELETE LATER
+		if (path.size() > 500) return path;
 
 		// STATIC CASTTT ONNN TOPPP 
 		Coords node1 = { static_cast<float>(curX - 1), static_cast<float>(curY + 1) }; // top left
@@ -37,12 +50,12 @@ namespace Latno
 
 
 
-		if (actorRef->GetPos() == current) {
-			grid[curX][curY].fCost = 0.0;
-			grid[curX][curY].gCost = 0.0;
-			grid[curX][curY].hCost = 0.0;
-			grid[curX][curY].parentX = curX;
-			grid[curX][curY].parentY = curY;
+		if (actorPos == current) {
+			grid[curY][curX].fCost = 0.0;
+			grid[curY][curX].gCost = 0.0;
+			grid[curY][curX].hCost = 0.0;
+			grid[curY][curX].parentX = curX;
+			grid[curY][curX].parentY = curY;
 		}
 		if (current != dest)
 		{
@@ -50,15 +63,23 @@ namespace Latno
 			for (Coords point : nodeArr)
 			{
 
+				if (point.x < 0 || point.x >= grid[0].size() || point.y < 0 || point.y >= grid.size()) break;
+				
+				int blahY = (int)point.y;
+				int blahX = (int)point.x;
+				Node qwerty = grid[blahY][blahX];
+				if (qwerty.open == false) break;
+
+
 				int x = point.x;
 				int y = point.y;
 				if (x >= 0 && x < actorRef->currentScene->sizeY && y >= 0 && y < actorRef->currentScene->sizeY)
 				{
-					Node costs = SetCosts(actorRef->GetPos(), current, dest);
+					Node costs = SetCosts(actorPos, current, dest);
 
-					grid[x][y] = costs;
-					grid[x][y].parentX = curX;
-					grid[x][y].parentY = curY;
+					grid[y][x] = costs;
+					grid[y][x].parentX = curX;
+					grid[y][x].parentY = curY;
 
 					tempVec.push_back(point);
 				}
@@ -68,15 +89,20 @@ namespace Latno
 			Coords lowestFCostCoord;
 			for (Coords j : tempVec)
 			{
-				if (grid[j.x][j.y].fCost < lowestFCost)
+				if (grid[(int)j.y][(int)j.x].fCost < lowestFCost)
 				{
-					if (grid[j.x][j.y].open) {
-						lowestFCost = grid[j.x][j.y].fCost;
+					if (grid[(int)j.y][(int)j.x].open) {
+						lowestFCost = grid[(int)j.y][(int)j.x].fCost;
 						lowestFCostCoord = j;
 					}
 				}
 
 			}
+
+			int x = lowestFCostCoord.x;
+			int y = lowestFCostCoord.y;
+
+			grid[y][x].open = false;
 			path.push_back(lowestFCostCoord);
 			FindPath(dest, lowestFCostCoord);
 		}
@@ -99,9 +125,14 @@ namespace Latno
 		Node node;
 
 		node.gCost = std::abs(pos.x - start.x) + std::abs(pos.y - start.y);
-		node.hCost = std::sqrt(std::pow(dest.x - start.x, 2) + std::pow(dest.y - start.y, 2));
+		node.hCost = std::sqrt(std::pow(dest.x - pos.x, 2) + std::pow(dest.y - pos.y, 2));
 		node.fCost = node.gCost + node.hCost;
 
 		return node;
+	}
+
+	Pathfinder::~Pathfinder()
+	{
+
 	}
 };

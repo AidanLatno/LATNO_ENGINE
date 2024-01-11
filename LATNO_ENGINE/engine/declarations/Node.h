@@ -22,10 +22,9 @@ namespace Latno
 		float gCost; // Distance from starting node
 		float hCost; // Distance from end node
 		float fCost; // g + h;
-		Node* parentNode;
 		int parentX;
 		int parentY;
-		bool open;
+		bool open = true;
 
 		Node()
 		{
