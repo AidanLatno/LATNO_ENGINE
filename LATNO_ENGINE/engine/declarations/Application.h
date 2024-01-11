@@ -53,6 +53,7 @@ namespace Latno
 		
 		virtual void Load();
 		virtual bool Tick();
+		virtual void FixedTick();
 		virtual void End();
 		void Startup();
 

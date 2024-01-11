@@ -17,6 +17,7 @@ public:
 	void Load() override;
 	bool Tick() override;
 	void End() override;
+	void FixedTick() override;
 
 	int count = 0;
 	float average = 0;
