@@ -70,6 +70,7 @@ namespace Latno
 					path.push_back(i->pos);
 					i = i->parentPtr;
 				}
+				return path;
 			}
 
 
