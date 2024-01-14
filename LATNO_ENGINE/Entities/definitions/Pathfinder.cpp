@@ -82,7 +82,7 @@ namespace Latno
 
 				if (!node->traversable || IsIn(closedList, node)) continue;
 
-				if (!IsIn(openList, node))
+				if (!IsIn(openList, node)) // This should also check if the new path is shorter but IDK how to do that yet
 				{
 					node->parentPtr = Current;
 					if (!IsIn(openList, node))
