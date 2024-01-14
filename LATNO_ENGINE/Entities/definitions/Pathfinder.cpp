@@ -62,7 +62,15 @@ namespace Latno
 			closedList.push_back(Current);
 
 			if (Current == &grid[dest.y][dest.x])
-				return path;
+			{
+				Current->parentPtr;
+
+				for (Node* i = Current; i != NULL; )
+				{
+					path.push_back(i->pos);
+					i = i->parentPtr;
+				}
+			}
 
 
 			Node* n1 = &grid[Current->pos.y - 1][Current->pos.x - 1]; // Top left
