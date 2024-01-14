@@ -20,7 +20,6 @@ namespace Latno
         std::vector<Coords> GetPath(Coords dest);
         std::vector<Coords> FindPath(Coords dest, Coords current);
 
-        Node SetCosts(Coords start, Coords pos, Coords dest);
         
         ~Pathfinder();
 
