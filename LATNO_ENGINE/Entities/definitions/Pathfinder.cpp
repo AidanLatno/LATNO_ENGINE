@@ -6,7 +6,7 @@
 
 namespace Latno
 {
-	Node* SmallestInList(std::vector<Node*> list)
+	Node* SmallestInList(std::vector<Node*> &list)
 	{
 		Node* node = list[0];
 		float lowestFCost = FLT_MAX;
@@ -20,14 +20,6 @@ namespace Latno
 		}
 		return node;
 	}
-
-	float Distance(Coords pos1, Coords pos2)
-	{
-		float a = std::abs(pos1.x - pos2.x);
-		float b = std::abs(pos1.y - pos2.y);
-		return std::sqrt((a * a) + (b * b));
-	}
-
 	bool IsIn(std::vector<Node*> list, Node* node)
 	{
 		return std::find(list.begin(), list.end(), node) != list.end();
@@ -46,45 +38,21 @@ namespace Latno
 		return THEpath;
 	}
 
-	
+		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
+		path.clear();
+		return THEpath;
+	}
 
 	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords current)
 	{
 		Node* Current;
 		std::vector<Node*> openList, closedList;
-		openList.push_back(&grid[start.y][start.x]); // Add start node to open
+		openList.push_back(&grid[start.y][start.x]);
 
-
-		std::cout << "it iterates \n";
-		std::cout << counter++;
-	
-		if (curX == 0)
-			return path;
-
-		// STATIC CASTTT ONNN TOPPP 
-		Coords node1 = { curX - 1, curY + 1 }; // top left
-		Coords node2 = { curX + 0, curY + 1 }; // top mid
-		Coords node3 = { curX + 1, curY + 1 }; // top right
-		Coords node4 = { curX + 1, curY + 0 }; // right
-		Coords node5 = { curX + 1, curY - 1 }; // bottom right
-		Coords node6 = { curX + 0, curY - 1 }; // bottom mid
-		Coords node7 = { curX - 1, curY - 1 }; // bottom left
-		Coords node8 = { curX - 1, curY + 0 }; // left
-
-		Coords nodeArr[8] = { node1, node2, node3, node4, node5, node6, node7, node8 };
-
-
-
-		if (actorPos == current) {
-			grid[curY][curX].fCost = 0.0;
-			grid[curY][curX].gCost = 0.0;
-			grid[curY][curX].hCost = 0.0;
-		}
-		if (current != dest)
+		while (true)
 		{
-			std::vector<Coords> tempVec;
-			for (Coords point : nodeArr)
-			{
+			// Set current to smallest in list
+			Current = SmallestInList(openList);
 
 			// Erase current from OPEN
 			auto it = std::find(openList.begin(), openList.end(), Current);
@@ -92,73 +60,48 @@ namespace Latno
 
 			closedList.push_back(Current);
 
-				int x = point.x;
-				int y = point.y;
-				if (x >= 0 && x < actorRef->currentScene->sizeX && y >= 0 && y < actorRef->currentScene->sizeY)
+			if (Current == &grid[dest.y][dest.x])
+			{
+				Current->parentPtr;
 
-				{
-					Node costs = SetCosts(actorPos, point, dest);
-
-					grid[y][x] = costs;
-					grid[y][x].parentX = curX;
-					grid[y][x].parentY = curY;
-
-					tempVec.push_back(point);
-				}
-			};
-
-				for (Node* i = Current; i != nullptr; i = i->parentPtr)
+				for (Node* i = Current; i != NULL; )
 				{
 					path.push_back(i->pos);
+					i = i->parentPtr;
 				}
+				return path;
+			}
 
-				if (Current != &grid[dest.y][dest.x]) {
-					// If the destination was not reached, handle accordingly.
-					// For example, return an empty path or indicate failure.
-					return std::vector<Coords>();
-				}
 
-			int x = lowestFCostCoord.x;
-			int y = lowestFCostCoord.y;
+			Node* n1 = &grid[Current->pos.y - 1][Current->pos.x - 1]; // Top left
+			Node* n2 = &grid[Current->pos.y - 1][Current->pos.x]; // Top Middle
+			Node* n3 = &grid[Current->pos.y - 1][Current->pos.x +1]; // Top Right
+			Node* n4 = &grid[Current->pos.y][Current->pos.x - 1]; // Middle Left
+			Node* n5 = &grid[Current->pos.y][Current->pos.x + 1]; // Middle Right
+			Node* n6 = &grid[Current->pos.y + 1][Current->pos.x - 1]; // Bottom Left
+			Node* n7 = &grid[Current->pos.y + 1][Current->pos.x]; // Bottom Middle
+			Node* n8 = &grid[Current->pos.y + 1][Current->pos.x + 1]; // Bottom Right
 
-			grid[y][x].open = false;
-			path.push_back(lowestFCostCoord);
-			FindPath(dest, lowestFCostCoord);
-		}
-		
-		else if (current == dest)
-		{
-			std::cout << "REACHED DEST.";
-			return path;
-		}
-		else
-			std::cout << "ERROR";
+			Node* neighbors[8] = { n1,n2,n3,n4,n5,n6,n7,n8 };
 
-					int newX = Current->pos.x + dx;
-					int newY = Current->pos.y + dy;
+			for (Node*& node : neighbors)
+			{
+				node->SetCosts(start, { Current->pos.x,Current->pos.y }, dest);
 
-					// Check boundaries
-					if (newX < 0 || newX >= WINDOW_LENGTH || newY < 0 || newY >= WINDOW_HEIGHT) continue;
+				if (!node->traversable || IsIn(closedList, node)) continue;
 
-					Node* neighbor = &grid[newY][newX];
-
-					if (!neighbor->traversable || IsIn(closedList, neighbor)) continue;
-
-					// Calculate costs and check for shorter path
-					double tentative_gCost = Current->gCost + Distance(Current->pos, neighbor->pos);
-					if (tentative_gCost < neighbor->gCost)
-					{
-						neighbor->parentPtr = Current;
-						neighbor->SetCosts(start, neighbor->pos, dest);
-
-						if (!IsIn(openList, neighbor))
-							openList.push_back(neighbor);
-					}
+				if (!IsIn(openList, node)) // This should also check if the new path is shorter but IDK how to do that yet
+				{
+					node->parentPtr = Current;
+					if (!IsIn(openList, node))
+						openList.push_back(node);
 				}
 			}
 
 		}
-		return std::vector<Coords>();
+
+		
+		return path;
 	}
 
 	
