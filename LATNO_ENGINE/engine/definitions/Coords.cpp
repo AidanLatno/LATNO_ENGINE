@@ -14,6 +14,17 @@ namespace Latno
 		y = _y;
 	}
 
+	Coords::Coords(int _x, int _y)
+	{
+		x = _x;
+		y = _y;
+	}
+
+	Coords::Coords(double _x, double _y)
+	{
+		x = _x;
+		y = _y;
+	}
 	
 
 	Coords Coords::operator + (Coords obj) { return Coords{ x + obj.x,y + obj.y }; }

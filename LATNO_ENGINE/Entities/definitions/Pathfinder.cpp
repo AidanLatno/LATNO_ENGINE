@@ -12,19 +12,15 @@ namespace Latno
 		int y = actorRef->currentScene->sizeY;
 		int x = actorRef->currentScene->sizeX;
 	
-		//grid.resize(actorRef->currentScene->sizeY/100, std::vector<Node>(actorRef->currentScene->sizeX/100));
+		grid.resize(actorRef->currentScene->sizeY, std::vector<Node>(actorRef->currentScene->sizeX));
 
-		grid.resize(y);
-
-		// Resize each of the inner vectors to the new X size
-		for (int i = 0; i < y; ++i) {
-			grid[i].resize(x);
-		}
 
 		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
 		path.clear();
 		return THEpath;
 	}
+
+	
 
 	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords current)
 	{
@@ -32,19 +28,22 @@ namespace Latno
 		int curY = current.y;
 		Coords actorPos = actorRef->GetPos();
 
-		std::cout << "it iterates\n";
-		// DELETE LATER
-		if (path.size() > 500) return path;
+
+		std::cout << "it iterates \n";
+		std::cout << counter++;
+	
+		if (curX == 0)
+			return path;
 
 		// STATIC CASTTT ONNN TOPPP 
-		Coords node1 = { static_cast<float>(curX - 1), static_cast<float>(curY + 1) }; // top left
-		Coords node2 = { static_cast<float>(curX + 0), static_cast<float>(curY + 1) }; // top mid
-		Coords node3 = { static_cast<float>(curX + 1), static_cast<float>(curY + 1) }; // top right
-		Coords node4 = { static_cast<float>(curX + 1), static_cast<float>(curY + 0) }; // right
-		Coords node5 = { static_cast<float>(curX + 1), static_cast<float>(curY - 1) }; // bottom right
-		Coords node6 = { static_cast<float>(curX + 0), static_cast<float>(curY - 1) }; // bottom mid
-		Coords node7 = { static_cast<float>(curX - 1), static_cast<float>(curY - 1) }; // bottom left
-		Coords node8 = { static_cast<float>(curX - 1), static_cast<float>(curY + 0) }; // left
+		Coords node1 = { curX - 1, curY + 1 }; // top left
+		Coords node2 = { curX + 0, curY + 1 }; // top mid
+		Coords node3 = { curX + 1, curY + 1 }; // top right
+		Coords node4 = { curX + 1, curY + 0 }; // right
+		Coords node5 = { curX + 1, curY - 1 }; // bottom right
+		Coords node6 = { curX + 0, curY - 1 }; // bottom mid
+		Coords node7 = { curX - 1, curY - 1 }; // bottom left
+		Coords node8 = { curX - 1, curY + 0 }; // left
 
 		Coords nodeArr[8] = { node1, node2, node3, node4, node5, node6, node7, node8 };
 
@@ -54,8 +53,6 @@ namespace Latno
 			grid[curY][curX].fCost = 0.0;
 			grid[curY][curX].gCost = 0.0;
 			grid[curY][curX].hCost = 0.0;
-			grid[curY][curX].parentX = curX;
-			grid[curY][curX].parentY = curY;
 		}
 		if (current != dest)
 		{
@@ -73,9 +70,10 @@ namespace Latno
 
 				int x = point.x;
 				int y = point.y;
-				if (x >= 0 && x < actorRef->currentScene->sizeY && y >= 0 && y < actorRef->currentScene->sizeY)
+				if (x >= 0 && x < actorRef->currentScene->sizeX && y >= 0 && y < actorRef->currentScene->sizeY)
+
 				{
-					Node costs = SetCosts(actorPos, current, dest);
+					Node costs = SetCosts(actorPos, point, dest);
 
 					grid[y][x] = costs;
 					grid[y][x].parentX = curX;
@@ -111,6 +109,7 @@ namespace Latno
 		else if (current == dest)
 		{
 			std::cout << "REACHED DEST.";
+			return path;
 		}
 		else
 			std::cout << "ERROR";

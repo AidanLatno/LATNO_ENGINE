@@ -53,7 +53,8 @@ bool ExampleApp::Tick() {
 		for (int i = 0; i < path.size(); ++i)
 		{
 			std::cout << "x: " << path[i].x << ", y: " << path[i].y << std::endl;
-			currentScene->AddDynamicActor(Actor(path[i], "resources/textures/white-square.png"));
+			glm::vec2 scale = { 0.25,0.25 };
+			currentScene->AddDynamicActor(Actor(path[i].x, path[i].y, scale, "resources/textures/white-square.png"));
 		}
 		
 	}
