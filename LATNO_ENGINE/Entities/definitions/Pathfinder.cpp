@@ -6,7 +6,7 @@
 
 namespace Latno
 {
-	Node* SmallestInList(std::vector<Node*> &list)
+	Node* SmallestInList(std::vector<Node*> list)
 	{
 		Node* node = list[0];
 		float lowestFCost = FLT_MAX;
@@ -20,6 +20,14 @@ namespace Latno
 		}
 		return node;
 	}
+
+	float Distance(Coords pos1, Coords pos2)
+	{
+		float a = std::abs(pos1.x - pos2.x);
+		float b = std::abs(pos1.y - pos2.y);
+		return std::sqrt((a * a) + (b * b));
+	}
+
 	bool IsIn(std::vector<Node*> list, Node* node)
 	{
 		return std::find(list.begin(), list.end(), node) != list.end();
@@ -39,21 +47,40 @@ namespace Latno
 			grid[i].resize(x);
 		}
 
-		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
-		path.clear();
-		return THEpath;
+		for (int y = 0; y < grid.size(); y++)
+		{
+			for (int x = 0; x < grid[y].size(); x++)
+			{
+				grid[y][x] = Node(x,y);
+			}
+		}
+
+		return FindPath(dest, actorRef->GetPos());
 	}
 
 	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords start)
 	{
 		Node* Current;
 		std::vector<Node*> openList, closedList;
-		openList.push_back(&grid[start.y][start.x]);
+		openList.push_back(&grid[start.y][start.x]); // Add start node to open
+
+		int count = 0;
 
 		while (true)
 		{
+			count++;
 			// Set current to smallest in list
-			Current = SmallestInList(openList);
+			//Current = SmallestInList(openList);
+			
+			float lowestFCost = FLT_MAX;
+			for (Node*& n : openList)
+			{
+				if (n->fCost < lowestFCost)
+				{
+					Current = n;
+					lowestFCost = Current->fCost;
+				}
+			}
 
 			// Erase current from OPEN
 			auto it = std::find(openList.begin(), openList.end(), Current);
@@ -61,48 +88,59 @@ namespace Latno
 
 			closedList.push_back(Current);
 
-			if (Current == &grid[dest.y][dest.x])
+			// Trace back the path when the destination is met
+			if (Current == &grid[dest.y][dest.x] || count > 1000)
 			{
-				Current->parentPtr;
+				std::vector<Coords> path;
 
-				for (Node* i = Current; i != NULL; )
+				for (Node* i = Current; i != nullptr; i = i->parentPtr)
 				{
 					path.push_back(i->pos);
-					i = i->parentPtr;
 				}
+
+				if (Current != &grid[dest.y][dest.x]) {
+					// If the destination was not reached, handle accordingly.
+					// For example, return an empty path or indicate failure.
+					return std::vector<Coords>();
+				}
+
+				std::reverse(path.begin(), path.end()); // Reverse to get the correct order
 				return path;
 			}
 
 
-			Node* n1 = &grid[Current->pos.y - 1][Current->pos.x - 1]; // Top left
-			Node* n2 = &grid[Current->pos.y - 1][Current->pos.x]; // Top Middle
-			Node* n3 = &grid[Current->pos.y - 1][Current->pos.x +1]; // Top Right
-			Node* n4 = &grid[Current->pos.y][Current->pos.x - 1]; // Middle Left
-			Node* n5 = &grid[Current->pos.y][Current->pos.x + 1]; // Middle Right
-			Node* n6 = &grid[Current->pos.y + 1][Current->pos.x - 1]; // Bottom Left
-			Node* n7 = &grid[Current->pos.y + 1][Current->pos.x]; // Bottom Middle
-			Node* n8 = &grid[Current->pos.y + 1][Current->pos.x + 1]; // Bottom Right
-
-			Node* neighbors[8] = { n1,n2,n3,n4,n5,n6,n7,n8 };
-
-			for (Node*& node : neighbors)
+			// Check and update neighbors
+			for (int dx = -1; dx <= 1; dx++)
 			{
-				node->SetCosts(start, { Current->pos.x,Current->pos.y }, dest);
-
-				if (!node->traversable || IsIn(closedList, node)) continue;
-
-				if (!IsIn(openList, node)) // This should also check if the new path is shorter but IDK how to do that yet
+				for (int dy = -1; dy <= 1; dy++)
 				{
-					node->parentPtr = Current;
-					if (!IsIn(openList, node))
-						openList.push_back(node);
+					if (dx == 0 && dy == 0) continue; // Skip the current node itself
+
+					int newX = Current->pos.x + dx;
+					int newY = Current->pos.y + dy;
+
+					// Check boundaries
+					if (newX < 0 || newX >= WINDOW_LENGTH || newY < 0 || newY >= WINDOW_HEIGHT) continue;
+
+					Node* neighbor = &grid[newY][newX];
+
+					if (!neighbor->traversable || IsIn(closedList, neighbor)) continue;
+
+					// Calculate costs and check for shorter path
+					double tentative_gCost = Current->gCost + Distance(Current->pos, neighbor->pos);
+					if (tentative_gCost < neighbor->gCost)
+					{
+						neighbor->parentPtr = Current;
+						neighbor->SetCosts(start, neighbor->pos, dest);
+
+						if (!IsIn(openList, neighbor))
+							openList.push_back(neighbor);
+					}
 				}
 			}
 
 		}
-
-		
-		return path;
+		return std::vector<Coords>();
 	}
 
 	
