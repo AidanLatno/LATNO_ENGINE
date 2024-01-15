@@ -242,6 +242,9 @@
     <ClInclude Include="UserClasses\declarations\PlayerExample.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="engine\declarations\Grid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />

@@ -180,6 +180,7 @@
   <ItemGroup>
     <ClInclude Include="engine\declarations\Application.h" />
     <ClInclude Include="engine\declarations\AudioManager.h" />
+    <ClInclude Include="engine\declarations\Grid.h" />
     <ClInclude Include="engine\declarations\Sound.h" />
     <ClInclude Include="engine\declarations\Behavior.h" />
     <ClInclude Include="Entities\declarations\Button.h" />

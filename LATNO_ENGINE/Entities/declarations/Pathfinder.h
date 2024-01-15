@@ -1,7 +1,7 @@
 #pragma once
 
 #include "PlayerBase.h"
-#include "../../engine/declarations/Node.h"
+#include "../../engine/declarations/Grid.h"
 
 
 namespace Latno
@@ -15,10 +15,10 @@ namespace Latno
         AdvancedActor* actorRef;
         
 
-        std::vector<std::vector<Node>> grid;
+        Grid grid;
 
         std::vector<Coords> GetPath(Coords dest);
-        std::vector<Coords> FindPath(Coords dest, Coords current);
+        std::vector<Node*> FindPath(Node* startNode, Node* endNode);
 
         
         ~Pathfinder();

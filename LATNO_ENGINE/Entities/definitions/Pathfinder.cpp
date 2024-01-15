@@ -1,25 +1,21 @@
 #include "../declarations/Pathfinder.h"
 
+#include <queue>
+#include <cmath>
+#include <algorithm>
+#include <set>
 
 // Has useful psuedo code and explainations
 // https://www.youtube.com/watch?v=-L-WgKMFuhE
 
 namespace Latno
 {
-	Node* SmallestInList(std::vector<Node*> list)
-	{
-		Node* node = list[0];
-		float lowestFCost = FLT_MAX;
-		for (Node*& n : list)
-		{
-			if (n->fCost < lowestFCost)
-			{
-				node = n;
-				lowestFCost = node->fCost;
-			}
-		}
-		return node;
-	}
+    class NodeComparator {
+    public:
+        bool operator()(const Node* lhs, const Node* rhs) const {
+            return lhs->fCost > rhs->fCost;
+        }
+    };
 
 	float Distance(Coords pos1, Coords pos2)
 	{
@@ -35,113 +31,66 @@ namespace Latno
 
 	std::vector<Coords> Pathfinder::GetPath(Coords dest)
 	{
-		int y = actorRef->currentScene->sizeY;
-		int x = actorRef->currentScene->sizeX;
-	
-		//grid.resize(actorRef->currentScene->sizeY/100, std::vector<Node>(actorRef->currentScene->sizeX/100));
+        std::vector<Coords> path;
+        std::vector<Node*> nodes = FindPath(grid.getNode(actorRef->GetPos().x, actorRef->GetPos().y), grid.getNode(dest.x, dest.y));
+        for (Node* n : nodes)
+        {
+            path.push_back({ static_cast<float>(n->x),static_cast<float>(n->y) });
+        }
 
-		grid.resize(y);
-
-		// Resize each of the inner vectors to the new X size
-		for (int i = 0; i < y; ++i) {
-			grid[i].resize(x);
-		}
-
-		for (int y = 0; y < grid.size(); y++)
-		{
-			for (int x = 0; x < grid[y].size(); x++)
-			{
-				grid[y][x] = Node(x,y);
-			}
-		}
-
-		return FindPath(dest, actorRef->GetPos());
+		return path;
 	}
 
-	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords start)
-	{
-		Node* Current;
-		std::vector<Node*> openList, closedList;
-		openList.push_back(&grid[start.y][start.x]); // Add start node to open
+    std::vector<Node*> Pathfinder::FindPath(Node* startNode, Node* endNode) {
+        std::priority_queue<Node*, std::vector<Node*>, NodeComparator> openSet;
+        std::set<Node*> openSetTracker; // Track nodes in openSet
+        std::vector<Node*> closedSet;
+        std::vector<Node*> path;
 
-		int count = 0;
+        startNode->gCost = 0;
+        startNode->calculateCosts(endNode); // Initialize start node costs
+        openSet.push(startNode);
+        openSetTracker.insert(startNode);
 
-		while (true)
-		{
-			count++;
-			// Set current to smallest in list
-			//Current = SmallestInList(openList);
-			
-			float lowestFCost = FLT_MAX;
-			for (Node*& n : openList)
-			{
-				if (n->fCost < lowestFCost)
-				{
-					Current = n;
-					lowestFCost = Current->fCost;
-				}
-			}
+        while (!openSet.empty()) {
+            Node* currentNode = openSet.top();
+            openSet.pop();
+            openSetTracker.erase(currentNode);
 
-			// Erase current from OPEN
-			auto it = std::find(openList.begin(), openList.end(), Current);
-			if (it != openList.end()) { openList.erase(it); }
+            if (currentNode == endNode) {
+                while (currentNode != nullptr) {
+                    path.push_back(currentNode);
+                    currentNode = currentNode->parent;
+                }
+                std::reverse(path.begin(), path.end());
+                return path;
+            }
 
-			closedList.push_back(Current);
+            closedSet.push_back(currentNode);
 
-			// Trace back the path when the destination is met
-			if (Current == &grid[dest.y][dest.x] || count > 1000)
-			{
-				std::vector<Coords> path;
+            std::vector<Node*> neighbors = grid.getNeighbors(currentNode);
 
-				for (Node* i = Current; i != nullptr; i = i->parentPtr)
-				{
-					path.push_back(i->pos);
-				}
+            for (Node* neighbor : neighbors) {
+                if (!neighbor->isTraversable || std::find(closedSet.begin(), closedSet.end(), neighbor) != closedSet.end()) {
+                    continue; // Ignore non-traversable or already evaluated neighbors
+                }
 
-				if (Current != &grid[dest.y][dest.x]) {
-					// If the destination was not reached, handle accordingly.
-					// For example, return an empty path or indicate failure.
-					return std::vector<Coords>();
-				}
+                int newGCost = currentNode->gCost + 1; // Assuming a uniform cost for simplicity
+                if (newGCost < neighbor->gCost) {
+                    neighbor->gCost = newGCost;
+                    neighbor->calculateCosts(endNode);
+                    neighbor->parent = currentNode;
 
-				std::reverse(path.begin(), path.end()); // Reverse to get the correct order
-				return path;
-			}
+                    if (openSetTracker.find(neighbor) == openSetTracker.end()) {
+                        openSet.push(neighbor);
+                        openSetTracker.insert(neighbor);
+                    }
+                }
+            }
+        }
 
-
-			// Check and update neighbors
-			for (int dx = -1; dx <= 1; dx++)
-			{
-				for (int dy = -1; dy <= 1; dy++)
-				{
-					if (dx == 0 && dy == 0) continue; // Skip the current node itself
-
-					int newX = Current->pos.x + dx;
-					int newY = Current->pos.y + dy;
-
-					// Check boundaries
-					if (newX < 0 || newX >= WINDOW_LENGTH || newY < 0 || newY >= WINDOW_HEIGHT) continue;
-
-					Node* neighbor = &grid[newY][newX];
-
-					if (!neighbor->traversable || IsIn(closedList, neighbor)) continue;
-
-					// Calculate costs and check for shorter path
-					double tentative_gCost = Current->gCost + Distance(Current->pos, neighbor->pos);
-					if (tentative_gCost < neighbor->gCost)
-					{
-						neighbor->parentPtr = Current;
-						neighbor->SetCosts(start, neighbor->pos, dest);
-
-						if (!IsIn(openList, neighbor))
-							openList.push_back(neighbor);
-					}
-				}
-			}
-
-		}
-		return std::vector<Coords>();
-	}
+        return std::vector<Node*>(); // If no path is found, return an empty path
+    }
 
 	
 

@@ -17,57 +17,17 @@ namespace Latno
 	*	 CalcFCost()
 	*		- Calculates the fCost
 	*/
-	class Node
-	{
+	class Node {
 	public:
-		float gCost; // Distance from starting node
-		float hCost; // Distance from end node
-		float fCost; // g + h;
-		Coords pos;
-		Node* parentPtr;
-		bool traversable = true;
+		int x, y;
+		int gCost, hCost, fCost;
+		Node* parent;
+		bool isTraversable = true;
 
-		Node(float x, float y)
-		{
-			pos = Coords(x,y);
-			gCost = NULL;
-			hCost = NULL;
-			fCost = NULL;
-		}
-		Node(Coords _pos)
-		{
-			pos = _pos;
-			gCost = NULL;
-			hCost = NULL;
-			fCost = NULL;
-		}
-		Node()
-		{
-			pos = 0;
-			gCost = NULL;
-			hCost = NULL;
-			fCost = NULL;
-		}
+		Node(int x, int y) : x(x), y(y), gCost(INT_MAX), hCost(0), fCost(0), parent(nullptr) {}
 
-		void SetCosts(Coords start, Coords pos, Coords dest)
-		{
-
-			// Calculate gCost. For diagonal movement, use a different cost.
-			float diagonalCost = std::sqrt(2); // Cost for diagonal movement
-			int dx = std::abs(pos.x - start.x);
-			int dy = std::abs(pos.y - start.y);
-			int minD = std::min(dx, dy);
-			int straightD = dx + dy;
-			gCost = minD * diagonalCost + (straightD - 2 * minD);
-
-			// Use Euclidean distance for hCost (heuristic cost).
-			hCost = std::sqrt(std::pow(dest.x - pos.x, 2) + std::pow(dest.y - pos.y, 2)); // Euclidean distance to destination
-
-			CalcFCost(); // Total cost
-		}
-
-		void CalcFCost()
-		{
+		void calculateCosts(Node* endNode) {
+			hCost = std::abs(x - endNode->x) + std::abs(y - endNode->y); // Manhattan distance
 			fCost = gCost + hCost;
 		}
 	};
