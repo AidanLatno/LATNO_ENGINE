@@ -6,7 +6,7 @@
 
 namespace Latno
 {
-	Node* SmallestInList(std::vector<Node*> &list)
+	Node* SmallestInList(std::vector<Node*> list)
 	{
 		Node* node = list[0];
 		float lowestFCost = FLT_MAX;
@@ -20,6 +20,14 @@ namespace Latno
 		}
 		return node;
 	}
+
+	float Distance(Coords pos1, Coords pos2)
+	{
+		float a = std::abs(pos1.x - pos2.x);
+		float b = std::abs(pos1.y - pos2.y);
+		return std::sqrt((a * a) + (b * b));
+	}
+
 	bool IsIn(std::vector<Node*> list, Node* node)
 	{
 		return std::find(list.begin(), list.end(), node) != list.end();
@@ -29,31 +37,41 @@ namespace Latno
 	{
 		int y = actorRef->currentScene->sizeY;
 		int x = actorRef->currentScene->sizeX;
-	
-		grid.resize(actorRef->currentScene->sizeY, std::vector<Node>(actorRef->currentScene->sizeX));
 
+		//grid.resize(actorRef->currentScene->sizeY/100, std::vector<Node>(actorRef->currentScene->sizeX/100));
 
-		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
-		path.clear();
-		return THEpath;
-	}
+		grid.resize(y);
 
-		std::vector<Coords> THEpath = FindPath(dest, actorRef->GetPos());
-		path.clear();
-		return THEpath;
+		// Resize each of the inner vectors to the new X size
+		for (int i = 0; i < y; ++i) {
+			grid[i].resize(x);
+		}
+
+		for (int y = 0; y < grid.size(); y++)
+		{
+			for (int x = 0; x < grid[y].size(); x++)
+			{
+				grid[y][x] = Node(x, y);
+			}
+		}
+
+		return FindPath(dest, actorRef->GetPos());
 	}
 
 	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords start)
 	{
 		Node* Current;
 		std::vector<Node*> openList, closedList;
-		openList.push_back(&grid[start.y][start.x]);
+		openList.push_back(&grid[start.y][start.x]); // Add start node to open
+
+		int count = 0;
 
 		while (true)
 		{
+			count++;
 			// Set current to smallest in list
 			//Current = SmallestInList(openList);
-			
+
 			float lowestFCost = FLT_MAX;
 			for (Node*& n : openList)
 			{
@@ -70,15 +88,23 @@ namespace Latno
 
 			closedList.push_back(Current);
 
-			if (Current == &grid[dest.y][dest.x])
+			// Trace back the path when the destination is met
+			if (Current == &grid[dest.y][dest.x] || count > 1000)
 			{
-				Current->parentPtr;
+				std::vector<Coords> path;
 
-				for (Node* i = Current; i != NULL; )
+				for (Node* i = Current; i != nullptr; i = i->parentPtr)
 				{
 					path.push_back(i->pos);
-					i = i->parentPtr;
 				}
+
+				if (Current != &grid[dest.y][dest.x]) {
+					// If the destination was not reached, handle accordingly.
+					// For example, return an empty path or indicate failure.
+					return std::vector<Coords>();
+				}
+
+				std::reverse(path.begin(), path.end()); // Reverse to get the correct order
 				return path;
 			}
 
@@ -98,23 +124,26 @@ namespace Latno
 
 					Node* neighbor = &grid[newY][newX];
 
-				if (!node->traversable || IsIn(closedList, node)) continue;
+					if (!neighbor->traversable || IsIn(closedList, neighbor)) continue;
 
-				if (!IsIn(openList, node)) // This should also check if the new path is shorter but IDK how to do that yet
-				{
-					node->parentPtr = Current;
-					if (!IsIn(openList, node))
-						openList.push_back(node);
+					// Calculate costs and check for shorter path
+					double tentative_gCost = Current->gCost + Distance(Current->pos, neighbor->pos);
+					if (tentative_gCost < neighbor->gCost)
+					{
+						neighbor->parentPtr = Current;
+						neighbor->SetCosts(start, neighbor->pos, dest);
+
+						if (!IsIn(openList, neighbor))
+							openList.push_back(neighbor);
+					}
 				}
 			}
 
 		}
-
-		
-		return path;
+		return std::vector<Coords>();
 	}
 
-	
+
 
 	Pathfinder::~Pathfinder()
 	{

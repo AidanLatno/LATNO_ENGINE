@@ -13,7 +13,6 @@ namespace Latno
     
     public:
         AdvancedActor* actorRef;
-        std::vector<Coords> path;
 
         std::vector<std::vector<Node>> grid;
 

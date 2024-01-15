@@ -53,7 +53,7 @@ bool ExampleApp::Tick() {
 		for (int i = 0; i < path.size(); ++i)
 		{
 			std::cout << "x: " << path[i].x << ", y: " << path[i].y << std::endl;
-			currentScene->AddDynamicActor(Actor(path[i], "resources/textures/white-square.png"));
+			currentScene->AddDynamicActor(Actor(path[i].x, path[i].y, { 0.1,0.1 }, "resources/textures/white-square.png"));
 		}
 		
 	}
