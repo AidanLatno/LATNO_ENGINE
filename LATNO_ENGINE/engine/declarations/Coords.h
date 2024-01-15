@@ -32,6 +32,10 @@ namespace Latno
 		Coords();
 		Coords(float _x, float _y);
 
+		Coords(int _x, int _y);
+
+		Coords(double _x, double _y);
+
 		Coords operator + (Coords obj);
 		Coords operator - (Coords obj);
 		Coords operator * (Coords obj);

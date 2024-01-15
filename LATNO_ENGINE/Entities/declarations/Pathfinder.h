@@ -13,13 +13,15 @@ namespace Latno
     
     public:
         AdvancedActor* actorRef;
-        
 
         Grid grid;
 
         std::vector<Coords> GetPath(Coords dest);
         std::vector<Node*> FindPath(Node* startNode, Node* endNode);
 
+        Node SetCosts(Coords start, Coords pos, Coords dest);
+
+        int counter = 1;
         
         ~Pathfinder();
 
