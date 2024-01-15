@@ -6,6 +6,32 @@
 
 namespace Latno
 {
+	Node* SmallestInList(std::vector<Node*> list)
+	{
+		Node* node = list[0];
+		float lowestFCost = FLT_MAX;
+		for (Node*& n : list)
+		{
+			if (n->fCost < lowestFCost)
+			{
+				node = n;
+				lowestFCost = node->fCost;
+			}
+		}
+		return node;
+	}
+
+	float Distance(Coords pos1, Coords pos2)
+	{
+		float a = std::abs(pos1.x - pos2.x);
+		float b = std::abs(pos1.y - pos2.y);
+		return std::sqrt((a * a) + (b * b));
+	}
+
+	bool IsIn(std::vector<Node*> list, Node* node)
+	{
+		return std::find(list.begin(), list.end(), node) != list.end();
+	}
 
 	std::vector<Coords> Pathfinder::GetPath(Coords dest)
 	{
@@ -24,9 +50,9 @@ namespace Latno
 
 	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords current)
 	{
-		int curX = current.x;
-		int curY = current.y;
-		Coords actorPos = actorRef->GetPos();
+		Node* Current;
+		std::vector<Node*> openList, closedList;
+		openList.push_back(&grid[start.y][start.x]); // Add start node to open
 
 
 		std::cout << "it iterates \n";
@@ -60,13 +86,11 @@ namespace Latno
 			for (Coords point : nodeArr)
 			{
 
-				if (point.x < 0 || point.x >= grid[0].size() || point.y < 0 || point.y >= grid.size()) break;
-				
-				int blahY = (int)point.y;
-				int blahX = (int)point.x;
-				Node qwerty = grid[blahY][blahX];
-				if (qwerty.open == false) break;
+			// Erase current from OPEN
+			auto it = std::find(openList.begin(), openList.end(), Current);
+			if (it != openList.end()) { openList.erase(it); }
 
+			closedList.push_back(Current);
 
 				int x = point.x;
 				int y = point.y;
@@ -83,20 +107,16 @@ namespace Latno
 				}
 			};
 
-			double lowestFCost = DBL_MAX;
-			Coords lowestFCostCoord;
-			for (Coords j : tempVec)
-			{
-				float _fCost = grid[(int)j.y][(int)j.x].fCost;
-				if (_fCost < lowestFCost)
+				for (Node* i = Current; i != nullptr; i = i->parentPtr)
 				{
-					if (grid[(int)j.y][(int)j.x].open) {
-						lowestFCost = grid[(int)j.y][(int)j.x].fCost;
-						lowestFCostCoord = j;
-					}
+					path.push_back(i->pos);
 				}
 
-			}
+				if (Current != &grid[dest.y][dest.x]) {
+					// If the destination was not reached, handle accordingly.
+					// For example, return an empty path or indicate failure.
+					return std::vector<Coords>();
+				}
 
 			int x = lowestFCostCoord.x;
 			int y = lowestFCostCoord.y;
@@ -114,31 +134,34 @@ namespace Latno
 		else
 			std::cout << "ERROR";
 
-		
+					int newX = Current->pos.x + dx;
+					int newY = Current->pos.y + dy;
 
-		return path;
+					// Check boundaries
+					if (newX < 0 || newX >= WINDOW_LENGTH || newY < 0 || newY >= WINDOW_HEIGHT) continue;
 
+					Node* neighbor = &grid[newY][newX];
+
+					if (!neighbor->traversable || IsIn(closedList, neighbor)) continue;
+
+					// Calculate costs and check for shorter path
+					double tentative_gCost = Current->gCost + Distance(Current->pos, neighbor->pos);
+					if (tentative_gCost < neighbor->gCost)
+					{
+						neighbor->parentPtr = Current;
+						neighbor->SetCosts(start, neighbor->pos, dest);
+
+						if (!IsIn(openList, neighbor))
+							openList.push_back(neighbor);
+					}
+				}
+			}
+
+		}
+		return std::vector<Coords>();
 	}
 
-	Node Pathfinder::SetCosts(Coords start, Coords pos, Coords dest)
-	{
-		Node node;
-
-		// Calculate gCost. For diagonal movement, use a different cost.
-		float diagonalCost = std::sqrt(2); // Cost for diagonal movement
-		int dx = std::abs(pos.x - start.x);
-		int dy = std::abs(pos.y - start.y);
-		int minD = std::min(dx, dy);
-		int straightD = dx + dy;
-		node.gCost = minD * diagonalCost + (straightD - 2 * minD);
-
-		// Use Euclidean distance for hCost (heuristic cost).
-		node.hCost = std::sqrt(std::pow(dest.x - pos.x, 2) + std::pow(dest.y - pos.y, 2)); // Euclidean distance to destination
-
-		node.fCost = node.gCost + node.hCost; // Total cost
-
-		return node;
-	}
+	
 
 	Pathfinder::~Pathfinder()
 	{

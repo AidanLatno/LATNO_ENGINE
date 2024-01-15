@@ -103,8 +103,7 @@ namespace Latno
 
 	void Application::Run()
 	{
-		Timer DeltaCalc; // Used to calculate deltaTime
-		float prevDeltaTime = 0;
+		auto prevTime = std::chrono::high_resolution_clock::now();
 
 		while (true)
 		{
@@ -118,14 +117,14 @@ namespace Latno
 				return;
 			if (fixedTime > 0.05f)
 			{
-				fixedTime = 0;
+				fixedTime -= 0.05f;
 				FixedTick();
 			}
 
 			BehaviorTick();
 
 			count += GLOBAL_DELTA_TIME;
-			ImGui::Text("Seconds: %.2f", count/100);
+			ImGui::Text("Seconds: %.2f", count);
 			
 
 			ImGui::Render();
@@ -135,10 +134,12 @@ namespace Latno
 			glfwSwapBuffers(window);
 			glfwPollEvents();
 
-			prevDeltaTime = DeltaCalc.GetTime();
-			DeltaCalc.Reset();
-			fixedTime += prevDeltaTime;
-			GLOBAL_DELTA_TIME = prevDeltaTime;
+			auto currentTime = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<float> elapsedTime = currentTime - prevTime;
+			GLOBAL_DELTA_TIME = elapsedTime.count();
+			fixedTime += GLOBAL_DELTA_TIME;
+
+			prevTime = currentTime;
 		}
 	}
 }
