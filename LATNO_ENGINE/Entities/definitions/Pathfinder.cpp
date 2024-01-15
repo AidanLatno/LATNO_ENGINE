@@ -43,7 +43,7 @@ namespace Latno
 		return THEpath;
 	}
 
-	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords current)
+	std::vector<Coords> Pathfinder::FindPath(Coords dest, Coords start)
 	{
 		Node* Current;
 		std::vector<Node*> openList, closedList;
@@ -52,7 +52,17 @@ namespace Latno
 		while (true)
 		{
 			// Set current to smallest in list
-			Current = SmallestInList(openList);
+			//Current = SmallestInList(openList);
+			
+			float lowestFCost = FLT_MAX;
+			for (Node*& n : openList)
+			{
+				if (n->fCost < lowestFCost)
+				{
+					Current = n;
+					lowestFCost = Current->fCost;
+				}
+			}
 
 			// Erase current from OPEN
 			auto it = std::find(openList.begin(), openList.end(), Current);
@@ -73,20 +83,20 @@ namespace Latno
 			}
 
 
-			Node* n1 = &grid[Current->pos.y - 1][Current->pos.x - 1]; // Top left
-			Node* n2 = &grid[Current->pos.y - 1][Current->pos.x]; // Top Middle
-			Node* n3 = &grid[Current->pos.y - 1][Current->pos.x +1]; // Top Right
-			Node* n4 = &grid[Current->pos.y][Current->pos.x - 1]; // Middle Left
-			Node* n5 = &grid[Current->pos.y][Current->pos.x + 1]; // Middle Right
-			Node* n6 = &grid[Current->pos.y + 1][Current->pos.x - 1]; // Bottom Left
-			Node* n7 = &grid[Current->pos.y + 1][Current->pos.x]; // Bottom Middle
-			Node* n8 = &grid[Current->pos.y + 1][Current->pos.x + 1]; // Bottom Right
-
-			Node* neighbors[8] = { n1,n2,n3,n4,n5,n6,n7,n8 };
-
-			for (Node*& node : neighbors)
+			// Check and update neighbors
+			for (int dx = -1; dx <= 1; dx++)
 			{
-				node->SetCosts(start, { Current->pos.x,Current->pos.y }, dest);
+				for (int dy = -1; dy <= 1; dy++)
+				{
+					if (dx == 0 && dy == 0) continue; // Skip the current node itself
+
+					int newX = Current->pos.x + dx;
+					int newY = Current->pos.y + dy;
+
+					// Check boundaries
+					if (newX < 0 || newX >= WINDOW_LENGTH || newY < 0 || newY >= WINDOW_HEIGHT) continue;
+
+					Node* neighbor = &grid[newY][newX];
 
 				if (!node->traversable || IsIn(closedList, node)) continue;
 
