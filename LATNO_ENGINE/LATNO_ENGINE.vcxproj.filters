@@ -120,6 +120,9 @@
     <ClCompile Include="UserClasses\definitions\PlayerExample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\definitions\TextRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -245,6 +248,9 @@
     <ClInclude Include="engine\declarations\Grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="engine\declarations\TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Logs\GL_ERROR_LOG.txt" />
@@ -295,6 +301,126 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\Idle\pos8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\!.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\$.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\4.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\7.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\8.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\9.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\A.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\B.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\C.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\colon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\D.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\E.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\F.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\G.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\H.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\I.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\J.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\K.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\L.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\M.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\N.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\O.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\P.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\Q.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\question.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\R.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\S.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\T.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\U.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\V.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\W.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\X.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\Y.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\text\Z.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -52,7 +52,7 @@ bool ExampleApp::Tick() {
 
 		for (int i = 0; i < path.size(); ++i)
 		{
-			currentScene->AddDynamicActor(Actor(path[i].x,path[i].y,{0.1,0.1}, "resources/textures/white-square.png"));
+		
 		}
 		
 	}
