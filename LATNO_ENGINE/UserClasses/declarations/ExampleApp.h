@@ -15,6 +15,7 @@ public:
 	PlayerExample* player;
 
 	Pathfinder* pathFind;
+	PhysicsController* physics;
 
 	void Load() override;
 	bool Tick() override;

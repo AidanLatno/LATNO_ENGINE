@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Entities/declarations/AdvancedActor.h"
+#include "../../engine/declarations/PhysicsController.h"
 
 namespace Latno
 {

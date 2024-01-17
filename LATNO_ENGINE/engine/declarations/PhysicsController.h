@@ -1,5 +1,4 @@
 #pragma once
-#include "Scene.h"
 #include "../../Entities/declarations/AdvancedActor.h"
 
 namespace Latno
@@ -10,20 +9,14 @@ namespace Latno
 	*/
 	class PhysicsController : public Latno::Component
 	{
-
-		AdvancedActor* actorRef;
-		Scene* sceneRef;
-
-		float xValue;
-		float yValue;
-		float slope;
-		float bValue;
-
+	public:
+		Actor* actorRef;
 		float mass = 1;
 
-		void UpdateInfo();
 
-		void ApplyGravity(Coords centerPoint, float pullForce);
+		void ApplyGravity(Coords centerPoint, float pullForce = 1);
+		void ApplyForce(Coords centerPoint, float pullForce = 1);
+		void ApplyFloorGravity(float pullForce = 1);
 
 		float CalcYValue(float xPoint);
 

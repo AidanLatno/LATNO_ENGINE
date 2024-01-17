@@ -13,8 +13,11 @@ void ExampleApp::Load() {
 	audio = new AudioManager;
 	player = new PlayerExample({ WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/idle/pos1.png");
 	pathFind = new Pathfinder;
+	physics = new PhysicsController;
 
 	pathFind->actorRef = player;
+
+	physics->actorRef = button;
 
 	player->currentScene = level;
 	button->SetScene(level);
@@ -41,22 +44,33 @@ bool ExampleApp::Tick() {
 	//	currentScene->AddDynamicActor(Actor({mousePos.x,mousePos.y},"resources/textures/person.png"));
 	//	audio->PlayWavFile(rand() % 2 == 1 ? "resources/audio/pacman_intro.wav" : "resources/audio/pacman_dies.wav");
 	//}
+
+
+
+	physics->ApplyFloorGravity();
+
+	if (InputManager::KeyPressed(KEY_SPACE))
+	{
+		physics->ApplyForce(Coords(button->GetPos().x, button->GetPos().y - 100), 10);
+	}
+
 	if (InputManager::KeyDown(KEY_K))
 	{
 		//currentScene->AddDynamicActor(Actor({ mousePos.x,mousePos.y }, "resources/textures/person.png"));
 
-		/*std::vector<Coords> path = pathFind->GetPath(button->GetPos());
+		std::vector<Coords> path = pathFind->GetPath(button->GetPos());
 
 		std::cout << "Pressed\n";
 		std::cout << "Size: " << path.size() << "\n";
-
+		
+		
 		for (int i = 0; i < path.size(); ++i)
 		{
 		
-		}*/
+		}
 
-		TextRenderer::Clear(currentScene);
-		TextRenderer::AddText("HELLO WORLD!", "test", currentScene, player->GetPos(), 960,0.1);
+	/*	TextRenderer::Clear(currentScene);
+		TextRenderer::AddText("HELLO WORLD!", "test", currentScene, player->GetPos(), 200,0.5);*/
 		
 	}
 	
@@ -109,6 +123,9 @@ void ExampleApp::End()
 	delete level;
 	delete player;
 	delete button;
+	delete pathFind;
+	delete audio;
+	delete physics;
 }
 
 void ExampleApp::FixedTick()

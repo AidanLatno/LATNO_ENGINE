@@ -1,5 +1,5 @@
 #pragma once
-#include "../../engine/declarations/PhysicsController.h"
+#include "../../engine/declarations/Scene.h"
 
 namespace Latno {
 	/*

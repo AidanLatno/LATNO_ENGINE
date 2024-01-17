@@ -8,6 +8,8 @@ namespace Latno
 	private:
 		Scene* referenceScene;
 	public:
+
+
 		void SetScene(Scene* scene);
 
 		void OnHover() override;

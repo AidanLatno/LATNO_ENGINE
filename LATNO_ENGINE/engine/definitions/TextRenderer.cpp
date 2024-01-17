@@ -3,7 +3,8 @@
 namespace Latno
 {
 	Actor TextRenderer::GetLetterActor(char letter)
-	{
+	{  
+		letter = std::toupper(letter);
 		switch (letter)
 		{
 		case 'A':

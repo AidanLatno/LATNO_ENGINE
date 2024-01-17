@@ -4,6 +4,7 @@
 #include <cmath>
 #include <algorithm>
 #include <set>
+#include <unordered_set>
 
 // Has useful psuedo code and explainations
 // https://www.youtube.com/watch?v=-L-WgKMFuhE
@@ -31,6 +32,10 @@ namespace Latno
 
 	std::vector<Coords> Pathfinder::GetPath(Coords dest)
 	{
+        grid.~Grid();
+
+        grid = *new Grid();
+
         std::vector<Coords> path;
         std::vector<Node*> nodes = FindPath(grid.getNode(actorRef->GetPos().x, actorRef->GetPos().y), grid.getNode(dest.x, dest.y));
         for (Node* n : nodes)
@@ -42,19 +47,19 @@ namespace Latno
 	}
 
     std::vector<Node*> Pathfinder::FindPath(Node* startNode, Node* endNode) {
-        std::priority_queue<Node*, std::vector<Node*>, NodeComparator> openSet;
-        std::set<Node*> openSetTracker; // Track nodes in openSet
-        std::vector<Node*> closedSet;
+        std::set<std::pair<int, Node*>> openSet; // Pair of (cost, Node*)
+        std::unordered_map<Node*, int> openSetTracker; // Tracks Node* and their gCost
+        std::unordered_set<Node*> closedSet;
         std::vector<Node*> path;
 
         startNode->gCost = 0;
-        startNode->calculateCosts(endNode); // Initialize start node costs
-        openSet.push(startNode);
-        openSetTracker.insert(startNode);
+        startNode->calculateCosts(endNode);
+        openSet.insert({ startNode->fCost, startNode });
+        openSetTracker[startNode] = startNode->gCost;
 
         while (!openSet.empty()) {
-            Node* currentNode = openSet.top();
-            openSet.pop();
+            Node* currentNode = openSet.begin()->second;
+            openSet.erase(openSet.begin());
             openSetTracker.erase(currentNode);
 
             if (currentNode == endNode) {
@@ -66,30 +71,33 @@ namespace Latno
                 return path;
             }
 
-            closedSet.push_back(currentNode);
-
+            closedSet.insert(currentNode);
             std::vector<Node*> neighbors = grid.getNeighbors(currentNode);
 
             for (Node* neighbor : neighbors) {
-                if (!neighbor->isTraversable || std::find(closedSet.begin(), closedSet.end(), neighbor) != closedSet.end()) {
-                    continue; // Ignore non-traversable or already evaluated neighbors
+                if (!neighbor->isTraversable || closedSet.find(neighbor) != closedSet.end()) {
+                    continue;
                 }
 
-                int newGCost = currentNode->gCost + 1; // Assuming a uniform cost for simplicity
+                int newGCost = currentNode->gCost + 1;
                 if (newGCost < neighbor->gCost) {
                     neighbor->gCost = newGCost;
                     neighbor->calculateCosts(endNode);
                     neighbor->parent = currentNode;
 
-                    if (openSetTracker.find(neighbor) == openSetTracker.end()) {
-                        openSet.push(neighbor);
-                        openSetTracker.insert(neighbor);
+                    if (openSetTracker.find(neighbor) == openSetTracker.end() || openSetTracker[neighbor] > newGCost) {
+                        openSet.erase({ neighbor->fCost, neighbor }); // Remove old entry if it exists
+                        neighbor->fCost = newGCost + neighbor->hCost; // Update fCost
+                        openSet.insert({ neighbor->fCost, neighbor }); // Insert updated node
+                        openSetTracker[neighbor] = newGCost;
                     }
                 }
             }
         }
 
         return std::vector<Node*>(); // If no path is found, return an empty path
+
+
     }
 
 	
