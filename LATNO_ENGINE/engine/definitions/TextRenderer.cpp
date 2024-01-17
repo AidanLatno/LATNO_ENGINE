@@ -103,6 +103,7 @@ namespace Latno
 			textActors[textActors.size() - 1].AddTag(textBoxName);
 			textActors[textActors.size() - 1].AddTag("text");
 			textActors[textActors.size() - 1].AddTag(std::to_string(c));
+			textActors[textActors.size() - 1].SetScale({letterSize,letterSize});
 		}
 
 		int line = 0;

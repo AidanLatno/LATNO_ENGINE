@@ -55,8 +55,8 @@ bool ExampleApp::Tick() {
 		
 		}*/
 
-
-		TextRenderer::AddText("HELLO WORLD!", "test", currentScene, player->GetPos(), 960,1);
+		TextRenderer::Clear(currentScene);
+		TextRenderer::AddText("HELLO WORLD!", "test", currentScene, player->GetPos(), 960,0.1);
 		
 	}
 	
