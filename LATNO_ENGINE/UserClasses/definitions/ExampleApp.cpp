@@ -45,7 +45,7 @@ bool ExampleApp::Tick() {
 	{
 		//currentScene->AddDynamicActor(Actor({ mousePos.x,mousePos.y }, "resources/textures/person.png"));
 
-		std::vector<Coords> path = pathFind->GetPath(button->GetPos());
+		/*std::vector<Coords> path = pathFind->GetPath(button->GetPos());
 
 		std::cout << "Pressed\n";
 		std::cout << "Size: " << path.size() << "\n";
@@ -53,7 +53,10 @@ bool ExampleApp::Tick() {
 		for (int i = 0; i < path.size(); ++i)
 		{
 		
-		}
+		}*/
+
+
+		TextRenderer::AddText("HELLO WORLD!", "test", currentScene, player->GetPos(), 960,1);
 		
 	}
 	
