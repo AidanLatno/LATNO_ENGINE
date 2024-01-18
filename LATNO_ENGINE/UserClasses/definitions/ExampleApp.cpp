@@ -28,7 +28,7 @@ void ExampleApp::Load() {
 
 	currentScene = level;
 
-	level->SetBackgroundColor(0, 0, 0);
+	level->SetBackgroundColor(1, 1, 1);
 
 	AppLog = new DevLog("AppLog");
 
@@ -58,19 +58,19 @@ bool ExampleApp::Tick() {
 	{
 		//currentScene->AddDynamicActor(Actor({ mousePos.x,mousePos.y }, "resources/textures/person.png"));
 
-		std::vector<Coords> path = pathFind->GetPath(button->GetPos());
+		//std::vector<Coords> path = pathFind->GetPath(button->GetPos());
 
-		std::cout << "Pressed\n";
+		/*std::cout << "Pressed\n";
 		std::cout << "Size: " << path.size() << "\n";
 		
 		
 		for (int i = 0; i < path.size(); ++i)
 		{
 		
-		}
+		}*/
 
-	/*	TextRenderer::Clear(currentScene);
-		TextRenderer::AddText("HELLO WORLD!", "test", currentScene, player->GetPos(), 200,0.5);*/
+		//TextRenderer::Clear(currentScene);
+		TextRenderer::AddText("HElLO world!", "test", currentScene, player->GetPos(), 200,0.3);
 		
 	}
 	

@@ -118,10 +118,14 @@ namespace Latno
 				count = 0;
 			}
 
-			textActors[i].SetPos(Coords( startPos.x + (count*(77*letterSize)), startPos.y - (line * (77 * letterSize))));
-
+			textActors[i].SetPos(Coords( startPos.x + (count*(77*letterSize)), startPos.y - ((line * (77 * letterSize)) + 40)));
+			std::cout << "y pos: " << startPos.y - (line * (77 * letterSize)) << std::endl;
+			std::cout << "y pos adj: " << startPos.y - ((line * (77 * letterSize)) + 40) << std::endl;
 			scene->AddDynamicActor(textActors[i]);
 			
+			std::cout << scene->dynamicActors[i].GetTagList()[2] << ": \n" <<
+				scene->dynamicActors[i].GetPos().y << "\n";
+
 			count++;
 		}
 
