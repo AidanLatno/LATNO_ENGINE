@@ -46,11 +46,13 @@ namespace Latno
 		void Run();
 		void BehaviorTick();
 		void BehaviorLoad();
+
+		SoundDevice* soundDevice = SoundDevice::get(); // Singleton instantiation. Has no members
 	public:
 		GLFWwindow* window;
 		DevLog* AppLog;
 		Scene* currentScene;
-		
+
 		virtual void Load();
 		virtual bool Tick();
 		virtual void FixedTick();

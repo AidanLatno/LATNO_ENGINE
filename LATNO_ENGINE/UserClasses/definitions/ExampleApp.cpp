@@ -1,4 +1,6 @@
 #include "../declarations/ExampleApp.h"
+
+
 static float TPS;
 static int ticks = 0;
 static float timer;
@@ -10,7 +12,7 @@ void ExampleApp::Load() {
 
 	level = new Scene(WINDOW_LENGTH, WINDOW_HEIGHT, window);
 	button = new SpawnActorButton( { WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/nike.png" );
-	audio = new AudioManager;
+
 	player = new PlayerExample({ WINDOW_LENGTH / 2,WINDOW_HEIGHT / 2 }, "resources/textures/idle/pos1.png");
 	pathFind = new Pathfinder;
 	physics = new PhysicsController;
@@ -32,6 +34,7 @@ void ExampleApp::Load() {
 
 	AppLog = new DevLog("AppLog");
 
+	SoundDevice::Play(opening_music);
 
 	AppLog->LOG("HELLO");
 }
@@ -71,6 +74,13 @@ bool ExampleApp::Tick() {
 
 		//TextRenderer::Clear(currentScene);
 		TextRenderer::AddText("HElLO world!", "test", currentScene, player->GetPos(), 200,0.3);
+
+		
+
+		SoundDevice::Play(pacman_dead);
+
+		//SoundBuffer::get()->removeSoundEffect(sound1);
+
 		
 	}
 	
@@ -80,14 +90,6 @@ bool ExampleApp::Tick() {
 	ImGui::Text("Mouse position:  x - %.2f  y - %.2f", mousePos.x, mousePos.y);
 	
 	ImGui::Text("Actor Count: %d", currentScene->dynamicActors.size());
-
-	ImGui::Text("Sound instance count: %d", audio->sounds.size());
-	for (Sound* s : audio->sounds)
-	{
-		ImGui::Text("   - Sound FilePath: %s", s->filename.c_str());
-		ImGui::Text("      - IsPlaying: %d", s->isPlaying);
-		ImGui::Text("      - IsRunning: %d", s->isRunning);
-	}
 	
 	average += GLOBAL_DELTA_TIME;
 	count++;
@@ -124,7 +126,6 @@ void ExampleApp::End()
 	delete player;
 	delete button;
 	delete pathFind;
-	delete audio;
 	delete physics;
 }
 

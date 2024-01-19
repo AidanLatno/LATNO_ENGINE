@@ -14,8 +14,6 @@
 #include "../../vendor/ImGui/imgui_impl_glfw_gl3.h"
 #include "../../vendor/ImGui/imgui.h"
 
-#include "al.h"
-#include "alc.h"
 // Extra definitions for apple (Probably doesnt work)
 #ifdef __APPLE__
 #include <unistd.h>
@@ -32,11 +30,13 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <functional>
 #include <fstream>
 #include <vector>
 #include <math.h>
 #include <unordered_map>
 #include "Behavior.h"
+
 
 
 // Definitions for directions
@@ -46,6 +46,7 @@
 #define LEFT Coords(-1,0)
 
 extern double GLOBAL_DELTA_TIME;
+extern uint32_t currentAudio;
 
 enum Key {
     /* The unknown key */

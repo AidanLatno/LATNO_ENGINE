@@ -112,13 +112,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);DR_WAV_IMPLEMENTATION</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies;$(SolutionDir)LATNO_ENGINE/vendor;$(SolutionDir)Dependencies/OpenAL/include/AL</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies;$(SolutionDir)LATNO_ENGINE/vendor;$(SolutionDir)Dependencies/OpenAL/include/AL;$(SolutionDir)Dependencies/libsndfile/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;Gdi32.lib;Shell32.lib;glew32s.lib;OpenAL32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022;$(SolutionDir)Dependencies/libsndfile/lib;$(SolutionDir)Dependencies/OpenAL/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;Gdi32.lib;Shell32.lib;glew32s.lib;OpenAL32.lib;libsndfile-1.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,15 +129,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);DR_WAV_IMPLEMENTATION</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies;$(SolutionDir)LATNO_ENGINE/vendor;$(SolutionDir)Dependencies/OpenAL/include/AL</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies/GLFW/include;$(SolutionDir)Dependencies\GLEW\include\GL;$(SolutionDir)Dependencies;$(SolutionDir)LATNO_ENGINE/vendor;$(SolutionDir)Dependencies/OpenAL/include/AL;$(SolutionDir)Dependencies/libsndfile/include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;Gdi32.lib;Shell32.lib;glew32s.lib;OpenAL32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLEW\lib\Release\x64;$(SolutionDir)Dependencies/GLFW/lib-vc2022;$(SolutionDir)Dependencies/libsndfile/lib;$(SolutionDir)Dependencies/OpenAL/lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;user32.lib;Gdi32.lib;Shell32.lib;glew32s.lib;OpenAL32.lib;libsndfile-1.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -150,8 +150,9 @@
     <ClCompile Include="engine\declarations\Rendering\VertexBuffer.cpp" />
     <ClCompile Include="engine\declarations\Rendering\VertexBufferLayout.cpp" />
     <ClCompile Include="engine\definitions\Application.cpp" />
-    <ClCompile Include="engine\definitions\AudioManager.cpp" />
-    <ClCompile Include="engine\definitions\Sound.cpp" />
+    <ClCompile Include="engine\definitions\SoundBuffer.cpp" />
+    <ClCompile Include="engine\definitions\SoundDevice.cpp" />
+    <ClCompile Include="engine\definitions\SoundSource.cpp" />
     <ClCompile Include="engine\definitions\Behavior.cpp" />
     <ClCompile Include="engine\definitions\Component.cpp" />
     <ClCompile Include="engine\definitions\Coords.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="engine\definitions\PhysicsController.cpp" />
     <ClCompile Include="engine\definitions\Scene.cpp" />
     <ClCompile Include="engine\definitions\TextRenderer.cpp" />
+    <ClCompile Include="engine\definitions\ThreadManager.cpp" />
     <ClCompile Include="Entities\definitions\Actor.cpp" />
     <ClCompile Include="Entities\definitions\AdvancedActor.cpp" />
     <ClCompile Include="Entities\definitions\Button.cpp" />
@@ -180,11 +182,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\Application.h" />
-    <ClInclude Include="engine\declarations\AudioManager.h" />
+    <ClInclude Include="engine\declarations\SoundBuffer.h" />
+    <ClInclude Include="engine\declarations\SoundDevice.h" />
     <ClInclude Include="engine\declarations\Grid.h" />
-    <ClInclude Include="engine\declarations\Sound.h" />
+    <ClInclude Include="engine\declarations\SoundSource.h" />
     <ClInclude Include="engine\declarations\Behavior.h" />
     <ClInclude Include="engine\declarations\TextRenderer.h" />
+    <ClInclude Include="engine\declarations\ThreadManager.h" />
     <ClInclude Include="Entities\declarations\Button.h" />
     <ClInclude Include="engine\declarations\Component.h" />
     <ClInclude Include="engine\declarations\Coords.h" />

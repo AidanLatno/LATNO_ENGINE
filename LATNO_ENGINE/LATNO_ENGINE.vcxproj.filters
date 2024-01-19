@@ -111,16 +111,22 @@
     <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="engine\definitions\Sound.cpp">
+    <ClCompile Include="engine\definitions\SoundSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="engine\definitions\AudioManager.cpp">
+    <ClCompile Include="engine\definitions\SoundDevice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UserClasses\definitions\PlayerExample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="engine\definitions\TextRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\definitions\ThreadManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\definitions\SoundBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -236,10 +242,10 @@
     <ClInclude Include="UserClasses\declarations\SpawnActorButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\Sound.h">
+    <ClInclude Include="engine\declarations\SoundSource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="engine\declarations\AudioManager.h">
+    <ClInclude Include="engine\declarations\SoundDevice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UserClasses\declarations\PlayerExample.h">
@@ -249,6 +255,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\TextRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\ThreadManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\SoundBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
