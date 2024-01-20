@@ -9,6 +9,17 @@ class SoilSimulation : public Application
 private:
 
 public:
+	// Scene Pointers
+	Scene* SimulationScene;
+
+	// Actor Pointers
+	Sector** feild = new Sector* [24];
+
+	// Tool pointers
+
+	// Variables
+
+
 	void Load() override;
 	bool Tick() override;
 	void FixedTick() override;
