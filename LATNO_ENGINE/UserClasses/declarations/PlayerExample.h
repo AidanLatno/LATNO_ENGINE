@@ -1,5 +1,5 @@
 #pragma once
-#include "../../engine/declarations/Engine.h"
+#include "../../engine/declarations/Application.h"
 
 class PlayerExample : public Latno::PlayerBase
 {

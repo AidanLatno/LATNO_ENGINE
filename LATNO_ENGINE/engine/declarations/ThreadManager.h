@@ -3,15 +3,18 @@
 
 namespace Latno
 {
-    class ThreadManager {
+    class ThreadManager 
+    {
     public:
         // Static method to create and manage a thread
-        static void CreateThread(std::function<void()> task) {
+        static void CreateThread(std::function<void()> task) 
+        {
             // Create a thread that runs the provided task
             std::thread t(task);
 
             // Detach the thread if it's joinable to ensure it runs independently
-            if (t.joinable()) {
+            if (t.joinable()) 
+            {
                 std::cout << "DETACH" << std::endl;
                 t.detach();
             }

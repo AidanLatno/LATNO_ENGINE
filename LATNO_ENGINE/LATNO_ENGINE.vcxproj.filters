@@ -129,6 +129,12 @@
     <ClCompile Include="engine\definitions\SoundBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserClasses\definitions\SoilSimulation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="engine\definitions\JSONLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -261,6 +267,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\SoundBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\SoilSimulation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\JSONLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
