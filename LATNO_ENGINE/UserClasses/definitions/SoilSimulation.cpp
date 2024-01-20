@@ -7,7 +7,7 @@ void SoilSimulation::Load()
 
 	// Finish initializing 2D feild
 	for (int i = 0; i < 24; ++i)
-		feild[i] = new Sector[24];
+		field[i] = new Sector[24];
 
 	// HTTP REQUEST for field info
 

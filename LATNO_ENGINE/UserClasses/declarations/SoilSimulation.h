@@ -13,7 +13,8 @@ public:
 	Scene* SimulationScene;
 
 	// Actor Pointers
-	Sector** feild = new Sector* [24];
+	Sector** field = new Sector* [24];
+
 
 	// Tool pointers
 

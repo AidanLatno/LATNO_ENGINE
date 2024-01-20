@@ -138,6 +138,12 @@
     <ClCompile Include="UserClasses\definitions\Sector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\definitions\HTTPTransfer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UserClasses\definitions\NextDayButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -279,6 +285,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UserClasses\declarations\Sector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\declarations\HTTPTranfer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\NextDayButton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
