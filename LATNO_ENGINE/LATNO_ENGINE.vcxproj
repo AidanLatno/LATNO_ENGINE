@@ -174,6 +174,7 @@
     <ClCompile Include="engine\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
     <ClCompile Include="UserClasses\definitions\PlayerExample.cpp" />
+    <ClCompile Include="UserClasses\definitions\Sector.cpp" />
     <ClCompile Include="UserClasses\definitions\SoilSimulation.cpp" />
     <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp" />
     <ClCompile Include="UserClasses\definitions\ExampleApp.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="engine\declarations\CollisionBox.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
     <ClInclude Include="UserClasses\declarations\PlayerExample.h" />
+    <ClInclude Include="UserClasses\declarations\Sector.h" />
     <ClInclude Include="UserClasses\declarations\SoilSimulation.h" />
     <ClInclude Include="UserClasses\declarations\SpawnActorButton.h" />
     <ClInclude Include="UserClasses\declarations\ExampleApp.h" />
@@ -239,6 +241,7 @@
     <Text Include="Logs\GL_ERROR_LOG.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="libsndfile-1.dll" />
     <None Include="OpenAL32.dll" />
     <None Include="resources\audio\credits-opening1.ogg" />
     <None Include="resources\shaders\Basic.shader" />

@@ -39,6 +39,7 @@
 
 
 
+
 // Definitions for directions
 #define UP Coords(0,1)
 #define DOWN Coords(0,-1)
