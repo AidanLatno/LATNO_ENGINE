@@ -4,14 +4,14 @@
 class Sector : public Latno::Actor
 {
 private:
-	float waterAddAmount;
+	float waterAmount;
 public:
 	// Json data
 	float plantHealth;
-	float waterAmount;
+	float waterAddAmount;
 
-	void SetWaterAddAmount(float amount);
-	float GetWaterAddAmount() { return waterAddAmount; }
+	void SetWaterAmount(float amount);
+	float GetWaterAddAmount() { return waterAmount; }
 	
 
 };

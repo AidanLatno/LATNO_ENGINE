@@ -25,10 +25,13 @@ namespace Latno
         return true;
     }
 
-    void JSONLoader::parseJSON(const Json& jsonData) {
-        fieldData.sectorID = jsonData["sector id"].get<std::string>();
-        fieldData.
-
+    void JSONLoader::parseJSON(const Json& jsonData, Sector**& field, float*& weather) {
+        
+        for (int i = 0; i < 24; i++) {
+            for (int j = 0; j < 24; j++) {
+                //DO NOTT DELEETTEEE
+            }
+        }
 
     }
 
