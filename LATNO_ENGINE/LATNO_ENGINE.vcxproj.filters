@@ -135,6 +135,9 @@
     <ClCompile Include="engine\definitions\JSONLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserClasses\definitions\Sector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\CollisionBox.h">
@@ -273,6 +276,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine\declarations\JSONLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UserClasses\declarations\Sector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

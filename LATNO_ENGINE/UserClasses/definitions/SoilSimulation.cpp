@@ -2,8 +2,10 @@
 
 void SoilSimulation::Load()
 {
+	// Definitions
 	SimulationScene = new Scene({ WINDOW_LENGTH,WINDOW_HEIGHT }, window);
 
+	// Finish initializing 2D feild
 	for (int i = 0; i < 24; ++i)
 		feild[i] = new Sector[24];
 
