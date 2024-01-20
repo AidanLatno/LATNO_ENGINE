@@ -9,6 +9,11 @@ public:
 	// Json data
 	float plantHealth;
 	float waterAddAmount;
+	float mineralHealth;
+	float timeID;
+	float temperture;
+	float percipitation;
+	float sectorID;
 
 	void SetWaterAmount(float amount);
 	float GetWaterAddAmount() { return waterAmount; }
