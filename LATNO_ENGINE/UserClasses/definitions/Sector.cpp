@@ -1,7 +1,7 @@
 #include "../declarations/Sector.h"
 
-void Sector::SetWaterAddAmount(float amount)
+void Sector::SetWaterAmount(float amount)
 {
-	waterAddAmount = amount;
+	waterAmount = amount;
 
 }

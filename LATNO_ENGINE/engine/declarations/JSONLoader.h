@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <iomanip>
+#include "../../UserClasses/declarations/Sector.h"
 
 #include "nlohmann/json.hpp"
 
@@ -15,11 +16,10 @@ namespace Latno
 		
 	public:
 		static bool load(const std::string& filename, Json& jsonData);
-		static void parseJSON(const Json& jsonData);
+		static void parseJSON(const Json& jsonData, Sector**& field, float*& weather);
 
 				
-		float waterAmount, currentWater, plantHealth, mineralHealth;
-		float time, temperture, percipitation;
+		
 		
 			
 
