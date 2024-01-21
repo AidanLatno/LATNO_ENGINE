@@ -1,4 +1,5 @@
 #include "../declarations/ExampleApp.h"
+#include "../../engine/declarations/JSONLoader.h"
 
 
 static float TPS;
@@ -65,23 +66,45 @@ bool ExampleApp::Tick() {
 
 		/*std::cout << "Pressed\n";
 		std::cout << "Size: " << path.size() << "\n";
-		
-		
+
+
 		for (int i = 0; i < path.size(); ++i)
 		{
-		
+
 		}*/
 
 		//TextRenderer::Clear(currentScene);
-		TextRenderer::AddText("HElLO world!", "test", currentScene, player->GetPos(), 200,0.3);
+		TextRenderer::AddText("HElLO world!", "test", currentScene, player->GetPos(), 200, 0.3);
 
-		
 
-		SoundDevice::Play(pacman_dead);
 
-		//SoundBuffer::get()->removeSoundEffect(sound1);
+		float* weath;
+		Json data;
+		Sector** sectors;
 
-		
+		sectors = new Sector*[24];
+
+		for (int i = 0; i < 24; i++)
+			sectors[i] = new Sector[24];
+
+		for (int y = 0; y < 24; y++)
+		{
+			for (int x = 0; x < 24; x++)
+			{
+				sectors[y][x] = Sector({ x,y }, "sdf");
+			}
+		}
+
+		JSONLoader::load("resources/JSON/sectors.json", data);
+
+		JSONLoader::parseJSON(data, sectors, weath);
+
+
+			//SoundDevice::Play(pacman_dead);
+
+			//SoundBuffer::get()->removeSoundEffect(sound1);
+
+
 	}
 	
 

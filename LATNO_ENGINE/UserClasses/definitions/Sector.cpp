@@ -2,6 +2,6 @@
 
 void Sector::SetWaterAmount(float amount)
 {
-	waterAmount = amount;
+	waterAddAmount = amount;
 
 }

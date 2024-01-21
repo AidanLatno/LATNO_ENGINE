@@ -1,0 +1,2889 @@
+{
+	"sectorInfo": [
+		{
+			"plantHealth": 54.55,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.84
+		},
+		{
+			"plantHealth": 53.33,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.03
+		},
+		{
+			"plantHealth": 53.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.27
+		},
+		{
+			"plantHealth": 53.47,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.44
+		},
+		{
+			"plantHealth": 51.87,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.06
+		},
+		{
+			"plantHealth": 50.89,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.64
+		},
+		{
+			"plantHealth": 52.57,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.88
+		},
+		{
+			"plantHealth": 55.9,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.15
+		},
+		{
+			"plantHealth": 55.89,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.26
+		},
+		{
+			"plantHealth": 52.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.12
+		},
+		{
+			"plantHealth": 52.61,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.96
+		},
+		{
+			"plantHealth": 55.86,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.41
+		},
+		{
+			"plantHealth": 53.92,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.19
+		},
+		{
+			"plantHealth": 52.69,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.74
+		},
+		{
+			"plantHealth": 54.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.7
+		},
+		{
+			"plantHealth": 53.08,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.68
+		},
+		{
+			"plantHealth": 53.06,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.51
+		},
+		{
+			"plantHealth": 55.43,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.48
+		},
+		{
+			"plantHealth": 57.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.65
+		},
+		{
+			"plantHealth": 56.81,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.13
+		},
+		{
+			"plantHealth": 52.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.38
+		},
+		{
+			"plantHealth": 51.31,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.91
+		},
+		{
+			"plantHealth": 53.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.85
+		},
+		{
+			"plantHealth": 55.52,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.9
+		},
+		{
+			"plantHealth": 54.75,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.76
+		},
+		{
+			"plantHealth": 54.06,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.5
+		},
+		{
+			"plantHealth": 53.8,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.99
+		},
+		{
+			"plantHealth": 53.26,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.8
+		},
+		{
+			"plantHealth": 51.48,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.25
+		},
+		{
+			"plantHealth": 50.88,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.1
+		},
+		{
+			"plantHealth": 52.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.16
+		},
+		{
+			"plantHealth": 54.63,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.88
+		},
+		{
+			"plantHealth": 55.16,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.28
+		},
+		{
+			"plantHealth": 53.73,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.27
+		},
+		{
+			"plantHealth": 54.37,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.22
+		},
+		{
+			"plantHealth": 57.03,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.15
+		},
+		{
+			"plantHealth": 56.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.54
+		},
+		{
+			"plantHealth": 56.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.86
+		},
+		{
+			"plantHealth": 55.67,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.29
+		},
+		{
+			"plantHealth": 52.9,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.09
+		},
+		{
+			"plantHealth": 52.66,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.57
+		},
+		{
+			"plantHealth": 55.51,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.86
+		},
+		{
+			"plantHealth": 57.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.02
+		},
+		{
+			"plantHealth": 58.2,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.06
+		},
+		{
+			"plantHealth": 55.84,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.08
+		},
+		{
+			"plantHealth": 53.73,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.45
+		},
+		{
+			"plantHealth": 53.5,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.43
+		},
+		{
+			"plantHealth": 53.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.75
+		},
+		{
+			"plantHealth": 52.62,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.95
+		},
+		{
+			"plantHealth": 52.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.84
+		},
+		{
+			"plantHealth": 52.74,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.51
+		},
+		{
+			"plantHealth": 51.35,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.84
+		},
+		{
+			"plantHealth": 50.05,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.2
+		},
+		{
+			"plantHealth": 51.13,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.69
+		},
+		{
+			"plantHealth": 52.84,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.94
+		},
+		{
+			"plantHealth": 54.47,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.43
+		},
+		{
+			"plantHealth": 56.03,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.11
+		},
+		{
+			"plantHealth": 57.34,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.42
+		},
+		{
+			"plantHealth": 57.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.61
+		},
+		{
+			"plantHealth": 56.67,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.9
+		},
+		{
+			"plantHealth": 56.98,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.54
+		},
+		{
+			"plantHealth": 57.03,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.15
+		},
+		{
+			"plantHealth": 55.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.34
+		},
+		{
+			"plantHealth": 51.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.72
+		},
+		{
+			"plantHealth": 51.5,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.96
+		},
+		{
+			"plantHealth": 56.04,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.5
+		},
+		{
+			"plantHealth": 58.83,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.52
+		},
+		{
+			"plantHealth": 59.59,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.56
+		},
+		{
+			"plantHealth": 57.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.78
+		},
+		{
+			"plantHealth": 53.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.98
+		},
+		{
+			"plantHealth": 52.08,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.93
+		},
+		{
+			"plantHealth": 51.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.45
+		},
+		{
+			"plantHealth": 50.66,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.68
+		},
+		{
+			"plantHealth": 52.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.56
+		},
+		{
+			"plantHealth": 54.07,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.44
+		},
+		{
+			"plantHealth": 52.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.94
+		},
+		{
+			"plantHealth": 51.52,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.56
+		},
+		{
+			"plantHealth": 53.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.39
+		},
+		{
+			"plantHealth": 55.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.32
+		},
+		{
+			"plantHealth": 55.97,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.37
+		},
+		{
+			"plantHealth": 56.93,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.65
+		},
+		{
+			"plantHealth": 58.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.6
+		},
+		{
+			"plantHealth": 58.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.15
+		},
+		{
+			"plantHealth": 55.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.21
+		},
+		{
+			"plantHealth": 55.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.71
+		},
+		{
+			"plantHealth": 55.58,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.11
+		},
+		{
+			"plantHealth": 54.3,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.18
+		},
+		{
+			"plantHealth": 51.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.35
+		},
+		{
+			"plantHealth": 52.18,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.95
+		},
+		{
+			"plantHealth": 56.83,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.8
+		},
+		{
+			"plantHealth": 59.12,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.2
+		},
+		{
+			"plantHealth": 59.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.9
+		},
+		{
+			"plantHealth": 57.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.8
+		},
+		{
+			"plantHealth": 54.37,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.99
+		},
+		{
+			"plantHealth": 52.26,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.43
+		},
+		{
+			"plantHealth": 52.14,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.69
+		},
+		{
+			"plantHealth": 51.37,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.26
+		},
+		{
+			"plantHealth": 54.18,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.12
+		},
+		{
+			"plantHealth": 55.83,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.73
+		},
+		{
+			"plantHealth": 54.61,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.78
+		},
+		{
+			"plantHealth": 55.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.05
+		},
+		{
+			"plantHealth": 57.32,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.75
+		},
+		{
+			"plantHealth": 57.62,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.7
+		},
+		{
+			"plantHealth": 56.31,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.1
+		},
+		{
+			"plantHealth": 55.37,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.57
+		},
+		{
+			"plantHealth": 56.43,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.67
+		},
+		{
+			"plantHealth": 56.74,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.58
+		},
+		{
+			"plantHealth": 55.53,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.34
+		},
+		{
+			"plantHealth": 55.67,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.2
+		},
+		{
+			"plantHealth": 55.15,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.54
+		},
+		{
+			"plantHealth": 54.76,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.15
+		},
+		{
+			"plantHealth": 53.69,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.56
+		},
+		{
+			"plantHealth": 53.55,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.79
+		},
+		{
+			"plantHealth": 55.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.68
+		},
+		{
+			"plantHealth": 57.08,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.65
+		},
+		{
+			"plantHealth": 57.62,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.4
+		},
+		{
+			"plantHealth": 58.15,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.21
+		},
+		{
+			"plantHealth": 57.55,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.39
+		},
+		{
+			"plantHealth": 55.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.04
+		},
+		{
+			"plantHealth": 53.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.11
+		},
+		{
+			"plantHealth": 52.58,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.38
+		},
+		{
+			"plantHealth": 53.73,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.69
+		},
+		{
+			"plantHealth": 54.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.05
+		},
+		{
+			"plantHealth": 55.24,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.85
+		},
+		{
+			"plantHealth": 56.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.12
+		},
+		{
+			"plantHealth": 57.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.47
+		},
+		{
+			"plantHealth": 57.2,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.46
+		},
+		{
+			"plantHealth": 55.48,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.85
+		},
+		{
+			"plantHealth": 53.03,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.81
+		},
+		{
+			"plantHealth": 53.18,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.53
+		},
+		{
+			"plantHealth": 54.49,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.34
+		},
+		{
+			"plantHealth": 55.97,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.08
+		},
+		{
+			"plantHealth": 57.53,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.31
+		},
+		{
+			"plantHealth": 56.59,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.38
+		},
+		{
+			"plantHealth": 55.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.61
+		},
+		{
+			"plantHealth": 54.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.02
+		},
+		{
+			"plantHealth": 54.3,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.92
+		},
+		{
+			"plantHealth": 54.38,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.28
+		},
+		{
+			"plantHealth": 53.96,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.13
+		},
+		{
+			"plantHealth": 54.87,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.96
+		},
+		{
+			"plantHealth": 57.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.55
+		},
+		{
+			"plantHealth": 60.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.4
+		},
+		{
+			"plantHealth": 58.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.96
+		},
+		{
+			"plantHealth": 56.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 61.84
+		},
+		{
+			"plantHealth": 52.66,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.0
+		},
+		{
+			"plantHealth": 52.93,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.77
+		},
+		{
+			"plantHealth": 54.04,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.38
+		},
+		{
+			"plantHealth": 55.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.03
+		},
+		{
+			"plantHealth": 56.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.01
+		},
+		{
+			"plantHealth": 56.08,
+			"waterAddAmount": 0,
+			"mineralHealth": 47.91
+		},
+		{
+			"plantHealth": 57.4,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.02
+		},
+		{
+			"plantHealth": 56.69,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.7
+		},
+		{
+			"plantHealth": 53.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.67
+		},
+		{
+			"plantHealth": 52.01,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.75
+		},
+		{
+			"plantHealth": 53.32,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.91
+		},
+		{
+			"plantHealth": 56.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.42
+		},
+		{
+			"plantHealth": 57.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.52
+		},
+		{
+			"plantHealth": 56.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.84
+		},
+		{
+			"plantHealth": 54.76,
+			"waterAddAmount": 0,
+			"mineralHealth": 61.09
+		},
+		{
+			"plantHealth": 55.49,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.07
+		},
+		{
+			"plantHealth": 56.38,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.8
+		},
+		{
+			"plantHealth": 56.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.25
+		},
+		{
+			"plantHealth": 54.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.48
+		},
+		{
+			"plantHealth": 53.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.83
+		},
+		{
+			"plantHealth": 56.87,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.44
+		},
+		{
+			"plantHealth": 59.77,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.8
+		},
+		{
+			"plantHealth": 59.23,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.37
+		},
+		{
+			"plantHealth": 56.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.05
+		},
+		{
+			"plantHealth": 52.58,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.33
+		},
+		{
+			"plantHealth": 54.12,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.29
+		},
+		{
+			"plantHealth": 55.33,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.65
+		},
+		{
+			"plantHealth": 55.87,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.77
+		},
+		{
+			"plantHealth": 55.91,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.18
+		},
+		{
+			"plantHealth": 55.92,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.85
+		},
+		{
+			"plantHealth": 57.9,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.85
+		},
+		{
+			"plantHealth": 57.58,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.71
+		},
+		{
+			"plantHealth": 53.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.28
+		},
+		{
+			"plantHealth": 51.48,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.16
+		},
+		{
+			"plantHealth": 52.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.23
+		},
+		{
+			"plantHealth": 53.84,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.03
+		},
+		{
+			"plantHealth": 54.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.74
+		},
+		{
+			"plantHealth": 52.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.54
+		},
+		{
+			"plantHealth": 53.26,
+			"waterAddAmount": 0,
+			"mineralHealth": 61.73
+		},
+		{
+			"plantHealth": 55.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.16
+		},
+		{
+			"plantHealth": 57.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.93
+		},
+		{
+			"plantHealth": 57.59,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.42
+		},
+		{
+			"plantHealth": 55.65,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.19
+		},
+		{
+			"plantHealth": 54.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.22
+		},
+		{
+			"plantHealth": 56.68,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.82
+		},
+		{
+			"plantHealth": 58.05,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.58
+		},
+		{
+			"plantHealth": 57.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.52
+		},
+		{
+			"plantHealth": 56.08,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.1
+		},
+		{
+			"plantHealth": 55.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.0
+		},
+		{
+			"plantHealth": 57.93,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.34
+		},
+		{
+			"plantHealth": 57.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.41
+		},
+		{
+			"plantHealth": 56.42,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.85
+		},
+		{
+			"plantHealth": 55.49,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.14
+		},
+		{
+			"plantHealth": 55.36,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.08
+		},
+		{
+			"plantHealth": 56.35,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.44
+		},
+		{
+			"plantHealth": 55.74,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.39
+		},
+		{
+			"plantHealth": 51.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.93
+		},
+		{
+			"plantHealth": 50.26,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.49
+		},
+		{
+			"plantHealth": 51.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.15
+		},
+		{
+			"plantHealth": 52.5,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.74
+		},
+		{
+			"plantHealth": 52.33,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.36
+		},
+		{
+			"plantHealth": 51.47,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.3
+		},
+		{
+			"plantHealth": 53.09,
+			"waterAddAmount": 0,
+			"mineralHealth": 61.11
+		},
+		{
+			"plantHealth": 55.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.37
+		},
+		{
+			"plantHealth": 56.38,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.78
+		},
+		{
+			"plantHealth": 55.52,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.94
+		},
+		{
+			"plantHealth": 54.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.24
+		},
+		{
+			"plantHealth": 54.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.99
+		},
+		{
+			"plantHealth": 55.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.55
+		},
+		{
+			"plantHealth": 55.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.63
+		},
+		{
+			"plantHealth": 57.18,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.94
+		},
+		{
+			"plantHealth": 56.92,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.92
+		},
+		{
+			"plantHealth": 59.38,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.13
+		},
+		{
+			"plantHealth": 60.01,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.14
+		},
+		{
+			"plantHealth": 58.69,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.89
+		},
+		{
+			"plantHealth": 56.49,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.03
+		},
+		{
+			"plantHealth": 55.28,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.85
+		},
+		{
+			"plantHealth": 54.42,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.61
+		},
+		{
+			"plantHealth": 54.18,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.12
+		},
+		{
+			"plantHealth": 52.92,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.13
+		},
+		{
+			"plantHealth": 49.31,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.46
+		},
+		{
+			"plantHealth": 48.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.39
+		},
+		{
+			"plantHealth": 52.13,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.04
+		},
+		{
+			"plantHealth": 54.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.99
+		},
+		{
+			"plantHealth": 55.56,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.13
+		},
+		{
+			"plantHealth": 54.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.66
+		},
+		{
+			"plantHealth": 53.83,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.79
+		},
+		{
+			"plantHealth": 54.44,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.28
+		},
+		{
+			"plantHealth": 53.49,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.05
+		},
+		{
+			"plantHealth": 52.62,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.13
+		},
+		{
+			"plantHealth": 52.58,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.26
+		},
+		{
+			"plantHealth": 53.63,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.88
+		},
+		{
+			"plantHealth": 55.02,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.62
+		},
+		{
+			"plantHealth": 55.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.7
+		},
+		{
+			"plantHealth": 56.92,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.24
+		},
+		{
+			"plantHealth": 56.47,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.32
+		},
+		{
+			"plantHealth": 60.01,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.55
+		},
+		{
+			"plantHealth": 59.52,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.13
+		},
+		{
+			"plantHealth": 57.74,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.78
+		},
+		{
+			"plantHealth": 55.37,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.42
+		},
+		{
+			"plantHealth": 53.93,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.07
+		},
+		{
+			"plantHealth": 54.02,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.8
+		},
+		{
+			"plantHealth": 54.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.89
+		},
+		{
+			"plantHealth": 53.04,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.96
+		},
+		{
+			"plantHealth": 49.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.23
+		},
+		{
+			"plantHealth": 48.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.12
+		},
+		{
+			"plantHealth": 52.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.78
+		},
+		{
+			"plantHealth": 56.92,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.73
+		},
+		{
+			"plantHealth": 58.84,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.43
+		},
+		{
+			"plantHealth": 57.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.03
+		},
+		{
+			"plantHealth": 55.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.27
+		},
+		{
+			"plantHealth": 53.57,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.04
+		},
+		{
+			"plantHealth": 52.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.67
+		},
+		{
+			"plantHealth": 51.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.04
+		},
+		{
+			"plantHealth": 52.75,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.66
+		},
+		{
+			"plantHealth": 54.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.11
+		},
+		{
+			"plantHealth": 57.21,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.85
+		},
+		{
+			"plantHealth": 57.84,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.24
+		},
+		{
+			"plantHealth": 56.05,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.47
+		},
+		{
+			"plantHealth": 53.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.71
+		},
+		{
+			"plantHealth": 60.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.99
+		},
+		{
+			"plantHealth": 58.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.91
+		},
+		{
+			"plantHealth": 55.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.17
+		},
+		{
+			"plantHealth": 53.16,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.29
+		},
+		{
+			"plantHealth": 51.23,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.85
+		},
+		{
+			"plantHealth": 51.74,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.66
+		},
+		{
+			"plantHealth": 54.46,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.33
+		},
+		{
+			"plantHealth": 55.63,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.31
+		},
+		{
+			"plantHealth": 54.09,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.54
+		},
+		{
+			"plantHealth": 52.48,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.95
+		},
+		{
+			"plantHealth": 53.41,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.73
+		},
+		{
+			"plantHealth": 56.13,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.33
+		},
+		{
+			"plantHealth": 58.52,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.01
+		},
+		{
+			"plantHealth": 59.64,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.78
+		},
+		{
+			"plantHealth": 57.76,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.63
+		},
+		{
+			"plantHealth": 55.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.07
+		},
+		{
+			"plantHealth": 55.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.51
+		},
+		{
+			"plantHealth": 55.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.35
+		},
+		{
+			"plantHealth": 55.75,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.13
+		},
+		{
+			"plantHealth": 56.1,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.87
+		},
+		{
+			"plantHealth": 57.5,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.53
+		},
+		{
+			"plantHealth": 57.76,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.67
+		},
+		{
+			"plantHealth": 56.26,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.25
+		},
+		{
+			"plantHealth": 55.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.44
+		},
+		{
+			"plantHealth": 60.13,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.38
+		},
+		{
+			"plantHealth": 56.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.15
+		},
+		{
+			"plantHealth": 53.05,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.16
+		},
+		{
+			"plantHealth": 51.91,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.71
+		},
+		{
+			"plantHealth": 50.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.69
+		},
+		{
+			"plantHealth": 49.96,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.56
+		},
+		{
+			"plantHealth": 52.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.64
+		},
+		{
+			"plantHealth": 57.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.08
+		},
+		{
+			"plantHealth": 58.63,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.32
+		},
+		{
+			"plantHealth": 56.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.9
+		},
+		{
+			"plantHealth": 54.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.98
+		},
+		{
+			"plantHealth": 54.42,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.1
+		},
+		{
+			"plantHealth": 56.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.36
+		},
+		{
+			"plantHealth": 59.42,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.41
+		},
+		{
+			"plantHealth": 57.93,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.6
+		},
+		{
+			"plantHealth": 56.2,
+			"waterAddAmount": 0,
+			"mineralHealth": 48.65
+		},
+		{
+			"plantHealth": 56.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.07
+		},
+		{
+			"plantHealth": 58.16,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.94
+		},
+		{
+			"plantHealth": 57.84,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.25
+		},
+		{
+			"plantHealth": 56.01,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.86
+		},
+		{
+			"plantHealth": 55.01,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.8
+		},
+		{
+			"plantHealth": 55.02,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.97
+		},
+		{
+			"plantHealth": 55.86,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.26
+		},
+		{
+			"plantHealth": 57.44,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.6
+		},
+		{
+			"plantHealth": 58.38,
+			"waterAddAmount": 0,
+			"mineralHealth": 61.59
+		},
+		{
+			"plantHealth": 55.43,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.83
+		},
+		{
+			"plantHealth": 53.2,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.94
+		},
+		{
+			"plantHealth": 53.43,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.23
+		},
+		{
+			"plantHealth": 53.09,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.04
+		},
+		{
+			"plantHealth": 51.15,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.93
+		},
+		{
+			"plantHealth": 52.77,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.35
+		},
+		{
+			"plantHealth": 57.76,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.21
+		},
+		{
+			"plantHealth": 59.34,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.21
+		},
+		{
+			"plantHealth": 56.78,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.86
+		},
+		{
+			"plantHealth": 53.91,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.77
+		},
+		{
+			"plantHealth": 53.28,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.51
+		},
+		{
+			"plantHealth": 55.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.57
+		},
+		{
+			"plantHealth": 56.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.11
+		},
+		{
+			"plantHealth": 55.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.05
+		},
+		{
+			"plantHealth": 53.89,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.78
+		},
+		{
+			"plantHealth": 55.23,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.25
+		},
+		{
+			"plantHealth": 56.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.42
+		},
+		{
+			"plantHealth": 56.02,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.61
+		},
+		{
+			"plantHealth": 54.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.05
+		},
+		{
+			"plantHealth": 53.47,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.49
+		},
+		{
+			"plantHealth": 53.69,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.22
+		},
+		{
+			"plantHealth": 54.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.48
+		},
+		{
+			"plantHealth": 57.37,
+			"waterAddAmount": 0,
+			"mineralHealth": 50.77
+		},
+		{
+			"plantHealth": 55.48,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.83
+		},
+		{
+			"plantHealth": 55.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.77
+		},
+		{
+			"plantHealth": 55.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.28
+		},
+		{
+			"plantHealth": 55.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.59
+		},
+		{
+			"plantHealth": 55.02,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.19
+		},
+		{
+			"plantHealth": 54.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.7
+		},
+		{
+			"plantHealth": 55.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.79
+		},
+		{
+			"plantHealth": 58.88,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.68
+		},
+		{
+			"plantHealth": 57.86,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.63
+		},
+		{
+			"plantHealth": 53.8,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.93
+		},
+		{
+			"plantHealth": 52.05,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.82
+		},
+		{
+			"plantHealth": 52.07,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.7
+		},
+		{
+			"plantHealth": 52.51,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.49
+		},
+		{
+			"plantHealth": 54.13,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.77
+		},
+		{
+			"plantHealth": 55.31,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.95
+		},
+		{
+			"plantHealth": 55.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.6
+		},
+		{
+			"plantHealth": 56.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.14
+		},
+		{
+			"plantHealth": 55.73,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.83
+		},
+		{
+			"plantHealth": 54.03,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.12
+		},
+		{
+			"plantHealth": 52.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.9
+		},
+		{
+			"plantHealth": 53.87,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.91
+		},
+		{
+			"plantHealth": 54.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.76
+		},
+		{
+			"plantHealth": 55.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.81
+		},
+		{
+			"plantHealth": 58.18,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.05
+		},
+		{
+			"plantHealth": 53.97,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.91
+		},
+		{
+			"plantHealth": 55.14,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.51
+		},
+		{
+			"plantHealth": 55.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.56
+		},
+		{
+			"plantHealth": 55.57,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.48
+		},
+		{
+			"plantHealth": 56.15,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.87
+		},
+		{
+			"plantHealth": 57.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.82
+		},
+		{
+			"plantHealth": 58.77,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.94
+		},
+		{
+			"plantHealth": 59.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.29
+		},
+		{
+			"plantHealth": 56.24,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.65
+		},
+		{
+			"plantHealth": 51.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.11
+		},
+		{
+			"plantHealth": 51.44,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.71
+		},
+		{
+			"plantHealth": 51.74,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.84
+		},
+		{
+			"plantHealth": 51.15,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.4
+		},
+		{
+			"plantHealth": 53.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.03
+		},
+		{
+			"plantHealth": 57.31,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.29
+		},
+		{
+			"plantHealth": 60.06,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.61
+		},
+		{
+			"plantHealth": 59.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.16
+		},
+		{
+			"plantHealth": 57.31,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.42
+		},
+		{
+			"plantHealth": 53.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.98
+		},
+		{
+			"plantHealth": 52.24,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.98
+		},
+		{
+			"plantHealth": 53.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.99
+		},
+		{
+			"plantHealth": 56.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.56
+		},
+		{
+			"plantHealth": 58.3,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.21
+		},
+		{
+			"plantHealth": 59.83,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.88
+		},
+		{
+			"plantHealth": 55.21,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.06
+		},
+		{
+			"plantHealth": 55.02,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.93
+		},
+		{
+			"plantHealth": 54.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.66
+		},
+		{
+			"plantHealth": 55.59,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.59
+		},
+		{
+			"plantHealth": 56.35,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.9
+		},
+		{
+			"plantHealth": 57.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.39
+		},
+		{
+			"plantHealth": 59.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.44
+		},
+		{
+			"plantHealth": 59.07,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.25
+		},
+		{
+			"plantHealth": 55.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.55
+		},
+		{
+			"plantHealth": 53.35,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.77
+		},
+		{
+			"plantHealth": 54.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.52
+		},
+		{
+			"plantHealth": 54.56,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.51
+		},
+		{
+			"plantHealth": 53.28,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.92
+		},
+		{
+			"plantHealth": 54.16,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.34
+		},
+		{
+			"plantHealth": 58.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.78
+		},
+		{
+			"plantHealth": 61.77,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.53
+		},
+		{
+			"plantHealth": 61.44,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.55
+		},
+		{
+			"plantHealth": 58.04,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.42
+		},
+		{
+			"plantHealth": 54.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.07
+		},
+		{
+			"plantHealth": 52.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.11
+		},
+		{
+			"plantHealth": 53.06,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.65
+		},
+		{
+			"plantHealth": 55.4,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.36
+		},
+		{
+			"plantHealth": 57.66,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.25
+		},
+		{
+			"plantHealth": 58.1,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.16
+		},
+		{
+			"plantHealth": 55.21,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.57
+		},
+		{
+			"plantHealth": 54.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.39
+		},
+		{
+			"plantHealth": 53.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.44
+		},
+		{
+			"plantHealth": 54.66,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.3
+		},
+		{
+			"plantHealth": 55.32,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.14
+		},
+		{
+			"plantHealth": 56.44,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.49
+		},
+		{
+			"plantHealth": 57.26,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.41
+		},
+		{
+			"plantHealth": 57.51,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.74
+		},
+		{
+			"plantHealth": 56.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.2
+		},
+		{
+			"plantHealth": 55.69,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.36
+		},
+		{
+			"plantHealth": 56.89,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.87
+		},
+		{
+			"plantHealth": 57.2,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.2
+		},
+		{
+			"plantHealth": 56.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.27
+		},
+		{
+			"plantHealth": 55.69,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.11
+		},
+		{
+			"plantHealth": 57.42,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.17
+		},
+		{
+			"plantHealth": 59.9,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.97
+		},
+		{
+			"plantHealth": 59.43,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.9
+		},
+		{
+			"plantHealth": 56.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.46
+		},
+		{
+			"plantHealth": 54.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.07
+		},
+		{
+			"plantHealth": 54.24,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.26
+		},
+		{
+			"plantHealth": 53.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.87
+		},
+		{
+			"plantHealth": 54.07,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.48
+		},
+		{
+			"plantHealth": 54.93,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.68
+		},
+		{
+			"plantHealth": 54.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.32
+		},
+		{
+			"plantHealth": 53.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.25
+		},
+		{
+			"plantHealth": 53.37,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.91
+		},
+		{
+			"plantHealth": 53.08,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.81
+		},
+		{
+			"plantHealth": 53.67,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.56
+		},
+		{
+			"plantHealth": 54.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.86
+		},
+		{
+			"plantHealth": 55.29,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.49
+		},
+		{
+			"plantHealth": 56.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.54
+		},
+		{
+			"plantHealth": 56.68,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.59
+		},
+		{
+			"plantHealth": 56.64,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.42
+		},
+		{
+			"plantHealth": 55.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.96
+		},
+		{
+			"plantHealth": 55.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.06
+		},
+		{
+			"plantHealth": 56.5,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.93
+		},
+		{
+			"plantHealth": 57.53,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.75
+		},
+		{
+			"plantHealth": 57.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.68
+		},
+		{
+			"plantHealth": 56.97,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.37
+		},
+		{
+			"plantHealth": 56.97,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.03
+		},
+		{
+			"plantHealth": 56.7,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.77
+		},
+		{
+			"plantHealth": 54.87,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.41
+		},
+		{
+			"plantHealth": 55.06,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.29
+		},
+		{
+			"plantHealth": 55.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.2
+		},
+		{
+			"plantHealth": 54.84,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.86
+		},
+		{
+			"plantHealth": 55.06,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.39
+		},
+		{
+			"plantHealth": 54.89,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.82
+		},
+		{
+			"plantHealth": 53.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.76
+		},
+		{
+			"plantHealth": 53.75,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.68
+		},
+		{
+			"plantHealth": 53.8,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.64
+		},
+		{
+			"plantHealth": 52.77,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.6
+		},
+		{
+			"plantHealth": 51.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.99
+		},
+		{
+			"plantHealth": 52.2,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.48
+		},
+		{
+			"plantHealth": 54.52,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.49
+		},
+		{
+			"plantHealth": 57.43,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.76
+		},
+		{
+			"plantHealth": 58.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.91
+		},
+		{
+			"plantHealth": 57.77,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.6
+		},
+		{
+			"plantHealth": 56.21,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.8
+		},
+		{
+			"plantHealth": 54.9,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.98
+		},
+		{
+			"plantHealth": 54.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.85
+		},
+		{
+			"plantHealth": 55.91,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.62
+		},
+		{
+			"plantHealth": 57.55,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.58
+		},
+		{
+			"plantHealth": 57.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.66
+		},
+		{
+			"plantHealth": 54.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.37
+		},
+		{
+			"plantHealth": 54.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.4
+		},
+		{
+			"plantHealth": 54.67,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.33
+		},
+		{
+			"plantHealth": 55.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.07
+		},
+		{
+			"plantHealth": 57.14,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.07
+		},
+		{
+			"plantHealth": 57.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.46
+		},
+		{
+			"plantHealth": 56.9,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.24
+		},
+		{
+			"plantHealth": 55.99,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.88
+		},
+		{
+			"plantHealth": 53.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.64
+		},
+		{
+			"plantHealth": 55.97,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.37
+		},
+		{
+			"plantHealth": 55.31,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.74
+		},
+		{
+			"plantHealth": 53.07,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.35
+		},
+		{
+			"plantHealth": 51.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.12
+		},
+		{
+			"plantHealth": 52.6,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.69
+		},
+		{
+			"plantHealth": 55.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.37
+		},
+		{
+			"plantHealth": 58.38,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.4
+		},
+		{
+			"plantHealth": 59.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.77
+		},
+		{
+			"plantHealth": 58.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.49
+		},
+		{
+			"plantHealth": 56.81,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.14
+		},
+		{
+			"plantHealth": 56.0,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.29
+		},
+		{
+			"plantHealth": 55.12,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.94
+		},
+		{
+			"plantHealth": 53.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.73
+		},
+		{
+			"plantHealth": 54.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.04
+		},
+		{
+			"plantHealth": 56.3,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.73
+		},
+		{
+			"plantHealth": 54.28,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.4
+		},
+		{
+			"plantHealth": 53.14,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.8
+		},
+		{
+			"plantHealth": 54.85,
+			"waterAddAmount": 0,
+			"mineralHealth": 49.59
+		},
+		{
+			"plantHealth": 56.77,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.23
+		},
+		{
+			"plantHealth": 57.61,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.94
+		},
+		{
+			"plantHealth": 57.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.65
+		},
+		{
+			"plantHealth": 55.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.95
+		},
+		{
+			"plantHealth": 53.65,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.72
+		},
+		{
+			"plantHealth": 51.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.52
+		},
+		{
+			"plantHealth": 58.03,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.55
+		},
+		{
+			"plantHealth": 55.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.59
+		},
+		{
+			"plantHealth": 52.93,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.52
+		},
+		{
+			"plantHealth": 52.13,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.04
+		},
+		{
+			"plantHealth": 53.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.91
+		},
+		{
+			"plantHealth": 55.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.22
+		},
+		{
+			"plantHealth": 56.78,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.02
+		},
+		{
+			"plantHealth": 57.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.07
+		},
+		{
+			"plantHealth": 57.13,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.6
+		},
+		{
+			"plantHealth": 56.64,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.28
+		},
+		{
+			"plantHealth": 56.81,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.51
+		},
+		{
+			"plantHealth": 55.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.22
+		},
+		{
+			"plantHealth": 53.1,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.02
+		},
+		{
+			"plantHealth": 53.63,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.4
+		},
+		{
+			"plantHealth": 55.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.08
+		},
+		{
+			"plantHealth": 55.2,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.68
+		},
+		{
+			"plantHealth": 54.12,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.98
+		},
+		{
+			"plantHealth": 55.83,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.7
+		},
+		{
+			"plantHealth": 57.3,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.99
+		},
+		{
+			"plantHealth": 56.43,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.3
+		},
+		{
+			"plantHealth": 55.35,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.6
+		},
+		{
+			"plantHealth": 53.72,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.93
+		},
+		{
+			"plantHealth": 51.07,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.96
+		},
+		{
+			"plantHealth": 48.47,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.05
+		},
+		{
+			"plantHealth": 57.59,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.77
+		},
+		{
+			"plantHealth": 54.44,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.73
+		},
+		{
+			"plantHealth": 52.51,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.49
+		},
+		{
+			"plantHealth": 52.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.87
+		},
+		{
+			"plantHealth": 53.71,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.17
+		},
+		{
+			"plantHealth": 54.66,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.58
+		},
+		{
+			"plantHealth": 54.95,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.58
+		},
+		{
+			"plantHealth": 55.62,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.2
+		},
+		{
+			"plantHealth": 56.62,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.62
+		},
+		{
+			"plantHealth": 56.58,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.68
+		},
+		{
+			"plantHealth": 56.98,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.35
+		},
+		{
+			"plantHealth": 56.19,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.27
+		},
+		{
+			"plantHealth": 55.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 59.13
+		},
+		{
+			"plantHealth": 56.49,
+			"waterAddAmount": 0,
+			"mineralHealth": 57.52
+		},
+		{
+			"plantHealth": 57.28,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.79
+		},
+		{
+			"plantHealth": 57.05,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.54
+		},
+		{
+			"plantHealth": 56.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.19
+		},
+		{
+			"plantHealth": 57.67,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.25
+		},
+		{
+			"plantHealth": 57.8,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.65
+		},
+		{
+			"plantHealth": 55.94,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.71
+		},
+		{
+			"plantHealth": 54.57,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.32
+		},
+		{
+			"plantHealth": 53.82,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.41
+		},
+		{
+			"plantHealth": 51.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.23
+		},
+		{
+			"plantHealth": 47.86,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.92
+		},
+		{
+			"plantHealth": 58.54,
+			"waterAddAmount": 0,
+			"mineralHealth": 62.03
+		},
+		{
+			"plantHealth": 55.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.63
+		},
+		{
+			"plantHealth": 54.53,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.77
+		},
+		{
+			"plantHealth": 54.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.85
+		},
+		{
+			"plantHealth": 54.38,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.0
+		},
+		{
+			"plantHealth": 54.22,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.57
+		},
+		{
+			"plantHealth": 54.25,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.15
+		},
+		{
+			"plantHealth": 55.64,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.47
+		},
+		{
+			"plantHealth": 56.98,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.86
+		},
+		{
+			"plantHealth": 56.27,
+			"waterAddAmount": 0,
+			"mineralHealth": 54.21
+		},
+		{
+			"plantHealth": 56.32,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.44
+		},
+		{
+			"plantHealth": 57.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 60.28
+		},
+		{
+			"plantHealth": 59.62,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.7
+		},
+		{
+			"plantHealth": 60.44,
+			"waterAddAmount": 0,
+			"mineralHealth": 58.0
+		},
+		{
+			"plantHealth": 59.23,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.64
+		},
+		{
+			"plantHealth": 57.9,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.98
+		},
+		{
+			"plantHealth": 56.79,
+			"waterAddAmount": 0,
+			"mineralHealth": 56.55
+		},
+		{
+			"plantHealth": 57.11,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.05
+		},
+		{
+			"plantHealth": 56.74,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.26
+		},
+		{
+			"plantHealth": 55.97,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.6
+		},
+		{
+			"plantHealth": 55.39,
+			"waterAddAmount": 0,
+			"mineralHealth": 51.96
+		},
+		{
+			"plantHealth": 55.17,
+			"waterAddAmount": 0,
+			"mineralHealth": 52.54
+		},
+		{
+			"plantHealth": 52.01,
+			"waterAddAmount": 0,
+			"mineralHealth": 53.92
+		},
+		{
+			"plantHealth": 47.45,
+			"waterAddAmount": 0,
+			"mineralHealth": 55.26
+		}
+	],
+	"globalInfo": {
+		"timeID": 12082024,
+		"temperature": 72.6,
+		"precipitation": 0.4
+	}
+}

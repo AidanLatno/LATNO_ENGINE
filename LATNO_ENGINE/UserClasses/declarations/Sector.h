@@ -3,8 +3,8 @@
 
 class Sector : public Latno::Actor
 {
+	using Actor::Actor;
 private:
-	float waterAmount;
 public:
 	// Json data
 	float plantHealth;
@@ -14,9 +14,10 @@ public:
 	float temperture;
 	float percipitation;
 	float sectorID;
+	float waterAmount;
+
 
 	void SetWaterAmount(float amount);
 	float GetWaterAddAmount() { return waterAmount; }
 	
-
 };
