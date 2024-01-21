@@ -1,5 +1,6 @@
 #pragma once
 #include "../../engine/declarations/Application.h"
+#include "../../engine/declarations/JSONLoader.h"
 
 class Sector : public Latno::Actor
 {
@@ -12,8 +13,12 @@ public:
 	float mineralHealth;
 	float sectorID;
 	float waterAmount;
+	int maxWater = 0;
+	int minWater = 0;
 
-	void SetPlantHealth(float amount);
+	bool isDead = false;
+
+	void SetPlantHealth(Json& jsonData, Sector field);
 	float GetPlantHealth() { return plantHealth; }
 	
 };
