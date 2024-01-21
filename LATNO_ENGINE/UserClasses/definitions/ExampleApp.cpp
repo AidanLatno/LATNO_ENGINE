@@ -97,7 +97,7 @@ bool ExampleApp::Tick() {
 
 		JSONLoader::load("resources/JSON/sectors.json", data);
 
-		JSONLoader::parseJSON(data, sectors, weath);
+		//JSONLoader::parseJSON(data, sectors, weath);
 
 
 			//SoundDevice::Play(pacman_dead);

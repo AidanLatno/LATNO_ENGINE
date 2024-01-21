@@ -30,15 +30,14 @@ namespace Latno
         for (int y = 0; y < 24; y++) {
             for (int x = 0; x < 24; x++) {
                 field[y][x].sectorID = (y * 24) + x;
-                field[y][x].SetPlantHealth(jsonData["sectorInfo"][field[y][x].sectorID]["plantHealth"]);
+                field[y][x].plantHealth = jsonData["sectorInfo"][field[y][x].sectorID]["plantHealth"];
                 field[y][x].waterAddAmount = jsonData["sectorInfo"][field[y][x].sectorID]["waterAddAmount"];
                 field[y][x].mineralHealth = jsonData["sectorInfo"][field[y][x].sectorID]["mineralHealth"];
-                weather[0] = jsonData["globalInfo"]["timeID"];
-                weather[1] = jsonData["globalInfo"]["temperature"];
-                weather[2] = jsonData["globalInfo"]["precipitation"];
-            
             }
         }
+        weather[0] = jsonData["globalInfo"]["timeID"];
+        weather[1] = jsonData["globalInfo"]["currentTemperature"];
+        weather[2] = jsonData["globalInfo"]["currentPrecipitation"];
     }
 
     void JSONLoader::Write(Json& data)
