@@ -48,13 +48,22 @@ bool SoilSimulation::Tick()
 {
 	if (InputManager::MouseDown(MOUSE_BUTTON_LEFT) && nextDay->CheckCollision(InputManager::GetMousePos()))
 	{
-		float* weather;
+		float* weather = new float[3];
+		for (int i = 0; i < 3; i++) weather[i] = 0;
+
 		Json data;
+
 
 		JSONLoader::load("resources/JSON/sectors.json", data);
 
 		JSONLoader::parseJSON(data, field, weather);
+
+
+
 		
+		//data["sectorInfo"][0]["plantHealth"] = 4;
+		
+		JSONLoader::Write(data);
 	}
 
 	

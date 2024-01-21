@@ -15,8 +15,12 @@ namespace Latno
 	{
 		
 	public:
+
 		static bool load(const std::string& filename, Json& jsonData);
 		static void parseJSON(const Json& jsonData, Sector**& field, float*& weather);
+		static void Write(Json& jsonData);
+
+
 
 				
 		

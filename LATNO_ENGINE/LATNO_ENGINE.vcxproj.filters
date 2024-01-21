@@ -160,7 +160,6 @@
     <Image Include="resources\textures\Farm.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Downloads\farm_data (3).json" />
     <None Include="libsndfile-1.dll" />
     <None Include="OpenAL32.dll" />
     <None Include="resources\audio\credits-opening1.ogg" />
