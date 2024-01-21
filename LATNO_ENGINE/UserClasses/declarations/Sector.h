@@ -3,6 +3,7 @@
 
 class Sector : public Latno::Actor
 {
+	using Actor::Actor;
 private:
 	float waterAmount;
 public:

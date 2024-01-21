@@ -250,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\black-square.png" />
+    <Image Include="resources\textures\Field.png" />
     <Image Include="resources\textures\Idle\pos1.png" />
     <Image Include="resources\textures\Idle\pos2.png" />
     <Image Include="resources\textures\Idle\pos3.png" />
@@ -302,6 +303,7 @@
     <Image Include="resources\textures\text\Y.png" />
     <Image Include="resources\textures\text\Z.png" />
     <Image Include="resources\textures\white-square.png" />
+    <Image Include="resources\textures\Wood_Button.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\audio\canary.wav" />

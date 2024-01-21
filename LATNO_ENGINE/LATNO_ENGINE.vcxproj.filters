@@ -466,6 +466,12 @@
     <Image Include="resources\textures\text\Z.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="resources\textures\Wood_Button.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\Field.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\audio\pacman_dies.wav">

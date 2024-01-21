@@ -7,3 +7,4 @@
 #include "SpawnActorButton.h"
 #include "PlayerExample.h"
 #include "Sector.h"
+#include "NextDayButton.h"

@@ -8,7 +8,7 @@
 
 namespace Latno
 {
-	ALuint current;
+	static ALuint currentAudio = 0;
 
 	SoundDevice* SoundDevice::get()
 	{

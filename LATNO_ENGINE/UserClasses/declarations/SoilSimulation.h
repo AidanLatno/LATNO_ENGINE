@@ -13,7 +13,7 @@ public:
 	Scene* SimulationScene;
 
 	// Actor Pointers
-	Sector** field = new Sector* [24];
+	NextDayButton* nextDay;
 
 
 	// Tool pointers

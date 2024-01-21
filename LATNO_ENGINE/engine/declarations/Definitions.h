@@ -47,7 +47,6 @@
 #define LEFT Coords(-1,0)
 
 extern double GLOBAL_DELTA_TIME;
-extern uint32_t currentAudio;
 
 enum Key {
     /* The unknown key */
