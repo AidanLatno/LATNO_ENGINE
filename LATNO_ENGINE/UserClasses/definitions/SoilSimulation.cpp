@@ -51,12 +51,12 @@ void SoilSimulation::Load()
 	}
 
 	// Update sprites right away
-	Json data;
-	JSONLoader::load("resources/JSON/sectors.json", data);
+	//Json data;
+	//JSONLoader::load("resources/JSON/sectors.json", data);
 
-	for (int y = 0; y < 24; y++)
-		for (int x = 0; x < 24; x++)
-			field[y][x].SetPlantHealth(data["sectorInfo"][field[y][x].sectorID]["plantHealth"]);
+	//for (int y = 0; y < 24; y++)
+	//	for (int x = 0; x < 24; x++)
+	//		field[y][x].SetPlantHealth(data["sectorInfo"][field[y][x].sectorID]["plantHealth"]);
 }
 
 bool SoilSimulation::Tick()
