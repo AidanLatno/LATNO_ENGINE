@@ -18,7 +18,8 @@ public:
 
 	bool isDead = false;
 
-	void SetPlantHealth(Json& jsonData, Sector field);
+	void SetPlantHealth(float amount);
+	void Simulate(Json& jsonData);
 	float GetPlantHealth() { return plantHealth; }
 	
 };

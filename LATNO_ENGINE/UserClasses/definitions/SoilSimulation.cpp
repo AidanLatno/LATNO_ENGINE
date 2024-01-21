@@ -65,18 +65,20 @@ bool SoilSimulation::Tick()
 
 		for (int y = 0; y < 24; y++) {
 			for (int x = 0; x < 24; x++) {
-				field[y][x].SetPlantHealth(data);
+				field[y][x].Simulate(data);
+			}
+			data["globalInfo"]["temperature"] = 70 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX) / 20);
+			data["globalInfo"]["precipitation"] = static_cast<float>(rand()) / (static_cast<float>(RAND_MAX) / 3);
+
+			//data["sectorInfo"][0]["plantHealth"] = 4;
+
+			JSONLoader::Write(data);
+		}
 
 
-		
-		//data["sectorInfo"][0]["plantHealth"] = 4;
-		
-		JSONLoader::Write(data);
+
+		return true;
 	}
-
-	
-
-	return true;
 }
 
 void SoilSimulation::FixedTick()
