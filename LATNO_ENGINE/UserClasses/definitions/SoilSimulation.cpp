@@ -63,6 +63,9 @@ bool SoilSimulation::Tick()
 
 		JSONLoader::parseJSON(data, field, weather);
 
+		for (int y = 0; y < 24; y++) {
+			for (int x = 0; x < 24; x++) {
+				field[y][x].SetPlantHealth(data);
 
 
 		
