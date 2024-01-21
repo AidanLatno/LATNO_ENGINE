@@ -243,9 +243,11 @@
     <Text Include="Logs\GL_ERROR_LOG.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\Downloads\farm_data (3).json" />
     <None Include="libsndfile-1.dll" />
     <None Include="OpenAL32.dll" />
     <None Include="resources\audio\credits-opening1.ogg" />
+    <None Include="resources\JSON\sectors.json" />
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
