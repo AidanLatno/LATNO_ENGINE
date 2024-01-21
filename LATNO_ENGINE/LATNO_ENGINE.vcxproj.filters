@@ -158,6 +158,16 @@
     <Image Include="resources\textures\white-square.png" />
     <Image Include="resources\textures\Wood_Button.png" />
     <Image Include="resources\textures\Farm.png" />
+    <Image Include="resources\textures\plants\1.png" />
+    <Image Include="resources\textures\plants\2.png" />
+    <Image Include="resources\textures\plants\3.png" />
+    <Image Include="resources\textures\plants\4.png" />
+    <Image Include="resources\textures\plants\5.png" />
+    <Image Include="resources\textures\plants\6.png" />
+    <Image Include="resources\textures\plants\7.png" />
+    <Image Include="resources\textures\plants\8.png" />
+    <Image Include="resources\textures\plants\9.png" />
+    <Image Include="resources\textures\plants\10.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libsndfile-1.dll" />

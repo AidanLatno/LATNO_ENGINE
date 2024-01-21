@@ -24,24 +24,29 @@ void SoilSimulation::Load()
 	for (int i = 0; i < 24; i++)
 		field[i] = new Sector[24];
 
+	for (int y = 0; y < 4; y++)
+	{
+		for (int x = 0; x < 4; x++)
+		{
+			float scale = .8f;
+			int Pos_x = 548 - 57 + (x * (60 * scale) - (x * 1 * scale));
+			int Pos_y = 128 - 70 + (y * (60 * scale) - (y * 1 * scale));
+			currentScene->AddDynamicActor(Actor(Pos_x,Pos_y, {3,3}, "resources/textures/Field.png"));
+		}
+	}
 
 	for (int y = 0; y < 24; y++)
 	{
 		for (int x = 0; x < 24; x++)
 		{
-			float scale = .4f;
-			int Pos_x = 548 + (x * (115*scale) - (x * 15 * scale));
-			int Pos_y = 128-57 + (y * (115*scale) - (y * 15 * scale));
-			field[y][x] = Sector(Pos_x,Pos_y, { scale,scale }, "resources/textures/Field.png");
+			float scale = .8f;
+			int Pos_x = 548-57 + (x * (60*scale) - (x * 1 * scale));
+			int Pos_y = 128-70 + (y * (60*scale) - (y * 1 * scale));
+			field[y][x] = Sector(Pos_x,Pos_y, { scale, scale }, "resources/textures/plants/5.png");
 			currentScene->AddActor(field[y][x]);
-			currentScene->AddDynamicActor(Actor(Coords(Pos_x, Pos_y), ""));
+			
 		}
 	}
-
-	
-	// HTTP REQUEST for field info
-	
-
 }
 
 bool SoilSimulation::Tick()
