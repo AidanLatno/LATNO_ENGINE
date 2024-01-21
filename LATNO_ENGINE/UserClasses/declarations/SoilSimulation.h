@@ -14,6 +14,8 @@ public:
 
 	// Actor Pointers
 	NextDayButton* nextDay;
+	Actor* BG;
+	Sector** field;
 
 
 	// Tool pointers

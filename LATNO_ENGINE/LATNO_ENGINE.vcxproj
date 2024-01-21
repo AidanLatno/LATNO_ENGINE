@@ -252,6 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\black-square.png" />
+    <Image Include="resources\textures\Farm.png" />
     <Image Include="resources\textures\Field.png" />
     <Image Include="resources\textures\Idle\pos1.png" />
     <Image Include="resources\textures\Idle\pos2.png" />

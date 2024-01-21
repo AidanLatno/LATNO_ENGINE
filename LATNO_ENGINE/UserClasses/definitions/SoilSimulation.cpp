@@ -1,20 +1,28 @@
 #include "../declarations/SoilSimulation.h"
 #include "../../engine/declarations/JSONLoader.h"
 
-static Sector field[24][24];
 
 void SoilSimulation::Load()
 {
 	// Definitions
 	SimulationScene = new Scene({ WINDOW_LENGTH,WINDOW_HEIGHT }, window);
 	nextDay = new NextDayButton({ 274, WINDOW_HEIGHT / 2 }, "resources/textures/Wood_Button.png");
+	BG = new Actor({ WINDOW_LENGTH / 2, WINDOW_HEIGHT / 2 }, "resources/textures/Farm.png");
+	BG->SetScale({ 14.4,13 });
 	
 
 	currentScene = SimulationScene;
 	nextDay->SetScene(currentScene);
+	currentScene->AddActor(*BG);
 	currentScene->AddActor(*nextDay);
+	
 
 	TextRenderer::AddText("Next", "NextText", currentScene, { 220, WINDOW_HEIGHT / 2 + 40 }, 400, 0.5);
+
+	field = new Sector * [24]();
+
+	for (int i = 0; i < 24; i++)
+		field[i] = new Sector[24];
 
 
 	for (int y = 0; y < 24; y++)
@@ -40,26 +48,13 @@ bool SoilSimulation::Tick()
 {
 	if (InputManager::MouseDown(MOUSE_BUTTON_LEFT) && nextDay->CheckCollision(InputManager::GetMousePos()))
 	{
-		float* weath;
+		float* weather;
 		Json data;
-		Sector** sectors;
-
-		sectors = new Sector * [24];
-
-		for (int i = 0; i < 24; i++)
-			sectors[i] = new Sector[24];
-
-		for (int y = 0; y < 24; y++)
-		{
-			for (int x = 0; x < 24; x++)
-			{
-				sectors[y][x] = Sector({ x,y }, "sdf");
-			}
-		}
 
 		JSONLoader::load("resources/JSON/sectors.json", data);
 
-		JSONLoader::parseJSON(data, sectors, weath);
+		JSONLoader::parseJSON(data, field, weather);
+		
 	}
 
 	

@@ -1,7 +1,8 @@
 #include "../declarations/Sector.h"
 
-void Sector::SetWaterAmount(float amount)
+void Sector::SetPlantHealth(float amount)
 {
 	waterAddAmount = amount;
+	
 
-}
+

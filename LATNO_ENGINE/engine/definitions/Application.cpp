@@ -123,10 +123,6 @@ namespace Latno
 
 			BehaviorTick();
 
-			count += GLOBAL_DELTA_TIME;
-			ImGui::Text("Seconds: %.2f", count);
-			
-
 			ImGui::Render();
 			
 

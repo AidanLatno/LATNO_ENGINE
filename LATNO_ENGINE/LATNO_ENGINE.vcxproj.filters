@@ -1,495 +1,176 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="engine\declarations\Rendering\IndexBuffer.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Renderer.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Shader.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Sprite.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\Texture.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\VertexArray.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\VertexBuffer.cpp" />
+    <ClCompile Include="engine\declarations\Rendering\VertexBufferLayout.cpp" />
+    <ClCompile Include="engine\definitions\Application.cpp" />
+    <ClCompile Include="engine\definitions\HTTPTransfer.cpp" />
+    <ClCompile Include="engine\definitions\JSONLoader.cpp" />
+    <ClCompile Include="engine\definitions\SoundBuffer.cpp" />
+    <ClCompile Include="engine\definitions\SoundDevice.cpp" />
+    <ClCompile Include="engine\definitions\SoundSource.cpp" />
+    <ClCompile Include="engine\definitions\Behavior.cpp" />
+    <ClCompile Include="engine\definitions\Component.cpp" />
+    <ClCompile Include="engine\definitions\Coords.cpp" />
+    <ClCompile Include="engine\definitions\Definitions.cpp" />
+    <ClCompile Include="engine\definitions\DeveloperLog.cpp" />
+    <ClCompile Include="engine\definitions\InputManager.cpp" />
+    <ClCompile Include="engine\definitions\PhysicsController.cpp" />
+    <ClCompile Include="engine\definitions\Scene.cpp" />
+    <ClCompile Include="engine\definitions\TextRenderer.cpp" />
+    <ClCompile Include="engine\definitions\ThreadManager.cpp" />
+    <ClCompile Include="Entities\definitions\Actor.cpp" />
+    <ClCompile Include="Entities\definitions\AdvancedActor.cpp" />
+    <ClCompile Include="Entities\definitions\Button.cpp" />
+    <ClCompile Include="Entities\definitions\Pathfinder.cpp" />
+    <ClCompile Include="Entities\definitions\PlayerBase.cpp" />
+    <ClCompile Include="LATNO_ENGINE.cpp" />
+    <ClCompile Include="engine\definitions\CollisionBox.cpp" />
+    <ClCompile Include="engine\definitions\Timer.cpp" />
+    <ClCompile Include="UserClasses\definitions\NextDayButton.cpp" />
+    <ClCompile Include="UserClasses\definitions\PlayerExample.cpp" />
+    <ClCompile Include="UserClasses\definitions\Sector.cpp" />
+    <ClCompile Include="UserClasses\definitions\SoilSimulation.cpp" />
+    <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp" />
+    <ClCompile Include="UserClasses\definitions\ExampleApp.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="vendor\ImGui\imgui_impl_glfw_gl3.cpp" />
+    <ClCompile Include="vendor\stb_img\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LATNO_ENGINE.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\CollisionBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Component.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Coords.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entities\definitions\Actor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entities\definitions\AdvancedActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entities\definitions\Pathfinder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entities\definitions\PlayerBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\DeveloperLog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Behavior.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\PhysicsController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Renderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\VertexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\IndexBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\VertexArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\VertexBufferLayout.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\stb_img\stb_image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\ImGui\imgui.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\ImGui\imgui_demo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\ImGui\imgui_draw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="vendor\ImGui\imgui_impl_glfw_gl3.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\declarations\Rendering\Sprite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\Definitions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\ExampleApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\InputManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entities\definitions\Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\SoundSource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\SoundDevice.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\PlayerExample.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\TextRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\ThreadManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\SoundBuffer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\SoilSimulation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\JSONLoader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserClasses\definitions\Sector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="engine\definitions\HTTPTransfer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-<<<<<<< Updated upstream
-    <ClCompile Include="UserClasses\definitions\NextDayButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-=======
->>>>>>> Stashed changes
+    <ClInclude Include="engine\declarations\Application.h" />
+    <ClInclude Include="engine\declarations\HTTPTranfer.h" />
+    <ClInclude Include="engine\declarations\JSONLoader.h" />
+    <ClInclude Include="engine\declarations\SoundBuffer.h" />
+    <ClInclude Include="engine\declarations\SoundDevice.h" />
+    <ClInclude Include="engine\declarations\Grid.h" />
+    <ClInclude Include="engine\declarations\SoundSource.h" />
+    <ClInclude Include="engine\declarations\Behavior.h" />
+    <ClInclude Include="engine\declarations\TextRenderer.h" />
+    <ClInclude Include="engine\declarations\ThreadManager.h" />
+    <ClInclude Include="Entities\declarations\Button.h" />
+    <ClInclude Include="engine\declarations\Component.h" />
+    <ClInclude Include="engine\declarations\Coords.h" />
+    <ClInclude Include="engine\declarations\Definitions.h" />
+    <ClInclude Include="engine\declarations\DeveloperLog.h" />
+    <ClInclude Include="engine\declarations\Engine.h" />
+    <ClInclude Include="engine\declarations\InputManager.h" />
+    <ClInclude Include="engine\declarations\PhysicsController.h" />
+    <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h" />
+    <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h" />
+    <ClInclude Include="engine\declarations\Rendering\Renderer.h" />
+    <ClInclude Include="engine\declarations\Rendering\Shader.h" />
+    <ClInclude Include="engine\declarations\Rendering\Sprite.h" />
+    <ClInclude Include="engine\declarations\Rendering\Texture.h" />
+    <ClInclude Include="engine\declarations\Rendering\VertexArray.h" />
+    <ClInclude Include="engine\declarations\Rendering\VertexBuffer.h" />
+    <ClInclude Include="engine\declarations\Rendering\VertexBufferLayout.h" />
+    <ClInclude Include="engine\declarations\Scene.h" />
+    <ClInclude Include="Entities\declarations\Actor.h" />
+    <ClInclude Include="Entities\declarations\AdvancedActor.h" />
+    <ClInclude Include="Entities\declarations\Pathfinder.h" />
+    <ClInclude Include="Entities\declarations\PlayerBase.h" />
+    <ClInclude Include="engine\declarations\Node.h" />
+    <ClInclude Include="engine\declarations\CollisionBox.h" />
+    <ClInclude Include="engine\declarations\Timer.h" />
+    <ClInclude Include="UserClasses\declarations\NextDayButton.h" />
+    <ClInclude Include="UserClasses\declarations\PlayerExample.h" />
+    <ClInclude Include="UserClasses\declarations\Sector.h" />
+    <ClInclude Include="UserClasses\declarations\SoilSimulation.h" />
+    <ClInclude Include="UserClasses\declarations\SpawnActorButton.h" />
+    <ClInclude Include="UserClasses\declarations\ExampleApp.h" />
+    <ClInclude Include="UserClasses\declarations\UserClasses.h" />
+    <ClInclude Include="vendor\ImGui\imgui.h" />
+    <ClInclude Include="vendor\ImGui\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="vendor\ImGui\imgui_internal.h" />
+    <ClInclude Include="vendor\stb_img\stb_image.h" />
+    <ClInclude Include="vendor\stb_img\stb_rect_pack.h" />
+    <ClInclude Include="vendor\stb_img\stb_textedit.h" />
+    <ClInclude Include="vendor\stb_img\stb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="engine\declarations\CollisionBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Behavior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Coords.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Definitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\DeveloperLog.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\declarations\Actor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\declarations\AdvancedActor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\declarations\Pathfinder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\declarations\PlayerBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Timer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\UserClasses.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Node.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\PhysicsController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Renderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\VertexBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\IndexBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\VertexArray.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\VertexBufferLayout.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\stb_img\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\ImGui\imgui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\ImGui\imgui_impl_glfw_gl3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\ImGui\imgui_internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\stb_img\stb_textedit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\stb_img\stb_rect_pack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="vendor\stb_img\stb_truetype.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\Sprite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Rendering\GL_Definitions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\ExampleApp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\InputManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Entities\declarations\Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\SpawnActorButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\SoundSource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\SoundDevice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\PlayerExample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\Grid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\TextRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\ThreadManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\SoundBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\SoilSimulation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\JSONLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserClasses\declarations\Sector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="engine\declarations\HTTPTranfer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< Updated upstream
-    <ClInclude Include="UserClasses\declarations\NextDayButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-=======
->>>>>>> Stashed changes
+    <Media Include="resources\audio\canary.wav" />
+    <Media Include="resources\audio\pacman_dies.wav" />
+    <Media Include="resources\audio\pacman_intro.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Logs\GL_ERROR_LOG.txt" />
-    <Text Include="Logs\EngineLog.txt" />
-    <Text Include="Logs\AppLog.txt" />
-    <Text Include="EngineLog.txt" />
+    <Image Include="resources\textures\black-square.png" />
+    <Image Include="resources\textures\Field.png" />
+    <Image Include="resources\textures\Idle\pos1.png" />
+    <Image Include="resources\textures\Idle\pos2.png" />
+    <Image Include="resources\textures\Idle\pos3.png" />
+    <Image Include="resources\textures\Idle\pos4.png" />
+    <Image Include="resources\textures\Idle\pos5.png" />
+    <Image Include="resources\textures\Idle\pos6.png" />
+    <Image Include="resources\textures\Idle\pos7.png" />
+    <Image Include="resources\textures\Idle\pos8.png" />
+    <Image Include="resources\textures\images.png" />
+    <Image Include="resources\textures\nike.png" />
+    <Image Include="resources\textures\person.png" />
+    <Image Include="resources\textures\text\!.png" />
+    <Image Include="resources\textures\text\$.png" />
+    <Image Include="resources\textures\text\0.png" />
+    <Image Include="resources\textures\text\1.png" />
+    <Image Include="resources\textures\text\2.png" />
+    <Image Include="resources\textures\text\3.png" />
+    <Image Include="resources\textures\text\4.png" />
+    <Image Include="resources\textures\text\5.png" />
+    <Image Include="resources\textures\text\6.png" />
+    <Image Include="resources\textures\text\7.png" />
+    <Image Include="resources\textures\text\8.png" />
+    <Image Include="resources\textures\text\9.png" />
+    <Image Include="resources\textures\text\A.png" />
+    <Image Include="resources\textures\text\B.png" />
+    <Image Include="resources\textures\text\C.png" />
+    <Image Include="resources\textures\text\colon.png" />
+    <Image Include="resources\textures\text\D.png" />
+    <Image Include="resources\textures\text\E.png" />
+    <Image Include="resources\textures\text\F.png" />
+    <Image Include="resources\textures\text\G.png" />
+    <Image Include="resources\textures\text\H.png" />
+    <Image Include="resources\textures\text\I.png" />
+    <Image Include="resources\textures\text\J.png" />
+    <Image Include="resources\textures\text\K.png" />
+    <Image Include="resources\textures\text\L.png" />
+    <Image Include="resources\textures\text\M.png" />
+    <Image Include="resources\textures\text\N.png" />
+    <Image Include="resources\textures\text\O.png" />
+    <Image Include="resources\textures\text\P.png" />
+    <Image Include="resources\textures\text\Q.png" />
+    <Image Include="resources\textures\text\question.png" />
+    <Image Include="resources\textures\text\R.png" />
+    <Image Include="resources\textures\text\S.png" />
+    <Image Include="resources\textures\text\T.png" />
+    <Image Include="resources\textures\text\U.png" />
+    <Image Include="resources\textures\text\V.png" />
+    <Image Include="resources\textures\text\W.png" />
+    <Image Include="resources\textures\text\X.png" />
+    <Image Include="resources\textures\text\Y.png" />
+    <Image Include="resources\textures\text\Z.png" />
+    <Image Include="resources\textures\white-square.png" />
+    <Image Include="resources\textures\Wood_Button.png" />
+    <Image Include="resources\textures\Farm.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\shaders\Basic.shader" />
-    <None Include="resources\audio\credits-opening1.ogg" />
-    <None Include="OpenAL32.dll" />
-    <None Include="libsndfile-1.dll" />
     <None Include="..\..\..\..\Downloads\farm_data (3).json" />
+    <None Include="libsndfile-1.dll" />
+    <None Include="OpenAL32.dll" />
+    <None Include="resources\audio\credits-opening1.ogg" />
     <None Include="resources\JSON\sectors.json" />
+    <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="resources\textures\images.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\black-square.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\white-square.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\person.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\nike.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos3.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos4.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos5.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos6.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos7.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Idle\pos8.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\!.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\$.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\0.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\3.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\4.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\5.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\6.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\7.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\8.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\9.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\A.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\B.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\C.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\colon.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\D.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\E.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\F.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\G.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\H.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\I.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\J.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\K.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\L.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\M.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\N.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\O.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\P.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\Q.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\question.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\R.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\S.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\T.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\U.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\V.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\W.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\X.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\Y.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\text\Z.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Wood_Button.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="resources\textures\Field.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Media Include="resources\audio\pacman_dies.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="resources\audio\pacman_intro.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="resources\audio\canary.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
+    <Text Include="EngineLog.txt" />
+    <Text Include="Logs\AppLog.txt" />
+    <Text Include="Logs\EngineLog.txt" />
+    <Text Include="Logs\GL_ERROR_LOG.txt" />
   </ItemGroup>
 </Project>
