@@ -174,8 +174,10 @@
     <ClCompile Include="engine\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
     <ClCompile Include="UserClasses\definitions\NextDayButton.cpp" />
+    <ClCompile Include="UserClasses\definitions\Player.cpp" />
     <ClCompile Include="UserClasses\definitions\PlayerExample.cpp" />
     <ClCompile Include="UserClasses\definitions\Sector.cpp" />
+    <ClCompile Include="UserClasses\definitions\SillyApp.cpp" />
     <ClCompile Include="UserClasses\definitions\SoilSimulation.cpp" />
     <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp" />
     <ClCompile Include="UserClasses\definitions\ExampleApp.cpp" />
@@ -222,8 +224,10 @@
     <ClInclude Include="engine\declarations\CollisionBox.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
     <ClInclude Include="UserClasses\declarations\NextDayButton.h" />
+    <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\PlayerExample.h" />
     <ClInclude Include="UserClasses\declarations\Sector.h" />
+    <ClInclude Include="UserClasses\declarations\SillyApp.h" />
     <ClInclude Include="UserClasses\declarations\SoilSimulation.h" />
     <ClInclude Include="UserClasses\declarations\SpawnActorButton.h" />
     <ClInclude Include="UserClasses\declarations\ExampleApp.h" />
@@ -246,7 +250,6 @@
     <None Include="libsndfile-1.dll" />
     <None Include="OpenAL32.dll" />
     <None Include="resources\audio\credits-opening1.ogg" />
-    <None Include="resources\JSON\sectors.json" />
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -316,6 +319,7 @@
     <Image Include="resources\textures\text\Z.png" />
     <Image Include="resources\textures\white-square.png" />
     <Image Include="resources\textures\Wood_Button.png" />
+    <Image Include="resources\textures\Wood_Button_Off.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\audio\canary.wav" />

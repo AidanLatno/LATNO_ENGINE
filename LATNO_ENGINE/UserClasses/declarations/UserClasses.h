@@ -8,3 +8,4 @@
 #include "PlayerExample.h"
 #include "Sector.h"
 #include "NextDayButton.h"
+#include "Player.h"

@@ -79,6 +79,7 @@ namespace Latno
 		void Rotate(float Angle, float h, float k, float Rotations);
 		double FindDistance(Coords a);
 
+		std::string ToString() { return "X: " + std::to_string(x) + ", Y: " + std::to_string(y); }
 
 		float dSin(float theta);
 

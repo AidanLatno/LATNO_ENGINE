@@ -43,17 +43,17 @@ namespace Latno
     void JSONLoader::Write(Json& data)
     {
         std::ofstream output("resources/JSON/sectors.json");
-    if (!output.is_open()) {
-        std::cerr << "Failed to open the JSON file for writing." << std::endl;
-        return;
-    }
+        if (!output.is_open()) {
+            std::cerr << "Failed to open the JSON file for writing." << std::endl;
+            return;
+        }
 
-    // Write the modified JSON data back to the file
-    try {
-        output << data.dump(4);  // The argument specifies the indentation level
-    } catch (const nlohmann::json::exception& e) {
-        std::cerr << "Failed to write JSON: " << e.what() << std::endl;
-    }
+        // Write the modified JSON data back to the file
+        try {
+            output << data.dump(4);  // The argument specifies the indentation level
+        } catch (const nlohmann::json::exception& e) {
+            std::cerr << "Failed to write JSON: " << e.what() << std::endl;
+        }
     }
 
 
