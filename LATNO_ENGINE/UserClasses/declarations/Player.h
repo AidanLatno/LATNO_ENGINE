@@ -1,4 +1,5 @@
 #include "../../engine/declarations/Engine.h"
+#include "../../engine/declarations/InputManager.h"
 
 class Player : public Latno::AdvancedActor
 {
@@ -12,6 +13,7 @@ public:
 	void SetMoverTag(std::string tag) { moverTag = tag; }
 	std::vector<std::string> spriteList;
 	std::vector<std::string> spriteListL;
+	
 
 	void Start() override
 	{
@@ -34,13 +36,5 @@ public:
 		spriteListL.push_back("resources/textures/idle/pos8L.png");
 	}
 
-	void Update() override
-	{
-		if (direction.x < 0)
-			Animate(0.1f, spriteListL);
-		else
-			Animate(0.1f, spriteList);
-
-		Input();
-	}
+	void Update() override;
 };

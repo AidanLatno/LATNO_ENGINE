@@ -22,7 +22,6 @@ void SillyApp::Load()
 
 bool SillyApp::Tick()
 {
-	std::cout << background->GetPos().ToString() << std::endl;
 	return true;
 }
 
