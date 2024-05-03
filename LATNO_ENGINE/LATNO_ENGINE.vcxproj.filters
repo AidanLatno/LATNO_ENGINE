@@ -41,6 +41,8 @@
     <ClCompile Include="vendor\ImGui\imgui_draw.cpp" />
     <ClCompile Include="vendor\ImGui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="vendor\stb_img\stb_image.cpp" />
+    <ClCompile Include="UserClasses\definitions\SillyApp.cpp" />
+    <ClCompile Include="UserClasses\definitions\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\Application.h" />
@@ -89,6 +91,8 @@
     <ClInclude Include="vendor\stb_img\stb_rect_pack.h" />
     <ClInclude Include="vendor\stb_img\stb_textedit.h" />
     <ClInclude Include="vendor\stb_img\stb_truetype.h" />
+    <ClInclude Include="UserClasses\declarations\SillyApp.h" />
+    <ClInclude Include="UserClasses\declarations\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\audio\canary.wav" />
@@ -153,7 +157,6 @@
     <None Include="libsndfile-1.dll" />
     <None Include="OpenAL32.dll" />
     <None Include="resources\audio\credits-opening1.ogg" />
-    <None Include="resources\JSON\sectors.json" />
     <None Include="resources\shaders\Basic.shader" />
   </ItemGroup>
   <ItemGroup>
