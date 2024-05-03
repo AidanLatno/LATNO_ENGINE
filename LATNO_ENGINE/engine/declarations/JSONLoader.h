@@ -3,7 +3,6 @@
 #include <fstream>
 #include <iostream>
 #include <iomanip>
-#include "../../UserClasses/declarations/Sector.h"
 
 #include "nlohmann/json.hpp"
 
@@ -17,9 +16,6 @@ namespace Latno
 	public:
 
 		static bool load(const std::string& filename, Json& jsonData);
-		static void parseJSON(const Json& jsonData, Sector**& field, float*& weather);
-		static void Write(Json& jsonData);
-			
-
-	};	
+		static void Write(std::string filepath, Json& jsonData);
+	};
 }

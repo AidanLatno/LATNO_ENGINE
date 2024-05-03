@@ -33,10 +33,7 @@
     <ClCompile Include="LATNO_ENGINE.cpp" />
     <ClCompile Include="engine\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
-    <ClCompile Include="UserClasses\definitions\NextDayButton.cpp" />
     <ClCompile Include="UserClasses\definitions\PlayerExample.cpp" />
-    <ClCompile Include="UserClasses\definitions\Sector.cpp" />
-    <ClCompile Include="UserClasses\definitions\SoilSimulation.cpp" />
     <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp" />
     <ClCompile Include="UserClasses\definitions\ExampleApp.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
@@ -81,10 +78,7 @@
     <ClInclude Include="engine\declarations\Node.h" />
     <ClInclude Include="engine\declarations\CollisionBox.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
-    <ClInclude Include="UserClasses\declarations\NextDayButton.h" />
     <ClInclude Include="UserClasses\declarations\PlayerExample.h" />
-    <ClInclude Include="UserClasses\declarations\Sector.h" />
-    <ClInclude Include="UserClasses\declarations\SoilSimulation.h" />
     <ClInclude Include="UserClasses\declarations\SpawnActorButton.h" />
     <ClInclude Include="UserClasses\declarations\ExampleApp.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />
@@ -103,7 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\black-square.png" />
-    <Image Include="resources\textures\Field.png" />
     <Image Include="resources\textures\Idle\pos1.png" />
     <Image Include="resources\textures\Idle\pos2.png" />
     <Image Include="resources\textures\Idle\pos3.png" />
@@ -155,19 +148,6 @@
     <Image Include="resources\textures\text\X.png" />
     <Image Include="resources\textures\text\Y.png" />
     <Image Include="resources\textures\text\Z.png" />
-    <Image Include="resources\textures\white-square.png" />
-    <Image Include="resources\textures\Wood_Button.png" />
-    <Image Include="resources\textures\Farm.png" />
-    <Image Include="resources\textures\plants\1.png" />
-    <Image Include="resources\textures\plants\2.png" />
-    <Image Include="resources\textures\plants\3.png" />
-    <Image Include="resources\textures\plants\4.png" />
-    <Image Include="resources\textures\plants\5.png" />
-    <Image Include="resources\textures\plants\6.png" />
-    <Image Include="resources\textures\plants\7.png" />
-    <Image Include="resources\textures\plants\8.png" />
-    <Image Include="resources\textures\plants\9.png" />
-    <Image Include="resources\textures\plants\10.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libsndfile-1.dll" />
