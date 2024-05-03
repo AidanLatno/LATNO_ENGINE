@@ -173,7 +173,9 @@
     <ClCompile Include="LATNO_ENGINE.cpp" />
     <ClCompile Include="engine\definitions\CollisionBox.cpp" />
     <ClCompile Include="engine\definitions\Timer.cpp" />
+    <ClCompile Include="UserClasses\definitions\Player.cpp" />
     <ClCompile Include="UserClasses\definitions\PlayerExample.cpp" />
+    <ClCompile Include="UserClasses\definitions\SillyApp.cpp" />
     <ClCompile Include="UserClasses\definitions\SpawnActorButton.cpp" />
     <ClCompile Include="UserClasses\definitions\ExampleApp.cpp" />
     <ClCompile Include="vendor\ImGui\imgui.cpp" />
@@ -218,7 +220,9 @@
     <ClInclude Include="engine\declarations\Node.h" />
     <ClInclude Include="engine\declarations\CollisionBox.h" />
     <ClInclude Include="engine\declarations\Timer.h" />
+    <ClInclude Include="UserClasses\declarations\Player.h" />
     <ClInclude Include="UserClasses\declarations\PlayerExample.h" />
+    <ClInclude Include="UserClasses\declarations\SillyApp.h" />
     <ClInclude Include="UserClasses\declarations\SpawnActorButton.h" />
     <ClInclude Include="UserClasses\declarations\ExampleApp.h" />
     <ClInclude Include="UserClasses\declarations\UserClasses.h" />

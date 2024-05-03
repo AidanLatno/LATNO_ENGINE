@@ -6,5 +6,4 @@
 // INCLUDE ANY USER MADE CLASSES HERE
 #include "SpawnActorButton.h"
 #include "PlayerExample.h"
-#include "Sector.h"
-#include "NextDayButton.h"
+#include "Player.h"
