@@ -249,13 +249,21 @@
   <ItemGroup>
     <Image Include="resources\textures\black-square.png" />
     <Image Include="resources\textures\Idle\pos1.png" />
+    <Image Include="resources\textures\Idle\pos1L.png" />
     <Image Include="resources\textures\Idle\pos2.png" />
+    <Image Include="resources\textures\Idle\pos2L.png" />
     <Image Include="resources\textures\Idle\pos3.png" />
+    <Image Include="resources\textures\Idle\pos3L.png" />
     <Image Include="resources\textures\Idle\pos4.png" />
+    <Image Include="resources\textures\Idle\pos4L.png" />
     <Image Include="resources\textures\Idle\pos5.png" />
+    <Image Include="resources\textures\Idle\pos5L.png" />
     <Image Include="resources\textures\Idle\pos6.png" />
+    <Image Include="resources\textures\Idle\pos6L.png" />
     <Image Include="resources\textures\Idle\pos7.png" />
+    <Image Include="resources\textures\Idle\pos7L.png" />
     <Image Include="resources\textures\Idle\pos8.png" />
+    <Image Include="resources\textures\Idle\pos8L.png" />
     <Image Include="resources\textures\images.png" />
     <Image Include="resources\textures\nike.png" />
     <Image Include="resources\textures\person.png" />
