@@ -1,7 +1,7 @@
 #include "../../engine/declarations/Engine.h"
 #include "../../engine/declarations/InputManager.h"
 
-class Player : public Latno::AdvancedActor
+class TopDownPlayer : public Latno::AdvancedActor
 {
 	using AdvancedActor::AdvancedActor;
 private:

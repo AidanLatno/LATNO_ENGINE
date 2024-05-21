@@ -6,7 +6,7 @@ class SillyApp : public Latno::Application
 private:
 
 public:
-	Player* player;
+	TopDownPlayer* player;
 	Latno::Scene* game;
 	Latno::Actor* background;
 

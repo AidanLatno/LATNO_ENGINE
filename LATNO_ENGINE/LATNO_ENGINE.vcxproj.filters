@@ -42,7 +42,7 @@
     <ClCompile Include="vendor\ImGui\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="vendor\stb_img\stb_image.cpp" />
     <ClCompile Include="UserClasses\definitions\SillyApp.cpp" />
-    <ClCompile Include="UserClasses\definitions\Player.cpp" />
+    <ClCompile Include="UserClasses\definitions\TopDownPlayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\Application.h" />
@@ -92,7 +92,7 @@
     <ClInclude Include="vendor\stb_img\stb_textedit.h" />
     <ClInclude Include="vendor\stb_img\stb_truetype.h" />
     <ClInclude Include="UserClasses\declarations\SillyApp.h" />
-    <ClInclude Include="UserClasses\declarations\Player.h" />
+    <ClInclude Include="UserClasses\declarations\TopDownPlayer.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\audio\canary.wav" />
@@ -152,6 +152,14 @@
     <Image Include="resources\textures\text\X.png" />
     <Image Include="resources\textures\text\Y.png" />
     <Image Include="resources\textures\text\Z.png" />
+    <Image Include="resources\textures\Idle\pos1L.png" />
+    <Image Include="resources\textures\Idle\pos2L.png" />
+    <Image Include="resources\textures\Idle\pos3L.png" />
+    <Image Include="resources\textures\Idle\pos4L.png" />
+    <Image Include="resources\textures\Idle\pos5L.png" />
+    <Image Include="resources\textures\Idle\pos6L.png" />
+    <Image Include="resources\textures\Idle\pos7L.png" />
+    <Image Include="resources\textures\Idle\pos8L.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="libsndfile-1.dll" />

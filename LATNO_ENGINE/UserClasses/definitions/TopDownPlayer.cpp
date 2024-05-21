@@ -1,8 +1,8 @@
-#include "../declarations/Player.h"
+#include "../declarations/TopDownPlayer.h"
 
 using namespace Latno;
 
-void Player::Input()
+void TopDownPlayer::Input()
 {
     preData = GetPos();
 
@@ -58,7 +58,7 @@ void Player::Input()
     }
 }
 
-void Player::Movement()
+void TopDownPlayer::Movement()
 {
 	for (Actor* a : currentScene->actors)
 	{
@@ -79,7 +79,7 @@ void Player::Movement()
     }
 }
 
-void Player::Update()
+void TopDownPlayer::Update()
 {
     {
         std::cout << direction.x << std::endl;
