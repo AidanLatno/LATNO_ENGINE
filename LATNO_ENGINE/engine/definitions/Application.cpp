@@ -16,6 +16,7 @@ namespace Latno
 	{
 		for (int i = 0; i < Latno::BehaviorList.size(); i++)
 		{
+			if(Latno::BehaviorList[i]->doesUpdate)
 			Latno::BehaviorList[i]->Update();
 		}
 	}
@@ -27,7 +28,8 @@ namespace Latno
 	{
 		for (int i = 0; i < Latno::BehaviorList.size(); i++)
 		{
-			Latno::BehaviorList[i]->Start();
+			if(Latno::BehaviorList[i]->doesStart)
+				Latno::BehaviorList[i]->Start();
 		}
 		AppLog = new DevLog("AppLog");
 

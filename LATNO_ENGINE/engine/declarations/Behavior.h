@@ -46,6 +46,8 @@ namespace Latno
             int id;
         public:
             bool doesLogOnNonOverload = false;
+            bool doesStart = true;
+            bool doesUpdate = true;
             void AddTag(std::string TagToAdd);
             void RemoveTag(std::string TagToRemove);
             void ClearTags();
