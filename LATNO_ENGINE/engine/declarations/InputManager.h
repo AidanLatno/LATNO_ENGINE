@@ -51,9 +51,13 @@ namespace Latno
 		static void SetWindow(GLFWwindow* _window);
 
 		static bool KeyPressed(Key key);
+		static bool KeyPressed(int ascii);
 		static bool KeyReleased(Key key);
+		static bool KeyReleased(int ascii);
 		static bool KeyDown(Key key);
+		static bool KeyDown(int ascii);
 		static bool KeyUp(Key key);
+		static bool KeyUp(int ascii);
 
 		static Coords GetMousePos();
 

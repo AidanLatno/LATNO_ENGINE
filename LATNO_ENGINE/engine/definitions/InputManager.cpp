@@ -14,9 +14,19 @@ namespace Latno
 		return glfwGetKey(window, key) == GLFW_PRESS;
 	}
 
+	bool InputManager::KeyPressed(int ascii)
+	{
+		return glfwGetKey(window, ascii) == GLFW_PRESS;
+	}
+
 	bool InputManager::KeyReleased(Key key)
 	{
 		return glfwGetKey(window, key) == GLFW_RELEASE;
+	}
+
+	bool InputManager::KeyReleased(int ascii)
+	{
+		return glfwGetKey(window, ascii) == GLFW_RELEASE;
 	}
 
 	bool InputManager::KeyDown(Key key)
@@ -30,6 +40,17 @@ namespace Latno
 		return false;
 	}
 
+	bool InputManager::KeyDown(int ascii)
+	{
+		int newState = glfwGetKey(window, ascii);
+		if (newState == GLFW_PRESS && oldState[ascii] == GLFW_RELEASE) {
+			oldState[ascii] = newState;
+			return true;
+		}
+		oldState[ascii] = newState;
+		return false;
+	}
+
 	bool InputManager::KeyUp(Key key)
 	{
 		int newState = glfwGetKey(window, key);
@@ -38,6 +59,16 @@ namespace Latno
 			return true;
 		}
 		oldState[key] = newState;
+		return false;
+	}
+	bool InputManager::KeyUp(int ascii)
+	{
+		int newState = glfwGetKey(window, ascii);
+		if (newState == GLFW_RELEASE && oldState[ascii] == GLFW_PRESS) {
+			oldState[ascii] = newState;
+			return true;
+		}
+		oldState[ascii] = newState;
 		return false;
 	}
 
