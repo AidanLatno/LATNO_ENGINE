@@ -40,6 +40,19 @@ namespace Latno
 
 		preData = _Pos;
 	}
+	Actor::Actor(Coords _Pos, glm::vec2 _scale, std::string SpritePath)
+	{
+		position = _Pos;
+		scale = _scale;
+
+		sprite = new Sprite(glm::vec3(_Pos.x, _Pos.y, 0), scale, SpritePath);
+		SpriteRatio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
+
+		collisionBox = new CollisionBox(position, { 50 * scale.x * SpriteRatio, 50 * scale.y }, "AABB");
+
+
+		preData = position;
+	}
 
 	Actor::Actor()
 	{

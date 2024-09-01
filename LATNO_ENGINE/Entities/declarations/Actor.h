@@ -85,6 +85,7 @@ namespace Latno
 			Actor(float _x, float _y,std::string SpritePath);
 			Actor(Coords _Pos, std::string SpritePath);
 			Actor(float _x, float _y, glm::vec2 _scale, std::string SpritePath);
+			Actor(Coords _Pos, glm::vec2 _scale, std::string SpritePath);
 
 			Actor();
 
