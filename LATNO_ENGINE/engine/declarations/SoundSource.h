@@ -14,7 +14,6 @@ namespace Latno
 		
 
 	private:
-		void playAudio();
 		ALuint current;
 		ALuint p_Source;
 		float p_Pitch = 1.f;

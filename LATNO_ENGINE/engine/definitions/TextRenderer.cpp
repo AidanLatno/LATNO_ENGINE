@@ -85,6 +85,10 @@ namespace Latno
 			return Actor({ 0,0 }, "resources/textures/text/question.png");
 		case '!':
 			return Actor({ 0,0 }, "resources/textures/text/!.png");
+		case '.':
+			return Actor({ 0,0 }, "resources/textures/text/period.png");
+		case ',':
+			return Actor({ 0,0 }, "resources/textures/text/comma.png");
 		case ' ':
 			return Actor({ 0,0 }, "");
 
