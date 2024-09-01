@@ -97,8 +97,11 @@ namespace Latno
 		}
 	}
 
-	void TextRenderer::AddText(std::string text, std::string textBoxName, Scene* scene, Coords startPos, int length, float letterSize)
+	void TextRenderer::AddText(std::string text, std::string textBoxName, Scene* scene, Coords startPos, int length, float letterSize, Alignment alignment)
 	{
+		if (alignment == CENTER_ALIGN)      startPos = Coords(startPos.x - (((text.length() * 77) * letterSize) / 2), startPos.y);
+		else if (alignment == RIGHT_ALIGN)   startPos = Coords(startPos.x - ((text.length() * 77) * letterSize), startPos.y);
+
 		std::vector<Actor> textActors;
 		int maxPos = startPos.x + length;
 
@@ -122,7 +125,7 @@ namespace Latno
 				count = 0;
 			}
 
-			textActors[i].SetPos(Coords( startPos.x + (count*(77*letterSize)), startPos.y - ((line * (77 * letterSize)) + 40)));
+			textActors[i].SetPos(Coords(startPos.x + (count * (77 * letterSize)), startPos.y - (line * (77 * (letterSize + 0.3f)))));
 			/*std::cout << "y pos: " << startPos.y - (line * (77 * letterSize)) << std::endl;
 			std::cout << "y pos adj: " << startPos.y - ((line * (77 * letterSize)) + 40) << std::endl;*/
 			scene->AddDynamicActor(textActors[i]);
