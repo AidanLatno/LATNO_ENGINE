@@ -21,7 +21,7 @@ namespace Latno
 
 		if (_enum == "AABB")
 			collisionType = CollisionType::AABB;
-		else if (_enum == "circ")
+		else if (_enum == "RADIUS")
 			collisionType = CollisionType::RADIUS;
 
 		position = _pos;
@@ -53,40 +53,54 @@ namespace Latno
 
 	bool CollisionBox::CheckCollision(CollisionBox other)
 	{
-		//if (collisionType == CollisionType::AABB)
-		//{
+		if (collisionType == CollisionType::AABB)
+		{
 
-		topLeft = { position.x - size.x, position.y + size.y };
-		botRight = { position.x + size.x, position.y - size.y };
+			topLeft = { position.x - size.x, position.y + size.y };
+			botRight = { position.x + size.x, position.y - size.y };
 
-		other.topLeft = { other.position.x - other.size.x, other.position.y + other.size.y };
-		other.botRight = { other.position.x + other.size.x, other.position.y - other.size.y };
+			other.topLeft = { other.position.x - other.size.x, other.position.y + other.size.y };
+			other.botRight = { other.position.x + other.size.x, other.position.y - other.size.y };
 
-		if (topLeft.x > other.botRight.x || other.topLeft.x > botRight.x) {
-			return false;
+			if (topLeft.x > other.botRight.x || other.topLeft.x > botRight.x) {
+				return false;
+			}
+
+			// If one rectangle is above the other
+			if (topLeft.y < other.botRight.y || other.topLeft.y < botRight.y) {
+				return false;
+			}
+
+			return true;
 		}
 
-		// If one rectangle is above the other
-		if (topLeft.y < other.botRight.y || other.topLeft.y < botRight.y) {
-			return false;
-		}
-
-		return true;
-
-		/*if (collisionType == CollisionType::RADIUS)
+		if (collisionType == CollisionType::RADIUS)
 		{
 
 			glm::vec2 center(position.x + radius, position.y + radius);
 			glm::vec2 half(other.size.x / 2.0f, other.size.y / 2.0f);
-			glm::vec2 AABBCenter(other.position.x + half.x, other.position.y + half.y);
-			glm::vec2 difference = center - AABBCenter;
-			glm::vec2 clamp = glm::clamp(difference, -half, half);
-			glm::vec2 closest = AABBCenter + clamp;
-			difference = closest - center;
-			return glm::length(difference) < radius;
+			if (other.collisionType == CollisionType::AABB)
+			{
+				glm::vec2 AABBCenter(other.position.x + half.x, other.position.y + half.y);
+				glm::vec2 difference = center - AABBCenter;
+				glm::vec2 clamp = glm::clamp(difference, -half, half);
+				glm::vec2 closest = AABBCenter + clamp;
+				difference = closest - center;
+				return glm::length(difference) < radius;
+			}
+			else if (other.collisionType == CollisionType::RADIUS) 
+			{
+				glm::vec2 otherCenter(other.position.x + other.radius, other.position.y + other.radius);
+				glm::vec2 difference = center - otherCenter;
+				float distanceSquared = glm::dot(difference, difference); //more effeciant than square root calculation
+				float combunedRadius = radius + other.radius;
+
+				return distanceSquared <= combunedRadius * combunedRadius;
+			}
+
 		}
 
-		return false;*/
+		return false;
 	}
 
 	bool CollisionBox::CheckCollision(Coords point)

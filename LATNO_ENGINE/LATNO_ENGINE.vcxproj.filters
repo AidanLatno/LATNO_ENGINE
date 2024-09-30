@@ -43,6 +43,7 @@
     <ClCompile Include="vendor\stb_img\stb_image.cpp" />
     <ClCompile Include="UserClasses\definitions\SillyApp.cpp" />
     <ClCompile Include="UserClasses\definitions\TopDownPlayer.cpp" />
+    <ClCompile Include="UserClasses\definitions\RadiusApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\declarations\Application.h" />

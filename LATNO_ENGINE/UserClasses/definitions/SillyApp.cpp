@@ -2,8 +2,8 @@
 
 void SillyApp::Load()
 {
-	player = new TopDownPlayer( WINDOW_LENGTH / 2, WINDOW_HEIGHT / 2, {2,2}, "resources/textures/Idle/pos1.png");
-	background = new Latno::Actor(WINDOW_LENGTH / 2, WINDOW_HEIGHT / 2, { 30,30 }, "resources/textures/water.png");
+	player = new TopDownPlayer({ WINDOW_LENGTH / 2, WINDOW_HEIGHT / 2 }, { 2,2 }, "resources/textures/Idle/pos1.png");
+	background = new Latno::Actor({ WINDOW_LENGTH / 2, WINDOW_HEIGHT / 2 }, { 30,30 }, "resources/textures/water.png");
 	game = new Latno::Scene({ WINDOW_LENGTH,WINDOW_HEIGHT },window);
 
 	background->AddTag("move_c_1");

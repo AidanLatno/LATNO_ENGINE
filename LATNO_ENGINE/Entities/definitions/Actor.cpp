@@ -15,6 +15,21 @@ namespace Latno
 		preData = position;
 	}
 
+	Actor::Actor(float _x, float _y, std::string SpritePath, std::string collisionType)
+	{
+		
+		
+		position = Coords(_x, _y);
+		sprite = new Sprite(glm::vec3(_x, _y, 0), glm::vec2(1.0f, 1.0f), SpritePath);
+		SpriteRatio = (float)sprite->texture->GetWidth() / sprite->texture->GetHeight();
+		if (collisionType == "AABD")
+			collisionBox = new CollisionBox(position, { 50 * scale.x * SpriteRatio, 50 * scale.y }, "AABB");
+		else if (collisionType == "RADIUS")
+			collisionBox = new CollisionBox(position, { 75 * scale.x * SpriteRatio, 75 * scale.y }, "RADIUS"); //NEED TO DETERMINE TRUE SPRITE SIZE AND NOT JUST  75
+		preData = position;
+		
+	}
+
 	Actor::Actor(float _x, float _y, glm::vec2 _scale, std::string SpritePath)
 	{
 		position = Coords(_x, _y);
