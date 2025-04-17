@@ -53,9 +53,9 @@ bool ExampleApp::Tick() {
 
 	physics->ApplyFloorGravity();
 
-	if (InputManager::KeyPressed(KEY_SPACE))
+	if (InputManager::KeyDown(KEY_SPACE))
 	{
-		physics->ApplyForce(Coords(button->GetPos().x, button->GetPos().y - 100), 10);
+		physics->ApplyForce(Coords(button->GetPos().x, button->GetPos().y - 100), 100);
 	}
 
 	if (InputManager::KeyDown(KEY_K))

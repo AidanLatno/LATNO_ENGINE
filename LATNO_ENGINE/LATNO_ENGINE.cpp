@@ -6,7 +6,7 @@
 int main()
 {
 
-	RadiusApp* app = new RadiusApp;
+	ExampleApp* app = new ExampleApp;
 	app->Startup();
 	delete app;
 
