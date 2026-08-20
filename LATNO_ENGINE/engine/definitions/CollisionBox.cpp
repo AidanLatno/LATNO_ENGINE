@@ -92,7 +92,7 @@ namespace Latno
 			{
 				glm::vec2 otherCenter(other.position.x + other.radius, other.position.y + other.radius);
 				glm::vec2 difference = center - otherCenter;
-				float distanceSquared = glm::dot(difference, difference); //more effeciant than square root calculation
+				float distanceSquared = glm::dot(difference, difference); // more effeciant than square root calculation
 				float combunedRadius = radius + other.radius;
 
 				return distanceSquared <= combunedRadius * combunedRadius;

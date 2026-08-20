@@ -24,8 +24,6 @@ namespace Latno
 			 else if (actorRef->GetPos().y < centerPoint.y)
 				 actorRef->SetPos(Coords(actorRef->GetPos().x, actorRef->GetPos().y + (pullForce / mass)));
 		 }
-
-			
 	}
 
 	void PhysicsController::ApplyFloorGravity(float pullForce)
@@ -56,8 +54,6 @@ namespace Latno
 			else if (actorRef->GetPos().y < centerPoint.y)
 				actorRef->SetPos(Coords(actorRef->GetPos().x, actorRef->GetPos().y - (pullForce / mass)));
 		}
-
-
 	}
 
 }
