@@ -83,6 +83,26 @@ namespace Latno
 			return Actor({ 0,0 }, "resources/textures/text/colon.png");
 		case '?':
 			return Actor({ 0,0 }, "resources/textures/text/question.png");
+		case '/':
+			return Actor({ 0,0 }, "resources/textures/text/slash.png");
+		case '*':
+			return Actor({ 0,0 }, "resources/textures/text/asterisk.png");
+		case '=':
+			return Actor({ 0,0 }, "resources/textures/text/=.png");
+		case '+':
+			return Actor({ 0,0 }, "resources/textures/text/+.png");
+		case '_':
+			return Actor({ 0,0 }, "resources/textures/text/_.png");
+		case '-':
+			return Actor({ 0,0 }, "resources/textures/text/-.png");
+		case '@':
+			return Actor({ 0,0 }, "resources/textures/text/@.png");
+		case '&':
+			return Actor({ 0,0 }, "resources/textures/text/&.png");
+		case '%':
+			return Actor({ 0,0 }, "resources/textures/text/%.png");
+		case '#':
+			return Actor({ 0,0 }, "resources/textures/text/#.png");
 		case '!':
 			return Actor({ 0,0 }, "resources/textures/text/!.png");
 		case '.':

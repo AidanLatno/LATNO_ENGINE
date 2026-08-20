@@ -27,6 +27,8 @@ void ExampleApp::Load() {
 
 	level->AddActor(*button);
 	level->AddActor(*player);
+
+	TextRenderer::AddText("HALLO WORLD!", "test", level, { 100,100 }, 200, 0.3);
 	
 
 	currentScene = level;

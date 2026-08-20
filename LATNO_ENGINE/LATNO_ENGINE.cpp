@@ -2,11 +2,12 @@
 
 #include "UserClasses/declarations/ExampleApp.h"
 #include "UserClasses/declarations/RadiusApp.h"
+#include "UserClasses/declarations/SillyApp.h"
 
 int main()
 {
 
-	RadiusApp* app = new RadiusApp;
+	ExampleApp* app = new ExampleApp;
 	app->Startup();
 	delete app;
 
